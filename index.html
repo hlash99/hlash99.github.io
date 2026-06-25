@@ -80,6 +80,20 @@ const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slic
 
 /* Per-repo config: icon, blurb override, a data file + adapter for previews, and a refresh workflow file. */
 const META={
+  "asset-tracker":{
+    icon:"📈", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
+    blurb:"My collector assets — Rolex &amp; Patek watches, four Ferraris and my Porsche 997.2 Turbo S — real scrape history, auto-published each run.",
+    preview:d=>{
+      const a=d.assets||[];
+      let top=null,tv=-1e9;
+      a.forEach(x=>{const r=x.change&&x.change.all; if(r!=null&&r>tv){tv=r;top=x;}});
+      const spark=top?top.series.map(p=>p.price):[];
+      return {stats:[
+        {v:"$"+(d.summary.portfolio_value/1e6).toFixed(2)+"M", l:d.summary.n_assets+" assets · "+d.summary.n_cars+"🏎 "+d.summary.n_watches+"⌚"},
+        {v:top?(top.short+" +"+Math.round(tv)+"%"):"—", l:"top all-time"}
+      ], spark};
+    }
+  },
   "car-value-tracker":{
     icon:"🏎️", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
     blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — auto-refreshed twice daily.",
