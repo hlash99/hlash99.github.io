@@ -16,24 +16,38 @@
   .wrap{max-width:1000px;margin:0 auto;padding:56px 20px 80px}
   .hero h1{font-size:30px;margin:0 0 6px;font-weight:700;letter-spacing:-.5px}
   .hero p{color:var(--muted);margin:0;font-size:15px}
-  .hero .links{margin-top:14px;display:flex;gap:14px;font-size:14px}
-  .hero .links a{color:var(--accent)}
+  .hero .links{margin-top:14px;display:flex;gap:16px;font-size:14px;align-items:center}
+  .hero .links a{color:var(--accent);cursor:pointer}
   h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:40px 0 14px;font-weight:600}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
   .card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;
     transition:transform .12s ease,border-color .12s ease;position:relative}
   .card:hover{transform:translateY(-3px);border-color:var(--accent)}
   .card .ic{font-size:26px}
-  .card h3{margin:10px 0 4px;font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px}
-  .card p{margin:0;color:var(--muted);font-size:13.5px;min-height:38px}
+  .card h3{margin:10px 0 4px;font-size:17px;font-weight:600}
+  .card p{margin:0;color:var(--muted);font-size:13.5px}
+  .preview{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:10px;min-height:46px}
+  .pstats{display:flex;flex-direction:column;gap:6px}
+  .pstat .v{font-size:15px;font-weight:600}
+  .pstat .l{font-size:11px;color:var(--muted)}
+  .spark{flex:none;opacity:.95}
   .meta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
-  .badge{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--line);
-    border-radius:20px;padding:2px 10px}
+  .badge{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:2px 10px}
   .live{color:#3ad29f}.live .d{width:7px;height:7px;border-radius:50%;background:#3ad29f;display:inline-block;box-shadow:0 0 6px #3ad29f}
   .lang{width:9px;height:9px;border-radius:50%;display:inline-block}
-  .arrow{position:absolute;top:18px;right:18px;color:var(--muted);font-size:16px}
+  .corner{position:absolute;top:16px;right:16px;display:flex;gap:8px;align-items:center}
+  .corner .arrow{color:var(--muted);font-size:16px}
+  .rfr{border:1px solid var(--line);background:var(--surface2);color:var(--muted);width:30px;height:30px;border-radius:50%;
+    cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:color .12s,border-color .12s}
+  .rfr:hover{color:var(--accent);border-color:var(--accent)}
+  .rfr.spin{animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
   .empty{color:var(--muted);font-size:14px}
   footer{margin-top:50px;color:var(--muted);font-size:12px;text-align:center}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--surface);
+    border:1px solid var(--line);color:var(--ink);padding:11px 16px;border-radius:12px;font-size:13.5px;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;max-width:90vw}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -43,6 +57,7 @@
     <p>Projects &amp; live dashboards on GitHub Pages.</p>
     <div class="links">
       <a href="https://github.com/hlash99">github.com/hlash99 ↗</a>
+      <a id="tok" onclick="manageToken()">⚙ refresh token</a>
     </div>
   </div>
 
@@ -52,32 +67,61 @@
   <h2>Other repositories</h2>
   <div class="grid" id="repos"></div>
 
-  <footer>Auto-generated from the GitHub API · updates whenever you add or publish a repo.</footer>
+  <footer>Auto-generated from the GitHub API · previews read each site's live data · ↻ triggers that site's refresh routine.</footer>
 </div>
+<div id="toast"></div>
 
 <script>
 const USER="hlash99";
-// optional nicer presentation per repo (icon + override blurb); falls back to API description
-const META={
-  "car-value-tracker":{icon:"🏎️",blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — 6-yr history, 5-yr projection, auto-refreshed twice daily."},
-  "sc-dentist-tracker":{icon:"🦷",blurb:"San Carlos dentist review & ranking tracker."},
-  "stanford-giving-tracker":{icon:"🌲",blurb:"Stanford giving / fundraising tracker."},
-  "ctcl-gene-explorer":{icon:"🧬",blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
-};
-const LANG={JavaScript:"#f1e05a",HTML:"#e34c26",Python:"#3572A5",TypeScript:"#3178c6",CSS:"#563d7c",R:"#198CE7","Jupyter Notebook":"#DA5B0B",Vue:"#41b883"};
+const LANG={JavaScript:"#f1e05a",HTML:"#e34c26",Python:"#3572A5",TypeScript:"#3178c6",CSS:"#563d7c",R:"#198CE7","Jupyter Notebook":"#DA5B0B"};
 const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slice(0,2).join(" ");
+
+/* Per-repo config: icon, blurb override, a data file + adapter for previews, and a refresh workflow file. */
+const META={
+  "car-value-tracker":{
+    icon:"🏎️", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
+    blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — auto-refreshed twice daily.",
+    preview:d=>{
+      const names=Object.keys(d.cars);
+      let best=null,bv=-1;
+      names.forEach(n=>{const h=d.cars[n].hist;const r=h[h.length-1]/h[0]-1;if(r>bv){bv=r;best=n;}});
+      const len=d.cars[names[0]].hist.length, sp=[];
+      for(let i=0;i<len;i++){let s=0;names.forEach(n=>{const h=d.cars[n].hist;s+=h[i]/h[0]*100;});sp.push(s/names.length);}
+      const total=names.reduce((a,n)=>a+d.cars[n].hist.slice(-1)[0],0);
+      return {stats:[
+        {v:"$"+(total/1000).toFixed(2)+"M", l:"portfolio · "+names.length+" cars"},
+        {v:best.replace(/Ferrari |Porsche /,"")+" +"+Math.round(bv*100)+"%", l:"top 6-yr gain"}
+      ], spark:sp};
+    }
+  },
+  "sc-dentist-tracker":{
+    icon:"🦷", color:"#3ad29f", data:"data.json",
+    blurb:"San Carlos dentist review & ranking tracker.",
+    preview:d=>{
+      const snaps=d.snapshots, snap=snaps[snaps.length-1];
+      const list=snap.dentists.slice().sort((a,b)=>b.reviews-a.reviews);
+      const ours=list.find(x=>/loomis|mcfarlane/i.test(x.name))||list[list.length-1];
+      const rank=list.indexOf(ours)+1, ahead=list[rank-2];
+      const sp=snaps.map(s=>{const o=s.dentists.find(x=>/loomis|mcfarlane/i.test(x.name));return o?o.reviews:null;}).filter(v=>v!=null);
+      const stats=[
+        {v:ours.reviews+" rev · "+ours.rating+"★", l:"our practice"},
+        {v:"#"+rank+" of "+list.length, l:ahead?("behind "+shorten(ahead.name)+" by "+(ahead.reviews-ours.reviews)):"ranking"}
+      ];
+      return {stats, spark:sp};
+    }
+  },
+  "stanford-giving-tracker":{icon:"🌲", color:"#1D9E75", refresh:"update.yml", blurb:"Stanford giving / fundraising tracker."},
+  "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
+};
 
 fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`)
  .then(r=>r.json())
  .then(repos=>{
    if(!Array.isArray(repos)){document.querySelector("#sites").innerHTML='<div class="empty">GitHub API rate-limited — try again shortly.</div>';return;}
    const sites=[],others=[];
-   repos.forEach(r=>{
-     if(r.name.toLowerCase()===`${USER}.github.io`) return; // this site
-     (r.has_pages ? sites : others).push(r);
-   });
-   render("#sites",sites,true);
-   render("#repos",others,false);
+   repos.forEach(r=>{ if(r.name.toLowerCase()===`${USER}.github.io`) return; (r.has_pages?sites:others).push(r); });
+   render("#sites",sites,true); render("#repos",others,false);
    if(!sites.length)document.querySelector("#sites").innerHTML='<div class="empty">No published Pages sites yet.</div>';
  })
  .catch(()=>{document.querySelector("#sites").innerHTML='<div class="empty">Could not reach GitHub API.</div>';});
@@ -92,16 +136,74 @@ function render(sel,list,live){
     const lang=r.language?`<span class="badge"><span class="lang" style="background:${LANG[r.language]||'#888'}"></span>${r.language}</span>`:"";
     const liveBadge=live?`<span class="badge live"><span class="d"></span>live</span>`:`<span class="badge">repo</span>`;
     const upd=new Date(r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+    const rfr=m.refresh?`<button class="rfr" title="Trigger refresh routine" onclick="onRefresh(event,'${r.name}','${m.refresh}')">↻</button>`:"";
     el.insertAdjacentHTML("beforeend",
       `<a class="card" href="${url}">
-         <span class="arrow">↗</span>
+         <div class="corner">${rfr}<span class="arrow">↗</span></div>
          <div class="ic">${m.icon||"📦"}</div>
          <h3>${esc(r.name)}</h3>
          <p>${blurb}</p>
+         ${m.preview?`<div class="preview" id="pv-${r.name}"><span class="empty" style="font-size:12px">loading preview…</span></div>`:""}
          <div class="meta">${liveBadge}${lang}<span class="badge">updated ${upd}</span></div>
        </a>`);
+    if(m.preview && m.data) loadPreview(r.name, m);
   });
 }
+
+function loadPreview(name,m){
+  fetch(`https://${USER}.github.io/${name}/${m.data}?_=${Date.now()}`)
+    .then(r=>r.json()).then(d=>{
+      const {stats,spark}=m.preview(d);
+      const box=document.querySelector(`#pv-${name}`); if(!box)return;
+      box.innerHTML=`<div class="pstats">${stats.map(s=>`<div class="pstat"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")}</div>
+        <div class="spark">${sparkline(spark,m.color||'#6ea8fe')}</div>`;
+    }).catch(()=>{const b=document.querySelector(`#pv-${name}`);if(b)b.remove();});
+}
+
+function sparkline(vals,color){
+  if(!vals||vals.length<2)return "";
+  const w=118,h=36,p=3, min=Math.min(...vals),max=Math.max(...vals),rng=(max-min)||1;
+  const xy=i=>[p+i*(w-2*p)/(vals.length-1), h-p-((vals[i]-min)/rng)*(h-2*p)];
+  const pts=vals.map((_,i)=>xy(i).map(n=>n.toFixed(1)).join(",")).join(" ");
+  const [lx,ly]=xy(vals.length-1);
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="2.6" fill="${color}"/></svg>`;
+}
+
+/* ---- refresh routine trigger ---- */
+function onRefresh(e,repo,wf){
+  e.preventDefault(); e.stopPropagation();
+  const btn=e.currentTarget;
+  const token=localStorage.getItem("gh_pat");
+  if(!token){
+    window.open(`https://github.com/${USER}/${repo}/actions/workflows/${wf}`,"_blank");
+    toast("Opened the Actions page — click “Run workflow”. Add a token (⚙) for true one-click refresh.");
+    return;
+  }
+  btn.classList.add("spin");
+  fetch(`https://api.github.com/repos/${USER}/${repo}/actions/workflows/${wf}/dispatches`,{
+    method:"POST",
+    headers:{"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"},
+    body:JSON.stringify({ref:"main"})
+  }).then(r=>{
+    if(r.status===204) toast("Refresh triggered ✓ — "+repo+" updates in ~1–2 min.");
+    else if(r.status===404) toast("Workflow not enabled yet for "+repo+" (push .github/workflows/"+wf+").");
+    else if(r.status===401||r.status===403) toast("Token rejected — needs Actions: write on "+repo+".");
+    else toast("Trigger failed ("+r.status+").");
+  }).catch(()=>toast("Network error triggering refresh."))
+  .finally(()=>btn.classList.remove("spin"));
+}
+
+function manageToken(){
+  const cur=localStorage.getItem("gh_pat");
+  if(cur && !confirm("A refresh token is already stored in this browser.\nOK = replace it · Cancel = keep it.")) return;
+  const v=prompt("Paste a GitHub fine-grained personal access token with Actions: read & write on your repos.\nStored ONLY in this browser (localStorage), used only to trigger your own workflows.\nLeave blank to clear.");
+  if(v===null) return;
+  if(v.trim()===""){localStorage.removeItem("gh_pat");toast("Token cleared.");}
+  else{localStorage.setItem("gh_pat",v.trim());toast("Token saved in this browser ✓ — ↻ now does one-click refresh.");}
+}
+
+let toastT;
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),4200);}
 </script>
 </body>
 </html>
