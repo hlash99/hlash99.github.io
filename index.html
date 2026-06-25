@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hlash99 · projects</title>
+<style>
+  :root{--bg:#0f1115;--surface:#171a21;--surface2:#1e222b;--line:#272c36;--ink:#e9ecf1;--muted:#9aa3af;--accent:#6ea8fe;}
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f6f7f9;--surface:#ffffff;--surface2:#f0f2f5;--line:#e3e6ea;--ink:#1a1d21;--muted:#5f6772;--accent:#185FA5;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:56px 20px 80px}
+  .hero h1{font-size:30px;margin:0 0 6px;font-weight:700;letter-spacing:-.5px}
+  .hero p{color:var(--muted);margin:0;font-size:15px}
+  .hero .links{margin-top:14px;display:flex;gap:14px;font-size:14px}
+  .hero .links a{color:var(--accent)}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:40px 0 14px;font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;
+    transition:transform .12s ease,border-color .12s ease;position:relative}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .card .ic{font-size:26px}
+  .card h3{margin:10px 0 4px;font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .card p{margin:0;color:var(--muted);font-size:13.5px;min-height:38px}
+  .meta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--line);
+    border-radius:20px;padding:2px 10px}
+  .live{color:#3ad29f}.live .d{width:7px;height:7px;border-radius:50%;background:#3ad29f;display:inline-block;box-shadow:0 0 6px #3ad29f}
+  .lang{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .arrow{position:absolute;top:18px;right:18px;color:var(--muted);font-size:16px}
+  .empty{color:var(--muted);font-size:14px}
+  footer{margin-top:50px;color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>hlash99</h1>
+    <p>Projects &amp; live dashboards on GitHub Pages.</p>
+    <div class="links">
+      <a href="https://github.com/hlash99">github.com/hlash99 ↗</a>
+    </div>
+  </div>
+
+  <h2>Live sites</h2>
+  <div class="grid" id="sites"><div class="empty">Loading…</div></div>
+
+  <h2>Other repositories</h2>
+  <div class="grid" id="repos"></div>
+
+  <footer>Auto-generated from the GitHub API · updates whenever you add or publish a repo.</footer>
+</div>
+
+<script>
+const USER="hlash99";
+// optional nicer presentation per repo (icon + override blurb); falls back to API description
+const META={
+  "car-value-tracker":{icon:"🏎️",blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — 6-yr history, 5-yr projection, auto-refreshed twice daily."},
+  "sc-dentist-tracker":{icon:"🦷",blurb:"San Carlos dentist review & ranking tracker."},
+  "stanford-giving-tracker":{icon:"🌲",blurb:"Stanford giving / fundraising tracker."},
+  "ctcl-gene-explorer":{icon:"🧬",blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
+};
+const LANG={JavaScript:"#f1e05a",HTML:"#e34c26",Python:"#3572A5",TypeScript:"#3178c6",CSS:"#563d7c",R:"#198CE7","Jupyter Notebook":"#DA5B0B",Vue:"#41b883"};
+const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`)
+ .then(r=>r.json())
+ .then(repos=>{
+   if(!Array.isArray(repos)){document.querySelector("#sites").innerHTML='<div class="empty">GitHub API rate-limited — try again shortly.</div>';return;}
+   const sites=[],others=[];
+   repos.forEach(r=>{
+     if(r.name.toLowerCase()===`${USER}.github.io`) return; // this site
+     (r.has_pages ? sites : others).push(r);
+   });
+   render("#sites",sites,true);
+   render("#repos",others,false);
+   if(!sites.length)document.querySelector("#sites").innerHTML='<div class="empty">No published Pages sites yet.</div>';
+ })
+ .catch(()=>{document.querySelector("#sites").innerHTML='<div class="empty">Could not reach GitHub API.</div>';});
+
+function render(sel,list,live){
+  const el=document.querySelector(sel);el.innerHTML="";
+  list.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+  list.forEach(r=>{
+    const m=META[r.name]||{};
+    const url=live?`https://${USER}.github.io/${r.name}/`:r.html_url;
+    const blurb=esc(m.blurb||r.description||"—");
+    const lang=r.language?`<span class="badge"><span class="lang" style="background:${LANG[r.language]||'#888'}"></span>${r.language}</span>`:"";
+    const liveBadge=live?`<span class="badge live"><span class="d"></span>live</span>`:`<span class="badge">repo</span>`;
+    const upd=new Date(r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+    el.insertAdjacentHTML("beforeend",
+      `<a class="card" href="${url}">
+         <span class="arrow">↗</span>
+         <div class="ic">${m.icon||"📦"}</div>
+         <h3>${esc(r.name)}</h3>
+         <p>${blurb}</p>
+         <div class="meta">${liveBadge}${lang}<span class="badge">updated ${upd}</span></div>
+       </a>`);
+  });
+}
+</script>
+</body>
+</html>
