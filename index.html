@@ -90,29 +90,26 @@ const META={
     blurb:"My collector assets — Rolex & Patek watches, four Ferraris and my Porsche 997.2 Turbo S — real scrape history, auto-published each run.",
     preview:d=>{
       const a=d.assets||[];
-      let top=null,tv=-1e9;
-      a.forEach(x=>{const r=x.change&&x.change.all; if(r!=null&&r>tv){tv=r;top=x;}});
-      const spark=top?top.series.map(p=>p.price):[];
-      return {stats:[
-        {v:"$"+(d.summary.portfolio_value/1e6).toFixed(2)+"M", l:d.summary.n_assets+" assets · "+d.summary.n_cars+"🏎 "+d.summary.n_watches+"⌚"},
-        {v:top?(top.short+" +"+Math.round(tv)+"%"):"—", l:"top all-time"}
-      ], spark};
+      const find=re=>a.find(x=>re.test(x.name)||re.test(x.short||""));
+      const rolex=find(/rolex/i), patek=find(/patek/i);
+      const chg=x=>x&&x.change&&x.change.all!=null?" · "+(x.change.all>=0?"+":"")+Math.round(x.change.all)+"%":"";
+      const stats=[];
+      if(rolex)stats.push({v:"$"+rolex.latest.toLocaleString(), l:rolex.short+chg(rolex)});
+      if(patek)stats.push({v:"$"+patek.latest.toLocaleString(), l:patek.short+chg(patek)});
+      const s=(rolex&&rolex.series)||(patek&&patek.series)||[];
+      return {stats, spark:s.map(p=>p.price), color:(rolex&&rolex.color)||"#2E8B57"};
     }
   },
   "car-value-tracker":{
     icon:"🏎️", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
     blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — auto-refreshed twice daily.",
     preview:d=>{
-      const names=Object.keys(d.cars);
-      let best=null,bv=-1;
-      names.forEach(n=>{const h=d.cars[n].hist;const r=h[h.length-1]/h[0]-1;if(r>bv){bv=r;best=n;}});
-      const len=d.cars[names[0]].hist.length, sp=[];
-      for(let i=0;i<len;i++){let s=0;names.forEach(n=>{const h=d.cars[n].hist;s+=h[i]/h[0]*100;});sp.push(s/names.length);}
-      const total=names.reduce((a,n)=>a+d.cars[n].hist.slice(-1)[0],0);
+      const c=d.cars["Porsche 997.2 Turbo S"], h=c.hist;
+      const cur=h[h.length-1], g=Math.round((cur/h[0]-1)*100), yoy=Math.round((cur/h[h.length-2]-1)*100);
       return {stats:[
-        {v:"$"+(total/1000).toFixed(2)+"M", l:"portfolio · "+names.length+" cars"},
-        {v:best.replace(/Ferrari |Porsche /,"")+" +"+Math.round(bv*100)+"%", l:"top 6-yr gain"}
-      ], spark:sp};
+        {v:"$"+Math.round(cur)+"k", l:"997.2 Turbo S · my car"},
+        {v:"+"+g+"%", l:"6-yr · "+(yoy>=0?"+":"")+yoy+"% YoY"}
+      ], spark:h, color:c.color||"#185FA5"};
     }
   },
   "sc-dentist-tracker":{
@@ -237,10 +234,10 @@ function resetLayout(){
 function loadPreview(name,m){
   fetch(`https://${USER}.github.io/${name}/${m.data}?_=${Date.now()}`)
     .then(r=>r.json()).then(d=>{
-      const {stats,spark}=m.preview(d);
+      const res=m.preview(d), {stats,spark}=res;
       const box=document.querySelector(`#pv-${name}`); if(!box)return;
       box.innerHTML=`<div class="pstats">${stats.map(s=>`<div class="pstat"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")}</div>
-        <div class="spark">${sparkline(spark,m.color||'#6ea8fe')}</div>`;
+        <div class="spark">${sparkline(spark,res.color||m.color||'#6ea8fe')}</div>`;
     }).catch(()=>{const b=document.querySelector(`#pv-${name}`);if(b)b.remove();});
 }
 
