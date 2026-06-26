@@ -13,7 +13,8 @@
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1000px;margin:0 auto;padding:56px 20px 80px}
+  body::before{content:"";position:fixed;top:-120px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 70%);opacity:.06;pointer-events:none;z-index:0}
+  .wrap{max-width:1000px;margin:0 auto;padding:56px 20px 80px;position:relative;z-index:1}
   .hero h1{font-size:30px;margin:0 0 6px;font-weight:700;letter-spacing:-.5px}
   .hero p{color:var(--muted);margin:0;font-size:15px}
   .hero .links{margin-top:14px;display:flex;gap:16px;font-size:14px;align-items:center}
@@ -21,13 +22,14 @@
   h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:40px 0 14px;font-weight:600}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
   .card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;
-    transition:transform .12s ease,border-color .12s ease;position:relative}
-  .card:hover{transform:translateY(-3px);border-color:var(--accent)}
+    transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-3px);border-color:var(--ac,var(--accent));box-shadow:0 10px 30px rgba(0,0,0,.10)}
+  .accent{position:absolute;top:0;left:0;right:0;height:3px;opacity:.9}
   .card{cursor:grab}
   .card:active{cursor:grabbing}
   .card.dragging{opacity:.45;border-color:var(--accent);border-style:dashed;transform:none;cursor:grabbing}
   .grid.dropping{outline:none}
-  .card .ic{font-size:26px}
+  .card .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:25px;margin-top:4px}
   .card h3{margin:10px 0 4px;font-size:17px;font-weight:600}
   .card p{margin:0;color:var(--muted);font-size:13.5px}
   .preview{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:10px;min-height:46px}
@@ -128,7 +130,21 @@ const META={
       return {stats, spark:sp};
     }
   },
-  "stanford-giving-tracker":{icon:"🌲", color:"#1D9E75", refresh:"update.yml", blurb:"Stanford giving / fundraising tracker."},
+  "stanford-giving-tracker":{
+    icon:"🌲", color:"#8C1515", refresh:"update.yml",
+    blurb:"Team Jen's race to #1 — Stanford Day of Giving leaderboard.",
+    dataUrl:"https://raw.githubusercontent.com/hlash99/stanford-giving-tracker/data/data.json",
+    preview:d=>{
+      const lb=d.leaderboard||[], last=(d.history||[]).slice(-1)[0]||{};
+      const jen=lb.find(x=>/jen|varela/i.test(x.name))||{};
+      const rank=jen.rank||last.target_rank;
+      const stats=[
+        {v:"#"+rank+" of "+lb.length, l:(rank>1&&last.delta!=null)?("behind "+shorten(last.leader_name||"")+" by "+last.delta+" gifts"):"current position"},
+        {v:"$"+Math.round(jen.raised||0).toLocaleString(), l:"Team Jen raised"}
+      ];
+      return {stats, spark:(d.history||[]).map(h=>h.target_gifts).filter(v=>v!=null), color:"#8C1515"};
+    }
+  },
   "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
 };
 
@@ -148,6 +164,7 @@ function render(sel,list,live){
   list.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
   list.forEach(r=>{
     const m=META[r.name]||{};
+    const color=m.color||"#8aa0b2";
     const url=live?`https://${USER}.github.io/${r.name}/`:r.html_url;
     const blurb=esc(m.blurb||r.description||"—");
     const lang=r.language?`<span class="badge"><span class="lang" style="background:${LANG[r.language]||'#888'}"></span>${r.language}</span>`:"";
@@ -155,15 +172,16 @@ function render(sel,list,live){
     const upd=new Date(r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
     const rfr=m.refresh?`<button class="rfr" title="Trigger refresh routine" onclick="onRefresh(event,'${r.name}','${m.refresh}')">↻</button>`:"";
     el.insertAdjacentHTML("beforeend",
-      `<a class="card" href="${url}" draggable="true" data-name="${r.name}" title="Drag to reorder">
+      `<a class="card" href="${url}" draggable="true" data-name="${r.name}" title="Drag to reorder" style="--ac:${color}">
+         <span class="accent" style="background:${color}"></span>
          <div class="corner">${rfr}<span class="arrow">↗</span></div>
-         <div class="ic">${m.icon||"📦"}</div>
+         <div class="ic" style="background:${color}22">${m.icon||"📦"}</div>
          <h3>${esc(r.name)}</h3>
          <p>${blurb}</p>
          ${m.preview?`<div class="preview" id="pv-${r.name}"><span class="empty" style="font-size:12px">loading preview…</span></div>`:""}
          <div class="meta">${liveBadge}${lang}<span class="badge">updated ${upd}</span></div>
        </a>`);
-    if(m.preview && m.data) loadPreview(r.name, m);
+    if(m.preview && (m.data||m.dataUrl)) loadPreview(r.name, m);
   });
   applyOrder(el, sel);
   enableDnD(el, sel);
@@ -232,7 +250,8 @@ function resetLayout(){
 }
 
 function loadPreview(name,m){
-  fetch(`https://${USER}.github.io/${name}/${m.data}?_=${Date.now()}`)
+  const src=m.dataUrl?(m.dataUrl+(m.dataUrl.includes("?")?"&":"?")+"_="+Date.now()):`https://${USER}.github.io/${name}/${m.data}?_=${Date.now()}`;
+  fetch(src)
     .then(r=>r.json()).then(d=>{
       const res=m.preview(d), {stats,spark}=res;
       const box=document.querySelector(`#pv-${name}`); if(!box)return;
