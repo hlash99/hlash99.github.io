@@ -14,13 +14,19 @@
     background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
   a{color:inherit;text-decoration:none}
   body::before{content:"";position:fixed;top:-120px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 70%);opacity:.06;pointer-events:none;z-index:0}
-  .wrap{max-width:1000px;margin:0 auto;padding:56px 20px 80px;position:relative;z-index:1}
+  .wrap{max-width:1320px;margin:0 auto;padding:56px 24px 80px;position:relative;z-index:1}
   .hero h1{font-size:30px;margin:0 0 6px;font-weight:700;letter-spacing:-.5px}
   .hero p{color:var(--muted);margin:0;font-size:15px}
   .hero .links{margin-top:14px;display:flex;gap:16px;font-size:14px;align-items:center}
   .hero .links a{color:var(--accent);cursor:pointer}
   h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:40px 0 14px;font-weight:600}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  @media (max-width:560px){
+    .wrap{padding:28px 16px 60px}
+    .hero h1{font-size:25px}
+    .grid{grid-template-columns:1fr;gap:13px}
+    h2{margin:30px 0 12px}
+  }
   .card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;
     transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease;position:relative;overflow:hidden}
   .card:hover{transform:translateY(-3px);border-color:var(--ac,var(--accent));box-shadow:0 10px 30px rgba(0,0,0,.10)}
