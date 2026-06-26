@@ -135,12 +135,11 @@ const META={
     blurb:"Team Jen's race to #1 — Stanford Day of Giving leaderboard.",
     dataUrl:"https://raw.githubusercontent.com/hlash99/stanford-giving-tracker/data/data.json",
     preview:d=>{
-      const lb=d.leaderboard||[], last=(d.history||[]).slice(-1)[0]||{};
+      const lb=d.leaderboard||[];
       const jen=lb.find(x=>/jen|varela/i.test(x.name))||{};
-      const rank=jen.rank||last.target_rank;
       const stats=[
-        {v:"#"+rank+" of "+lb.length, l:(rank>1&&last.delta!=null)?("behind "+shorten(last.leader_name||"")+" by "+last.delta+" gifts"):"current position"},
-        {v:"$"+Math.round(jen.raised||0).toLocaleString(), l:"Team Jen raised"}
+        {v:"#1 (tied)", l:"final result · Day of Giving"},
+        {v:"$"+Math.round(jen.raised||0).toLocaleString(), l:"Team Jen raised · "+(jen.gifts||0)+" gifts"}
       ];
       return {stats, spark:(d.history||[]).map(h=>h.target_gifts).filter(v=>v!=null), color:"#8C1515"};
     }
