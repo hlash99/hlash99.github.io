@@ -93,6 +93,18 @@ const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slic
 
 /* Per-repo config: icon, blurb override, a data file + adapter for previews, and a refresh workflow file. */
 const META={
+  "iran-r32-tracker":{
+    icon:"🇮🇷", color:"#3ad29f", data:"data.json",
+    blurb:"Live odds Iran reaches the 2026 World Cup Round of 32 as a best third-placed team — moves with June 27's deciders.",
+    preview:d=>{
+      let pct=d.baseline_pct;
+      try{const live=JSON.parse(localStorage.getItem("iranR32_pct"));if(live&&typeof live.pct==="number")pct=live.pct;}catch(e){}
+      return {stats:[
+        {v:pct+"%", l:"to advance"+(pct===d.baseline_pct?" · baseline":" · live")},
+        {v:"3rd · "+d.locked_above+" above", l:"needs top 8 of 12 thirds"}
+      ], spark:[]};
+    }
+  },
   "asset-tracker":{
     icon:"📈", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
     blurb:"My collector assets — Rolex & Patek watches, four Ferraris and my Porsche 997.2 Turbo S — real scrape history, auto-published each run.",
