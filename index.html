@@ -95,12 +95,12 @@ const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slic
 const META={
   "iran-r32-tracker":{
     icon:"🇮🇷", color:"#3ad29f", data:"data.json",
-    blurb:"Live odds Iran reaches the 2026 World Cup Round of 32 as a best third-placed team — moves with June 27's deciders.",
+    blurb:"Live odds Iran reaches the 2026 World Cup Round of 32 as a best third-placed team — recomputed from the real group tables.",
     preview:d=>{
-      let pct=d.baseline_pct;
-      try{const live=JSON.parse(localStorage.getItem("iranR32_pct"));if(live&&typeof live.pct==="number")pct=live.pct;}catch(e){}
+      let pct=d.baseline_pct, live=false;
+      try{const v=JSON.parse(localStorage.getItem("iranR32_live"));if(v&&typeof v.pct==="number"){pct=v.pct;live=true;}}catch(e){}
       return {stats:[
-        {v:pct+"%", l:"to advance"+(pct===d.baseline_pct?" · baseline":" · live")},
+        {v:pct+"%", l:"to advance"+(live?" · live":" · baseline")},
         {v:"3rd · "+d.locked_above+" above", l:"needs top 8 of 12 thirds"}
       ], spark:[]};
     }
