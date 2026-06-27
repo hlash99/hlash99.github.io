@@ -97,8 +97,15 @@ const META={
     icon:"🇮🇷", color:"#3ad29f", data:"data.json",
     blurb:"Live odds Iran reaches the 2026 World Cup Round of 32 as a best third-placed team — recomputed from the real group tables.",
     preview:d=>{
-      let pct=d.baseline_pct, live=false;
-      try{const v=JSON.parse(localStorage.getItem("iranR32_live"));if(v&&typeof v.pct==="number"){pct=v.pct;live=true;}}catch(e){}
+      let pct=d.baseline_pct, live=false, allFinal=(d.iran_status&&d.iran_status!=="live");
+      try{const v=JSON.parse(localStorage.getItem("iranR32_live"));if(v&&typeof v.pct==="number"){pct=v.pct;live=true;if(typeof v.allFinal==="boolean")allFinal=v.allFinal;}}catch(e){}
+      const eliminated=(d.iran_status==="eliminated")||(allFinal&&pct<50);
+      if(eliminated&&d.favorite){            // Iran out → pivot to the World Cup title favorite
+        return {stats:[
+          {v:d.favorite_pct+"%", l:"🏆 "+d.favorite+" — title favorite"},
+          {v:"Iran out", l:"group stage"}
+        ], spark:[]};
+      }
       return {stats:[
         {v:pct+"%", l:"to advance"+(live?" · live":" · baseline")},
         {v:"3rd · "+d.locked_above+" above", l:"needs top 8 of 12 thirds"}
