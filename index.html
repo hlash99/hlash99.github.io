@@ -5,15 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>hlash99 · projects</title>
 <style>
-  :root{--bg:#0f1115;--surface:#171a21;--surface2:#1e222b;--line:#272c36;--ink:#e9ecf1;--muted:#9aa3af;--accent:#6ea8fe;}
-  @media (prefers-color-scheme: light){
-    :root{--bg:#f6f7f9;--surface:#ffffff;--surface2:#f0f2f5;--line:#e3e6ea;--ink:#1a1d21;--muted:#5f6772;--accent:#185FA5;}
-  }
+  /* dark-navy "dental" palette — matches the Iran tracker */
+  :root{--bg:#0a141f;--surface:#121f30;--surface2:#16273c;--line:rgba(255,255,255,.08);--ink:#eaf2fc;--muted:#8fa6bd;--accent:#3ec9c4;}
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+    background:radial-gradient(1100px 520px at 75% -12%,#1c3c5e 0%,transparent 60%),
+               radial-gradient(800px 500px at -10% 30%,#14283f 0%,transparent 55%),var(--bg);
+    background-attachment:fixed;color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh}
   a{color:inherit;text-decoration:none}
-  body::before{content:"";position:fixed;top:-120px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 70%);opacity:.06;pointer-events:none;z-index:0}
   .wrap{max-width:1320px;margin:0 auto;padding:56px 24px 80px;position:relative;z-index:1}
   .hero h1{font-size:30px;margin:0 0 6px;font-weight:700;letter-spacing:-.5px}
   .hero p{color:var(--muted);margin:0;font-size:15px}
