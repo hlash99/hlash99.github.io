@@ -168,6 +168,19 @@ const META={
       return {stats, spark:(d.history||[]).map(h=>h.target_gifts).filter(v=>v!=null), color:"#8C1515"};
     }
   },
+  "ctcl-papers":{
+    icon:"📚", color:"#8B5CF6", refresh:"refresh.yml", data:"data.json",
+    blurb:"Latest scientific papers on CTCL (cutaneous T-cell lymphoma) — auto-collected from Europe PMC and summarized, refreshed weekly.",
+    preview:d=>{
+      const ps=d.papers||[], p=ps[0]||{};
+      const newest=ps.reduce((m,y)=>y.first_seen>m?y.first_seen:m,"");
+      const fresh=ps.filter(y=>y.first_seen===newest).length;
+      return {stats:[
+        {v:(d.stats&&d.stats.total)||ps.length, l:"papers tracked"},
+        {v:(p.date?p.date.slice(0,7):"—"), l:"latest · "+shorten(p.journal||"journal")+(fresh?(" · "+fresh+" new"):"")}
+      ], spark:[]};
+    }
+  },
   "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
 };
 
