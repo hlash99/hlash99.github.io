@@ -55,6 +55,8 @@
   .rfr.spin{animation:sp .8s linear infinite}
   @keyframes sp{to{transform:rotate(360deg)}}
   .empty{color:var(--muted);font-size:14px}
+  .note-chip{display:inline-flex;align-items:center;text-transform:none;letter-spacing:0;font-size:11px;font-weight:500;
+    color:#f0b95a;background:rgba(240,185,90,.1);border:1px solid rgba(240,185,90,.25);border-radius:20px;padding:2px 9px;margin-left:8px;vertical-align:middle}
   footer{margin-top:50px;color:var(--muted);font-size:12px;text-align:center}
   #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--surface);
     border:1px solid var(--line);color:var(--ink);padding:11px 16px;border-radius:12px;font-size:13.5px;
@@ -66,7 +68,7 @@
 <div class="wrap">
   <div class="hero">
     <h1>hlash99</h1>
-    <p>Projects &amp; live dashboards on GitHub Pages.</p>
+    <p id="sub">Projects &amp; live dashboards on GitHub Pages.</p>
     <div class="links">
       <a href="https://github.com/hlash99">github.com/hlash99 ↗</a>
       <a id="tok" onclick="manageToken()">⚙ refresh token</a>
@@ -74,7 +76,7 @@
     </div>
   </div>
 
-  <h2>Live sites</h2>
+  <h2>Live sites <span id="cacheNote" class="note-chip" style="display:none">⚠ cached list · GitHub API busy</span></h2>
   <div class="grid" id="sites"><div class="empty">Loading…</div></div>
 
   <h2>Other repositories</h2>
@@ -87,7 +89,7 @@
 <script>
 const USER="hlash99";
 const LANG={JavaScript:"#f1e05a",HTML:"#e34c26",Python:"#3572A5",TypeScript:"#3178c6",CSS:"#563d7c",R:"#198CE7","Jupyter Notebook":"#DA5B0B"};
-const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;");  // coerce: numeric stat values (e.g. paper counts) would otherwise throw on .replace
 const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slice(0,2).join(" ");
 
 /* Per-repo config: icon, blurb override, a data file + adapter for previews, and a refresh workflow file. */
@@ -139,8 +141,8 @@ const META={
     }
   },
   "sc-dentist-tracker":{
-    icon:"🦷", color:"#3ad29f", data:"data.json",
-    blurb:"San Carlos dentist review & ranking tracker.",
+    icon:"🦷", color:"#3ad29f", refresh:"update.yml", data:"data.json",
+    blurb:"San Carlos dentist review & ranking tracker — auto-scrapes Google review counts daily and discovers new practices on its own.",
     preview:d=>{
       const snaps=d.snapshots, snap=snaps[snaps.length-1];
       const list=snap.dentists.slice().sort((a,b)=>b.reviews-a.reviews);
@@ -175,25 +177,52 @@ const META={
       const ps=d.papers||[], p=ps[0]||{};
       const newest=ps.reduce((m,y)=>y.first_seen>m?y.first_seen:m,"");
       const fresh=ps.filter(y=>y.first_seen===newest).length;
+      // only surface "N new" for a genuine recent batch — not the initial bulk import
+      // (where every paper shares one first_seen), and only within the last ~2 weeks.
+      const recent=newest&&(Date.now()-new Date(newest))/864e5<=14;
+      const showNew=recent&&fresh<ps.length;
       return {stats:[
         {v:(d.stats&&d.stats.total)||ps.length, l:"papers tracked"},
-        {v:(p.date?p.date.slice(0,7):"—"), l:"latest · "+shorten(p.journal||"journal")+(fresh?(" · "+fresh+" new"):"")}
+        {v:(p.date?p.date.slice(0,7):"—"), l:"latest · "+shorten(p.journal||"journal")+(showNew?(" · "+fresh+" new"):"")}
       ], spark:[]};
     }
   },
   "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
 };
 
+/* Static manifest of my repos. The unauthenticated GitHub API is capped at 60 req/hr
+   per IP; when that limit is hit (or the API is unreachable) the live call returns no
+   array and the grid would otherwise go blank. Rendering falls back to this list so the
+   cards — every live site, CTCL paper tracker included — are always shown. */
+const MANIFEST=[
+  {name:"iran-r32-tracker",       pages:true,  language:"HTML"},
+  {name:"car-value-tracker",      pages:true,  language:"HTML"},
+  {name:"asset-tracker",          pages:true,  language:"HTML"},
+  {name:"sc-dentist-tracker",     pages:true,  language:"JavaScript"},
+  {name:"ctcl-papers",            pages:true,  language:"HTML"},
+  {name:"stanford-giving-tracker",pages:true,  language:"Python"},
+  {name:"ctcl-gene-explorer",     pages:false, language:"R"},
+];
+const fallbackRepos=()=>MANIFEST.map(m=>({
+  name:m.name, has_pages:m.pages, language:m.language,
+  html_url:`https://github.com/${USER}/${m.name}`,
+  description:(META[m.name]||{}).blurb||"", updated_at:new Date().toISOString()
+}));
+
+function build(repos, cached){
+  const sites=[],others=[];
+  repos.forEach(r=>{ if(r.name.toLowerCase()===`${USER}.github.io`) return; (r.has_pages?sites:others).push(r); });
+  render("#sites",sites,true); render("#repos",others,false);
+  if(!sites.length)document.querySelector("#sites").innerHTML='<div class="empty">No published Pages sites yet.</div>';
+  const note=document.getElementById("cacheNote"); if(note) note.style.display=cached?"inline-flex":"none";
+  const sub=document.getElementById("sub");
+  if(sub&&sites.length) sub.textContent=`${sites.length} live dashboards on GitHub Pages · auto-refreshed on their own schedules.`;
+}
+
 fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`)
- .then(r=>r.json())
- .then(repos=>{
-   if(!Array.isArray(repos)){document.querySelector("#sites").innerHTML='<div class="empty">GitHub API rate-limited — try again shortly.</div>';return;}
-   const sites=[],others=[];
-   repos.forEach(r=>{ if(r.name.toLowerCase()===`${USER}.github.io`) return; (r.has_pages?sites:others).push(r); });
-   render("#sites",sites,true); render("#repos",others,false);
-   if(!sites.length)document.querySelector("#sites").innerHTML='<div class="empty">No published Pages sites yet.</div>';
- })
- .catch(()=>{document.querySelector("#sites").innerHTML='<div class="empty">Could not reach GitHub API.</div>';});
+ .then(r=>r.ok?r.json():Promise.reject(r.status))
+ .then(repos=>{ if(!Array.isArray(repos)) throw "rate-limited"; build(repos,false); })
+ .catch(()=>build(fallbackRepos(),true));   // rate-limited / offline → static list, cards still render
 
 function render(sel,list,live){
   const el=document.querySelector(sel);el.innerHTML="";
@@ -285,15 +314,23 @@ function resetLayout(){
   setTimeout(()=>location.reload(), 400);
 }
 
-function loadPreview(name,m){
-  const src=m.dataUrl?(m.dataUrl+(m.dataUrl.includes("?")?"&":"?")+"_="+Date.now()):`https://${USER}.github.io/${name}/${m.data}?_=${Date.now()}`;
-  fetch(src)
-    .then(r=>r.json()).then(d=>{
+function loadPreview(name,m,attempt=0){
+  // No cache-buster: forcing an origin miss on every load made GitHub Pages/Fastly throttle the
+  // larger files (ctcl-papers ~130KB) during the concurrent burst, permanently blanking that
+  // preview. Pages serves fresh data within ~10 min, which is plenty for an at-a-glance stat.
+  // Retry twice as a safety net so any transient hiccup still self-heals.
+  const src=m.dataUrl||`https://${USER}.github.io/${name}/${m.data}`;
+  fetch(src,{cache:"default"})
+    .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(d=>{
       const res=m.preview(d), {stats,spark}=res;
       const box=document.querySelector(`#pv-${name}`); if(!box)return;
       box.innerHTML=`<div class="pstats">${stats.map(s=>`<div class="pstat"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")}</div>
         <div class="spark">${sparkline(spark,res.color||m.color||'#6ea8fe')}</div>`;
-    }).catch(()=>{const b=document.querySelector(`#pv-${name}`);if(b)b.remove();});
+    }).catch(()=>{
+      if(attempt<2){setTimeout(()=>loadPreview(name,m,attempt+1),500*(attempt+1));return;}
+      const b=document.querySelector(`#pv-${name}`);
+      if(b)b.innerHTML='<span class="empty" style="font-size:12px">preview unavailable — ↻ to retry</span>';
+    });
 }
 
 function sparkline(vals,color){
