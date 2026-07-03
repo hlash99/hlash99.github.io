@@ -94,9 +94,9 @@ const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slic
 
 /* Per-repo config: icon, blurb override, a data file + adapter for previews, and a refresh workflow file. */
 const META={
-  "iran-r32-tracker":{
-    icon:"🇮🇷", color:"#3ad29f", data:"data.json",
-    blurb:"Live odds Iran reaches the 2026 World Cup Round of 32 as a best third-placed team — recomputed from the real group tables.",
+  "worldcup-tracker":{
+    icon:"🏆", color:"#3ad29f", data:"data.json",
+    blurb:"Live World Cup tracker — title favorite, today's matches with win odds, knockout bracket. Auto-targets whichever World Cup is live or next.",
     preview:d=>{
       let pct=d.baseline_pct, live=false, allFinal=(d.iran_status&&d.iran_status!=="live");
       try{const v=JSON.parse(localStorage.getItem("iranR32_live"));if(v&&typeof v.pct==="number"){pct=v.pct;live=true;if(typeof v.allFinal==="boolean")allFinal=v.allFinal;}}catch(e){}
@@ -203,7 +203,7 @@ const META={
    array and the grid would otherwise go blank. Rendering falls back to this list so the
    cards — every live site, CTCL paper tracker included — are always shown. */
 const MANIFEST=[
-  {name:"iran-r32-tracker",       pages:true,  language:"HTML"},
+  {name:"worldcup-tracker",       pages:true,  language:"HTML"},
   {name:"car-value-tracker",      pages:true,  language:"HTML"},
   {name:"asset-tracker",          pages:true,  language:"HTML"},
   {name:"sc-dentist-tracker",     pages:true,  language:"JavaScript"},
