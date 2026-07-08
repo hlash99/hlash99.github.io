@@ -195,6 +195,18 @@ const META={
       ], spark:[]};
     }
   },
+  "lotto-tracker":{
+    icon:"🎱", color:"#E24B4A", refresh:"update.yml", data:"data.json",
+    blurb:"Powerball & SuperLotto Plus — official results with true drawn order, order-dependence stats and split-resistant picks, refreshed twice daily.",
+    preview:d=>{
+      const pb=d.powerball, sl=d.superlotto;
+      const f=t=>t.whites.join(" ")+" + "+t.special;
+      return {stats:[
+        {v:f(pb.latest), l:"Powerball · "+pb.latest.date+" · drawn order archived"},
+        {v:f(sl.latest), l:"SuperLotto · "+sl.latest.date}
+      ], spark:[]};
+    }
+  },
   "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
 };
 
@@ -208,6 +220,7 @@ const MANIFEST=[
   {name:"asset-tracker",          pages:true,  language:"HTML"},
   {name:"sc-dentist-tracker",     pages:true,  language:"JavaScript"},
   {name:"ctcl-papers",            pages:true,  language:"HTML"},
+  {name:"lotto-tracker",          pages:true,  language:"Python"},
   {name:"stanford-giving-tracker",pages:true,  language:"Python"},
   {name:"ctcl-gene-explorer",     pages:false, language:"R"},
 ];
