@@ -121,6 +121,21 @@ const META={
       ], spark:[]};
     }
   },
+  "substack-brief":{
+    icon:"📬", color:"#f2b544", refresh:"refresh.yml", data:"data.json",
+    blurb:"Rolling brief of my Substack newsletters — cross-newsletter themes plus per-email bullets, pulled from Yahoo Mail and AI-summarized twice daily.",
+    preview:d=>{
+      const items=d.items||[], latest=items[0]||{};
+      // emails per day across the window, oldest→newest, as the sparkline
+      const days={}; items.forEach(it=>{const k=(it.date||"").slice(0,10); if(k)days[k]=(days[k]||0)+1;});
+      const spark=Object.keys(days).sort().map(k=>days[k]);
+      const subj=(latest.subject||"—");
+      return {stats:[
+        {v:(d.counts&&d.counts.shown)||items.length, l:"newsletters · last "+(d.window_days||7)+" days"},
+        {v:shorten(latest.newsletter||"latest"), l:subj.length>52?subj.slice(0,52)+"…":subj}
+      ], spark};
+    }
+  },
   "asset-tracker":{
     icon:"📈", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
     blurb:"My collector assets — Rolex & Patek watches, four Ferraris and my Porsche 997.2 Turbo S — real scrape history, auto-published each run.",
@@ -216,6 +231,7 @@ const META={
    cards — every live site, CTCL paper tracker included — are always shown. */
 const MANIFEST=[
   {name:"worldcup-tracker",       pages:true,  language:"HTML"},
+  {name:"substack-brief",         pages:true,  language:"Python"},
   {name:"car-value-tracker",      pages:true,  language:"HTML"},
   {name:"asset-tracker",          pages:true,  language:"HTML"},
   {name:"sc-dentist-tracker",     pages:true,  language:"JavaScript"},
