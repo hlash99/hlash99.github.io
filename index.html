@@ -239,9 +239,17 @@ const META={
       const f=t=>t.whites.join(" ")+" + "+t.special;
       const md=s=>new Date(s+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"});
       const bullets=[];
-      const hot=pb.stats&&pb.stats.white_hot;
-      if(hot&&hot.length)bullets.push("PB hot: "+hot.slice(0,5).map(h=>h[0]).join(" ")+" · cold: "+(pb.stats.white_cold||[]).slice(0,3).map(h=>h[0]).join(" "));
-      if(pb.picks&&pb.picks[0])bullets.push("Next PB pick: "+f(pb.picks[0])+" (split-resistant)");
+      // next-draw recommendation from the pairwise-density cluster picker (drawn-order KDE)
+      const cl=pb.cluster;
+      if(cl&&cl.tickets&&cl.tickets[0]){
+        const t=cl.tickets[0];
+        bullets.push("PB pairwise pick: "+t.whites.join(" ")+(cl.special_pick!=null?" + "+cl.special_pick:""));
+      }else if(pb.picks&&pb.picks[0])bullets.push("PB pick: "+f(pb.picks[0])+" (split-resistant)");
+      const slc=sl.cluster;
+      if(slc&&slc.tickets&&slc.tickets[0]){
+        const t=slc.tickets[0];
+        bullets.push("SL pairwise pick: "+t.whites.join(" ")+(slc.special_pick!=null?" + "+slc.special_pick:""));
+      }else if(sl.picks&&sl.picks[0])bullets.push("SL: pairwise needs drawn order (CA publishes sorted) · pick: "+f(sl.picks[0]));
       return {stats:[
         {v:f(pb.latest), l:"Powerball · "+md(pb.latest.date)},
         {v:f(sl.latest), l:"SuperLotto · "+md(sl.latest.date)}
