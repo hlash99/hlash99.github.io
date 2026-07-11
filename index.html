@@ -34,19 +34,24 @@
   .card:active{cursor:grabbing}
   .card.dragging{opacity:.45;border-color:var(--accent);border-style:dashed;transform:none;cursor:grabbing}
   .grid.dropping{outline:none}
-  .card .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:25px;margin-top:4px}
-  .card h3{margin:10px 0 4px;font-size:17px;font-weight:600}
-  .card p{margin:0;color:var(--muted);font-size:13.5px}
-  .preview{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:10px;min-height:46px}
+  .head{display:flex;align-items:center;gap:11px;margin-top:2px;padding-right:64px}
+  .card .ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+  .card h3{margin:0;font-size:16.5px;font-weight:600}
+  .card p{margin:10px 0 0;color:var(--muted);font-size:13.5px}
+  .preview{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);min-height:46px}
+  .pv-top{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
   .pstats{display:flex;flex-direction:column;gap:8px}
+  .pstats.cols2{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px;flex:1}
   .pstat{display:flex;flex-direction:column;line-height:1.25}
+  .pstat.wide{grid-column:1/-1}
   .pstat .v{font-size:15px;font-weight:600}
   .pstat .l{font-size:11px;color:var(--muted)}
   .spark{flex:none;opacity:.95}
-  .meta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
+  .bullets{margin:11px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .bullets li{font-size:12px;color:var(--muted);line-height:1.45;padding-left:14px;position:relative}
+  .bullets li::before{content:"";position:absolute;left:2px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac,var(--accent));opacity:.85}
+  .meta{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
   .badge{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:2px 10px}
-  .live{color:#3ad29f}.live .d{width:7px;height:7px;border-radius:50%;background:#3ad29f;display:inline-block;box-shadow:0 0 6px #3ad29f}
-  .lang{width:9px;height:9px;border-radius:50%;display:inline-block}
   .corner{position:absolute;top:16px;right:16px;display:flex;gap:8px;align-items:center}
   .corner .arrow{color:var(--muted);font-size:16px}
   .rfr{border:1px solid var(--line);background:var(--surface2);color:var(--muted);width:30px;height:30px;border-radius:50%;
@@ -88,11 +93,17 @@
 
 <script>
 const USER="hlash99";
-const LANG={JavaScript:"#f1e05a",HTML:"#e34c26",Python:"#3572A5",TypeScript:"#3178c6",CSS:"#563d7c",R:"#198CE7","Jupyter Notebook":"#DA5B0B"};
-const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;");  // coerce: numeric stat values (e.g. paper counts) would otherwise throw on .replace
+const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");  // coerce: numeric stat values (e.g. paper counts) would otherwise throw on .replace
 const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slice(0,2).join(" ");
+const trunc=(s,n)=>{s=String(s==null?"":s);return s.length>n?s.slice(0,n-1).trimEnd()+"…":s;};
+const rel=iso=>{const t=new Date(iso);if(isNaN(t))return null;const s=(Date.now()-t)/1e3;
+  if(s<0)return null;if(s<90)return"just now";if(s<5400)return Math.round(s/60)+"m ago";
+  if(s<129600)return Math.round(s/3600)+"h ago";return Math.round(s/86400)+"d ago";};
 
-/* Per-repo config: icon, blurb override, a data file + adapter for previews, and a refresh workflow file. */
+/* Per-repo config: icon, blurb (hover tooltip), a data file + adapter for previews, and a refresh workflow file.
+   preview(d) → {stats, bullets, spark, cols, color, updated} — stats render in the top row
+   (cols:2 = two-column grid, stat.wide spans both), bullets as a compact list underneath,
+   and `updated` replaces the card's date badge with the data file's own freshness. */
 const META={
   "worldcup-tracker":{
     icon:"🏆", color:"#3ad29f", data:"data.json",
@@ -101,39 +112,37 @@ const META={
       let pct=d.baseline_pct, live=false, allFinal=(d.iran_status&&d.iran_status!=="live");
       try{const v=JSON.parse(localStorage.getItem("iranR32_live"));if(v&&typeof v.pct==="number"){pct=v.pct;live=true;if(typeof v.allFinal==="boolean")allFinal=v.allFinal;}}catch(e){}
       const eliminated=(d.iran_status==="eliminated")||(allFinal&&pct<50);
-      // today's slate (published by the snapshot cron): favored side + kickoff / live score / FT
-      const todayRows=(d.today||[]).slice(0,3).map(g=>{
+      // today's slate (published by the snapshot cron): score / FT / kickoff + favored side
+      const todayB=(d.today||[]).slice(0,3).map(g=>{
         const t=new Date(g.kickoff).toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
-        const line=g.state==="in"?`${g.hs}–${g.as} · ${g.detail||"live"}`:g.state==="post"?`FT ${g.hs}–${g.as}`:t;
-        const favAb=g.fav?(g.fav===g.home?g.habbr:g.aabbr):null;
-        return favAb?{v:`${favAb} ${g.fav_pct}%`, l:`${g.habbr} v ${g.aabbr} · ${line}`}
-                    :{v:`${g.habbr} v ${g.aabbr}`, l:line};
+        const line=g.state==="in"?`${g.hs}–${g.as} · ${g.detail||"live"}`
+                  :g.state==="post"?`FT ${g.hs}–${g.as}`
+                  :t+(g.fav?` · ${g.fav===g.home?g.habbr:g.aabbr} ${g.fav_pct}%`:"");
+        return `Today: ${g.habbr} v ${g.aabbr} — ${line}`;
       });
-      if(eliminated&&d.favorite){            // Iran out → pivot to the World Cup title favorite
-        return {stats:[
-          {v:d.favorite_pct+"%", l:"🏆 "+d.favorite+" — title favorite"},
-          ...(todayRows.length?todayRows:[{v:"Iran out", l:"group stage"}])
-        ], spark:[]};
+      const chase=(d.contenders||[]).slice(1,4).map(c=>`${c.team} ${c.pct}%`).join(" · ");
+      if(eliminated&&d.favorite){            // Iran out → pivot to the World Cup title race
+        return {stats:[{v:d.favorite_pct+"%", l:"🏆 "+d.favorite+" — title favorite"}],
+          bullets:[...todayB, ...(chase?["Chasing: "+chase]:[])], updated:d.updated};
       }
       return {stats:[
         {v:pct+"%", l:"to advance"+(live?" · live":" · baseline")},
         {v:"3rd · "+d.locked_above+" above", l:"needs top 8 of 12 thirds"}
-      ], spark:[]};
+      ], bullets:todayB, updated:d.updated};
     }
   },
   "substack-brief":{
     icon:"📬", color:"#f2b544", refresh:"refresh.yml", data:"data.json",
     blurb:"Rolling brief of my Substack newsletters — cross-newsletter themes plus per-email bullets, pulled from Yahoo Mail and AI-summarized twice daily.",
     preview:d=>{
-      const items=d.items||[], latest=items[0]||{};
+      const items=d.items||[];
       // emails per day across the window, oldest→newest, as the sparkline
       const days={}; items.forEach(it=>{const k=(it.date||"").slice(0,10); if(k)days[k]=(days[k]||0)+1;});
       const spark=Object.keys(days).sort().map(k=>days[k]);
-      const subj=(latest.subject||"—");
+      const bullets=((d.brief&&d.brief.bullets)||[]).slice(0,3).map(b=>trunc(b,125));
       return {stats:[
-        {v:(d.counts&&d.counts.shown)||items.length, l:"newsletters · last "+(d.window_days||7)+" days"},
-        {v:shorten(latest.newsletter||"latest"), l:subj.length>52?subj.slice(0,52)+"…":subj}
-      ], spark};
+        {v:(d.counts&&d.counts.shown)||items.length, l:"newsletters · last "+(d.window_days||7)+" days"}
+      ], bullets, spark, updated:d.updated};
     }
   },
   "asset-tracker":{
@@ -141,42 +150,51 @@ const META={
     blurb:"My collector assets — Rolex & Patek watches, four Ferraris and my Porsche 997.2 Turbo S — real scrape history, auto-published each run.",
     preview:d=>{
       const a=d.assets||[];
-      const find=re=>a.find(x=>re.test(x.name)||re.test(x.short||""));
-      const rolex=find(/rolex/i), patek=find(/patek/i);
+      const find=re=>a.find(x=>re.test(x.key||"")||re.test(x.name)||re.test(x.short||""));
       const chg=x=>x&&x.change&&x.change.all!=null?" · "+(x.change.all>=0?"+":"")+Math.round(x.change.all)+"%":"";
       const stats=[];
-      if(rolex)stats.push({v:"$"+rolex.latest.toLocaleString(), l:rolex.short+chg(rolex)});
-      if(patek)stats.push({v:"$"+patek.latest.toLocaleString(), l:patek.short+chg(patek)});
-      const s=(rolex&&rolex.series)||(patek&&patek.series)||[];
-      return {stats, spark:s.map(p=>p.price), color:(rolex&&rolex.color)||"#2E8B57"};
+      const pv=d.summary&&d.summary.portfolio_value;
+      if(pv)stats.push({v:"$"+(pv/1e6).toFixed(2)+"M", l:(d.summary.n_assets||a.length)+" assets · portfolio", wide:true});
+      [find(/rolex/i),find(/patek/i),find(/997/),find(/458/)].forEach(x=>{
+        if(x)stats.push({v:"$"+Math.round(x.latest).toLocaleString(), l:x.short+chg(x)});
+      });
+      return {stats, cols:2, updated:d.updated};
     }
   },
   "car-value-tracker":{
     icon:"🏎️", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
     blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — auto-refreshed twice daily.",
     preview:d=>{
-      const c=d.cars["Porsche 997.2 Turbo S"], h=c.hist;
-      const cur=h[h.length-1], g=Math.round((cur/h[0]-1)*100), yoy=Math.round((cur/h[h.length-2]-1)*100);
-      return {stats:[
-        {v:"$"+Math.round(cur)+"k", l:"997.2 Turbo S · my car"},
-        {v:"+"+g+"%", l:"6-yr · "+(yoy>=0?"+":"")+yoy+"% YoY"}
-      ], spark:h, color:c.color||"#185FA5"};
+      const stats=["Porsche 997.2 Turbo S","Ferrari 458 Italia","Ferrari F12 Berlinetta","Ferrari 812 Superfast"].map(n=>{
+        const c=d.cars[n]; if(!c||!c.hist||!c.hist.length)return null;
+        const h=c.hist, cur=h[h.length-1], g=Math.round((cur/h[0]-1)*100);
+        return {v:"$"+Math.round(cur)+"k",
+                l:n.replace(/^(Porsche|Ferrari)\s+/,"")+(/997/.test(n)?" · my car":"")+" · "+(g>=0?"+":"")+g+"% 6-yr"};
+      }).filter(Boolean);
+      return {stats, cols:2, updated:d.updated};
     }
   },
   "sc-dentist-tracker":{
     icon:"🦷", color:"#3ad29f", refresh:"update.yml", data:"data.json",
     blurb:"San Carlos dentist review & ranking tracker — auto-scrapes Google review counts daily and discovers new practices on its own.",
     preview:d=>{
-      const snaps=d.snapshots, snap=snaps[snaps.length-1];
+      const snaps=d.snapshots, snap=snaps[snaps.length-1], first=snaps[0];
       const list=snap.dentists.slice().sort((a,b)=>b.reviews-a.reviews);
       const ours=list.find(x=>/loomis|mcfarlane/i.test(x.name))||list[list.length-1];
-      const rank=list.indexOf(ours)+1, ahead=list[rank-2];
+      const rank=list.indexOf(ours)+1, ahead=list[rank-2], leader=list[0];
       const sp=snaps.map(s=>{const o=s.dentists.find(x=>/loomis|mcfarlane/i.test(x.name));return o?o.reviews:null;}).filter(v=>v!=null);
-      const stats=[
+      const ourF=first.dentists.find(x=>/loomis|mcfarlane/i.test(x.name));
+      const bullets=[];
+      if(ourF&&ours.reviews>ourF.reviews){
+        const since=first.date?new Date(first.date+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"}):"start";
+        bullets.push(`+${ours.reviews-ourF.reviews} reviews since ${since}`);
+      }
+      if(ahead)bullets.push(`Next up: ${shorten(ahead.name)} — ${ahead.reviews-ours.reviews} reviews ahead`);
+      if(leader&&leader!==ours&&leader!==ahead)bullets.push(`Leader: ${leader.name.split(",")[0].split(" ").slice(0,3).join(" ")} · ${leader.reviews} reviews`);
+      return {stats:[
         {v:ours.reviews+" rev · "+ours.rating+"★", l:"our practice"},
-        {v:"#"+rank+" of "+list.length, l:ahead?("behind "+shorten(ahead.name)+" by "+(ahead.reviews-ours.reviews)):"ranking"}
-      ];
-      return {stats, spark:sp};
+        {v:"#"+rank+" of "+list.length, l:"San Carlos ranking"}
+      ], bullets, spark:sp, updated:snap.date?snap.date+"T12:00":null};  // daily scrape — anchor to local noon so date-only isn't read as UTC midnight
     }
   },
   "stanford-giving-tracker":{
@@ -186,11 +204,12 @@ const META={
     preview:d=>{
       const lb=d.leaderboard||[];
       const jen=lb.find(x=>/jen|varela/i.test(x.name))||{};
-      const stats=[
+      const rival=lb.slice().sort((a,b)=>(b.gifts||0)-(a.gifts||0)).find(x=>x!==jen);
+      const bullets=rival?[`${shorten(rival.name)}: ${rival.gifts} gifts vs Jen's ${jen.gifts||0} — Jen out-raised $${Math.round(jen.raised||0).toLocaleString()} to $${Math.round(rival.raised||0).toLocaleString()}`]:[];
+      return {stats:[
         {v:"#1 (tied)", l:"final result · Day of Giving"},
         {v:"$"+Math.round(jen.raised||0).toLocaleString(), l:"Team Jen raised · "+(jen.gifts||0)+" gifts"}
-      ];
-      return {stats, spark:(d.history||[]).map(h=>h.target_gifts).filter(v=>v!=null), color:"#8C1515"};
+      ], bullets, spark:(d.history||[]).map(h=>h.target_gifts).filter(v=>v!=null), color:"#8C1515"};
     }
   },
   "ctcl-papers":{
@@ -204,10 +223,12 @@ const META={
       // (where every paper shares one first_seen), and only within the last ~2 weeks.
       const recent=newest&&(Date.now()-new Date(newest))/864e5<=14;
       const showNew=recent&&fresh<ps.length;
+      const bullets=((d.overview&&d.overview.bullets)||[]).slice(0,2).map(b=>trunc(b,125));
+      if(p.title)bullets.push(trunc("Newest: "+p.title.replace(/\.$/,"")+" ("+shorten(p.journal||"")+")",110));
       return {stats:[
-        {v:(d.stats&&d.stats.total)||ps.length, l:"papers tracked"},
-        {v:(p.date?p.date.slice(0,7):"—"), l:"latest · "+shorten(p.journal||"journal")+(showNew?(" · "+fresh+" new"):"")}
-      ], spark:[]};
+        {v:(d.stats&&d.stats.total)||ps.length, l:"papers tracked"+(showNew?(" · "+fresh+" new"):"")},
+        {v:(p.date?p.date.slice(0,7):"—"), l:"latest paper"}
+      ], bullets, cols:2, updated:d.updated};
     }
   },
   "lotto-tracker":{
@@ -216,10 +237,15 @@ const META={
     preview:d=>{
       const pb=d.powerball, sl=d.superlotto;
       const f=t=>t.whites.join(" ")+" + "+t.special;
+      const md=s=>new Date(s+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"});
+      const bullets=[];
+      const hot=pb.stats&&pb.stats.white_hot;
+      if(hot&&hot.length)bullets.push("PB hot: "+hot.slice(0,5).map(h=>h[0]).join(" ")+" · cold: "+(pb.stats.white_cold||[]).slice(0,3).map(h=>h[0]).join(" "));
+      if(pb.picks&&pb.picks[0])bullets.push("Next PB pick: "+f(pb.picks[0])+" (split-resistant)");
       return {stats:[
-        {v:f(pb.latest), l:"Powerball · "+pb.latest.date+" · drawn order archived"},
-        {v:f(sl.latest), l:"SuperLotto · "+sl.latest.date}
-      ], spark:[]};
+        {v:f(pb.latest), l:"Powerball · "+md(pb.latest.date)},
+        {v:f(sl.latest), l:"SuperLotto · "+md(sl.latest.date)}
+      ], bullets, updated:d.updated};
     }
   },
   "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
@@ -268,20 +294,16 @@ function render(sel,list,live){
     const m=META[r.name]||{};
     const color=m.color||"#8aa0b2";
     const url=live?`https://${USER}.github.io/${r.name}/`:r.html_url;
-    const blurb=esc(m.blurb||r.description||"—");
-    const lang=r.language?`<span class="badge"><span class="lang" style="background:${LANG[r.language]||'#888'}"></span>${r.language}</span>`:"";
-    const liveBadge=live?`<span class="badge live"><span class="d"></span>live</span>`:`<span class="badge">repo</span>`;
+    const blurb=esc(m.blurb||r.description||"");
     const upd=new Date(r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
     const rfr=m.refresh?`<button class="rfr" title="Trigger refresh routine" onclick="onRefresh(event,'${r.name}','${m.refresh}')">↻</button>`:"";
     el.insertAdjacentHTML("beforeend",
-      `<a class="card" href="${url}" draggable="true" data-name="${r.name}" title="Drag to reorder" style="--ac:${color}">
+      `<a class="card" href="${url}" draggable="true" data-name="${r.name}" title="${blurb}" style="--ac:${color}">
          <span class="accent" style="background:${color}"></span>
          <div class="corner">${rfr}<span class="arrow">↗</span></div>
-         <div class="ic" style="background:${color}22">${m.icon||"📦"}</div>
-         <h3>${esc(r.name)}</h3>
-         <p>${blurb}</p>
-         ${m.preview?`<div class="preview" id="pv-${r.name}"><span class="empty" style="font-size:12px">loading preview…</span></div>`:""}
-         <div class="meta">${liveBadge}${lang}<span class="badge">updated ${upd}</span></div>
+         <div class="head"><div class="ic" style="background:${color}22">${m.icon||"📦"}</div><h3>${esc(r.name)}</h3></div>
+         ${m.preview?`<div class="preview" id="pv-${r.name}"><span class="empty" style="font-size:12px">loading preview…</span></div>`:`<p>${blurb||"—"}</p>`}
+         <div class="meta"><span class="badge" id="up-${r.name}">updated ${upd}</span></div>
        </a>`);
     if(m.preview && (m.data||m.dataUrl)) loadPreview(r.name, m);
   });
@@ -359,10 +381,16 @@ function loadPreview(name,m,attempt=0){
   const src=m.dataUrl||`https://${USER}.github.io/${name}/${m.data}`;
   fetch(src,{cache:"default"})
     .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(d=>{
-      const res=m.preview(d), {stats,spark}=res;
+      const res=m.preview(d), stats=res.stats||[], bullets=res.bullets||[];
       const box=document.querySelector(`#pv-${name}`); if(!box)return;
-      box.innerHTML=`<div class="pstats">${stats.map(s=>`<div class="pstat"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")}</div>
-        <div class="spark">${sparkline(spark,res.color||m.color||'#6ea8fe')}</div>`;
+      const sp=sparkline(res.spark||[],res.color||m.color||'#6ea8fe');
+      box.innerHTML=`<div class="pv-top"><div class="pstats${res.cols===2?' cols2':''}">${
+          stats.map(s=>`<div class="pstat${s.wide?' wide':''}"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")
+        }</div>${sp?`<div class="spark">${sp}</div>`:""}</div>
+        ${bullets.length?`<ul class="bullets">${bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>`:""}`;
+      // swap the repo-push date for the data file's own freshness once we know it
+      const r8=res.updated&&rel(res.updated), badge=document.getElementById(`up-${name}`);
+      if(r8&&badge)badge.textContent="data "+r8;
     }).catch(()=>{
       if(attempt<2){setTimeout(()=>loadPreview(name,m,attempt+1),500*(attempt+1));return;}
       const b=document.querySelector(`#pv-${name}`);
