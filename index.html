@@ -67,9 +67,56 @@
     border:1px solid var(--line);color:var(--ink);padding:11px 16px;border-radius:12px;font-size:13.5px;
     box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;max-width:90vw}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  /* ---- password gate (courtesy screen — this is a static public site, so it deters
+     casual visitors only; the underlying repos and sub-pages remain reachable) ---- */
+  #gate{position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(1100px 520px at 75% -12%,#1c3c5e 0%,transparent 60%),
+               radial-gradient(800px 500px at -10% 30%,#14283f 0%,transparent 55%),var(--bg)}
+  #gate .box{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:34px 34px 28px;width:min(340px,88vw);text-align:center;box-shadow:0 18px 60px rgba(0,0,0,.5)}
+  #gate .lock{font-size:34px;margin-bottom:8px}
+  #gate h1{font-size:19px;margin:0 0 4px;letter-spacing:-.3px}
+  #gate p{color:var(--muted);font-size:13px;margin:0 0 18px}
+  #gate input{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--line);
+    background:var(--surface2);color:var(--ink);font-size:15px;outline:none;text-align:center}
+  #gate input:focus{border-color:var(--accent)}
+  #gate button{margin-top:12px;width:100%;padding:11px;border-radius:10px;border:none;cursor:pointer;
+    background:var(--accent);color:#06231f;font-size:15px;font-weight:650}
+  #gate .err{color:#f87171;font-size:12.5px;min-height:17px;margin-top:10px}
+  #gate.deny .box{animation:shake .35s}
+  @keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
 </style>
 </head>
 <body>
+<div id="gate">
+  <form class="box" id="gateForm">
+    <div class="lock">🔒</div>
+    <h1>hlash99 dashboard</h1>
+    <p>Enter the password to continue</p>
+    <input id="gatePw" type="password" autocomplete="current-password" placeholder="password" autofocus>
+    <button type="submit">Unlock</button>
+    <div class="err" id="gateErr"></div>
+  </form>
+</div>
+<script>
+/* Courtesy gate: SHA-256 of the password is compared client-side and remembered per
+   device (localStorage). Not real security — the site and its data files are public. */
+(()=>{
+const HASH="315e930e5a0f3eea986133d26c1144cf502e572704d977cb53e5804e3974a6ce", KEY="hub_gate";
+const gate=document.getElementById("gate");
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)))]
+  .map(b=>b.toString(16).padStart(2,"0")).join("");
+if(localStorage.getItem(KEY)===HASH){gate.remove();return;}
+document.getElementById("gateForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const pw=document.getElementById("gatePw").value;
+  if(await sha(pw)===HASH){localStorage.setItem(KEY,HASH);gate.remove();}
+  else{gate.classList.remove("deny");void gate.offsetWidth;gate.classList.add("deny");
+       document.getElementById("gateErr").textContent="wrong password";
+       document.getElementById("gatePw").select();}
+});
+})();
+</script>
 <div class="wrap">
   <div class="hero">
     <h1>hlash99</h1>
