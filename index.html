@@ -307,6 +307,11 @@ const META={
     }
   },
   "ctcl-gene-explorer":{icon:"🧬", blurb:"Single-cell RNA-seq dashboard distinguishing CTCL from benign dermatoses."},
+  "collatz-lab":{
+    icon:"🌀", color:"#7f77dd", data:"data.json",
+    blurb:"Interactive 3n+1 sandbox — orbit explorer at any size (BigInt), an exact carry theorem, programmable division patterns, and the 5n+1 razor that kills naive proof strategies.",
+    preview:d=>({stats:d.stats, bullets:(d.bullets||[]).map(b=>trunc(b,125)), cols:d.cols, updated:d.updated})
+  },
 };
 
 /* Static manifest of my repos. The unauthenticated GitHub API is capped at 60 req/hr
@@ -315,6 +320,7 @@ const META={
    cards — every live site, CTCL paper tracker included — are always shown. */
 const MANIFEST=[
   {name:"worldcup-tracker",       pages:true,  language:"HTML"},
+  {name:"collatz-lab",            pages:true,  language:"HTML"},
   {name:"substack-brief",         pages:true,  language:"Python"},
   {name:"car-value-tracker",      pages:true,  language:"HTML"},
   {name:"asset-tracker",          pages:true,  language:"HTML"},
