@@ -283,6 +283,7 @@ const META={
   },
   "lotto-tracker":{
     icon:"🎱", color:"#E24B4A", refresh:"update.yml", data:"data.json",
+    link:"https://hlash99.github.io/lotto-tracker/#w=30&d=0.95&order=cluster%2Cpb%2Cslp%2Corder&coll=",
     blurb:"Powerball & SuperLotto Plus — official results with true drawn order, order-dependence stats and split-resistant picks, refreshed twice daily.",
     preview:d=>{
       const pb=d.powerball, sl=d.superlotto;
@@ -357,7 +358,7 @@ function render(sel,list,live){
   list.forEach(r=>{
     const m=META[r.name]||{};
     const color=m.color||"#8aa0b2";
-    const url=live?`https://${USER}.github.io/${r.name}/`:r.html_url;
+    const url=live?(m.link||`https://${USER}.github.io/${r.name}/`):r.html_url;
     const blurb=esc(m.blurb||r.description||"");
     const upd=new Date(r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
     const rfr=m.refresh?`<button class="rfr" title="Trigger refresh routine" onclick="onRefresh(event,'${r.name}','${m.refresh}')">↻</button>`:"";
