@@ -157,6 +157,7 @@ const rel=iso=>{const t=new Date(iso);if(isNaN(t))return null;const s=(Date.now(
 const META={
   "worldcup-tracker":{
     icon:"🏆", color:"#3ad29f", data:"data.json",
+    demote:true,   // 2026 World Cup is over — sinks the card to the last spot; remove for the next Cup
     blurb:"Live World Cup tracker — title favorite, today's matches with win odds, knockout bracket. Auto-targets whichever World Cup is live or next.",
     preview:d=>{
       let pct=d.baseline_pct, live=false, allFinal=(d.iran_status&&d.iran_status!=="live");
@@ -355,6 +356,8 @@ fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`)
 function render(sel,list,live){
   const el=document.querySelector(sel);el.innerHTML="";
   list.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+  // META.demote cards (finished events) sink to the end, keeping date order within each group
+  list.sort((a,b)=>((META[a.name]||{}).demote?1:0)-((META[b.name]||{}).demote?1:0));
   list.forEach(r=>{
     const m=META[r.name]||{};
     const color=m.color||"#8aa0b2";
