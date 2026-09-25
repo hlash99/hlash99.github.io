@@ -229,23 +229,35 @@ const META={
     icon:"🦷", color:"#3ad29f", refresh:"update.yml", data:"data.json",
     blurb:"San Carlos dentist review & ranking tracker — auto-scrapes Google review counts daily and discovers new practices on its own.",
     preview:d=>{
+      // our practice = data.json's ourPractice (first word, e.g. "Edgewood"), so a Google rename only needs updating there
+      const key=(d.ourPractice||"Edgewood Dental").split(/\s+/)[0].toLowerCase();
+      const isUs=x=>x.name.toLowerCase().includes(key);
       const snaps=d.snapshots, snap=snaps[snaps.length-1], first=snaps[0];
       const list=snap.dentists.slice().sort((a,b)=>b.reviews-a.reviews);
-      const ours=list.find(x=>/loomis|mcfarlane/i.test(x.name))||list[list.length-1];
-      const rank=list.indexOf(ours)+1, ahead=list[rank-2], leader=list[0];
-      const sp=snaps.map(s=>{const o=s.dentists.find(x=>/loomis|mcfarlane/i.test(x.name));return o?o.reviews:null;}).filter(v=>v!=null);
-      const ourF=first.dentists.find(x=>/loomis|mcfarlane/i.test(x.name));
+      const ours=list.find(isUs);
+      if(!ours)return {stats:[{v:"—", l:"our practice not in latest pull"}], updated:snap.date?snap.date+"T12:00":null};
+      const rank=list.indexOf(ours)+1, ahead=list[rank-2], behind=list[rank];
+      // 30-day pace: compare against the snapshot closest to 30 days before the latest
+      const cutoff=new Date(new Date(snap.date+"T12:00")-30*864e5).toISOString().slice(0,10);
+      const base=snaps.slice().reverse().find(s=>s.date<=cutoff)||first;
+      const days=Math.max(1,(new Date(snap.date)-new Date(base.date))/864e5);
+      const gain=x=>{const o=x&&base.dentists.find(y=>y.name===x.name);return o?x.reviews-o.reviews:0;};
+      const nm=n=>n.replace(/,.*$/,"").replace(/\s+[–-]\s.*$/,"").replace(/^Dr\.?\s+|\s+(DDS|DMD)\b.*$/gi,"").split(" ").slice(0,3).join(" ");
+      const g=gain(ours), md=s=>new Date(s+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"});
       const bullets=[];
-      if(ourF&&ours.reviews>ourF.reviews){
-        const since=first.date?new Date(first.date+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"}):"start";
-        bullets.push(`+${ours.reviews-ourF.reviews} reviews since ${since}`);
+      if(ahead){
+        const gap=ahead.reviews-ours.reviews, close=(g-gain(ahead))/days;   // reviews/day we're closing
+        const eta=close>0?Math.ceil(gap/close/7):null;
+        bullets.push(`${gap} behind #${rank-1} ${nm(ahead.name)} — `+(eta?`~${eta<=52?eta+" wk":Math.round(eta/52)+" yr"} at 30-day pace`:"gap not closing lately"));
       }
-      if(ahead)bullets.push(`Next up: ${shorten(ahead.name)} — ${ahead.reviews-ours.reviews} reviews ahead`);
-      if(leader&&leader!==ours&&leader!==ahead)bullets.push(`Leader: ${leader.name.split(",")[0].split(" ").slice(0,3).join(" ")} · ${leader.reviews} reviews`);
+      if(behind)bullets.push(`${ours.reviews-behind.reviews} ahead of #${rank+1} ${nm(behind.name)} (+${gain(behind)} in 30d)`);
+      const ourF=first.dentists.find(isUs);
+      if(ourF&&ours.reviews>ourF.reviews)bullets.push(`+${ours.reviews-ourF.reviews} since ${md(first.date)} (${ourF.reviews} → ${ours.reviews})`);
       return {stats:[
-        {v:ours.reviews+" rev · "+ours.rating+"★", l:"our practice"},
-        {v:"#"+rank+" of "+list.length, l:"San Carlos ranking"}
-      ], bullets, spark:sp, updated:snap.date?snap.date+"T12:00":null};  // daily scrape — anchor to local noon so date-only isn't read as UTC midnight
+        {v:"#"+rank+" of "+list.length, l:shorten(ours.name)+" · San Carlos rank"},
+        {v:ours.reviews+" · "+Number(ours.rating).toFixed(1)+"★", l:"Google reviews · +"+g+" in 30d"}
+      ], bullets, cols:2, spark:snaps.map(s=>{const o=s.dentists.find(isUs);return o?o.reviews:null;}).filter(v=>v!=null),
+        updated:snap.date?snap.date+"T12:00":null};  // daily scrape — anchor to local noon so date-only isn't read as UTC midnight
     }
   },
   "stanford-giving-tracker":{
