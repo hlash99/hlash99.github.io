@@ -225,6 +225,20 @@ const META={
       return {stats, cols:2, updated:d.updated};
     }
   },
+  "gas-tracker":{
+    icon:"⛽", color:"#2a78d6", refresh:"refresh.yml", data:"data.json",
+    blurb:"Did the Volvo V60 cut gas use vs the Mini? Monarch fill-ups converted to gallons with EIA's weekly SF premium price, so the 2026 price spike doesn't distort it.",
+    preview:d=>{
+      const s=d.summary, pc=v=>(v>0?"+":"")+Math.round(v*100)+"%", r=v=>"$"+Math.round(v);
+      return {stats:[
+        {v:pc(s.change_vs_mini12), l:"Volvo vs Mini · gallons per 30 days"},
+        {v:r(s.saving30_today)+"/mo", l:"gas saved at today's $"+s.today_premium.toFixed(2)+" premium"}
+      ], bullets:[
+        `Volvo ${s.volvo_gal30.toFixed(1)} gal vs Mini ${s.mini12_gal30.toFixed(1)} gal per 30 days (${s.volvo_fills} Volvo fills so far)`,
+        `${pc(s.change_vs_season)} vs the Mini in the same season last year · home charging not included`
+      ], cols:2, updated:d.updated};
+    }
+  },
   "sc-dentist-tracker":{
     icon:"🦷", color:"#3ad29f", refresh:"update.yml", data:"data.json",
     blurb:"San Carlos dentist review & ranking tracker — auto-scrapes Google review counts daily and discovers new practices on its own.",
@@ -337,6 +351,7 @@ const MANIFEST=[
   {name:"collatz-lab",            pages:true,  language:"HTML"},
   {name:"substack-brief",         pages:true,  language:"Python"},
   {name:"car-value-tracker",      pages:true,  language:"HTML"},
+  {name:"gas-tracker",            pages:true,  language:"HTML"},
   {name:"asset-tracker",          pages:true,  language:"HTML"},
   {name:"sc-dentist-tracker",     pages:true,  language:"JavaScript"},
   {name:"ctcl-papers",            pages:true,  language:"HTML"},
