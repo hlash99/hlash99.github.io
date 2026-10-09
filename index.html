@@ -225,6 +225,30 @@ const META={
       return {stats, cols:2, updated:d.updated};
     }
   },
+  "property-tracker":{
+    icon:"🏠", color:"#2a78d6", refresh:"refresh.yml", data:"data.json",
+    blurb:"My three properties valued from real sold comps (local price model, not Zestimate/Redfin) — Menlo Park, SF and Lisbon, since each purchase, inflation-adjusted. Refreshed twice a week.",
+    preview:d=>{
+      const P=d.properties||[], R=d.ref||{};
+      const last=m=>m[Object.keys(m).sort().slice(-1)[0]];
+      const at=(m,k)=>{let v=null;Object.keys(m).sort().forEach(x=>{if(x<=k)v=m[x];});return v;};
+      const usd=(p,v,k)=>p.ccy==="EUR"?v*at(R.eurusd||{},k):v;
+      let tot=0; const stats=[];
+      P.forEach(p=>{
+        const S=p.series, n=S.m.length-1, v=S.v[n], m0=S.m[0], mN=S.m[n];
+        tot+=usd(p,v,mN);
+        const cpi=p.ccy==="EUR"?(R.hicp_pt||{}):(R.cpi_us||{});
+        const real=(v/S.v[0])/(last(cpi)/at(cpi,m0));
+        const yrs=(Date.parse(mN+"-15")-Date.parse(m0+"-15"))/(365.25*864e5);
+        const cagr=(Math.pow(real,1/yrs)-1)*100;
+        const sym=p.ccy==="EUR"?"€":"$";
+        stats.push({v:v>=1e6?sym+(v/1e6).toFixed(2)+"M":sym+Math.round(v/1e3)+"k",
+                    l:p.name.replace(/ (home|condo|flat)$/,"")+" · "+(cagr>=0?"+":"")+cagr.toFixed(1)+"%/yr real"});
+      });
+      stats.unshift({v:"$"+(tot/1e6).toFixed(2)+"M", l:P.length+" properties · comp-based value", wide:true});
+      return {stats, cols:2, updated:d.updated};
+    }
+  },
   "gas-tracker":{
     icon:"⛽", color:"#2a78d6", refresh:"refresh.yml", data:"data.json",
     blurb:"Did the Volvo V60 cut gas use vs the Mini? Monarch fill-ups converted to gallons with EIA's weekly SF premium price, so the 2026 price spike doesn't distort it.",
@@ -351,6 +375,7 @@ const MANIFEST=[
   {name:"collatz-lab",            pages:true,  language:"HTML"},
   {name:"substack-brief",         pages:true,  language:"Python"},
   {name:"car-value-tracker",      pages:true,  language:"HTML"},
+  {name:"property-tracker",       pages:true,  language:"HTML"},
   {name:"gas-tracker",            pages:true,  language:"HTML"},
   {name:"asset-tracker",          pages:true,  language:"HTML"},
   {name:"sc-dentist-tracker",     pages:true,  language:"JavaScript"},
