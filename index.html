@@ -259,6 +259,7 @@ const META={
         {v:r(s.saving30_today)+"/mo", l:"gas saved at today's $"+s.today_premium.toFixed(2)+" premium"}
       ], bullets:[
         `Volvo ${s.volvo_gal30.toFixed(1)} gal vs Mini ${s.mini12_gal30.toFixed(1)} gal per 30 days (${s.volvo_fills} Volvo fills so far)`,
+        ...(s.porsche?[`Porsche ${s.porsche.since_volvo_gal30.toFixed(1)} gal per 30 days since Aug 24 (${r(s.porsche.since_volvo_gal30*s.today_premium)}/mo at today's price)`]:[]),
         `${pc(s.change_vs_season)} vs the Mini in the same season last year · home charging not included`
       ], cols:2, updated:d.updated};
     }
