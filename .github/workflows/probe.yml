@@ -1,0 +1,28 @@
+name: probe
+on: { workflow_dispatch: {} }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'
+          for u in \
+            "https://api.weather.gov/points/37.4636,-122.1983" \
+            "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1d&range=2d&includePrePost=true" \
+            "https://stockanalysis.com/stocks/aapl/" \
+            "https://bringatrailer.com/ferrari/458/" \
+            "https://bringatrailer.com/acura/nsx/" \
+            "https://carsandbids.com/search/ferrari/458" \
+            "https://www.autotempest.com/results?make=ferrari&model=458&zip=94025&radius=any&minmiles=30000&maxprice=300000" \
+            "https://www.autotrader.com/cars-for-sale/ferrari/458-spider?searchRadius=0&zip=94025&maxPrice=300000" \
+            "https://www.classic.com/m/ferrari/458/spider/?status=for_sale" \
+            "https://cavallinodrift.com/" \
+            "https://cavallinodrift.com/vin/?v=ZFF68NHA7D0190366" \
+            "https://www.cars.com/shopping/results/?makes[]=ferrari&models[]=ferrari-458_italia&stock_type=used&maximum_distance=all&zip=94025" \
+            "https://www.dupontregistry.com/autos/results/ferrari/458--spider" \
+            "https://www.carfax.com/vehicle/ZFF68NHA2E0198327" \
+            "https://www.ebay.com/sch/i.html?_nkw=ferrari+458+spider&_sacat=6001" \
+            "https://www.hemmings.com/classifieds/cars-for-sale/ferrari/458" ; do
+            c=$(curl -sL -A "$UA" -H 'Accept-Language: en-US,en' --max-time 25 -o /tmp/o -w '%{http_code}' "$u")
+            printf '%s %8s %s | %s\n' "$c" "$(wc -c </tmp/o)" "$u" "$(grep -o -i '<title>[^<]*' /tmp/o | head -1 | cut -c1-70)"
+          done
