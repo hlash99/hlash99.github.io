@@ -229,6 +229,35 @@ def election():
     return out
 
 
+def papers():
+    """Recent Khodadoust / Stanford Mavi papers as (id, title, link), newest first."""
+    term = "Khodadoust+MS%5BAuthor%5D+OR+(Mavi%5BAuthor%5D+AND+Stanford%5BAffiliation%5D)"
+    base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+    ids = json.loads(get(f"{base}/esearch.fcgi?db=pubmed&term={term}&sort=pub_date&retmax=20&retmode=json&reldate=365&datetype=edat"))
+    ids = ids["esearchresult"]["idlist"]
+    if not ids:
+        return []
+    res = json.loads(get(f"{base}/esummary.fcgi?db=pubmed&id={','.join(ids)}&retmode=json"))["result"]
+    return [(i, html.unescape(res[i].get("title", "")).rstrip("."), f"https://pubmed.ncbi.nlm.nih.gov/{i}/") for i in ids if i in res]
+
+
+def raffle_alert():
+    """Public counts from substack-brief's Yahoo job; the baseline is the ticket confirmation."""
+    f = json.loads(get("https://raw.githubusercontent.com/hlash99/substack-brief/main/mail_flags.json"))
+    if f.get("raffle_messages", 0) > 1 or f.get("latest", "") > "2026-10-21":
+        return f"New raffle message in Yahoo ({f.get('latest', '')})"
+    return None
+
+
+def merge_alerts(prev, found, today):
+    """Keep each alert for three days from when it first appeared."""
+    out = dict(prev.get("alerts") or {})
+    for key, title, href in found:
+        out.setdefault(key, {"title": title[:110], "href": href, "date": today})
+    cutoff = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=3)).strftime("%Y-%m-%d")
+    return {k: v for k, v in out.items() if v["date"] >= cutoff}
+
+
 def attempt(name, fn, fallback, stale):
     try:
         return fn()
@@ -296,10 +325,38 @@ def main():
     if spider_rows:
         cars += [{"group": "Ferrari 458 Spider"}] + spider_rows
 
+    # Things that matter to Hassan go first; headlines only fill what's left.
+    found = []
+    known = prev.get("papers_seen")
+    listed = attempt("papers", papers, None, stale)
+    seen_papers = set(known or [])
+    if listed is not None:
+        fresh = [p for p in listed if p[0] not in seen_papers]
+        if known is not None:
+            found += [(f"paper:{i}", f"New Khodadoust paper: {t}", h) for i, t, h in fresh]
+        seen_papers |= {p[0] for p in listed}
+    note = attempt("raffle", raffle_alert, None, stale)
+    if note:
+        found.append(("raffle", note, "https://mail.yahoo.com/"))
+    was = {r.get("vin") or r.get("href"): r for r in prev.get("cars", []) if not r.get("group")}
+    digits = lambda r: int(re.sub(r"\D", "", str(r.get("price", "")).split(" ")[0]) or 0)
+    for r in nsx_rows + spider_rows:
+        key = r.get("vin") or r["href"]
+        old_row = was.get(key)
+        label = r["car"].replace(" 6-speed", "")
+        if "New" in r["flag"]:
+            found.append((f"car:{key}", f"New listing: {label}, {r['miles']} mi, {r['price']}", r["href"]))
+        elif old_row and digits(r) and digits(r) < digits(old_row):
+            found.append((f"drop:{key}:{digits(r)}", f"Price cut: {label}, {old_row['price']} to {r['price']}", r["href"]))
+    alerts = merge_alerts(prev, found, today)
+    picks = [dict(v, kind="alert") for v in sorted(alerts.values(), key=lambda a: a["date"], reverse=True)]
+    items = (picks + [dict(n, kind="news") for n in (news or [])])[:3]
+
     out = {"updated": now.isoformat(timespec="minutes"), "date": today,
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
-           "phase": phase, "news": news, "election": races, "stale": stale, "first_seen": seen}
-    if len(stale) == 6:
+           "phase": phase, "items": items, "news": news, "alerts": alerts,
+           "papers_seen": sorted(seen_papers), "election": races, "stale": stale, "first_seen": seen}
+    if len(stale) == 8:
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return
     with open(OUT, "w") as f:

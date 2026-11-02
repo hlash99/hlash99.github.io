@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T19:44-08:00",
+ "updated": "2026-11-01T19:48-08:00",
  "date": "2026-11-01",
  "date_line": "Sunday · November 1 2026",
  "weather": {
@@ -82,6 +82,26 @@
   }
  ],
  "phase": "news",
+ "items": [
+  {
+   "title": "Democrats Show Strength in Final Days of Race for the Senate, New Polls Find",
+   "href": "https://www.nytimes.com/2026/11/01/us/politics/times-siena-poll-senate.html",
+   "source": "NYT",
+   "kind": "news"
+  },
+  {
+   "title": "The Final Polls Show a Blue Surge. Can We Trust Them?",
+   "href": "https://www.nytimes.com/2026/11/01/upshot/poll-times-siena-senate-midterms.html",
+   "source": "NYT",
+   "kind": "news"
+  },
+  {
+   "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan",
+   "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
+   "source": "NYT",
+   "kind": "news"
+  }
+ ],
  "news": [
   {
    "title": "Democrats Show Strength in Final Days of Race for the Senate, New Polls Find",
@@ -98,6 +118,14 @@
    "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
    "source": "NYT"
   }
+ ],
+ "alerts": {},
+ "papers_seen": [
+  "41288531",
+  "41572562",
+  "41674600",
+  "42579817",
+  "42640855"
  ],
  "election": null,
  "stale": [],

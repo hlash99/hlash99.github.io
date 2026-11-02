@@ -81,6 +81,8 @@
   .bf-news{margin-bottom:6px;font-size:12.5px}
   .bf-news a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink);line-height:1.45}
   .bf-news a::before{content:"• ";color:var(--muted)}
+  .bf-news a.al{font-weight:600}
+  .bf-news a.al::before{color:#f8b84e}
   .bf-seats{display:flex;flex-wrap:wrap;gap:0 12px;font-size:12.5px;font-weight:600;margin-bottom:2px}
   .bf-seats .d{color:#60a5fa}.bf-seats .r{color:#f87171}
   .bf-cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px 14px;font-size:12.5px}
@@ -613,7 +615,7 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
       [["Senate",e.senate],["House",e.house]].forEach(([n,v])=>{if(!v)return;const c=el("span",null,n+" ");
         c.append(el("span","d","D "+v.d),document.createTextNode(" "),el("span","r","R "+v.r));row.append(c);});
       if(!row.children.length)row.append(el("span",null,"Midterms"));news.append(row);}
-    (b.news||[]).forEach(n=>{const a=el("a",null,n.title);a.href=n.href;a.target="_blank";a.rel="noopener";a.title=(n.source||"")+": "+n.title;news.append(a);});
+    (b.items||b.news||[]).forEach(n=>{const a=el("a",n.kind==="alert"?"al":null,n.title);a.href=n.href;a.target="_blank";a.rel="noopener";a.title=(n.source||"")+": "+n.title;news.append(a);});
     if(news.children.length)box.append(news);
     if(b.needs_attention&&b.needs_attention.length)box.append(el("div","bf-line","Needs: "+b.needs_attention.join(" · ")));
     if(b.coming_up&&b.coming_up.length)box.append(el("div","bf-line",b.coming_up.map(c=>c.label+": "+(c.events||[]).join(", ")).join(" · ")));
