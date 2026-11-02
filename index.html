@@ -630,9 +630,30 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     if(cars.children.length)box.append(cars);
     box.hidden=!box.children.length;
   }
+  /* Private top items: private.enc.json is ciphertext. The key arrives once via a #k= link and
+     stays in this browser, so anyone without it just sees the public lines. */
+  let key=null;
+  try{const m=/[#&]k=([\w-]+)/.exec(location.hash);if(m){localStorage.setItem("brief_key",m[1]);history.replaceState(null,"",location.pathname);}key=localStorage.getItem("brief_key");}catch(e){}
+  const bytes=s=>Uint8Array.from(atob(s.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0));
+  const join=(a,b)=>{const c=new Uint8Array(a.length+b.length);c.set(a);c.set(b,a.length);return c;};
+  async function unseal(box,k){
+    const raw=bytes(k),sub=crypto.subtle,part=async l=>new Uint8Array(await sub.digest("SHA-256",join(raw,new TextEncoder().encode(l))));
+    const iv=bytes(box.iv),ct=bytes(box.ct);
+    const mk=await sub.importKey("raw",await part("mac"),{name:"HMAC",hash:"SHA-256"},false,["verify"]);
+    if(!await sub.verify("HMAC",mk,bytes(box.mac),join(iv,ct)))return null;
+    const ek=await sub.importKey("raw",await part("enc"),"AES-CBC",false,["decrypt"]);
+    return JSON.parse(new TextDecoder().decode(await sub.decrypt({name:"AES-CBC",iv},ek,ct)));
+  }
   const load=f=>fetch(f+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
   /* live.json comes from the hourly GitHub Action and wins; brief.json can add approved extras. */
-  Promise.all([load("brief.json"),load("live.json")]).then(([b,l])=>{if(b||l)draw(Object.assign({},b||{},l||{}));});
+  Promise.all([load("brief.json"),load("live.json"),key?load("private.enc.json"):null]).then(async([b,l,p])=>{
+    if(!b&&!l)return;
+    const d=Object.assign({},b||{},l||{});
+    if(p&&key){try{const o=await unseal(p,key);
+      if(o&&Date.now()-new Date(o.updated).getTime()<36*36e5){
+        const mine=o.items.map(i=>Object.assign({kind:"alert"},i));
+        d.items=mine.concat(d.items||d.news||[]).slice(0,3);}}catch(e){}}
+    draw(d);});
 })();
 </script>
 </body>
