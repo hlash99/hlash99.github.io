@@ -206,7 +206,8 @@ def main():
                 flags.append("New")
             if verdict != "ok":
                 flags.append("History unconfirmed")
-            r = dict(r, title="Title not stated", flag=", ".join(flags))
+            clean = r.get("vin") in history.get("_clean_title", [])
+            r = dict(r, title="Clean (Carfax)" if clean else "Title not stated", flag=", ".join(flags))
             out.append(r)
         return out
 

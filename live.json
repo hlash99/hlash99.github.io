@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T18:45-08:00",
+ "updated": "2026-11-01T18:52-08:00",
  "date": "2026-11-01",
  "date_line": "Sunday · November 1 2026",
  "weather": {
@@ -35,8 +35,8 @@
    "location": "Bellevue, WA",
    "href": "https://www.dupontregistry.com/car/acura/nsx/1997/JH4NA2160VT000148/647060",
    "source": "duPont Registry",
-   "title": "Title not stated",
-   "flag": "History unconfirmed"
+   "title": "Clean (Carfax)",
+   "flag": ""
   },
   {
    "group": "Ferrari 458 Spider"
@@ -51,7 +51,7 @@
    "location": "FL",
    "href": "https://cavallinodrift.com/vin/?v=ZFF68NHA4D0190471",
    "source": "Cavallino Drift",
-   "title": "Title not stated",
+   "title": "Clean (Carfax)",
    "flag": ""
   },
   {

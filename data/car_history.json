@@ -1,6 +1,11 @@
 {
- "_about": "Florida-history verdicts by VIN. excluded = never show; ok = checked, show; anything else shows as History unconfirmed.",
+ "_about": "Florida-history verdicts by VIN. excluded = never show; ok = checked, show; anything else shows as History unconfirmed. _clean_title lists VINs whose Carfax shows no title brands.",
  "ZFF68NHA6E0201567": "excluded",
  "ZFF68NHA2E0198327": "excluded",
- "ZFF68NHA4D0190471": "ok"
+ "ZFF68NHA4D0190471": "ok",
+ "JH4NA2160VT000148": "ok",
+ "_clean_title": [
+  "JH4NA2160VT000148",
+  "ZFF68NHA4D0190471"
+ ]
 }
