@@ -1,0 +1,34 @@
+name: brief-live
+
+# Server-side data for the Morning Brief panel: weather, AAPL and car listings.
+# Hourly, about 6 AM to 10 PM Pacific. No Claude and no Mac involved.
+on:
+  schedule:
+    - cron: '11 14-23,0-6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brief-live
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -I scripts/brief_live.py
+      - name: Commit live.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add live.json
+          git diff --cached --quiet && exit 0
+          git commit -m "live: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin main
+          git push

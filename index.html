@@ -595,8 +595,8 @@ let toastT;
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),4200);}
 </script>
 <script>
-/* Morning brief mirror: a static read of brief.json. It never calls Claude.
-   The hourly brief refresh commits that file; scripts/brief_export.py decides what's in it. */
+/* Morning brief mirror: static reads only, never Claude.
+   scripts/brief_live.py (GitHub Action) writes live.json; scripts/brief_export.py gates brief.json. */
 (function(){
   const box=document.getElementById("brief"), ICON={sun:"☀️",partly:"⛅",cloud:"☁️",rain:"🌧️",storm:"⛈️",fog:"🌫️",wind:"💨",moon:"🌙"};
   const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;};
@@ -630,7 +630,9 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     if(b.updated){box.append(el("div","bf-s","As of "+fmt(b.updated)));}
     box.hidden=false;
   }
-  fetch("brief.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(b=>{if(b)draw(b);}).catch(()=>{});
+  const load=f=>fetch(f+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
+  /* live.json comes from the hourly GitHub Action and wins; brief.json can add approved extras. */
+  Promise.all([load("brief.json"),load("live.json")]).then(([b,l])=>{if(b||l)draw(Object.assign({},b||{},l||{}));});
 })();
 </script>
 </body>
