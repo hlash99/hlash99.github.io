@@ -1,0 +1,62 @@
+{
+ "updated": "2026-11-01T18:31-08:00",
+ "date": "2026-11-01",
+ "date_line": "Sunday · November 1 2026",
+ "weather": {
+  "high": 65,
+  "low": 48,
+  "icon": "sun",
+  "summary": "Sunny"
+ },
+ "stock": {
+  "symbol": "AAPL",
+  "price": "344.63",
+  "change_pct": "-1.23%",
+  "dir": "down",
+  "session": "Close Fri",
+  "after": {
+   "label": "After hours",
+   "price": "345.10",
+   "change_pct": "+0.14%",
+   "dir": "up"
+  }
+ },
+ "cars": [
+  {
+   "group": "Ferrari 458 Spider"
+  },
+  {
+   "car": "2013 458 Spider",
+   "color": "Black / —",
+   "miles": "36k",
+   "price": "$289,426",
+   "title": "Title not stated",
+   "seller": "Tampa Auto Gallery",
+   "location": "Largo, FL",
+   "flag": "",
+   "href": "https://www.autotrader.com/cars-for-sale/vehicle/781961716"
+  },
+  {
+   "car": "2013 458 Spider",
+   "color": "Gray / —",
+   "miles": "44k",
+   "price": "$289,988",
+   "title": "Title not stated",
+   "seller": "Sienna Motors",
+   "location": "Pompano Beach, FL",
+   "flag": "History unconfirmed",
+   "href": "https://www.classic.com/veh/2013-ferrari-458-spider-zff68nha7d0190366-nm2VGjW/"
+  },
+  {
+   "car": "2013 458 Spider",
+   "color": "Bianco Avus / Red",
+   "miles": "38k",
+   "price": "$299,900",
+   "title": "Title not stated",
+   "seller": "Tactical Fleet Dallas",
+   "location": "Addison, TX",
+   "flag": "History unconfirmed",
+   "href": "https://www.autotrader.com/cars-for-sale/vehicle/788901163"
+  }
+ ]
+}
