@@ -78,18 +78,22 @@
   .bf-top .s div{font-size:12px;font-weight:400}
   .bf-top .m{color:var(--muted)}
   .bf-up{color:#4ade80}.bf-down{color:#f87171}
-  .bf-news{margin-bottom:6px;font-size:12.5px}
-  .bf-news a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink);line-height:1.45}
-  .bf-news a::before{content:"• ";color:var(--muted)}
-  .bf-news a.al{font-weight:600}
-  .bf-news a.al::before{color:#f8b84e}
-  .bf-seats{display:flex;flex-wrap:wrap;gap:0 12px;font-size:12.5px;font-weight:600;margin-bottom:2px}
-  .bf-seats .d{color:#60a5fa}.bf-seats .r{color:#f87171}
-  .bf-cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px 14px;font-size:12.5px}
-  .bf-car{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(62,201,196,.4);text-underline-offset:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .bf-car .q{color:#f8b84e}
-  .bf-line{margin-top:4px;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow-x:auto;scrollbar-width:none}
-  @media (min-width:760px){.bf-cars{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  /* graphic tiles, same idea as the full brief: icon + label, one big figure, short headline, source */
+  .bf-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2px)/2.35);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -2px}
+  .bf-tiles::-webkit-scrollbar{display:none}
+  .bf-tile{scroll-snap-align:start;display:flex;flex-direction:column;gap:1px;padding:2px 12px 2px 11px;border-left:1px solid var(--line);color:var(--ink);min-width:0}
+  .bf-tile:first-child{border-left:0;padding-left:2px}
+  .bf-k{font-size:10.5px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bf-k i{font-style:normal;margin-right:4px}
+  .bf-s{font-size:21px;font-weight:700;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+  .bf-s.up{color:#4ade80}.bf-s.down{color:#f87171}.bf-s .d{color:#60a5fa}.bf-s .r{color:#f87171}
+  .bf-t{font-size:12.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bf-t.big{font-size:14px;font-weight:600;-webkit-line-clamp:3}
+  .bf-src{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bf-tile.me .bf-k{color:#f8b84e}
+  .bf-tile.me .bf-s{color:#f8b84e}
+  .bf-tile.car .bf-s{color:var(--accent)}
+  @media (min-width:760px){.bf-tiles{grid-auto-columns:minmax(150px,1fr)}}
   /* ---- password gate (courtesy screen — this is a static public site, so it deters
      casual visitors only; the underlying repos and sub-pages remain reachable) ---- */
   #gate{position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;
@@ -607,27 +611,25 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     const d=el("a","d",day(b));d.href="https://claude.ai/artifact/DaWdgjRXX7PAErtUHHzKvR";d.target="_blank";d.rel="noopener";
     if(b.updated)d.title="Open full brief · updated "+fmt(b.updated);top.append(d);
     const q=el("a","s");if(s){q.href="https://stockanalysis.com/stocks/aapl/";q.target="_blank";q.rel="noopener";
-      q.append(document.createTextNode("AAPL "+s.price));const l=el("div");l.append(el("span",cls(s.dir),s.change_pct||""));
+      q.append(document.createTextNode("AAPL "+s.price));const l=el("div");l.append(el("span",cls(s.dir),(s.dir==="up"?"▲ ":s.dir==="down"?"▼ ":"")+String(s.change_pct||"").replace(/^[+-]/,"")));
       if(s.after)l.append(document.createTextNode(" "),el("span",cls(s.after.dir),(s.after.label==="Pre-market"?"Pre ":"AH ")+s.after.price));q.append(l);}
     top.append(q);top.hidden=false;
-    const news=el("div","bf-news"),e=b.election||{};
-    if(b.phase==="midterms"){const row=el("div","bf-seats");
-      [["Senate",e.senate],["House",e.house]].forEach(([n,v])=>{if(!v)return;const c=el("span",null,n+" ");
-        c.append(el("span","d","D "+v.d),document.createTextNode(" "),el("span","r","R "+v.r));row.append(c);});
-      if(!row.children.length)row.append(el("span",null,"Midterms"));news.append(row);}
-    (b.items||b.news||[]).forEach(n=>{const a=el("a",n.kind==="alert"?"al":null,n.title);a.href=n.href;a.target="_blank";a.rel="noopener";a.title=(n.source||"")+": "+n.title;news.append(a);});
-    if(news.children.length)box.append(news);
-    if(b.needs_attention&&b.needs_attention.length)box.append(el("div","bf-line","Needs: "+b.needs_attention.join(" · ")));
-    if(b.coming_up&&b.coming_up.length)box.append(el("div","bf-line",b.coming_up.map(c=>c.label+": "+(c.events||[]).join(", ")).join(" · ")));
-    const cars=el("div","bf-cars");
+    const KIND_ICON={politics:"🏛️",markets:"📈",economy:"💵",weather:"🌦️",health:"🩺",tech:"💻",sports:"🏅",local:"📍",world:"🌐",science:"🔬",you:"✉️",car:"🏎️"};
+    const tiles=el("div","bf-tiles");
+    const add=(o,cls)=>{const t=el(o.href?"a":"div","bf-tile"+(cls?" "+cls:""));if(o.href){t.href=o.href;t.target="_blank";t.rel="noopener";}
+      const k=el("div","bf-k");k.append(el("i",null,KIND_ICON[o.kind]||"•"),document.createTextNode(o.label||o.kind||""));t.append(k);
+      if(o.stat){const st=el("div","bf-s"+(o.dir?" "+o.dir:""));
+        const m=/^D (\d+) · R (\d+)$/.exec(o.stat);if(m)st.append(el("span","d","D "+m[1]),document.createTextNode(" "),el("span","r","R "+m[2]));else st.textContent=o.stat;t.append(st);}
+      t.append(el("div","bf-t"+(o.stat?"":" big"),o.title||""));if(o.source)t.append(el("div","bf-src",o.source));
+      t.title=o.title||"";tiles.append(t);};
+    (b.items||[]).forEach(o=>add(o,(o.kind==="you"||o.alert)?"me":""));
     (b.cars||[]).filter(c=>!c.group).forEach(c=>{
       const n=parseInt(String(c.price||"").replace(/[^\d]/g,""),10),st=String(c.location||"").trim().slice(-2);
-      const r=el(c.href?"a":"span","bf-car",[short(c.car),c.miles,st,n?"$"+Math.round(n/1000)+"k":""].filter(Boolean).join(" "));
-      if(c.href){r.href=c.href;r.target="_blank";r.rel="noopener";}
-      r.title=[c.car,c.color,c.miles?c.miles+" mi":"",c.location,c.price,c.seller,c.flag].filter(Boolean).join(" · ");
-      if(/unconfirmed/i.test(c.flag||""))r.append(el("span","q","?"));
-      cars.append(r);});
-    if(cars.children.length)box.append(cars);
+      const model=/NSX/.test(c.car)?"NSX-T":"458 Spider";
+      add({kind:"car",label:model+(st?" · "+st:"")+(/unconfirmed/i.test(c.flag||"")?" ?":""),stat:n?"$"+Math.round(n/1000)+"k":"",
+        title:[String(c.car).slice(0,4),c.miles?c.miles+" mi":"",c.color&&c.color!=="— / —"?c.color:""].filter(Boolean).join(" · "),
+        source:c.seller||"",href:c.href},"car");});
+    if(tiles.children.length)box.append(tiles);
     box.hidden=!box.children.length;
   }
   /* Private top items: private.enc.json is ciphertext. The key arrives once via a #k= link and
@@ -651,8 +653,8 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     const d=Object.assign({},b||{},l||{});
     if(p&&key){try{const o=await unseal(p,key);
       if(o&&Date.now()-new Date(o.updated).getTime()<36*36e5){
-        const mine=o.items.map(i=>Object.assign({kind:"alert"},i));
-        d.items=mine.concat(d.items||d.news||[]).slice(0,3);}}catch(e){}}
+        const mine=o.items.map(i=>Object.assign({kind:"you",label:"For you",alert:true},i));
+        d.items=mine.concat(d.items||[]).slice(0,6);}}catch(e){}}
     draw(d);});
 })();
 </script>

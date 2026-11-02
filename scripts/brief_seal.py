@@ -3,7 +3,8 @@
 
 Usage: BRIEF_KEY=<key> python3 -I scripts/brief_seal.py <items.json> private.enc.json
 
-items.json is {"items": [{"title": "...", "href": "https://..."}]}. The key lives outside
+items.json is {"items": [{"title": "...", "href": "https://...", "label": "Reply", "stat": "Due Mon"}]};
+label and stat are optional and drive the tile's small label and big figure. The key lives outside
 this repo; only devices that opened the key link can read the output. AES-256-CBC with
 HMAC-SHA256 over iv + ciphertext. Needs the openssl command, nothing else.
 """
@@ -25,7 +26,7 @@ def main(src, dst):
     enc, mac = hashlib.sha256(raw + b"enc").digest(), hashlib.sha256(raw + b"mac").digest()
     data = json.load(open(src))
     body = {"updated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
-            "items": [{"title": str(i.get("title", ""))[:110], "href": str(i.get("href", ""))[:300]}
+            "items": [{k: str(i[k])[:lim] for k, lim in (("title", 110), ("href", 300), ("label", 18), ("stat", 14)) if i.get(k)}
                       for i in data.get("items", [])][:3]}
     iv = os.urandom(16)
     ct = subprocess.run(["openssl", "enc", "-aes-256-cbc", "-K", enc.hex(), "-iv", iv.hex()],

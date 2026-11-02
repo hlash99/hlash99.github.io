@@ -169,7 +169,7 @@ def bat_live():
     return spiders, nsx
 
 
-def headlines(only=None, limit=3):
+def headlines(only=None, limit=4):
     """Top stories in the feed's own order, deduped across feeds."""
     out, seen, errors = [], set(), 0
     for name, url in FEEDS:
@@ -249,11 +249,38 @@ def raffle_alert():
     return None
 
 
+KINDS = (("politics", r"election|midterm|senate|house|congress|governor|vote|ballot|trump|democrat|republican|poll|politic|campaign"),
+         ("markets", r"stock|shares|s&p|dow|nasdaq|market|earnings|investor|bond|fed\b|rates?\b"),
+         ("economy", r"jobs|inflation|economy|tariff|trade|prices|wages|gdp|budget|tax"),
+         ("weather", r"storm|hurricane|flood|wildfire|heat wave|snow|earthquake|tornado"),
+         ("health", r"health|vaccine|virus|hospital|cancer|disease|drug|measles|flu|stroke"),
+         ("tech", r"\bai\b|apple|google|tech|software|chip|openai|meta|amazon|microsoft"),
+         ("sports", r"game|season|nfl|nba|mlb|world series|cup|marathon|coach|playoff"),
+         ("local", r"california|bay area|san francisco|oakland|san jose|palo alto|menlo park"))
+NUMBER = re.compile(r"(\$?\d[\d,.]*\s?(?:%|percent|billion|million|trillion|bn|m\b|k\b)?)(\s+(?:dead|killed|injured|jobs|years|days|seats|points|people|homes))?", re.I)
+
+
+def tile(title, href, source, kind=None, label=None, stat=None, direction=None):
+    """One graphic tile: icon kind, small label, one big figure, short headline, source."""
+    if not kind:
+        kind = next((k for k, rx in KINDS if re.search(rf"\b(?:{rx})", title, re.I)), "world")
+    if stat is None:
+        m = NUMBER.search(title)
+        if m and not re.fullmatch(r"(19|20)\d\d", m.group(1).strip()):
+            stat = (m.group(1) + (m.group(2) or "")).strip()
+    t = {"kind": kind, "label": (label or kind).upper()[:18], "title": title[:110], "href": href, "source": source}
+    if stat:
+        t["stat"] = stat[:14]
+    if direction:
+        t["dir"] = direction
+    return t
+
+
 def merge_alerts(prev, found, today):
     """Keep each alert for three days from when it first appeared."""
     out = dict(prev.get("alerts") or {})
-    for key, title, href in found:
-        out.setdefault(key, {"title": title[:110], "href": href, "date": today})
+    for key, title, href, extra in found:
+        out.setdefault(key, dict(extra, title=title[:110], href=href, date=today))
     cutoff = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=3)).strftime("%Y-%m-%d")
     return {k: v for k, v in out.items() if v["date"] >= cutoff}
 
@@ -333,11 +360,12 @@ def main():
     if listed is not None:
         fresh = [p for p in listed if p[0] not in seen_papers]
         if known is not None:
-            found += [(f"paper:{i}", f"New Khodadoust paper: {t}", h) for i, t, h in fresh]
+            found += [(f"paper:{i}", t, h, {"kind": "science", "label": "Khodadoust paper", "stat": "New", "source": "PubMed"})
+                      for i, t, h in fresh]
         seen_papers |= {p[0] for p in listed}
     note = attempt("raffle", raffle_alert, None, stale)
     if note:
-        found.append(("raffle", note, "https://mail.yahoo.com/"))
+        found.append(("raffle", note, "https://mail.yahoo.com/", {"kind": "you", "label": "LADD raffle", "stat": "Mail", "source": "Yahoo"}))
     was = {r.get("vin") or r.get("href"): r for r in prev.get("cars", []) if not r.get("group")}
     digits = lambda r: int(re.sub(r"\D", "", str(r.get("price", "")).split(" ")[0]) or 0)
     for r in nsx_rows + spider_rows:
@@ -345,12 +373,31 @@ def main():
         old_row = was.get(key)
         label = r["car"].replace(" 6-speed", "")
         if "New" in r["flag"]:
-            found.append((f"car:{key}", f"New listing: {label}, {r['miles']} mi, {r['price']}", r["href"]))
+            found.append((f"car:{key}", f"New listing: {label}, {r['miles']} mi, {r.get('location', '')}", r["href"],
+                          {"kind": "car", "label": "New listing", "stat": r["price"].split(" ")[0], "source": r.get("source", "")}))
         elif old_row and digits(r) and digits(r) < digits(old_row):
-            found.append((f"drop:{key}:{digits(r)}", f"Price cut: {label}, {old_row['price']} to {r['price']}", r["href"]))
+            found.append((f"drop:{key}:{digits(r)}", f"{label}, was {old_row['price']}", r["href"],
+                          {"kind": "car", "label": "Price cut", "stat": r["price"].split(" ")[0], "dir": "down", "source": r.get("source", "")}))
     alerts = merge_alerts(prev, found, today)
-    picks = [dict(v, kind="alert") for v in sorted(alerts.values(), key=lambda a: a["date"], reverse=True)]
-    items = (picks + [dict(n, kind="news") for n in (news or [])])[:3]
+    picks = [tile(v["title"], v["href"], v.get("source", ""), v.get("kind", "you"), v.get("label"), v.get("stat") or "New", v.get("dir"))
+             for v in sorted(alerts.values(), key=lambda a: a["date"], reverse=True)]
+    for p in picks:
+        p["alert"] = True
+    heads = [tile(n["title"], n["href"], n.get("source", "")) for n in (news or [])]
+    extra = []
+    if phase == "news" and stamp < MIDTERMS_START:
+        days = (datetime.strptime(MIDTERMS_START[:10], "%Y-%m-%d") - datetime.strptime(today, "%Y-%m-%d")).days
+        lead = next((h for h in heads if h["kind"] == "politics"), None)
+        if lead:
+            heads.remove(lead)
+        extra.append(tile(lead["title"] if lead else "Polls close Tuesday night", lead["href"] if lead else "https://www.nytimes.com/",
+                          lead["source"] if lead else "NYT", "politics", "Midterms", "Today" if days <= 0 else f"{days} day{'s' if days != 1 else ''}"))
+    if phase == "midterms":
+        for name, v in (("Senate", (races or {}).get("senate")), ("House", (races or {}).get("house"))):
+            if v:
+                extra.append(tile(f"{name} seats won so far", "https://en.wikipedia.org/wiki/2026_United_States_elections",
+                                  "Wikipedia", "politics", name, f"D {v['d']} · R {v['r']}"))
+    items = (picks + extra + heads)[:5]  # AAPL already sits in the strip above
 
     out = {"updated": now.isoformat(timespec="minutes"), "date": today,
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,

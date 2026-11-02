@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T07:13-08:00",
+ "updated": "2026-11-02T07:28-08:00",
  "date": "2026-11-02",
  "date_line": "Monday · November 2 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "340.52",
-  "change_pct": "-1.19%",
+  "price": "340.19",
+  "change_pct": "-1.29%",
   "dir": "down"
  },
  "cars": [
@@ -51,28 +51,40 @@
  "phase": "news",
  "items": [
   {
-   "title": "Parties End the Midterm Election With Their Closing Arguments",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
+   "kind": "politics",
+   "label": "MIDTERMS",
+   "title": "Senate Control After the Midterms: Party Switches, Ties and Wild Cards",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/senate-midterms-tie-independents-wild-cards.html",
    "source": "NYT",
-   "kind": "news"
+   "stat": "1 day"
   },
   {
+   "kind": "world",
+   "label": "WORLD",
    "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan",
    "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
-   "source": "NYT",
-   "kind": "news"
+   "source": "NYT"
   },
   {
+   "kind": "politics",
+   "label": "POLITICS",
    "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist",
    "href": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
    "source": "NYT",
-   "kind": "news"
+   "stat": "$6 Billion"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Identity Politics Have Entered a New Phase",
+   "href": "https://www.nytimes.com/2026/11/02/magazine/identity-politics-economy-class.html",
+   "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Parties End the Midterm Election With Their Closing Arguments",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
+   "title": "Senate Control After the Midterms: Party Switches, Ties and Wild Cards",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/senate-midterms-tie-independents-wild-cards.html",
    "source": "NYT"
   },
   {
@@ -83,6 +95,11 @@
   {
    "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist",
    "href": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Identity Politics Have Entered a New Phase",
+   "href": "https://www.nytimes.com/2026/11/02/magazine/identity-politics-economy-class.html",
    "source": "NYT"
   }
  ],
