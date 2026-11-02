@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-01T21:41-08:00",
- "date": "2026-11-01",
- "date_line": "Sunday · November 1 2026",
+ "updated": "2026-11-02T05:34-08:00",
+ "date": "2026-11-02",
+ "date_line": "Monday · November 2 2026",
  "weather": {
   "high": 68,
   "low": 48,
@@ -15,9 +15,9 @@
   "dir": "down",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "345.10",
-   "change_pct": "+0.14%",
+   "label": "Pre-market",
+   "price": "344.95",
+   "change_pct": "+0.09%",
    "dir": "up"
   }
  },
@@ -58,38 +58,38 @@
  "phase": "news",
  "items": [
   {
-   "title": "Democrats Show Strength in Final Days of Race for the Senate, New Polls Find",
-   "href": "https://www.nytimes.com/2026/11/01/us/politics/times-siena-poll-senate.html",
-   "source": "NYT",
-   "kind": "news"
-  },
-  {
-   "title": "The Final Polls Show a Blue Surge. Can We Trust Them?",
-   "href": "https://www.nytimes.com/2026/11/01/upshot/poll-times-siena-senate-midterms.html",
+   "title": "Parties End the Midterm Election With Their Closing Arguments",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
    "source": "NYT",
    "kind": "news"
   },
   {
    "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan",
    "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
+   "source": "NYT",
+   "kind": "news"
+  },
+  {
+   "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist",
+   "href": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
    "source": "NYT",
    "kind": "news"
   }
  ],
  "news": [
   {
-   "title": "Democrats Show Strength in Final Days of Race for the Senate, New Polls Find",
-   "href": "https://www.nytimes.com/2026/11/01/us/politics/times-siena-poll-senate.html",
-   "source": "NYT"
-  },
-  {
-   "title": "The Final Polls Show a Blue Surge. Can We Trust Them?",
-   "href": "https://www.nytimes.com/2026/11/01/upshot/poll-times-siena-senate-midterms.html",
+   "title": "Parties End the Midterm Election With Their Closing Arguments",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
    "source": "NYT"
   },
   {
    "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan",
    "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
+   "source": "NYT"
+  },
+  {
+   "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist",
+   "href": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
    "source": "NYT"
   }
  ],
