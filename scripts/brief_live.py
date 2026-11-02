@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Server-side data for the hub's Morning Brief panel. Runs in GitHub Actions; no Claude.
 
-Writes live.json: date, weather (NWS), AAPL (stockanalysis.com), and car listings
-(Cavallino Drift + duPont Registry + Bring a Trailer). A source that fails keeps its
-previous value, so one bad fetch never blanks the panel.
+Writes live.json: date, weather (NWS), AAPL (stockanalysis.com), car listings (Cavallino
+Drift + duPont Registry + Bring a Trailer) and news (NYT, NPR, BBC feeds). During the midterm
+window the news turns to election stories and adds seat totals. A source that fails keeps
+its previous value, so one bad fetch never blanks the panel.
 """
 import html
 import json
@@ -19,6 +20,13 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 LAT_LON = "37.4636,-122.1983"  # Menlo Park
 EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"}  # about 7 years in Florida
 MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000
+FEEDS = (("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"),
+         ("NPR", "https://feeds.npr.org/1001/rss.xml"),
+         ("BBC", "https://feeds.bbci.co.uk/news/rss.xml?edition=us"))
+# Pacific wall-clock window for the midterm results view; news runs before and after it.
+MIDTERMS_START, MIDTERMS_END = "2026-11-03T15:00", "2026-11-08T00:00"
+ELECTION_WORDS = re.compile(r"election|midterm|senate|house|governor|ballot|vote|congress|democrat|republican|race", re.I)
+SKIP_WORDS = re.compile(r"crossword|wordle|quiz|in photos|connections|horoscope|^opinion", re.I)
 
 
 def get(url, accept=None):
@@ -161,6 +169,66 @@ def bat_live():
     return spiders, nsx
 
 
+def headlines(only=None, limit=3):
+    """Top stories in the feed's own order, deduped across feeds."""
+    out, seen, errors = [], set(), 0
+    for name, url in FEEDS:
+        try:
+            feed = get(url)
+        except Exception as e:
+            print(f"{name} feed failed: {e}", file=sys.stderr)
+            errors += 1
+            continue
+        for item in re.findall(r"<item>(.*?)</item>", feed, re.S):
+            t = re.search(r"<title[^>]*>(.*?)</title>", item, re.S)
+            h = re.search(r"<link>(.*?)</link>", item, re.S)
+            if not t or not h:
+                continue
+            clean = lambda x: html.unescape(re.sub(r"<!\[CDATA\[|\]\]>", "", x)).strip()
+            title, href = clean(t.group(1)), clean(h.group(1))
+            key = re.sub(r"\W+", "", title.lower())[:40]
+            if not href.startswith("https://") or key in seen or SKIP_WORDS.search(title):
+                continue
+            if only and not only.search(title):
+                continue
+            seen.add(key)
+            out.append({"title": title[:110], "href": href[:300], "source": name})
+            if len(out) >= limit:
+                return out
+    if errors == len(FEEDS):
+        raise RuntimeError("all news feeds failed")
+    return out
+
+
+def chamber(page):
+    """Declared seat totals from Wikipedia's infobox. None until editors fill them in."""
+    url = f"https://en.wikipedia.org/w/api.php?action=parse&page={page}&prop=wikitext&section=0&format=json&formatversion=2"
+    text = json.loads(get(url))["parse"]["wikitext"]
+    d = r = 0
+    for n in range(1, 6):
+        party = re.search(rf"\|\s*party{n}\s*=\s*([^\n|]*)", text)
+        seats = re.search(rf"\|\s*seats_after{n}\s*=\s*(\d+)", text)
+        if not party or not seats:
+            continue
+        if "Republican" in party.group(1):
+            r += int(seats.group(1))
+        else:
+            d += int(seats.group(1))  # independents caucus with Democrats
+    return {"d": d, "r": r} if d and r else None
+
+
+def election():
+    out = {}
+    for key, page in (("senate", "2026_United_States_Senate_elections"),
+                      ("house", "2026_United_States_House_of_Representatives_elections")):
+        try:
+            out[key] = chamber(page)
+        except Exception as e:
+            print(f"{key} results failed: {e}", file=sys.stderr)
+            out[key] = None
+    return out
+
+
 def attempt(name, fn, fallback, stale):
     try:
         return fn()
@@ -182,6 +250,11 @@ def main():
     now = pacific_now()
     today = now.strftime("%Y-%m-%d")
 
+    stamp = now.strftime("%Y-%m-%dT%H:%M")
+    phase = "midterms" if MIDTERMS_START <= stamp < MIDTERMS_END else "news"
+    only = ELECTION_WORDS if phase == "midterms" else None
+    news = attempt("news", lambda: headlines(only), prev.get("news"), stale)
+    races = election() if phase == "midterms" else None
     w = attempt("weather", weather, prev.get("weather"), stale)
     s = attempt("stock", stock, prev.get("stock"), stale)
     prev_rows = {r.get("source"): [] for r in prev.get("cars", []) if r.get("source")}
@@ -225,8 +298,8 @@ def main():
 
     out = {"updated": now.isoformat(timespec="minutes"), "date": today,
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
-           "stale": stale, "first_seen": seen}
-    if len(stale) == 5:
+           "phase": phase, "news": news, "election": races, "stale": stale, "first_seen": seen}
+    if len(stale) == 6:
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return
     with open(OUT, "w") as f:
