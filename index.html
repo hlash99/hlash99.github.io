@@ -67,34 +67,22 @@
     border:1px solid var(--line);color:var(--ink);padding:11px 16px;border-radius:12px;font-size:13.5px;
     box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;max-width:90vw}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  /* ---- morning brief mirror: reads brief.json, sized for iPhone (402pt) ---- */
-  #brief{margin:22px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+  /* ---- morning brief mirror: two tight lines plus one row per car, reads live.json ---- */
+  #brief{margin:10px 0 0;font-size:13px;line-height:1.4;font-variant-numeric:tabular-nums}
   #brief[hidden]{display:none}
-  .bf-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-  .bf-head b{font-size:15px;font-weight:600}
-  .bf-head a{font-size:12.5px;color:var(--accent);white-space:nowrap}
-  .bf-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-  .bf-tile{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0;display:block}
-  .bf-k{font-size:11px;color:var(--muted);letter-spacing:.03em}
-  .bf-v{font-size:21px;font-weight:650;line-height:1.2;margin-top:2px;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .bf-s{font-size:12px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  .bf-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:0 8px;margin:-10px 0 16px;font-size:13px;line-height:1.3;font-variant-numeric:tabular-nums}
+  .bf-top[hidden]{display:none}
+  .bf-top .w{font-size:14px;font-weight:600}
+  .bf-top .d{text-align:center;font-weight:600}
+  .bf-top .s{text-align:right;font-weight:600;white-space:nowrap}
+  .bf-top .s div{font-size:12px;font-weight:400}
+  .bf-top .m{color:var(--muted)}
   .bf-up{color:#4ade80}.bf-down{color:#f87171}
-  .bf-sec{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin:2px 0 6px}
-  .bf-na{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
-  .bf-na li{padding-left:13px;position:relative}
-  .bf-na li::before{content:"";position:absolute;left:1px;top:8px;width:6px;height:6px;border-radius:50%;background:#f8b84e}
-  .bf-tl{display:flex;gap:8px;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
-  .bf-stop{flex:0 0 132px;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--muted)}
-  .bf-stop b{display:block;color:var(--ink);font-size:12.5px;margin-bottom:2px}
-  .bf-stop.acc{border-color:var(--accent)}
-  .bf-cars{display:flex;flex-direction:column;gap:6px}
-  .bf-grp{font-size:12.5px;font-weight:600;margin-top:2px}
-  .bf-car{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1px 10px;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13px}
-  .bf-car .p{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .bf-car .d{grid-column:1/-1;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
-  .bf-car .f{color:#f8b84e}
-  .bf-none{font-size:13px;color:var(--muted)}
-  @media (min-width:760px){.bf-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.bf-cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.bf-grp{grid-column:1/-1}}
+  .bf-cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px 14px;font-size:12.5px}
+  .bf-car{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(62,201,196,.4);text-underline-offset:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bf-car .q{color:#f8b84e}
+  .bf-line{margin-top:4px;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  @media (min-width:760px){.bf-cars{grid-template-columns:repeat(4,minmax(0,1fr))}}
   /* ---- password gate (courtesy screen — this is a static public site, so it deters
      casual visitors only; the underlying repos and sub-pages remain reachable) ---- */
   #gate{position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;
@@ -149,6 +137,7 @@ document.getElementById("gateForm").addEventListener("submit",async e=>{
 })();
 </script>
 <div class="wrap">
+  <div id="bf-top" class="bf-top" hidden></div>
   <div class="hero">
     <h1>hlash99</h1>
     <p id="sub">Projects &amp; live dashboards on GitHub Pages.</p>
@@ -600,35 +589,32 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
 (function(){
   const box=document.getElementById("brief"), ICON={sun:"☀️",partly:"⛅",cloud:"☁️",rain:"🌧️",storm:"⛈️",fog:"🌫️",wind:"💨",moon:"🌙"};
   const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;};
-  const fmt=iso=>{const d=new Date(iso);return isNaN(d)?"":d.toLocaleString([], {weekday:"short",hour:"numeric",minute:"2-digit"});};
-  function tile(key,val,sub,cls,href){const t=el(href?"a":"div","bf-tile");if(href){t.href=href;t.target="_blank";t.rel="noopener";}
-    t.append(el("div","bf-k",key));const v=el("div","bf-v",val);t.append(v);
-    if(sub){const s=el("div","bf-s"+(cls?" "+cls:""),sub);t.append(s);}return t;}
+  const fmt=iso=>{const d=new Date(iso);return isNaN(d)?"":d.toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});};
+  const day=b=>{const d=new Date((b.date||"")+"T12:00:00");return isNaN(d)?(b.date_line||""):d.toLocaleDateString([], {weekday:"short",month:"short",day:"numeric"});};
+  const cls=d=>d==="up"?"bf-up":d==="down"?"bf-down":"m";
+  const short=c=>String(c).replace(/^\d\d(\d\d) /,"\u2019$1 ").replace(" 6-speed","").replace(" Spider","");
   function draw(b){
     box.textContent="";
-    const head=el("div","bf-head"),l=el("div");l.append(el("b",null,b.date_line||"Morning brief"));
-    const a=el("a",null,"Full brief ↗");a.href="https://claude.ai/artifact/DaWdgjRXX7PAErtUHHzKvR";a.target="_blank";a.rel="noopener";
-    head.append(l,a);box.append(head);
-    const tiles=el("div","bf-tiles"),w=b.weather,s=b.stock;
-    if(w)tiles.append(tile(w.summary||"Weather",(ICON[w.icon]||"")+" "+w.high+"°",w.low!=null?"Low "+w.low+"°":""));
-    if(s){const sub=(s.change_pct||"")+(s.session?" · "+s.session:"");
-      const t=tile(s.symbol||"AAPL","$"+s.price,sub,s.dir==="up"?"bf-up":s.dir==="down"?"bf-down":"","https://stockanalysis.com/stocks/aapl/");
-      if(s.after)t.append(el("div","bf-s"+(s.after.dir==="up"?" bf-up":s.after.dir==="down"?" bf-down":""),(s.after.label==="Pre-market"?"Pre":"After")+" $"+s.after.price+" "+(s.after.change_pct||"")));
-      tiles.append(t);}
-    if(tiles.children.length)box.append(tiles);
-    if(b.needs_attention&&b.needs_attention.length){const d=el("div");d.append(el("div","bf-sec","Needs attention"));
-      const u=el("ul","bf-na");b.needs_attention.forEach(x=>u.append(el("li",null,x)));d.append(u);box.append(d);}
-    if(b.coming_up&&b.coming_up.length){const d=el("div");d.append(el("div","bf-sec","Coming up"));
-      const r=el("div","bf-tl");b.coming_up.forEach(c=>{const st=el("div","bf-stop"+(c.accent?" acc":""));st.append(el("b",null,c.label));
-        (c.events||[]).forEach(e=>st.append(el("div",null,e)));r.append(st);});d.append(r);box.append(d);}
-    const cars=(b.cars||[]);if(cars.length){const d=el("div");d.append(el("div","bf-sec","Car listings"));
-      const list=el("div","bf-cars");cars.forEach(c=>{if(c.group){list.append(el("div","bf-grp",c.group));return;}
-        const r=el(c.href?"a":"div","bf-car");if(c.href){r.href=c.href;r.target="_blank";r.rel="noopener";}
-        r.append(el("div",null,c.car),el("div","p",c.price));
-        r.append(el("div","d",[c.color,c.miles?c.miles+" mi":"",c.location].filter(Boolean).join(" · ")));
-        if(c.flag)r.append(el("div","d f",c.flag));list.append(r);});d.append(list);box.append(d);}
-    if(b.updated){box.append(el("div","bf-s","As of "+fmt(b.updated)));}
-    box.hidden=false;
+    const top=document.getElementById("bf-top"),w=b.weather,s=b.stock;top.textContent="";
+    top.append(el("div","w",w?(ICON[w.icon]||"")+" "+w.high+"°/"+w.low+"°":""));
+    const d=el("a","d",day(b));d.href="https://claude.ai/artifact/DaWdgjRXX7PAErtUHHzKvR";d.target="_blank";d.rel="noopener";
+    if(b.updated)d.title="Open full brief · updated "+fmt(b.updated);top.append(d);
+    const q=el("a","s");if(s){q.href="https://stockanalysis.com/stocks/aapl/";q.target="_blank";q.rel="noopener";
+      q.append(document.createTextNode("AAPL "+s.price));const l=el("div");l.append(el("span",cls(s.dir),s.change_pct||""));
+      if(s.after)l.append(document.createTextNode(" "),el("span",cls(s.after.dir),(s.after.label==="Pre-market"?"Pre ":"AH ")+s.after.price));q.append(l);}
+    top.append(q);top.hidden=false;
+    if(b.needs_attention&&b.needs_attention.length)box.append(el("div","bf-line","Needs: "+b.needs_attention.join(" · ")));
+    if(b.coming_up&&b.coming_up.length)box.append(el("div","bf-line",b.coming_up.map(c=>c.label+": "+(c.events||[]).join(", ")).join(" · ")));
+    const cars=el("div","bf-cars");
+    (b.cars||[]).filter(c=>!c.group).forEach(c=>{
+      const n=parseInt(String(c.price||"").replace(/[^\d]/g,""),10),st=String(c.location||"").trim().slice(-2);
+      const r=el(c.href?"a":"span","bf-car",[short(c.car),c.miles,st,n?"$"+Math.round(n/1000)+"k":""].filter(Boolean).join(" "));
+      if(c.href){r.href=c.href;r.target="_blank";r.rel="noopener";}
+      r.title=[c.car,c.color,c.miles?c.miles+" mi":"",c.location,c.price,c.seller,c.flag].filter(Boolean).join(" · ");
+      if(/unconfirmed/i.test(c.flag||""))r.append(el("span","q","?"));
+      cars.append(r);});
+    if(cars.children.length)box.append(cars);
+    box.hidden=!box.children.length;
   }
   const load=f=>fetch(f+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
   /* live.json comes from the hourly GitHub Action and wins; brief.json can add approved extras. */

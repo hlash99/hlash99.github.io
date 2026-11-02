@@ -86,6 +86,10 @@ def money(n):
 
 def cavallino_458():
     page = get("https://cavallinodrift.com/458spider/")
+    dealer = {v: html.unescape(h) for h, v in
+              re.findall(r'href="(https://[^"]+)"[^>]*aria-label="Dealer&#39;s listing for (\w+)', page)}
+    dealer.update({v: html.unescape(h) for h, v in
+                   re.findall(r'href="(https://[^"]+)"[^>]*aria-label="Dealer\'s listing for (\w+)', page)})
     start = page.index(">Active listings")
     body = page[start:page.index("<h2", start)]
     rows = []
@@ -99,7 +103,8 @@ def cavallino_458():
         seller, _, st = c[6].rpartition(",")
         rows.append({"vin": c[7], "car": f"{c[0]} 458 Spider", "color": c[1], "miles": f"{round(miles / 1000)}k",
                      "price": money(ask), "seller": seller.strip(), "location": st.strip(),
-                     "href": f"https://cavallinodrift.com/vin/?v={c[7]}", "source": "Cavallino Drift"})
+                     "href": dealer.get(c[7]) or f"https://cavallinodrift.com/vin/?v={c[7]}",
+                     "source": "Cavallino Drift"})
     return rows
 
 
