@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T07:28-08:00",
+ "updated": "2026-11-02T07:30-08:00",
  "date": "2026-11-02",
  "date_line": "Monday · November 2 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "340.19",
-  "change_pct": "-1.29%",
+  "price": "340.52",
+  "change_pct": "-1.19%",
   "dir": "down"
  },
  "cars": [
@@ -53,8 +53,8 @@
   {
    "kind": "politics",
    "label": "MIDTERMS",
-   "title": "Senate Control After the Midterms: Party Switches, Ties and Wild Cards",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/senate-midterms-tie-independents-wild-cards.html",
+   "title": "Parties End the Midterm Election With Their Closing Arguments",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
    "source": "NYT",
    "stat": "1 day"
   },
@@ -83,8 +83,8 @@
  ],
  "news": [
   {
-   "title": "Senate Control After the Midterms: Party Switches, Ties and Wild Cards",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/senate-midterms-tie-independents-wild-cards.html",
+   "title": "Parties End the Midterm Election With Their Closing Arguments",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
    "source": "NYT"
   },
   {
