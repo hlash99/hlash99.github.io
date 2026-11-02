@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-02T05:34-08:00",
+ "updated": "2026-11-02T07:13-08:00",
  "date": "2026-11-02",
  "date_line": "Monday · November 2 2026",
  "weather": {
   "high": 68,
-  "low": 48,
-  "summary": "Tomorrow · Partly Sunny",
+  "low": 50,
+  "summary": "Partly Sunny",
   "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "344.63",
-  "change_pct": "-1.23%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "344.95",
-   "change_pct": "+0.09%",
-   "dir": "up"
-  }
+  "price": "340.52",
+  "change_pct": "-1.19%",
+  "dir": "down"
  },
  "cars": [
   {
