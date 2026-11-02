@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-02T07:30-08:00",
+ "updated": "2026-11-02T14:47-08:00",
  "date": "2026-11-02",
  "date_line": "Monday · November 2 2026",
  "weather": {
   "high": 68,
-  "low": 50,
-  "summary": "Partly Sunny",
-  "icon": "partly"
+  "low": 51,
+  "summary": "Mostly Cloudy",
+  "icon": "cloud"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "340.52",
-  "change_pct": "-1.19%",
+  "price": "338.60",
+  "change_pct": "-1.75%",
   "dir": "down"
  },
  "cars": [
@@ -53,53 +53,52 @@
   {
    "kind": "politics",
    "label": "MIDTERMS",
-   "title": "Parties End the Midterm Election With Their Closing Arguments",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
+   "title": "In Run-Up to Midterms, Legacy of 2020 Looms Large Over Justice Dept.",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterms-2020-election-justice-department.html",
    "source": "NYT",
    "stat": "1 day"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan",
-   "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist",
-   "href": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
-   "source": "NYT",
-   "stat": "$6 Billion"
+   "title": "Trump’s Immigration Crackdown Backlash Poses Challenge for Republicans in the Midterms",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-immigration-crackdown-backlash-republicans.html",
+   "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Identity Politics Have Entered a New Phase",
-   "href": "https://www.nytimes.com/2026/11/02/magazine/identity-politics-economy-class.html",
+   "kind": "health",
+   "label": "HEALTH",
+   "title": "They Tried Kratom for Its Purported Health Benefits, Then They Became Addicted",
+   "href": "https://www.nytimes.com/2026/11/02/well/kratom-wellness-marketing-addiction.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Parties End the Midterm Election With Their Closing Arguments",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
+   "title": "In Run-Up to Midterms, Legacy of 2020 Looms Large Over Justice Dept.",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterms-2020-election-justice-department.html",
    "source": "NYT"
   },
   {
-   "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan",
-   "href": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
+   "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
    "source": "NYT"
   },
   {
-   "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist",
-   "href": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
+   "title": "Trump’s Immigration Crackdown Backlash Poses Challenge for Republicans in the Midterms",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-immigration-crackdown-backlash-republicans.html",
    "source": "NYT"
   },
   {
-   "title": "Identity Politics Have Entered a New Phase",
-   "href": "https://www.nytimes.com/2026/11/02/magazine/identity-politics-economy-class.html",
+   "title": "They Tried Kratom for Its Purported Health Benefits, Then They Became Addicted",
+   "href": "https://www.nytimes.com/2026/11/02/well/kratom-wellness-marketing-addiction.html",
    "source": "NYT"
   }
  ],
