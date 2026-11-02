@@ -304,8 +304,8 @@ def main():
         for r in rows:
             key = r.get("vin") or r["href"]
             verdict = history.get(r.get("vin", ""))
-            if verdict == "excluded":
-                continue
+            if verdict == "excluded" or re.search(r"(^|[\s,])FL$", r.get("location", "")):
+                continue  # Hassan doesn't want Florida-history or Florida-listed cars
             if key not in seen:
                 seen[key] = "2000-01-01" if first_run else today
             flags = []
