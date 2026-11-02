@@ -1,10 +1,15 @@
 name: brief-live
 
 # Server-side data for the Morning Brief panel: weather, AAPL and car listings.
-# Hourly, about 6 AM to 10 PM Pacific. No Claude and no Mac involved.
+# GitHub runs cron hours late on this account, so a brief update from the hourly
+# routine or the Mac also starts this job. Its own commits use GITHUB_TOKEN and
+# never retrigger it.
 on:
   schedule:
     - cron: '17 14-23,0-6 * * *'
+  push:
+    branches: [main]
+    paths: ['private.enc.json', 'brief.json']
   workflow_dispatch: {}
 
 permissions:
