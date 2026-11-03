@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-03T07:06-08:00",
+ "updated": "2026-11-03T12:31-08:00",
  "date": "2026-11-03",
  "date_line": "Tuesday · November 3 2026",
  "weather": {
   "high": 66,
   "low": 50,
-  "summary": "Light Rain",
+  "summary": "Light Rain Likely",
   "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "338.32",
-  "change_pct": "-1.83%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "325.10",
-   "change_pct": "-3.91%",
-   "dir": "down"
-  }
+  "price": "332.00",
+  "change_pct": "-1.87%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -60,53 +53,53 @@
   {
    "kind": "politics",
    "label": "MIDTERMS",
-   "title": "What’s at Stake in Today’s Elections",
-   "href": "https://www.nytimes.com/video/us/politics/100000011228221/whats-at-stake-in-todays-elections.html",
+   "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
    "source": "NYT",
    "stat": "Today"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
-   "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
+   "title": "Trump Says U.S. to End $4 Billion in Aid to Israel at End of Year",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/trump-israel-aid-netanyahu.html",
+   "source": "NYT",
+   "stat": "$4 Billion"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Israeli Claims of Iranian Chemical Weapons Divide U.S. Officials",
+   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/iran-chemical-weapons-israel-trump.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "What to Expect on Election Night, and Trump’s $1 Million Voter Fraud Reward",
-   "href": "https://www.nytimes.com/2026/11/03/podcasts/the-headlines/midterm-election-trump-voter-fraud-reward.html",
-   "source": "NYT",
-   "stat": "$1 Million"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "As Trump’s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War",
-   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "A Test for Israeli Democracy: Should Jews Ask Arabs to Join the Government?",
+   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/israel-coalition-arab-lawmakers.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "What’s at Stake in Today’s Elections",
-   "href": "https://www.nytimes.com/video/us/politics/100000011228221/whats-at-stake-in-todays-elections.html",
-   "source": "NYT"
-  },
-  {
    "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
    "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "What to Expect on Election Night, and Trump’s $1 Million Voter Fraud Reward",
-   "href": "https://www.nytimes.com/2026/11/03/podcasts/the-headlines/midterm-election-trump-voter-fraud-reward.html",
+   "title": "Trump Says U.S. to End $4 Billion in Aid to Israel at End of Year",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/trump-israel-aid-netanyahu.html",
    "source": "NYT"
   },
   {
-   "title": "As Trump’s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War",
-   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
+   "title": "Israeli Claims of Iranian Chemical Weapons Divide U.S. Officials",
+   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/iran-chemical-weapons-israel-trump.html",
+   "source": "NYT"
+  },
+  {
+   "title": "A Test for Israeli Democracy: Should Jews Ask Arabs to Join the Government?",
+   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/israel-coalition-arab-lawmakers.html",
    "source": "NYT"
   }
  ],
