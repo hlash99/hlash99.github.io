@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-03T03:58-08:00",
+ "updated": "2026-11-03T07:06-08:00",
  "date": "2026-11-03",
  "date_line": "Tuesday · November 3 2026",
  "weather": {
   "high": 66,
-  "low": 51,
-  "summary": "Tomorrow · Light Rain",
+  "low": 50,
+  "summary": "Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -16,8 +16,8 @@
   "session": "Close",
   "after": {
    "label": "Pre-market",
-   "price": "324.72",
-   "change_pct": "-4.02%",
+   "price": "325.10",
+   "change_pct": "-3.91%",
    "dir": "down"
   }
  },
@@ -68,6 +68,13 @@
   {
    "kind": "politics",
    "label": "POLITICS",
+   "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
    "title": "What to Expect on Election Night, and Trump’s $1 Million Voter Fraud Reward",
    "href": "https://www.nytimes.com/2026/11/03/podcasts/the-headlines/midterm-election-trump-voter-fraud-reward.html",
    "source": "NYT",
@@ -79,19 +86,17 @@
    "title": "As Trump’s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War",
    "href": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
    "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "U.S. Military Strikes Iran’s Qeshm Island in What U.S. Officials Call a Defensive Measure",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/us-military-strikes-iran-qeshm-island.html",
-   "source": "NYT"
   }
  ],
  "news": [
   {
    "title": "What’s at Stake in Today’s Elections",
    "href": "https://www.nytimes.com/video/us/politics/100000011228221/whats-at-stake-in-todays-elections.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
    "source": "NYT"
   },
   {
@@ -102,11 +107,6 @@
   {
    "title": "As Trump’s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War",
    "href": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
-   "source": "NYT"
-  },
-  {
-   "title": "U.S. Military Strikes Iran’s Qeshm Island in What U.S. Officials Call a Defensive Measure",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/us-military-strikes-iran-qeshm-island.html",
    "source": "NYT"
   }
  ],
