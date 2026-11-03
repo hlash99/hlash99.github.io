@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-02T19:57-08:00",
- "date": "2026-11-02",
- "date_line": "Monday · November 2 2026",
+ "updated": "2026-11-03T03:58-08:00",
+ "date": "2026-11-03",
+ "date_line": "Tuesday · November 3 2026",
  "weather": {
-  "high": 67,
+  "high": 66,
   "low": 51,
-  "summary": "Tomorrow · Rain Showers",
+  "summary": "Tomorrow · Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -15,9 +15,9 @@
   "dir": "down",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "329.03",
-   "change_pct": "-2.75%",
+   "label": "Pre-market",
+   "price": "324.72",
+   "change_pct": "-4.02%",
    "dir": "down"
   }
  },
@@ -60,52 +60,53 @@
   {
    "kind": "politics",
    "label": "MIDTERMS",
-   "title": "In Run-Up to Midterms, Legacy of 2020 Looms Large Over Justice Dept.",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterms-2020-election-justice-department.html",
+   "title": "What’s at Stake in Today’s Elections",
+   "href": "https://www.nytimes.com/video/us/politics/100000011228221/whats-at-stake-in-todays-elections.html",
    "source": "NYT",
-   "stat": "1 day"
+   "stat": "Today"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Delivers a Closing Midterm Message. Mostly About Landscaping.",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-reflecting-pool-midterms.html",
+   "title": "What to Expect on Election Night, and Trump’s $1 Million Voter Fraud Reward",
+   "href": "https://www.nytimes.com/2026/11/03/podcasts/the-headlines/midterm-election-trump-voter-fraud-reward.html",
+   "source": "NYT",
+   "stat": "$1 Million"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "As Trump’s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War",
+   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Supreme Court Rejects Trump Administration Request to Intervene in California Ballot Case",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-supreme-court-california-ballots.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "U.S. Military Strikes Iran’s Qeshm Island in What U.S. Officials Call a Defensive Measure",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/us-military-strikes-iran-qeshm-island.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "In Run-Up to Midterms, Legacy of 2020 Looms Large Over Justice Dept.",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/midterms-2020-election-justice-department.html",
+   "title": "What’s at Stake in Today’s Elections",
+   "href": "https://www.nytimes.com/video/us/politics/100000011228221/whats-at-stake-in-todays-elections.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Delivers a Closing Midterm Message. Mostly About Landscaping.",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-reflecting-pool-midterms.html",
+   "title": "What to Expect on Election Night, and Trump’s $1 Million Voter Fraud Reward",
+   "href": "https://www.nytimes.com/2026/11/03/podcasts/the-headlines/midterm-election-trump-voter-fraud-reward.html",
    "source": "NYT"
   },
   {
-   "title": "Supreme Court Rejects Trump Administration Request to Intervene in California Ballot Case",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-supreme-court-california-ballots.html",
+   "title": "As Trump’s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War",
+   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
    "source": "NYT"
   },
   {
-   "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
+   "title": "U.S. Military Strikes Iran’s Qeshm Island in What U.S. Officials Call a Defensive Measure",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/us-military-strikes-iran-qeshm-island.html",
    "source": "NYT"
   }
  ],
