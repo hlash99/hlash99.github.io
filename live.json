@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-02T14:47-08:00",
+ "updated": "2026-11-02T19:57-08:00",
  "date": "2026-11-02",
  "date_line": "Monday · November 2 2026",
  "weather": {
-  "high": 68,
+  "high": 67,
   "low": 51,
-  "summary": "Mostly Cloudy",
-  "icon": "cloud"
+  "summary": "Tomorrow · Rain Showers",
+  "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "338.60",
-  "change_pct": "-1.75%",
-  "dir": "down"
+  "price": "338.32",
+  "change_pct": "-1.83%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "329.03",
+   "change_pct": "-2.75%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -61,22 +68,22 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
+   "title": "Trump Delivers a Closing Midterm Message. Mostly About Landscaping.",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-reflecting-pool-midterms.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump’s Immigration Crackdown Backlash Poses Challenge for Republicans in the Midterms",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-immigration-crackdown-backlash-republicans.html",
+   "title": "Supreme Court Rejects Trump Administration Request to Intervene in California Ballot Case",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-supreme-court-california-ballots.html",
    "source": "NYT"
   },
   {
-   "kind": "health",
-   "label": "HEALTH",
-   "title": "They Tried Kratom for Its Purported Health Benefits, Then They Became Addicted",
-   "href": "https://www.nytimes.com/2026/11/02/well/kratom-wellness-marketing-addiction.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
    "source": "NYT"
   }
  ],
@@ -87,18 +94,18 @@
    "source": "NYT"
   },
   {
+   "title": "Trump Delivers a Closing Midterm Message. Mostly About Landscaping.",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-reflecting-pool-midterms.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Supreme Court Rejects Trump Administration Request to Intervene in California Ballot Case",
+   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-supreme-court-california-ballots.html",
+   "source": "NYT"
+  },
+  {
    "title": "Trump’s Election Fraud Reward Raises Fears of Vigilantism, Local Officials Say",
    "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-midterms-election-fraud-reward.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Trump’s Immigration Crackdown Backlash Poses Challenge for Republicans in the Midterms",
-   "href": "https://www.nytimes.com/2026/11/02/us/politics/trump-immigration-crackdown-backlash-republicans.html",
-   "source": "NYT"
-  },
-  {
-   "title": "They Tried Kratom for Its Purported Health Benefits, Then They Became Addicted",
-   "href": "https://www.nytimes.com/2026/11/02/well/kratom-wellness-marketing-addiction.html",
    "source": "NYT"
   }
  ],
