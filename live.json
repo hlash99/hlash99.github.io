@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-03T17:26-08:00",
+ "updated": "2026-11-03T21:53-08:00",
  "date": "2026-11-03",
  "date_line": "Tuesday · November 3 2026",
  "weather": {
-  "high": 66,
+  "high": 68,
   "low": 50,
-  "summary": "Chance Light Rain",
-  "icon": "rain"
+  "summary": "Tomorrow · Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
@@ -16,8 +16,8 @@
   "session": "Close",
   "after": {
    "label": "After hours",
-   "price": "329.89",
-   "change_pct": "-0.61%",
+   "price": "329.80",
+   "change_pct": "-0.63%",
    "dir": "down"
   }
  },
@@ -60,51 +60,51 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "America Votes",
-   "href": "https://www.nytimes.com/2026/11/03/briefing/election-night-house-senate-results.html",
+   "title": "Trump Says in Interview That He Will Accept Election Results",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/trump-midterm-election-results.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "‘Trump Has Left Republicans in a Highly Perilous Position’: Opinion Writers Assess the Midterms",
-   "href": "https://www.nytimes.com/2026/11/03/opinion/politics/election-midterms-senate-house.html",
-   "source": "NYT"
+   "title": "Here's how some key demographic groups voted in the midterms",
+   "href": "https://www.npr.org/2026/11/04/nx-s1-6028080/voter-polls-midterms-demographics",
+   "source": "NPR"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Chris Murphy, Recovering From a Stroke, Remains Hospitalized on Election Day",
-   "href": "https://www.nytimes.com/2026/11/03/us/chris-murphy-stroke-hospitalization.html",
-   "source": "NYT"
+   "title": "Former Arkansas governor says Democrats' gains are 'more significant than ever anticipated'",
+   "href": "https://www.npr.org/2026/11/04/nx-s1-6028116/former-arkansas-governor-says-democrats-gains-are-more-significant-than-ever-anticipated",
+   "source": "NPR"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Jon Ossoff wins reelection in Georgia, easily defeating Republican Mike Collins",
-   "href": "https://www.npr.org/2026/11/03/g-s1-150143/georgia-senate-race-jon-ossoff-mike-collins",
+   "title": "Democrats win the Senate, setting up divided government for remainder of Trump's term",
+   "href": "https://www.npr.org/2026/11/03/g-s1-149526/2026-midterms-congress-balance-of-power",
    "source": "NPR"
   }
  ],
  "news": [
   {
-   "title": "America Votes",
-   "href": "https://www.nytimes.com/2026/11/03/briefing/election-night-house-senate-results.html",
+   "title": "Trump Says in Interview That He Will Accept Election Results",
+   "href": "https://www.nytimes.com/2026/11/03/us/politics/trump-midterm-election-results.html",
    "source": "NYT"
   },
   {
-   "title": "‘Trump Has Left Republicans in a Highly Perilous Position’: Opinion Writers Assess the Midterms",
-   "href": "https://www.nytimes.com/2026/11/03/opinion/politics/election-midterms-senate-house.html",
-   "source": "NYT"
+   "title": "Here's how some key demographic groups voted in the midterms",
+   "href": "https://www.npr.org/2026/11/04/nx-s1-6028080/voter-polls-midterms-demographics",
+   "source": "NPR"
   },
   {
-   "title": "Chris Murphy, Recovering From a Stroke, Remains Hospitalized on Election Day",
-   "href": "https://www.nytimes.com/2026/11/03/us/chris-murphy-stroke-hospitalization.html",
-   "source": "NYT"
+   "title": "Former Arkansas governor says Democrats' gains are 'more significant than ever anticipated'",
+   "href": "https://www.npr.org/2026/11/04/nx-s1-6028116/former-arkansas-governor-says-democrats-gains-are-more-significant-than-ever-anticipated",
+   "source": "NPR"
   },
   {
-   "title": "Jon Ossoff wins reelection in Georgia, easily defeating Republican Mike Collins",
-   "href": "https://www.npr.org/2026/11/03/g-s1-150143/georgia-senate-race-jon-ossoff-mike-collins",
+   "title": "Democrats win the Senate, setting up divided government for remainder of Trump's term",
+   "href": "https://www.npr.org/2026/11/03/g-s1-149526/2026-midterms-congress-balance-of-power",
    "source": "NPR"
   }
  ],
