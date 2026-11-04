@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-04T01:21-08:00",
+ "updated": "2026-11-04T12:50-08:00",
  "date": "2026-11-04",
  "date_line": "Wednesday · November 4 2026",
  "weather": {
   "high": 68,
-  "low": 50,
-  "summary": "Tomorrow · Sunny",
+  "low": 49,
+  "summary": "Sunny",
   "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "331.90",
-  "change_pct": "-1.90%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "332.02",
-   "change_pct": "+0.04%",
-   "dir": "up"
-  }
+  "price": "352.40",
+  "change_pct": "+6.18%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -59,53 +52,61 @@
  "items": [
   {
    "kind": "politics",
+   "label": "SENATE",
+   "title": "Senate seats won so far",
+   "href": "https://en.wikipedia.org/wiki/2026_United_States_elections",
+   "source": "Wikipedia",
+   "stat": "D 2 · R 44"
+  },
+  {
+   "kind": "politics",
    "label": "POLITICS",
-   "title": "How the Stock Market Is Reacting to the Midterm Elections",
+   "title": "With Democrats’ Sweep, Congress Is Set to Reassert Power to Check Trump",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/democrats-house-senate-congress-trump.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "On the Democrats’ Agenda: Investigations of Trump and His Family",
+   "href": "https://www.nytimes.com/2026/11/04/us/trump-family-investigations-democrats.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Stocks Rise as Democrats Flip Control of Congress",
    "href": "https://www.nytimes.com/2026/11/04/business/midterm-elections-stock-market.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "This Is a Huge Psychological Blow to Republicans",
-   "href": "https://www.nytimes.com/2026/11/04/opinion/talarico-hinojosa-texas-democrats.html",
+   "title": "Israel’s President Could Play Key Role in Breaking Post-Election Deadlock",
+   "href": "https://www.nytimes.com/2026/11/04/world/middleeast/israel-president-herzog-election-government.html",
    "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Jimmy Kimmel Rides Election Day’s ‘Blue Tsunami’",
-   "href": "https://www.nytimes.com/2026/11/04/arts/television/jimmy-kimmel-midterm-election-blue-wave.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Democrat Abdul El-Sayed defeats Republican Mike Rogers in key Michigan Senate race",
-   "href": "https://www.npr.org/2026/11/04/g-s1-150029/michigan-senate-race-abdul-el-sayed-mike-rogers",
-   "source": "NPR"
   }
  ],
  "news": [
   {
-   "title": "How the Stock Market Is Reacting to the Midterm Elections",
+   "title": "With Democrats’ Sweep, Congress Is Set to Reassert Power to Check Trump",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/democrats-house-senate-congress-trump.html",
+   "source": "NYT"
+  },
+  {
+   "title": "On the Democrats’ Agenda: Investigations of Trump and His Family",
+   "href": "https://www.nytimes.com/2026/11/04/us/trump-family-investigations-democrats.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Stocks Rise as Democrats Flip Control of Congress",
    "href": "https://www.nytimes.com/2026/11/04/business/midterm-elections-stock-market.html",
    "source": "NYT"
   },
   {
-   "title": "This Is a Huge Psychological Blow to Republicans",
-   "href": "https://www.nytimes.com/2026/11/04/opinion/talarico-hinojosa-texas-democrats.html",
+   "title": "Israel’s President Could Play Key Role in Breaking Post-Election Deadlock",
+   "href": "https://www.nytimes.com/2026/11/04/world/middleeast/israel-president-herzog-election-government.html",
    "source": "NYT"
-  },
-  {
-   "title": "Jimmy Kimmel Rides Election Day’s ‘Blue Tsunami’",
-   "href": "https://www.nytimes.com/2026/11/04/arts/television/jimmy-kimmel-midterm-election-blue-wave.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Democrat Abdul El-Sayed defeats Republican Mike Rogers in key Michigan Senate race",
-   "href": "https://www.npr.org/2026/11/04/g-s1-150029/michigan-senate-race-abdul-el-sayed-mike-rogers",
-   "source": "NPR"
   }
  ],
  "alerts": {},
@@ -117,7 +118,10 @@
   "42640855"
  ],
  "election": {
-  "senate": null,
+  "senate": {
+   "d": 2,
+   "r": 44
+  },
   "house": null
  },
  "stale": [],
