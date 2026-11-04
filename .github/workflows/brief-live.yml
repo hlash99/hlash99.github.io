@@ -9,7 +9,7 @@ on:
     - cron: '17 14-23,0-6 * * *'
   push:
     branches: [main]
-    paths: ['private.enc.json', 'brief.json']
+    paths: ['private.enc.json', 'brief.json', 'scripts/ballot_results.py']
   workflow_dispatch: {}
 
 permissions:
@@ -28,11 +28,19 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -I scripts/brief_live.py
+      - name: Ballot results (through the Nov 2026 count)
+        if: ${{ always() }}
+        continue-on-error: true
+        run: |
+          [ "$(TZ=America/Los_Angeles date +%Y%m%d)" -le 20261120 ] || exit 0
+          python -I scripts/ballot_results.py --csv ballot.csv
       - name: Commit live.json
+        if: ${{ always() }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add live.json
+          [ -f ballot.csv ] && git add ballot.csv
           git diff --cached --quiet && exit 0
           git commit -m "live: $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase origin main
