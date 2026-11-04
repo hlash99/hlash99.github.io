@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-03T12:31-08:00",
+ "updated": "2026-11-03T17:26-08:00",
  "date": "2026-11-03",
  "date_line": "Tuesday · November 3 2026",
  "weather": {
   "high": 66,
   "low": 50,
-  "summary": "Light Rain Likely",
+  "summary": "Chance Light Rain",
   "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "332.00",
-  "change_pct": "-1.87%",
-  "dir": "down"
+  "price": "331.90",
+  "change_pct": "-1.90%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "329.89",
+   "change_pct": "-0.61%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -48,59 +55,57 @@
    "flag": "History unconfirmed"
   }
  ],
- "phase": "news",
+ "phase": "midterms",
  "items": [
   {
    "kind": "politics",
-   "label": "MIDTERMS",
-   "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
-   "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
-   "source": "NYT",
-   "stat": "Today"
+   "label": "POLITICS",
+   "title": "America Votes",
+   "href": "https://www.nytimes.com/2026/11/03/briefing/election-night-house-senate-results.html",
+   "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Says U.S. to End $4 Billion in Aid to Israel at End of Year",
-   "href": "https://www.nytimes.com/2026/11/03/us/politics/trump-israel-aid-netanyahu.html",
-   "source": "NYT",
-   "stat": "$4 Billion"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Israeli Claims of Iranian Chemical Weapons Divide U.S. Officials",
-   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/iran-chemical-weapons-israel-trump.html",
+   "title": "‘Trump Has Left Republicans in a Highly Perilous Position’: Opinion Writers Assess the Midterms",
+   "href": "https://www.nytimes.com/2026/11/03/opinion/politics/election-midterms-senate-house.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "A Test for Israeli Democracy: Should Jews Ask Arabs to Join the Government?",
-   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/israel-coalition-arab-lawmakers.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Chris Murphy, Recovering From a Stroke, Remains Hospitalized on Election Day",
+   "href": "https://www.nytimes.com/2026/11/03/us/chris-murphy-stroke-hospitalization.html",
    "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Jon Ossoff wins reelection in Georgia, easily defeating Republican Mike Collins",
+   "href": "https://www.npr.org/2026/11/03/g-s1-150143/georgia-senate-race-jon-ossoff-mike-collins",
+   "source": "NPR"
   }
  ],
  "news": [
   {
-   "title": "Trump Effort to Prove Rampant Noncitizen Voting Leads to Few Charges So Far",
-   "href": "https://www.nytimes.com/2026/11/03/us/politics/dhs-noncitizen-voting-midterms.html",
+   "title": "America Votes",
+   "href": "https://www.nytimes.com/2026/11/03/briefing/election-night-house-senate-results.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Says U.S. to End $4 Billion in Aid to Israel at End of Year",
-   "href": "https://www.nytimes.com/2026/11/03/us/politics/trump-israel-aid-netanyahu.html",
+   "title": "‘Trump Has Left Republicans in a Highly Perilous Position’: Opinion Writers Assess the Midterms",
+   "href": "https://www.nytimes.com/2026/11/03/opinion/politics/election-midterms-senate-house.html",
    "source": "NYT"
   },
   {
-   "title": "Israeli Claims of Iranian Chemical Weapons Divide U.S. Officials",
-   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/iran-chemical-weapons-israel-trump.html",
+   "title": "Chris Murphy, Recovering From a Stroke, Remains Hospitalized on Election Day",
+   "href": "https://www.nytimes.com/2026/11/03/us/chris-murphy-stroke-hospitalization.html",
    "source": "NYT"
   },
   {
-   "title": "A Test for Israeli Democracy: Should Jews Ask Arabs to Join the Government?",
-   "href": "https://www.nytimes.com/2026/11/03/world/middleeast/israel-coalition-arab-lawmakers.html",
-   "source": "NYT"
+   "title": "Jon Ossoff wins reelection in Georgia, easily defeating Republican Mike Collins",
+   "href": "https://www.npr.org/2026/11/03/g-s1-150143/georgia-senate-race-jon-ossoff-mike-collins",
+   "source": "NPR"
   }
  ],
  "alerts": {},
@@ -111,7 +116,10 @@
   "42579817",
   "42640855"
  ],
- "election": null,
+ "election": {
+  "senate": null,
+  "house": null
+ },
  "stale": [],
  "first_seen": {
   "JH4NA2160VT000148": "2000-01-01",
