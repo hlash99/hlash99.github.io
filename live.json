@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-04T12:50-08:00",
+ "updated": "2026-11-04T17:29-08:00",
  "date": "2026-11-04",
  "date_line": "Wednesday · November 4 2026",
  "weather": {
   "high": 68,
   "low": 49,
-  "summary": "Sunny",
-  "icon": "sun"
+  "summary": "Mostly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.40",
-  "change_pct": "+6.18%",
-  "dir": "up"
+  "price": "349.59",
+  "change_pct": "+5.33%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "350.93",
+   "change_pct": "+0.38%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -75,15 +82,15 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Stocks Rise as Democrats Flip Control of Congress",
-   "href": "https://www.nytimes.com/2026/11/04/business/midterm-elections-stock-market.html",
+   "title": "Justice Alito Will Not Retire From Supreme Court Immediately, Despite Election Outcome",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/alito-trump-supreme-court-not-retiring.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Israel’s President Could Play Key Role in Breaking Post-Election Deadlock",
-   "href": "https://www.nytimes.com/2026/11/04/world/middleeast/israel-president-herzog-election-government.html",
+   "title": "Trump Wanted Democrats to Win",
+   "href": "https://www.nytimes.com/2026/11/04/opinion/trump-democrats-midterms.html",
    "source": "NYT"
   }
  ],
@@ -99,13 +106,13 @@
    "source": "NYT"
   },
   {
-   "title": "Stocks Rise as Democrats Flip Control of Congress",
-   "href": "https://www.nytimes.com/2026/11/04/business/midterm-elections-stock-market.html",
+   "title": "Justice Alito Will Not Retire From Supreme Court Immediately, Despite Election Outcome",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/alito-trump-supreme-court-not-retiring.html",
    "source": "NYT"
   },
   {
-   "title": "Israel’s President Could Play Key Role in Breaking Post-Election Deadlock",
-   "href": "https://www.nytimes.com/2026/11/04/world/middleeast/israel-president-herzog-election-government.html",
+   "title": "Trump Wanted Democrats to Win",
+   "href": "https://www.nytimes.com/2026/11/04/opinion/trump-democrats-midterms.html",
    "source": "NYT"
   }
  ],
