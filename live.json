@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-05T07:28-08:00",
+ "updated": "2026-11-05T13:06-08:00",
  "date": "2026-11-05",
  "date_line": "Thursday · November 5 2026",
  "weather": {
   "high": 72,
   "low": 50,
-  "summary": "Patchy Fog then Sunny",
-  "icon": "fog"
+  "summary": "Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "349.51",
-  "change_pct": "+5.31%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "354.80",
-   "change_pct": "+1.51%",
-   "dir": "up"
-  }
+  "price": "344.09",
+  "change_pct": "-1.55%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -68,51 +61,51 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Inside Team Trump’s Historic Collapse in the 2026 Midterm Elections",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/trump-midterms-losses-republicans.html",
+   "title": "The Machine, and the Messaging, That Won Texas for Democrats",
+   "href": "https://www.nytimes.com/2026/11/05/us/texas-democrats-statewide-sweep.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "‘Florida Is the Last Main Anchor Standing’ for Republicans",
-   "href": "https://www.nytimes.com/2026/11/05/us/florida-republicans-midterms.html",
+   "title": "How Democrats Won Across the South",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/midterms-southern-democrats.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "How Colom Changed a Long Shot in Mississippi Into a Race Too Close to Call",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/mississippi-senate-race-democrat-colom-hyde-smith.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Moderate Democrats Increase Their Numbers, and Their Clout",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/moderate-democrats-midterms.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "What Democrats Plan to Do Next, and What JD Vance Says Went Wrong",
-   "href": "https://www.nytimes.com/2026/11/05/podcasts/the-headlines/democrats-midterm-elections-jd-vance-kpop.html",
+   "title": "Across the South, Black Voters Help Propel Democratic Wins",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/black-voters-south-democratic-wins.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Inside Team Trump’s Historic Collapse in the 2026 Midterm Elections",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/trump-midterms-losses-republicans.html",
+   "title": "The Machine, and the Messaging, That Won Texas for Democrats",
+   "href": "https://www.nytimes.com/2026/11/05/us/texas-democrats-statewide-sweep.html",
    "source": "NYT"
   },
   {
-   "title": "‘Florida Is the Last Main Anchor Standing’ for Republicans",
-   "href": "https://www.nytimes.com/2026/11/05/us/florida-republicans-midterms.html",
+   "title": "How Democrats Won Across the South",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/midterms-southern-democrats.html",
    "source": "NYT"
   },
   {
-   "title": "Moderate Democrats Increase Their Numbers, and Their Clout",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/moderate-democrats-midterms.html",
+   "title": "How Colom Changed a Long Shot in Mississippi Into a Race Too Close to Call",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/mississippi-senate-race-democrat-colom-hyde-smith.html",
    "source": "NYT"
   },
   {
-   "title": "What Democrats Plan to Do Next, and What JD Vance Says Went Wrong",
-   "href": "https://www.nytimes.com/2026/11/05/podcasts/the-headlines/democrats-midterm-elections-jd-vance-kpop.html",
+   "title": "Across the South, Black Voters Help Propel Democratic Wins",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/black-voters-south-democratic-wins.html",
    "source": "NYT"
   }
  ],
