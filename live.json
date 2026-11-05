@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-05T01:33-08:00",
+ "updated": "2026-11-05T07:28-08:00",
  "date": "2026-11-05",
  "date_line": "Thursday · November 5 2026",
  "weather": {
   "high": 72,
-  "low": 49,
-  "summary": "Tomorrow · Patchy Fog then Sunny",
+  "low": 50,
+  "summary": "Patchy Fog then Sunny",
   "icon": "fog"
  },
  "stock": {
@@ -16,8 +16,8 @@
   "session": "Close",
   "after": {
    "label": "Pre-market",
-   "price": "350.07",
-   "change_pct": "+0.16%",
+   "price": "354.80",
+   "change_pct": "+1.51%",
    "dir": "up"
   }
  },
@@ -75,22 +75,22 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Vance, in Break With Trump, Blames Iran War for Republicans’ 2026 Midterm Losses",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/vance-iran-war-midterms-trump.html",
+   "title": "‘Florida Is the Last Main Anchor Standing’ for Republicans",
+   "href": "https://www.nytimes.com/2026/11/05/us/florida-republicans-midterms.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Emerges After the Midterms: ‘Did You Guys See the Helipad?’",
-   "href": "https://www.nytimes.com/2026/11/04/us/trump-midterms-ballroom.html",
+   "title": "Moderate Democrats Increase Their Numbers, and Their Clout",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/moderate-democrats-midterms.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Justice Alito Will Not Retire From Supreme Court Immediately, Despite Election Outcome",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/alito-trump-supreme-court-not-retiring.html",
+   "title": "What Democrats Plan to Do Next, and What JD Vance Says Went Wrong",
+   "href": "https://www.nytimes.com/2026/11/05/podcasts/the-headlines/democrats-midterm-elections-jd-vance-kpop.html",
    "source": "NYT"
   }
  ],
@@ -101,18 +101,18 @@
    "source": "NYT"
   },
   {
-   "title": "Vance, in Break With Trump, Blames Iran War for Republicans’ 2026 Midterm Losses",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/vance-iran-war-midterms-trump.html",
+   "title": "‘Florida Is the Last Main Anchor Standing’ for Republicans",
+   "href": "https://www.nytimes.com/2026/11/05/us/florida-republicans-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Emerges After the Midterms: ‘Did You Guys See the Helipad?’",
-   "href": "https://www.nytimes.com/2026/11/04/us/trump-midterms-ballroom.html",
+   "title": "Moderate Democrats Increase Their Numbers, and Their Clout",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/moderate-democrats-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Justice Alito Will Not Retire From Supreme Court Immediately, Despite Election Outcome",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/alito-trump-supreme-court-not-retiring.html",
+   "title": "What Democrats Plan to Do Next, and What JD Vance Says Went Wrong",
+   "href": "https://www.nytimes.com/2026/11/05/podcasts/the-headlines/democrats-midterm-elections-jd-vance-kpop.html",
    "source": "NYT"
   }
  ],
@@ -131,9 +131,7 @@
   },
   "house": null
  },
- "stale": [
-  "papers"
- ],
+ "stale": [],
  "first_seen": {
   "JH4NA2160VT000148": "2000-01-01",
   "ZFF68NHA4D0190471": "2000-01-01",
