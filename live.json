@@ -1,23 +1,23 @@
 {
- "updated": "2026-11-04T17:29-08:00",
- "date": "2026-11-04",
- "date_line": "Wednesday · November 4 2026",
+ "updated": "2026-11-05T01:33-08:00",
+ "date": "2026-11-05",
+ "date_line": "Thursday · November 5 2026",
  "weather": {
-  "high": 68,
+  "high": 72,
   "low": 49,
-  "summary": "Mostly Sunny",
-  "icon": "partly"
+  "summary": "Tomorrow · Patchy Fog then Sunny",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "349.59",
-  "change_pct": "+5.33%",
+  "price": "349.51",
+  "change_pct": "+5.31%",
   "dir": "up",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "350.93",
-   "change_pct": "+0.38%",
+   "label": "Pre-market",
+   "price": "350.07",
+   "change_pct": "+0.16%",
    "dir": "up"
   }
  },
@@ -68,15 +68,22 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "With Democrats’ Sweep, Congress Is Set to Reassert Power to Check Trump",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/democrats-house-senate-congress-trump.html",
+   "title": "Inside Team Trump’s Historic Collapse in the 2026 Midterm Elections",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/trump-midterms-losses-republicans.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "On the Democrats’ Agenda: Investigations of Trump and His Family",
-   "href": "https://www.nytimes.com/2026/11/04/us/trump-family-investigations-democrats.html",
+   "title": "Vance, in Break With Trump, Blames Iran War for Republicans’ 2026 Midterm Losses",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/vance-iran-war-midterms-trump.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Emerges After the Midterms: ‘Did You Guys See the Helipad?’",
+   "href": "https://www.nytimes.com/2026/11/04/us/trump-midterms-ballroom.html",
    "source": "NYT"
   },
   {
@@ -84,35 +91,28 @@
    "label": "POLITICS",
    "title": "Justice Alito Will Not Retire From Supreme Court Immediately, Despite Election Outcome",
    "href": "https://www.nytimes.com/2026/11/04/us/politics/alito-trump-supreme-court-not-retiring.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Wanted Democrats to Win",
-   "href": "https://www.nytimes.com/2026/11/04/opinion/trump-democrats-midterms.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "With Democrats’ Sweep, Congress Is Set to Reassert Power to Check Trump",
-   "href": "https://www.nytimes.com/2026/11/04/us/politics/democrats-house-senate-congress-trump.html",
+   "title": "Inside Team Trump’s Historic Collapse in the 2026 Midterm Elections",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/trump-midterms-losses-republicans.html",
    "source": "NYT"
   },
   {
-   "title": "On the Democrats’ Agenda: Investigations of Trump and His Family",
-   "href": "https://www.nytimes.com/2026/11/04/us/trump-family-investigations-democrats.html",
+   "title": "Vance, in Break With Trump, Blames Iran War for Republicans’ 2026 Midterm Losses",
+   "href": "https://www.nytimes.com/2026/11/04/us/politics/vance-iran-war-midterms-trump.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Trump Emerges After the Midterms: ‘Did You Guys See the Helipad?’",
+   "href": "https://www.nytimes.com/2026/11/04/us/trump-midterms-ballroom.html",
    "source": "NYT"
   },
   {
    "title": "Justice Alito Will Not Retire From Supreme Court Immediately, Despite Election Outcome",
    "href": "https://www.nytimes.com/2026/11/04/us/politics/alito-trump-supreme-court-not-retiring.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Trump Wanted Democrats to Win",
-   "href": "https://www.nytimes.com/2026/11/04/opinion/trump-democrats-midterms.html",
    "source": "NYT"
   }
  ],
@@ -131,7 +131,9 @@
   },
   "house": null
  },
- "stale": [],
+ "stale": [
+  "papers"
+ ],
  "first_seen": {
   "JH4NA2160VT000148": "2000-01-01",
   "ZFF68NHA4D0190471": "2000-01-01",
