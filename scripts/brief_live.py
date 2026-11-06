@@ -200,29 +200,65 @@ def headlines(only=None, limit=4):
     return out
 
 
-def chamber(page):
-    """Declared seat totals from Wikipedia's infobox. None until editors fill them in."""
+def seat_value(text, field):
+    """Infobox number for `field`: (low, high), e.g. (253, 253), or (52, 54) while races are
+    uncalled. Comments, bold quotes, templates and refs are stripped first: a bolded
+    '''52–54''' used to defeat the old digits-right-after-= regex and drop the Democrats."""
+    m = re.search(rf"^\|\s*{field}\s*=([^\n]*)", text, re.M)
+    if not m:
+        return None
+    v = re.sub(r"<!--.*?-->|<ref[^>]*/>|<ref.*?</ref>|'{2,}", "", m.group(1))
+    while True:
+        w = re.sub(r"\{\{[^{}]*\}\}", "", v)  # {{efn|...}}, innermost first
+        if w == v:
+            break
+        v = w
+    n = re.fullmatch(r"(\d+)(?:\s*[–—-]\s*(\d+))?", v.strip())
+    if not n:
+        return None
+    lo, hi = int(n.group(1)), int(n.group(2) or n.group(1))
+    return (lo, hi) if lo <= hi else None
+
+
+def chamber(page, field, total):
+    """Seats each side holds in the next Congress, from Wikipedia's infobox, counting only
+    called races (the low end of a range). The Senate's seats_afterN is the whole chamber
+    of 100 incl. holdovers (its seatsN would be races won this cycle and is left blank); the
+    House has no seats_afterN, and with all 435 seats up its seatsN is the chamber total.
+    None until editors fill them in, or whenever the numbers don't add up."""
     url = f"https://en.wikipedia.org/w/api.php?action=parse&page={page}&prop=wikitext&section=0&format=json&formatversion=2"
     text = json.loads(get(url))["parse"]["wikitext"]
     d = r = 0
-    for n in range(1, 6):
-        party = re.search(rf"\|\s*party{n}\s*=\s*([^\n|]*)", text)
-        seats = re.search(rf"\|\s*seats_after{n}\s*=\s*(\d+)", text)
-        if not party or not seats:
+    have_d = have_r = False
+    for n in range(1, 8):
+        party = re.search(rf"^\|\s*party{n}\s*=([^\n]*)", text, re.M)
+        if not party or not party.group(1).strip():
             continue
-        if "Republican" in party.group(1):
-            r += int(seats.group(1))
-        else:
-            d += int(seats.group(1))  # independents caucus with Democrats
-    return {"d": d, "r": r} if d and r else None
+        name, seats = party.group(1), seat_value(text, f"{field}{n}")
+        if seats is None:
+            if re.search(r"Democratic|Republican", name):
+                return None  # a major party without a readable total: don't guess
+            continue
+        if "Republican" in name:
+            r, have_r = r + seats[0], True
+        elif "Democratic" in name:
+            d, have_d = d + seats[0], True
+        elif "Independent" in name and re.search(r"caucus(?:es)? with the Democrats", text):
+            d += seats[0]  # independents caucus with Democrats
+        elif seats[0]:
+            return None  # a third party or non-caucusing independent holding seats
+    uncalled = total - d - r
+    if not (have_d and have_r) or uncalled < 0 or d + r < total // 2:
+        return None
+    return {"d": d, "r": r, "uncalled": uncalled, "total": total}
 
 
 def election():
     out = {}
-    for key, page in (("senate", "2026_United_States_Senate_elections"),
-                      ("house", "2026_United_States_House_of_Representatives_elections")):
+    for key, page, field, total in (("senate", "2026_United_States_Senate_elections", "seats_after", 100),
+                                    ("house", "2026_United_States_House_of_Representatives_elections", "seats", 435)):
         try:
-            out[key] = chamber(page)
+            out[key] = chamber(page, field, total)
         except Exception as e:
             print(f"{key} results failed: {e}", file=sys.stderr)
             out[key] = None
@@ -277,10 +313,19 @@ def tile(title, href, source, kind=None, label=None, stat=None, direction=None):
 
 
 def merge_alerts(prev, found, today):
-    """Keep each alert for three days from when it first appeared."""
-    out = dict(prev.get("alerts") or {})
+    """Keep each alert for three days from when it first appeared. An alert found again is
+    rewritten from the current data (an auction's bid moves) but keeps its first date."""
+    out = {}
+    for k, v in (prev.get("alerts") or {}).items():
+        v = dict(v)
+        if v.get("kind") == "car":  # repair entries written before the bid/blank-field fix
+            if re.fullmatch(r"\$0( bid)?", v.get("stat", "")):
+                v.pop("stat")
+            v["title"] = re.sub(r"[,\s]+$", "", re.sub(r", [—-] mi\b", "", v.get("title", "")))
+        out[k] = v
     for key, title, href, extra in found:
-        out.setdefault(key, dict(extra, title=title[:110], href=href, date=today))
+        date = out.get(key, {}).get("date", today)
+        out[key] = dict(extra, title=title[:110], href=href, date=date)
     cutoff = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=3)).strftime("%Y-%m-%d")
     return {k: v for k, v in out.items() if v["date"] >= cutoff}
 
@@ -357,27 +402,46 @@ def main():
     known = prev.get("papers_seen")
     listed = attempt("papers", papers, None, stale)
     seen_papers = set(known or [])
+    # papers_new outlives the 3-day alerts: the hub pins each paper for 30 days from first seen.
+    papers_new = {p["id"]: p for p in (prev.get("papers_new") or []) if p.get("id")}
     if listed is not None:
         fresh = [p for p in listed if p[0] not in seen_papers]
         if known is not None:
             found += [(f"paper:{i}", t, h, {"kind": "science", "label": "Khodadoust paper", "stat": "New", "source": "PubMed"})
                       for i, t, h in fresh]
+            for i, t, h in fresh:
+                papers_new.setdefault(i, {"id": i, "title": t[:300], "href": h, "date": today})
         seen_papers |= {p[0] for p in listed}
+    month_ago = (now - timedelta(days=30)).strftime("%Y-%m-%d")
+    papers_new = sorted((p for p in papers_new.values() if p.get("date", "") >= month_ago),
+                        key=lambda p: p["date"], reverse=True)
     note = attempt("raffle", raffle_alert, None, stale)
     if note:
         found.append(("raffle", note, "https://mail.yahoo.com/", {"kind": "you", "label": "LADD raffle", "stat": "Mail", "source": "Yahoo"}))
     was = {r.get("vin") or r.get("href"): r for r in prev.get("cars", []) if not r.get("group")}
+    # Only the first $ amount: BaT rows read "$12,345 bid, ends Nov 12".
     digits = lambda r: int(re.sub(r"\D", "", str(r.get("price", "")).split(" ")[0]) or 0)
+
+    def price_stat(r):
+        if not re.search(r"\bbid\b", str(r.get("price", ""))):
+            return r["price"].split(" ")[0]
+        n = digits(r)
+        return "No bids" if not n else f"${n / 1e6:.1f}M bid" if n >= 1e6 else f"${round(n / 1000)}k bid" if n >= 1000 else f"{money(n)} bid"
+
+    prev_alerts = prev.get("alerts") or {}
     for r in nsx_rows + spider_rows:
         key = r.get("vin") or r["href"]
         old_row = was.get(key)
         label = r["car"].replace(" 6-speed", "")
-        if "New" in r["flag"]:
-            found.append((f"car:{key}", f"New listing: {label}, {r['miles']} mi, {r.get('location', '')}", r["href"],
-                          {"kind": "car", "label": "New listing", "stat": r["price"].split(" ")[0], "source": r.get("source", "")}))
-        elif old_row and digits(r) and digits(r) < digits(old_row):
+        is_new = "New" in r["flag"]
+        if is_new or f"car:{key}" in prev_alerts:  # re-found every run so the bid stays current
+            miles = r.get("miles")
+            bits = [label, f"{miles} mi" if miles and miles != "—" else "", r.get("location") or ""]  # skip blanks
+            found.append((f"car:{key}", "New listing: " + ", ".join(b for b in bits if b), r["href"],
+                          {"kind": "car", "label": "New listing", "stat": price_stat(r), "source": r.get("source", "")}))
+        if not is_new and old_row and digits(r) and digits(r) < digits(old_row):
             found.append((f"drop:{key}:{digits(r)}", f"{label}, was {old_row['price']}", r["href"],
-                          {"kind": "car", "label": "Price cut", "stat": r["price"].split(" ")[0], "dir": "down", "source": r.get("source", "")}))
+                          {"kind": "car", "label": "Price cut", "stat": price_stat(r), "dir": "down", "source": r.get("source", "")}))
     alerts = merge_alerts(prev, found, today)
     picks = [tile(v["title"], v["href"], v.get("source", ""), v.get("kind", "you"), v.get("label"), v.get("stat") or "New", v.get("dir"))
              for v in sorted(alerts.values(), key=lambda a: a["date"], reverse=True)]
@@ -395,14 +459,17 @@ def main():
     if phase == "midterms":
         for name, v in (("Senate", (races or {}).get("senate")), ("House", (races or {}).get("house"))):
             if v:
-                extra.append(tile(f"{name} seats won so far", "https://en.wikipedia.org/wiki/2026_United_States_elections",
+                left = v["uncalled"]
+                # Short on purpose: the hub tile clamps captions to two lines.
+                tail = "all called" if not left else f"{left} uncalled"
+                extra.append(tile(f"Seats of {v['total']} · {tail}", "https://en.wikipedia.org/wiki/2026_United_States_elections",
                                   "Wikipedia", "politics", name, f"D {v['d']} · R {v['r']}"))
     items = (picks + extra + heads)[:5]  # AAPL already sits in the strip above
 
     out = {"updated": now.isoformat(timespec="minutes"), "date": today,
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
            "phase": phase, "items": items, "news": news, "alerts": alerts,
-           "papers_seen": sorted(seen_papers), "election": races, "stale": stale, "first_seen": seen}
+           "papers_seen": sorted(seen_papers), "papers_new": papers_new, "election": races, "stale": stale, "first_seen": seen}
     if len(stale) == 8:
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return

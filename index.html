@@ -99,6 +99,17 @@
     .bf-tiles{grid-auto-flow:row;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-columns:auto;overflow:hidden;row-gap:12px;margin-left:-13px;scroll-snap-type:none}
     .bf-tile,.bf-tile:first-child{border-left:1px solid var(--line);padding-left:12px}
   }
+  /* ---- pinned alerts at the very top: a significant lotto hit, a new Khodadoust paper ---- */
+  #hub-alerts{display:flex;flex-direction:column;gap:8px;margin:0 0 18px}
+  #hub-alerts[hidden]{display:none}
+  .ha{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;color:var(--ink);text-decoration:none;
+    background:rgba(248,184,78,.09);border:1px solid rgba(248,184,78,.35)}
+  .ha:hover{background:rgba(248,184,78,.15)}
+  .ha .i{font-size:22px;line-height:1}
+  .ha .b{min-width:0;flex:1}
+  .ha .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#f8b84e;font-weight:600}
+  .ha .t{font-size:14px;font-weight:600;line-height:1.35;overflow-wrap:anywhere}
+  .ha .m{font-size:12px;color:var(--muted)}
   /* ---- password gate (courtesy screen — this is a static public site, so it deters
      casual visitors only; the underlying repos and sub-pages remain reachable) ---- */
   #gate{position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;
@@ -154,6 +165,7 @@ document.getElementById("gateForm").addEventListener("submit",async e=>{
 </script>
 <div class="wrap">
   <div id="bf-top" class="bf-top" hidden></div>
+  <div id="hub-alerts" hidden></div>
   <div class="hero">
     <h1>hlash99</h1>
     <p id="sub">Projects &amp; live dashboards on GitHub Pages.</p>
@@ -629,9 +641,12 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
       t.title=o.title||"";tiles.append(t);};
     (b.items||[]).forEach(o=>add(o,(o.kind==="you"||o.alert)?"me":""));
     (b.cars||[]).filter(c=>!c.group).forEach(c=>{
-      const n=parseInt(String(c.price||"").replace(/[^\d]/g,""),10),st=String(c.location||"").trim().slice(-2);
+      /* Only the FIRST $ amount: BaT rows read "$12,345 bid, ends Nov 12", and stripping every
+         non-digit glued the end date on (1234512 → "$1235k"). Auction bids are labelled "bid". */
+      const pm=/\$\s*([\d,]+)/.exec(String(c.price||"")),n=pm?parseInt(pm[1].replace(/,/g,""),10):0;
+      const bid=/\bbid\b/i.test(String(c.price||"")),st=String(c.location||"").trim().slice(-2);
       const model=/NSX/.test(c.car)?"NSX-T":"458 Spider";
-      add({kind:"car",label:model+(st?" · "+st:"")+(/unconfirmed/i.test(c.flag||"")?" ?":""),stat:n?"$"+Math.round(n/1000)+"k":"",
+      add({kind:"car",label:model+(st?" · "+st:"")+(/unconfirmed/i.test(c.flag||"")?" ?":""),stat:n?"$"+Math.round(n/1000)+"k"+(bid?" bid":""):"",
         title:[String(c.car).slice(0,4),c.miles?c.miles+" mi":"",c.color&&c.color!=="— / —"?c.color:""].filter(Boolean).join(" · "),
         source:c.seller||"",href:c.href},"car");});
     if(tiles.children.length)box.append(tiles);
@@ -661,6 +676,41 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
         const mine=o.items.map(i=>Object.assign({kind:"you",label:"For you",alert:true},i));
         d.items=mine.concat(d.items||[]).slice(0,6);}}catch(e){}}
     draw(d);});
+})();
+</script>
+<script>
+/* Pinned alerts (top of page). Static reads only:
+   - lotto-tracker data.json → <game>.last_result: the picks live before the latest draw, scored
+     against it by scripts/update.py; shown only when significant (PB 4+ or 3+PB, SL 4+ or 3+M),
+     for 14 days after the draw.
+   - live.json → papers_new: new Khodadoust papers found by the morning brief's PubMed watch,
+     kept 30 days by scripts/brief_live.py. */
+(function(){
+  const box=document.getElementById("hub-alerts");
+  const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;};
+  const load=u=>fetch(u+(u.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
+  const days=iso=>(Date.now()-new Date(String(iso).slice(0,10)+"T12:00:00").getTime())/864e5;
+  const md=iso=>{const d=new Date(String(iso).slice(0,10)+"T12:00:00");return isNaN(d)?String(iso||""):d.toLocaleDateString([], {month:"short",day:"numeric"});};
+  const add=(icon,kind,title,meta,href)=>{
+    const a=el(href?"a":"div","ha");if(href){a.href=href;a.target="_blank";a.rel="noopener";}
+    const b=el("div","b");b.append(el("div","k",kind),el("div","t",title));if(meta)b.append(el("div","m",meta));
+    a.append(el("div","i",icon),b);box.append(a);box.hidden=false;};
+  Promise.all([load("https://hlash99.github.io/lotto-tracker/data.json"),load("live.json")]).then(([lotto,live])=>{
+    for(const [g,name,sp] of [["powerball","Powerball","PB"],["superlotto","SuperLotto Plus","Mega"]]){
+      const r=lotto&&lotto[g]&&lotto[g].last_result;
+      if(!r||!r.significant||!(days(r.draw_date)<=14))continue;
+      const hits=(r.tickets||[]).filter(t=>t.significant);
+      /* show the BEST ticket (scripts/hit_check.py marks it as best.source + best.ticket index) */
+      const t=(r.best&&hits.find(x=>x.source===r.best.source&&x.index===r.best.ticket))||hits[0]||{};
+      const best=(r.best&&r.best.tier)||t.tier||"";
+      add("🎱",name+" hit · "+md(r.draw_date)+" draw",
+          "Your "+(t.source==="cluster"?"pairwise":"recommended")+" pick matched "+best+(hits.length>1?" ("+hits.length+" tickets hit)":""),
+          "Drawn "+(r.whites||[]).join(" ")+" + "+sp+" "+r.special+(t.whites?" · ticket "+t.whites.join(" ")+" + "+t.special:""),
+          "https://hlash99.github.io/lotto-tracker/");
+    }
+    for(const p of ((live&&live.papers_new)||[]).filter(p=>days(p.date)<=30))
+      add("🔬","New Khodadoust paper · "+md(p.date),p.title||"New paper on PubMed","PubMed — via the morning brief",p.href);
+  });
 })();
 </script>
 </body>
