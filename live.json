@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T13:06-08:00",
+ "updated": "2026-11-05T17:35-08:00",
  "date": "2026-11-05",
  "date_line": "Thursday · November 5 2026",
  "weather": {
@@ -10,9 +10,16 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "344.09",
-  "change_pct": "-1.55%",
-  "dir": "down"
+  "price": "344.65",
+  "change_pct": "-1.39%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "342.70",
+   "change_pct": "-0.57%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -46,10 +53,31 @@
    "source": "Cavallino Drift",
    "title": "Title not stated",
    "flag": "History unconfirmed"
+  },
+  {
+   "car": "2014 Ferrari 458 Spider",
+   "color": "—",
+   "miles": "—",
+   "price": "$0 bid, ends Nov 12",
+   "seller": "BaT auction",
+   "location": "",
+   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
+   "source": "BaT",
+   "title": "Title not stated",
+   "flag": "New, History unconfirmed"
   }
  ],
  "phase": "midterms",
  "items": [
+  {
+   "kind": "car",
+   "label": "NEW LISTING",
+   "title": "New listing: 2014 Ferrari 458 Spider, — mi, ",
+   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
+   "source": "BaT",
+   "stat": "$0",
+   "alert": true
+  },
   {
    "kind": "politics",
    "label": "SENATE",
@@ -61,55 +89,58 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "The Machine, and the Messaging, That Won Texas for Democrats",
-   "href": "https://www.nytimes.com/2026/11/05/us/texas-democrats-statewide-sweep.html",
+   "title": "Trump Tried to Undermine the Nation’s Elections. It Didn’t Work.",
+   "href": "https://www.nytimes.com/2026/11/05/us/election-deniers-midterms-trump.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "How Democrats Won Across the South",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/midterms-southern-democrats.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "How Colom Changed a Long Shot in Mississippi Into a Race Too Close to Call",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/mississippi-senate-race-democrat-colom-hyde-smith.html",
+   "title": "Why a Merciless Supreme Court Rebuke on Election Eve Matters",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/the-docket-supreme-court-election-eve.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Across the South, Black Voters Help Propel Democratic Wins",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/black-voters-south-democratic-wins.html",
+   "title": "In Alaska, Ranked-Choice Ballots Are Unlikely to Be Enough for Dan Sullivan",
+   "href": "https://www.nytimes.com/2026/11/05/us/alaska-ranked-choice-data-sullivan-peltola.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "The Machine, and the Messaging, That Won Texas for Democrats",
-   "href": "https://www.nytimes.com/2026/11/05/us/texas-democrats-statewide-sweep.html",
+   "title": "Trump Tried to Undermine the Nation’s Elections. It Didn’t Work.",
+   "href": "https://www.nytimes.com/2026/11/05/us/election-deniers-midterms-trump.html",
    "source": "NYT"
   },
   {
-   "title": "How Democrats Won Across the South",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/midterms-southern-democrats.html",
+   "title": "Why a Merciless Supreme Court Rebuke on Election Eve Matters",
+   "href": "https://www.nytimes.com/2026/11/05/us/politics/the-docket-supreme-court-election-eve.html",
    "source": "NYT"
   },
   {
-   "title": "How Colom Changed a Long Shot in Mississippi Into a Race Too Close to Call",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/mississippi-senate-race-democrat-colom-hyde-smith.html",
+   "title": "In Alaska, Ranked-Choice Ballots Are Unlikely to Be Enough for Dan Sullivan",
+   "href": "https://www.nytimes.com/2026/11/05/us/alaska-ranked-choice-data-sullivan-peltola.html",
    "source": "NYT"
   },
   {
-   "title": "Across the South, Black Voters Help Propel Democratic Wins",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/black-voters-south-democratic-wins.html",
+   "title": "Nithya Raman Wins Los Angeles Mayoral Race, Defeating Karen Bass",
+   "href": "https://www.nytimes.com/2026/11/05/us/la-mayor-raman-bass.html",
    "source": "NYT"
   }
  ],
- "alerts": {},
+ "alerts": {
+  "car:https://bringatrailer.com/listing/2014-ferrari-458-spider-42/": {
+   "kind": "car",
+   "label": "New listing",
+   "stat": "$0",
+   "source": "BaT",
+   "title": "New listing: 2014 Ferrari 458 Spider, — mi, ",
+   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
+   "date": "2026-11-05"
+  }
+ },
  "papers_seen": [
   "41288531",
   "41572562",
@@ -129,6 +160,7 @@
   "JH4NA2160VT000148": "2000-01-01",
   "ZFF68NHA4D0190471": "2000-01-01",
   "ZFF68NHA7D0190366": "2000-01-01",
-  "ZFF68NHA9D0190949": "2000-01-01"
+  "ZFF68NHA9D0190949": "2000-01-01",
+  "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/": "2026-11-05"
  }
 }
