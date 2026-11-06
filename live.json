@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-06T10:27-08:00",
+ "updated": "2026-11-06T12:27-08:00",
  "date": "2026-11-06",
  "date_line": "Friday · November 6 2026",
  "weather": {
   "high": 73,
-  "low": 50,
-  "summary": "Mostly Sunny",
-  "icon": "partly"
+  "low": 51,
+  "summary": "Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "343.81",
-  "change_pct": "-0.11%",
+  "price": "344.15",
+  "change_pct": "-0.01%",
   "dir": "down"
  },
  "cars": [
@@ -82,16 +82,16 @@
   {
    "kind": "politics",
    "label": "HOUSE",
-   "title": "Seats of 435 · 22 uncalled",
+   "title": "Seats of 435 · 21 uncalled",
    "href": "https://en.wikipedia.org/wiki/2026_United_States_elections",
    "source": "Wikipedia",
-   "stat": "D 253 · R 160"
+   "stat": "D 253 · R 161"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Fed Up With Politics and Struggle, Young Voters Powered Democrats’ Midterm Victory",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/young-voters-democratic-wave-midterms.html",
+   "title": "Hegseth Faces Impeachment Effort and Bipartisan Scrutiny After Midterm Elections",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/hegseth-trump-iran-war.html",
    "source": "NYT"
   },
   {
@@ -104,8 +104,8 @@
  ],
  "news": [
   {
-   "title": "Fed Up With Politics and Struggle, Young Voters Powered Democrats’ Midterm Victory",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/young-voters-democratic-wave-midterms.html",
+   "title": "Hegseth Faces Impeachment Effort and Bipartisan Scrutiny After Midterm Elections",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/hegseth-trump-iran-war.html",
    "source": "NYT"
   },
   {
@@ -114,13 +114,13 @@
    "source": "NYT"
   },
   {
-   "title": "Gina Hinojosa Will Be Texas’s First Democratic Governor in Decades. Republicans Won’t Make It Easy.",
-   "href": "https://www.nytimes.com/2026/11/06/us/texas-governor-democrat-gina-hinojosa.html",
+   "title": "How Farmers’ Frustration With Trump’s Policies Helped Democrats",
+   "href": "https://www.nytimes.com/2026/11/06/business/farmers-election-trump-democrats.html",
    "source": "NYT"
   },
   {
-   "title": "John D. Rockefeller IV, West Virginia Governor and Senator, Dies at 89",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/jay-rockefeller-dead.html",
+   "title": "Republicans’ Losses in New York’s Midterms Were Bad. Then Came Their Post-Election Freakout.",
+   "href": "https://www.nytimes.com/2026/11/06/nyregion/new-york-election-midterms-republicans-blakeman-stefanik.html",
    "source": "NYT"
   }
  ],
@@ -152,8 +152,8 @@
   },
   "house": {
    "d": 253,
-   "r": 160,
-   "uncalled": 22,
+   "r": 161,
+   "uncalled": 21,
    "total": 435
   }
  },
