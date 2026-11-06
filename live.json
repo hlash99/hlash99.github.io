@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-06T01:27-08:00",
+ "updated": "2026-11-06T07:16-08:00",
  "date": "2026-11-06",
  "date_line": "Friday · November 6 2026",
  "weather": {
   "high": 73,
   "low": 50,
-  "summary": "Tomorrow · Mostly Sunny",
+  "summary": "Mostly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -16,8 +16,8 @@
   "session": "Close",
   "after": {
    "label": "Pre-market",
-   "price": "340.75",
-   "change_pct": "-0.99%",
+   "price": "340.29",
+   "change_pct": "-1.13%",
    "dir": "down"
   }
  },
@@ -89,44 +89,45 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Tried to Undermine the Nation’s Elections. It Didn’t Work.",
-   "href": "https://www.nytimes.com/2026/11/05/us/election-deniers-midterms-trump.html",
+   "title": "Fed Up With Politics and Struggle, Young Voters Rose Up",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/young-voters-democratic-wave-midterms.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Why a Merciless Supreme Court Rebuke on Election Eve Matters",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/the-docket-supreme-court-election-eve.html",
+   "title": "Guarded Optimism, and Some Jokes, in Ukraine Over Trump’s Midterm Wipeout",
+   "href": "https://www.nytimes.com/2026/11/06/world/europe/russia-ukraine-trump-midterms.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Nithya Raman Wins Los Angeles Mayoral Race, Defeating Karen Bass",
-   "href": "https://www.nytimes.com/2026/11/05/us/la-mayor-raman-bass.html",
-   "source": "NYT"
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "John D. Rockefeller IV, West Virginia Governor and Senator, Dies at 89",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/jay-rockefeller-dead.html",
+   "source": "NYT",
+   "stat": "89"
   }
  ],
  "news": [
   {
-   "title": "Trump Tried to Undermine the Nation’s Elections. It Didn’t Work.",
-   "href": "https://www.nytimes.com/2026/11/05/us/election-deniers-midterms-trump.html",
+   "title": "Fed Up With Politics and Struggle, Young Voters Rose Up",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/young-voters-democratic-wave-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Why a Merciless Supreme Court Rebuke on Election Eve Matters",
-   "href": "https://www.nytimes.com/2026/11/05/us/politics/the-docket-supreme-court-election-eve.html",
+   "title": "Guarded Optimism, and Some Jokes, in Ukraine Over Trump’s Midterm Wipeout",
+   "href": "https://www.nytimes.com/2026/11/06/world/europe/russia-ukraine-trump-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Nithya Raman Wins Los Angeles Mayoral Race, Defeating Karen Bass",
-   "href": "https://www.nytimes.com/2026/11/05/us/la-mayor-raman-bass.html",
+   "title": "John D. Rockefeller IV, West Virginia Governor and Senator, Dies at 89",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/jay-rockefeller-dead.html",
    "source": "NYT"
   },
   {
-   "title": "In Tight Mississippi Senate Race, Votes Are Carefully Scrutinized",
-   "href": "https://www.nytimes.com/2026/11/05/us/mississippi-senate-colom-hydesmith-votes.html",
+   "title": "After These Midterms, JD Vance Is in a Bind",
+   "href": "https://www.nytimes.com/2026/11/06/opinion/jd-vance-midterms.html",
    "source": "NYT"
   }
  ],
