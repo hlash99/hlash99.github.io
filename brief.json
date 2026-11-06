@@ -1,62 +1,58 @@
 {
- "updated": "2026-11-01T18:31-08:00",
- "date": "2026-11-01",
- "date_line": "Sunday · November 1 2026",
+ "updated": "2026-11-06T07:15-08:00",
+ "date": "2026-11-06",
+ "date_line": "Friday · November 6 2026",
  "weather": {
-  "high": 65,
-  "low": 48,
+  "high": 73,
+  "low": 50,
   "icon": "sun",
-  "summary": "Sunny"
+  "summary": "Mostly sunny"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "344.63",
-  "change_pct": "-1.23%",
-  "dir": "down",
-  "session": "Close Fri",
-  "after": {
-   "label": "After hours",
-   "price": "345.10",
-   "change_pct": "+0.14%",
-   "dir": "up"
-  }
+  "price": "341.80",
+  "change_pct": "-0.69%",
+  "dir": "down"
  },
  "cars": [
+  {
+   "group": "Acura NSX-T"
+  },
+  {
+   "car": "1997 NSX-T 6-speed",
+   "color": "Red / —",
+   "miles": "50k",
+   "price": "$144,950",
+   "title": "Clean (Carfax)",
+   "seller": "Park Place Ltd.",
+   "location": "Bellevue, WA",
+   "flag": "",
+   "href": "https://www.dupontregistry.com/car/acura/nsx/1997/JH4NA2160VT000148/647060"
+  },
   {
    "group": "Ferrari 458 Spider"
   },
   {
    "car": "2013 458 Spider",
-   "color": "Black / —",
-   "miles": "36k",
-   "price": "$289,426",
-   "title": "Title not stated",
-   "seller": "Tampa Auto Gallery",
-   "location": "Largo, FL",
-   "flag": "",
-   "href": "https://www.autotrader.com/cars-for-sale/vehicle/781961716"
-  },
-  {
-   "car": "2013 458 Spider",
-   "color": "Gray / —",
-   "miles": "44k",
-   "price": "$289,988",
-   "title": "Title not stated",
-   "seller": "Sienna Motors",
-   "location": "Pompano Beach, FL",
-   "flag": "History unconfirmed",
-   "href": "https://www.classic.com/veh/2013-ferrari-458-spider-zff68nha7d0190366-nm2VGjW/"
-  },
-  {
-   "car": "2013 458 Spider",
-   "color": "Bianco Avus / Red",
-   "miles": "38k",
+   "color": "Bianco Avus / Rosso",
+   "miles": "39k",
    "price": "$299,900",
    "title": "Title not stated",
    "seller": "Tactical Fleet Dallas",
    "location": "Addison, TX",
    "flag": "History unconfirmed",
-   "href": "https://www.autotrader.com/cars-for-sale/vehicle/788901163"
+   "href": "https://www.cars.com/vehicledetail/bf126e6b-3b1e-4226-80ef-113c0f240b3f/"
+  },
+  {
+   "car": "2014 458 Spider",
+   "color": "White / Rosso",
+   "miles": "61k",
+   "price": "$12,345 bid, ends Nov 12",
+   "title": "Clean (Carfax)",
+   "seller": "Dealer (DaveNair)",
+   "location": "Richmond, BC",
+   "flag": "New",
+   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/"
   }
  ]
 }
