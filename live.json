@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-06T23:15-08:00",
- "date": "2026-11-06",
- "date_line": "Friday · November 6 2026",
+ "updated": "2026-11-07T07:14-08:00",
+ "date": "2026-11-07",
+ "date_line": "Saturday · November 7 2026",
  "weather": {
   "high": 75,
-  "low": 51,
-  "summary": "Tomorrow · Mostly Sunny",
+  "low": 52,
+  "summary": "Mostly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -97,23 +97,27 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Hegseth Faces Impeachment Effort and Bipartisan Scrutiny After Midterm Elections",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/hegseth-trump-iran-war.html",
+   "title": "Turning Point Bet on the Midterms and Lost. Some Republicans Are Furious.",
+   "href": "https://www.nytimes.com/2026/11/07/us/turning-point-arizona-midterms.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/musk-trump-midterm-election-spending.html",
-   "source": "NYT",
-   "stat": "$500 Million"
+   "title": "Democrats, Newly Ascendant, Begin a Fight to Shape the Party’s Future",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/democrats-midterms-2028-presidential-race.html",
+   "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Hegseth Faces Impeachment Effort and Bipartisan Scrutiny After Midterm Elections",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/hegseth-trump-iran-war.html",
+   "title": "Turning Point Bet on the Midterms and Lost. Some Republicans Are Furious.",
+   "href": "https://www.nytimes.com/2026/11/07/us/turning-point-arizona-midterms.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Democrats, Newly Ascendant, Begin a Fight to Shape the Party’s Future",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/democrats-midterms-2028-presidential-race.html",
    "source": "NYT"
   },
   {
@@ -122,13 +126,8 @@
    "source": "NYT"
   },
   {
-   "title": "Southern Democrats Now Have a Chance to Lead. What Will They Do With It?",
-   "href": "https://www.nytimes.com/2026/11/06/us/southern-democrats-georgia-north-carolina.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Republicans’ Losses in New York’s Midterms Were Bad. Then Came Their Post-Election Freakout.",
-   "href": "https://www.nytimes.com/2026/11/06/nyregion/new-york-election-midterms-republicans-blakeman-stefanik.html",
+   "title": "The Good, the Bad and the Cringe: 10 Ads That Defined the Midterms",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/midterm-ads-republicans-democrats.html",
    "source": "NYT"
   }
  ],
