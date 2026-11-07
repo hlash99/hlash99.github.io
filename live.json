@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-07T10:49-08:00",
+ "updated": "2026-11-07T14:47-08:00",
  "date": "2026-11-07",
  "date_line": "Saturday · November 7 2026",
  "weather": {
   "high": 75,
   "low": 52,
-  "summary": "Sunny",
-  "icon": "sun"
+  "summary": "Mostly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
@@ -104,7 +104,7 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Schumer Is on Track to Remain Democratic Leader in Senate After Election Blowout, Aides Say",
+   "title": "Chuck Schumer Is on Track to Become Senate Majority Leader After Election Blowout",
    "href": "https://www.nytimes.com/2026/11/07/us/politics/schumer-election-democrats-senate.html",
    "source": "NYT"
   }
@@ -116,18 +116,18 @@
    "source": "NYT"
   },
   {
-   "title": "Schumer Is on Track to Remain Democratic Leader in Senate After Election Blowout, Aides Say",
+   "title": "Chuck Schumer Is on Track to Become Senate Majority Leader After Election Blowout",
    "href": "https://www.nytimes.com/2026/11/07/us/politics/schumer-election-democrats-senate.html",
+   "source": "NYT"
+  },
+  {
+   "title": "After the Midterms, the Average Age in the Senate Falls to 63",
+   "href": "https://www.nytimes.com/2026/11/07/upshot/senators-midterm-elections-age.html",
    "source": "NYT"
   },
   {
    "title": "Turning Point Bet on the Midterms and Lost. Some Republicans Are Furious.",
    "href": "https://www.nytimes.com/2026/11/07/us/turning-point-arizona-midterms.html",
-   "source": "NYT"
-  },
-  {
-   "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/musk-trump-midterm-election-spending.html",
    "source": "NYT"
   }
  ],
