@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-07T07:14-08:00",
+ "updated": "2026-11-07T10:49-08:00",
  "date": "2026-11-07",
  "date_line": "Saturday · November 7 2026",
  "weather": {
   "high": 75,
   "low": 52,
-  "summary": "Mostly Sunny",
-  "icon": "partly"
+  "summary": "Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
@@ -97,37 +97,37 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Turning Point Bet on the Midterms and Lost. Some Republicans Are Furious.",
-   "href": "https://www.nytimes.com/2026/11/07/us/turning-point-arizona-midterms.html",
+   "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Democrats, Newly Ascendant, Begin a Fight to Shape the Party’s Future",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/democrats-midterms-2028-presidential-race.html",
+   "title": "Schumer Is on Track to Remain Democratic Leader in Senate After Election Blowout, Aides Say",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/schumer-election-democrats-senate.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Schumer Is on Track to Remain Democratic Leader in Senate After Election Blowout, Aides Say",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/schumer-election-democrats-senate.html",
+   "source": "NYT"
+  },
   {
    "title": "Turning Point Bet on the Midterms and Lost. Some Republicans Are Furious.",
    "href": "https://www.nytimes.com/2026/11/07/us/turning-point-arizona-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Democrats, Newly Ascendant, Begin a Fight to Shape the Party’s Future",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/democrats-midterms-2028-presidential-race.html",
-   "source": "NYT"
-  },
-  {
    "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections",
    "href": "https://www.nytimes.com/2026/11/06/us/politics/musk-trump-midterm-election-spending.html",
-   "source": "NYT"
-  },
-  {
-   "title": "The Good, the Bad and the Cringe: 10 Ads That Defined the Midterms",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/midterm-ads-republicans-democrats.html",
    "source": "NYT"
   }
  ],
