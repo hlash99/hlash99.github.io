@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-06T07:15-08:00",
- "date": "2026-11-06",
- "date_line": "Friday · November 6 2026",
+ "updated": "2026-11-07T07:14-08:00",
+ "date": "2026-11-07",
+ "date_line": "Saturday · November 7 2026",
  "weather": {
-  "high": 73,
-  "low": 50,
+  "high": 75,
+  "low": 52,
   "icon": "sun",
   "summary": "Mostly sunny"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "341.80",
-  "change_pct": "-0.69%",
-  "dir": "down"
+  "price": "342.37",
+  "change_pct": "-0.52%",
+  "dir": "down",
+  "session": "Close Fri",
+  "after": {
+   "label": "After hours",
+   "price": "342.79",
+   "change_pct": "+0.12%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -51,7 +58,7 @@
    "title": "Clean (Carfax)",
    "seller": "Dealer (DaveNair)",
    "location": "Richmond, BC",
-   "flag": "New",
+   "flag": "History unconfirmed",
    "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/"
   }
  ]
