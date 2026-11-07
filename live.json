@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T12:27-08:00",
+ "updated": "2026-11-06T16:57-08:00",
  "date": "2026-11-06",
  "date_line": "Friday · November 6 2026",
  "weather": {
@@ -10,9 +10,16 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "344.15",
-  "change_pct": "-0.01%",
-  "dir": "down"
+  "price": "342.42",
+  "change_pct": "-0.51%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "342.82",
+   "change_pct": "+0.12%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -97,9 +104,10 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "The Voters Who Powered the Blue Tsunami",
-   "href": "https://www.nytimes.com/video/us/elections/100000011265557/the-voters-who-powered-the-blue-tsunami.html",
-   "source": "NYT"
+   "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/musk-trump-midterm-election-spending.html",
+   "source": "NYT",
+   "stat": "$500 Million"
   }
  ],
  "news": [
@@ -109,13 +117,13 @@
    "source": "NYT"
   },
   {
-   "title": "The Voters Who Powered the Blue Tsunami",
-   "href": "https://www.nytimes.com/video/us/elections/100000011265557/the-voters-who-powered-the-blue-tsunami.html",
+   "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/musk-trump-midterm-election-spending.html",
    "source": "NYT"
   },
   {
-   "title": "How Farmers’ Frustration With Trump’s Policies Helped Democrats",
-   "href": "https://www.nytimes.com/2026/11/06/business/farmers-election-trump-democrats.html",
+   "title": "Southern Democrats Now Have a Chance to Lead. What Will They Do With It?",
+   "href": "https://www.nytimes.com/2026/11/06/us/southern-democrats-georgia-north-carolina.html",
    "source": "NYT"
   },
   {
