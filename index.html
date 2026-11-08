@@ -645,7 +645,7 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
          non-digit glued the end date on (1234512 → "$1235k"). Auction bids are labelled "bid". */
       const pm=/\$\s*([\d,]+)/.exec(String(c.price||"")),n=pm?parseInt(pm[1].replace(/,/g,""),10):0;
       const bid=/\bbid\b/i.test(String(c.price||"")),st=String(c.location||"").trim().slice(-2);
-      const model=/NSX/.test(c.car)?"NSX-T":"458 Spider";
+      const model=/NSX/.test(c.car)?"NSX-T":/Z06/.test(c.car)?"Z06":"458 Spider";
       add({kind:"car",label:model+(st?" · "+st:"")+(/unconfirmed/i.test(c.flag||"")?" ?":""),stat:n?"$"+Math.round(n/1000)+"k"+(bid?" bid":""):"",
         title:[String(c.car).slice(0,4),c.miles?c.miles+" mi":"",c.color&&c.color!=="— / —"?c.color:""].filter(Boolean).join(" · "),
         source:c.seller||"",href:c.href},"car");});

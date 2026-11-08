@@ -2,7 +2,7 @@
 """Server-side data for the hub's Morning Brief panel. Runs in GitHub Actions; no Claude.
 
 Writes live.json: date, weather (NWS), AAPL (stockanalysis.com), car listings (Cavallino
-Drift + duPont Registry + Bring a Trailer) and news (NYT, NPR, BBC feeds). A source that fails keeps
+Drift + duPont Registry + Bring a Trailer: 458 Spider, NSX-T, C8 Corvette Z06) and news (NYT, NPR, BBC feeds). A source that fails keeps
 its previous value, so one bad fetch never blanks the panel.
 """
 import html
@@ -18,7 +18,12 @@ OUT = os.path.join(ROOT, "live.json")
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 LAT_LON = "37.4636,-122.1983"  # Menlo Park
 EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"}  # about 7 years in Florida
-MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000
+MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # no price cap on the Z06 watch
+# C8 Z06 without the big wing: the Z07 / Ultimate Performance package and the carbon aero
+# packages all bring the high wing. Excluded only on positive evidence; "no Z07" etc. don't count.
+WING = re.compile(r"(?<!\d)Z07(?!\d)|high[- ]?wing|ultimate performance|carbon[\w -]{0,30}?\baero\b"
+                  r"|carbon(?:[- ]fiber)?(?: rear)? (?:wing|spoiler)", re.I)
+NOT_WING = re.compile(r"\b(?:no|non|without|deleted?)[- ](?:the |a )?(?:Z07|high[- ]?wing|carbon aero|wing)\b", re.I)
 FEEDS = (("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"),
          ("NPR", "https://feeds.npr.org/1001/rss.xml"),
          ("BBC", "https://feeds.bbci.co.uk/news/rss.xml?edition=us"))
@@ -113,7 +118,11 @@ def cavallino_458():
 
 
 def dupont(path):
-    page = get(f"https://www.dupontregistry.com/autos/results/{path}")
+    return dupont_list(f"https://www.dupontregistry.com/autos/results/{path}")
+
+
+def dupont_list(url):
+    page = get(url)
     for blob in re.findall(r"<script[^>]+ld\+json[^>]*>(.*?)</script>", page, re.S):
         if "itemListElement" in blob and "Car" in blob:
             return [e["item"] for e in json.loads(blob)["itemListElement"]]
@@ -142,10 +151,103 @@ def dupont_nsx():
     return rows
 
 
+def visible_text(page):
+    page = re.sub(r"<script.*?</script>|<style.*?</style>", " ", page, flags=re.S)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", page)))
+
+
+def wing_evidence(text):
+    m = WING.search(NOT_WING.sub(" ", text))
+    return m.group(0) if m else None
+
+
+def dupont_z06():
+    """Used C8 Z06 (MY2023+), over MIN_MILES, no Z07 / high wing. Sorted by mileage, highest
+    first, so paging stops as soon as a page reaches cars at or under MIN_MILES."""
+    base = "https://www.dupontregistry.com/used-chevrolet-corvette__z06-for-sale?year=2023-2035&sort=mileage_desc"
+    rows, seen, n_seen = [], set(), 0
+    for page_no in range(1, 6):
+        items = dupont_list(f"{base}&page={page_no}")
+        if not items:
+            if page_no == 1:
+                raise RuntimeError("duPont Z06 results page lists no cars (URL or markup changed?)")
+            break
+        low = False
+        for i in items:
+            vin = i.get("vehicleIdentificationNumber", "")
+            if vin in seen:
+                continue
+            seen.add(vin)
+            n_seen += 1
+            year = int(i.get("vehicleModelDate") or 0)
+            miles = (i.get("mileageFromOdometer") or {}).get("value") or 0
+            offer = i.get("offers") or {}
+            price = offer.get("price") or 0
+            addr = (offer.get("seller") or {}).get("address") or {}
+            tag = f"duPont Z06 {year} {vin} {miles}mi ${price} {addr.get('addressRegion', '')}"
+            if miles <= MIN_MILES:
+                low = True
+                continue
+            if year < 2023 or "Z06" not in (i.get("model") or i.get("name") or "") or not vin.startswith("1G1Y"):
+                print(f"{tag}: drop, not a C8 Z06", file=sys.stderr)
+                continue
+            if addr.get("addressRegion") == "FL":
+                print(f"{tag}: drop, Florida", file=sys.stderr)
+                continue
+            wing = wing_evidence(i.get("name", "") + " " + visible_text(get(i["url"])))
+            if wing:
+                print(f"{tag}: drop, wing ({wing})", file=sys.stderr)
+                continue
+            print(f"{tag}: keep", file=sys.stderr)
+            city = ", ".join(x for x in (addr.get("addressLocality"), addr.get("addressRegion")) if x)
+            rows.append({"vin": vin, "car": f"{year} Corvette Z06", "color": i.get("color") or "—",
+                         "miles": f"{round(miles / 1000)}k", "price": money(price) if price else "Call for price",
+                         "seller": (offer.get("seller") or {}).get("name", ""), "location": city,
+                         "href": i["url"], "source": "duPont Registry"})
+        if low:
+            break
+    print(f"duPont Z06: {n_seen} MY2023+ listings read, {len(rows)} kept", file=sys.stderr)
+    return rows
+
+
+def bat_z06(row, title, blurb):
+    """Check a BaT C8 Z06 auction's own write-up (not the comments) for the wing; fill in
+    VIN and location. Returns the row, or None when it's out."""
+    try:
+        page = get(row["href"])
+    except Exception as e:  # keep it on the title check alone
+        print(f"BaT Z06 {row['href']}: listing page failed ({e}), title check only", file=sys.stderr)
+        page = ""
+    m = re.search(r'class="post-excerpt".*?</div>', page, re.S)
+    d = re.search(r"<strong>Listing Details</strong>(.*?)</ul>", page, re.S)
+    text = " ".join([title, blurb, visible_text(m.group(0)) if m else "", visible_text(d.group(1)) if d else ""])
+    wing = wing_evidence(text)
+    if wing:
+        print(f"BaT Z06 {title}: drop, wing ({wing})", file=sys.stderr)
+        return None
+    if row["miles"] == "—" and d:
+        mi = re.search(r"([\d,]+)k? Miles Shown", visible_text(d.group(1)))
+        if mi:
+            n = int(mi.group(1).replace(",", "")) * (1000 if "k Miles" in mi.group(0) else 1)
+            if n <= MIN_MILES:
+                print(f"BaT Z06 {title}: drop, {n} miles", file=sys.stderr)
+                return None
+            row["miles"] = f"{round(n / 1000)}k"
+    vin = re.search(r"Chassis:\s*(?:<[^>]+>)?\s*(1G1Y[A-Z0-9]{13})", d.group(1)) if d else None
+    if vin:
+        row["vin"] = vin.group(1)
+    loc = re.search(r"<strong>Location</strong>:\s*<a[^>]*>(.*?)</a>", page, re.S)
+    if loc:
+        place = re.sub(r"\s+\d{5}(-\d{4})?$", "", html.unescape(loc.group(1)).strip())
+        row["location"] = re.sub(r",\s*Florida$", ", FL", place)
+    print(f"BaT Z06 {title}: keep ({row.get('location') or 'location unknown'})", file=sys.stderr)
+    return row
+
+
 def bat_live():
     page = get("https://bringatrailer.com/auctions/")
     data = json.loads(re.search(r"var auctionsCurrentInitialData = (\{.*?\});\s*\n", page, re.S).group(1))
-    spiders, nsx = [], []
+    spiders, nsx, z06 = [], [], []
     for x in data.get("items", []):
         title, url, bid = html.unescape(x.get("title", "")), x.get("url", ""), x.get("current_bid") or 0
         if url in EXCLUDED_URLS or not x.get("active"):
@@ -162,7 +264,11 @@ def bat_live():
             spiders.append(row)
         elif re.search(r"(1997|1998|1999|2000|2001) Acura NSX-T 6-Speed", title) and over and bid <= MAX_NSX:
             nsx.append(row)
-    return spiders, nsx
+        elif re.search(r"\b20(2[3-9]|3\d) Chevrolet Corvette Z06\b", title) and over:
+            row = bat_z06(row, title, blurb)
+            if row:
+                z06.append(row)
+    return spiders, nsx, z06
 
 
 def headlines(only=None, limit=4):
@@ -291,12 +397,14 @@ def main():
             prev_rows[r["source"]].append(r)
     keep = lambda *src: [r for x in src for r in prev_rows.get(x, [])]
     spider = attempt("cavallino", cavallino_458, keep("Cavallino Drift"), stale)
-    nsx = attempt("dupont", dupont_nsx, keep("duPont Registry"), stale)
+    is_z06 = lambda r: "Z06" in r.get("car", "")
+    nsx = attempt("dupont", dupont_nsx, [r for r in keep("duPont Registry") if not is_z06(r)], stale)
+    z06 = attempt("dupont_z06", dupont_z06, [r for r in keep("duPont Registry") if is_z06(r)], stale)
     bat = attempt("bat", bat_live, None, stale)
-    bat_s, bat_n = bat if bat else ([], [])
+    bat_s, bat_n, bat_z = bat if bat else ([], [], [])
     if bat is None:
         for r in keep("BaT"):
-            (bat_n if "NSX" in r["car"] else bat_s).append(r)
+            (bat_z if is_z06(r) else bat_n if "NSX" in r["car"] else bat_s).append(r)
 
     def finish(rows):
         out = []
@@ -317,12 +425,13 @@ def main():
             out.append(r)
         return out
 
-    nsx_rows, spider_rows = finish(nsx + bat_n), finish(spider + bat_s)
+    nsx_rows, spider_rows, z06_rows = finish(nsx + bat_n), finish(spider + bat_s), finish(z06 + bat_z)
     cars = []
     if nsx_rows:
         cars += [{"group": "Acura NSX-T"}] + nsx_rows
     if spider_rows:
         cars += [{"group": "Ferrari 458 Spider"}] + spider_rows
+    cars += [{"group": "Chevrolet Corvette Z06"}] + z06_rows  # header even when empty: the watch is on
 
     # Things that matter to Hassan go first; headlines only fill what's left.
     found = []
@@ -356,7 +465,7 @@ def main():
         return "No bids" if not n else f"${n / 1e6:.1f}M bid" if n >= 1e6 else f"${round(n / 1000)}k bid" if n >= 1000 else f"{money(n)} bid"
 
     prev_alerts = prev.get("alerts") or {}
-    for r in nsx_rows + spider_rows:
+    for r in nsx_rows + spider_rows + z06_rows:
         key = r.get("vin") or r["href"]
         old_row = was.get(key)
         label = r["car"].replace(" 6-speed", "")
@@ -381,7 +490,7 @@ def main():
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
            "items": items, "news": news, "alerts": alerts,
            "papers_seen": sorted(seen_papers), "papers_new": papers_new, "stale": stale, "first_seen": seen}
-    if len(stale) == 8:
+    if len(stale) == 9:  # one per attempt() source above
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return
     with open(OUT, "w") as f:
