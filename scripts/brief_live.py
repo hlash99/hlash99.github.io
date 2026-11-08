@@ -2,7 +2,8 @@
 """Server-side data for the hub's Morning Brief panel. Runs in GitHub Actions; no Claude.
 
 Writes live.json: date, weather (NWS), AAPL (stockanalysis.com), car listings (Cavallino
-Drift + duPont Registry + Bring a Trailer: 458 Spider, NSX-T, C8 Corvette Z06) and news (NYT, NPR, BBC feeds). A source that fails keeps
+Drift + duPont Registry + Bring a Trailer: 458 Spider, NSX-T, C8 Corvette Z06; the Z06 also
+from CorvetteForum's C8 classifieds) and news (NYT, NPR, BBC feeds). A source that fails keeps
 its previous value, so one bad fetch never blanks the panel.
 """
 import html
@@ -10,6 +11,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
@@ -21,9 +23,17 @@ EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"
 MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # no price cap on the Z06 watch
 # C8 Z06 without the big wing: the Z07 / Ultimate Performance package and the carbon aero
 # packages all bring the high wing. Excluded only on positive evidence; "no Z07" etc. don't count.
-WING = re.compile(r"(?<!\d)Z07(?!\d)|high[- ]?wing|ultimate performance|carbon[\w -]{0,30}?\baero\b"
+WING = re.compile(r"(?<!\d)Z07(?!\d)|Z06/07|high[- ]?wing|ultimate performance|carbon[\w -]{0,30}?\baero\b"
                   r"|carbon(?:[- ]fiber)?(?: rear)? (?:wing|spoiler)", re.I)
-NOT_WING = re.compile(r"\b(?:no|non|without|deleted?)[- ](?:the |a )?(?:Z07|high[- ]?wing|carbon aero|wing)\b", re.I)
+NOT_WING = re.compile(r"\b(?:no|non|without|deleted?)[- ](?:the |a )?(?:Z07|high[- ]?wing|carbon aero|aero|wing)\b", re.I)
+CF_FORUM = "https://www.corvetteforum.com/forums/c8-corvettes-for-sale-178/"
+CF_PAGES, CF_THREADS, CF_PAUSE = 3, 30, 1.0  # stay polite: index pages, thread fetches, seconds between
+# Want-to-buy / trade / sold / closed threads, and dealer "New 2027" allocations.
+CF_SKIP = re.compile(r"\b(?:WTB|WTT|ISO|wanted|looking for|ready to buy|sold|closed|no longer|off the market|"
+                     r"traded|pending|deposit|delete[d]?)\b|\bnew 20\d\d\b", re.I)
+FLORIDA = re.compile(r"\bFlorida\b|\bFL\b|\b(?:Miami|Tampa|Orlando|Jacksonville|Sarasota|Naples|Fort Lauderdale|"
+                     r"Ft\.? Lauderdale|Boca Raton|West Palm|Palm Beach|Lakeland|Tallahassee|Fort Myers|Clearwater|"
+                     r"St\.? Petersburg|Gainesville|Pensacola|Daytona|Destin)\b|\b(?i:located in) 3[234]\d{3}\b")
 FEEDS = (("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"),
          ("NPR", "https://feeds.npr.org/1001/rss.xml"),
          ("BBC", "https://feeds.bbci.co.uk/news/rss.xml?edition=us"))
@@ -244,6 +254,133 @@ def bat_z06(row, title, blurb):
     return row
 
 
+def cf_miles(text, labelled_only=False):
+    """Odometer from free text. A labelled "Mileage: 3300" wins; otherwise the first "N miles"
+    that isn't warranty / service-interval / tire talk."""
+    m = re.search(r"\b(?:mileage|miles|odometer|odo)\s*[:=]\s*([\d,.]+)\s*(k)?", text, re.I)
+    if not m and not labelled_only:
+        for m in re.finditer(r"(?<![$\d,.])(\d{1,3}(?:,\d{3})+|\d+(?:\.\d)?)\s*(k)?\s*(?:[a-z]+ ){0,2}(?:miles?|mi)\b", text, re.I):
+            before = text[max(0, m.start() - 40):m.start()].lower()
+            if not re.search(r"warrant|\byrs?\b|years?|until|valid|every|interval|tires?|wheels|pads|oil|service", before):
+                break
+        else:
+            m = None
+    if not m:
+        return None
+    n = float(m.group(1).replace(",", "") or 0)
+    return int(n * 1000) if m.group(2) else int(n)
+
+
+def cf_price(text):
+    """The seller's ask: an "asking / price" amount first, else the first $ figure that isn't
+    MSRP or sticker. 40k-400k only, so years and option prices don't count."""
+    amt = r"\$?\s?(\d{2,3}(?:,\d{3})+|\d{2,3}(?:\.\d+)?\s?[kK]\b|\d{5,6}\b)"
+    tries = [rf"(?:asking|price|selling for|sell for|obo)\D{{0,12}}?{amt}", rf"\${amt[3:]}"]
+    for n_try, rx in enumerate(tries):
+        for m in re.finditer(rx, text, re.I):
+            before = text[max(0, m.start() - (12 if n_try == 0 else 30)):m.start()] + m.group(0)[:-len(m.group(1))]
+            if re.search(r"msrp|sticker|total|original|options?|\+|was", before, re.I):
+                continue
+            raw = m.group(1).replace(",", "").replace(" ", "")
+            n = float(raw[:-1]) * 1000 if raw[-1] in "kK" else float(raw)
+            if 40000 <= n <= 400000:
+                return int(n)
+    return None
+
+
+def cf_place(title, text):
+    m = re.search(r"\b(?i:location|located in|car is in|based in)\s*[:-]?\s*([A-Z][\w .'-]{2,40}?(?:,\s*[A-Z][A-Za-z]+)?)(?=[.\n,;!]|\s{2}|\s+\d{5}|$)", text)
+    if m:
+        return m.group(1).strip()
+    m = re.search(r"([A-Z][a-z]+(?: [A-Z][a-z]+)*,\s*(?:[A-Z]{2}|[A-Z][a-z]+(?: [A-Z][a-z]+)?))\s*$", title)
+    return m.group(1) if m else ""
+
+
+def corvetteforum_z06():
+    """Owner listings in CorvetteForum's C8 classifieds: 2023+ Z06, over MIN_MILES, no wing,
+    not Florida. Titles are free text, so anything the title can't settle is read from the
+    thread's first post. Prices are the seller's ask."""
+    threads, n_z06 = [], 0
+    for page_no in range(1, CF_PAGES + 1):
+        page = get(CF_FORUM + (f"index{page_no}.html" if page_no > 1 else ""))
+        rows = re.findall(r'<div class="trow text-center">(.*?)(?=<div class="trow text-center">|$)', page, re.S)
+        found = 0
+        for row in rows:
+            t = re.search(r'<a href="([^"]+)" id="thread_title_(\d+)"[^>]*>(.*?)</a>', row, re.S)
+            if not t:
+                continue
+            found += 1
+            title = html.unescape(re.sub(r"<[^>]+>", "", t.group(3))).strip()
+            if not re.search(r"\bZ06\b", title, re.I) or any(t.group(2) == x[1] for x in threads):
+                continue
+            icon = re.search(r"statusicon/(\w+)", row)
+            who = re.search(r"members/[^']+', '_self'\)\">([^<]+)<", row)
+            threads.append((t.group(1), t.group(2), title, icon.group(1) if icon else "", who.group(1).strip() if who else ""))
+        if not found:
+            if page_no == 1:
+                raise RuntimeError("CorvetteForum index lists no threads (blocked or markup changed?)")
+            break
+        time.sleep(CF_PAUSE)
+    rows, fetched, failed = [], 0, 0
+    for url, tid, title, icon, who in threads:
+        n_z06 += 1
+        tag = f"CorvetteForum {tid} {title[:70]!r}"
+        year = re.search(r"\b(20[2-3]\d)\b|'(2[0-9])\b", title)
+        year = int(year.group(1) or "20" + year.group(2)) if year else None
+        miles = cf_miles(title)
+        title_wing = wing_evidence(title) or (re.search(r"\baero\b", NOT_WING.sub(" ", title), re.I) or [None])[0]
+        why = ("want-to-buy / trade / sold" if CF_SKIP.search(title) else "thread locked or moved" if re.search("lock|moved", icon)
+               else f"MY{year}" if year and year < 2023 else f"wing ({title_wing})" if title_wing
+               else f"{miles} miles" if miles is not None and miles <= MIN_MILES
+               else "Florida" if FLORIDA.search(title) else None)
+        if why:
+            print(f"{tag}: drop, {why}", file=sys.stderr)
+            continue
+        if fetched >= CF_THREADS:
+            print(f"{tag}: not read, thread cap {CF_THREADS} reached", file=sys.stderr)
+            continue
+        fetched += 1
+        time.sleep(CF_PAUSE)
+        try:
+            page = get(url)
+        except Exception as e:
+            failed += 1
+            print(f"{tag}: drop, thread fetch failed ({e})", file=sys.stderr)
+            continue
+        post = re.search(r'<div id="post_message_\d+">(.*?)<!-- / message -->', page, re.S)
+        text = re.sub(r"[ \t]+", " ", html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<br\s*/?>", "\n", post.group(1))))) if post else ""
+        text = re.sub(r"\s*\n\s*", "\n", re.sub(r"<script.*?</script>|<noscript.*?</noscript>", " ", text, flags=re.S)).strip()
+        if not text:
+            print(f"{tag}: drop, first post not found", file=sys.stderr)
+            continue
+        if year is None:
+            y = re.search(r"\b(20[2-3]\d)\b", text)
+            year = int(y.group(1)) if y else None
+        if miles is None:
+            miles = cf_miles(text, labelled_only=False)
+        wing = wing_evidence(text)
+        why = ("marked sold / deleted in the post" if re.match(r"(?i)\W*(sold|delete[d]?|no longer available|off the market)\b", text)
+               else "year not stated" if year is None else f"MY{year}" if year < 2023
+               else f"wing ({wing})" if wing else "Florida" if FLORIDA.search(text)
+               else "mileage not stated" if miles is None else f"{miles} miles" if miles <= MIN_MILES else None)
+        if why:
+            print(f"{tag}: drop, {why}", file=sys.stderr)
+            continue
+        price = cf_price(title) or cf_price(text)
+        vin = re.search(r"\b1G1Y[A-HJ-NPR-Z0-9]{13}\b", text)
+        print(f"{tag}: keep, MY{year} {miles} mi ask {price} VIN {vin.group(0) if vin else '-'}", file=sys.stderr)
+        row = {"car": f"{year} Corvette Z06", "color": "—", "miles": f"{round(miles / 1000)}k",
+               "price": money(price) if price else "Ask seller", "seller": who or "Forum seller",
+               "location": cf_place(title, text), "href": url, "source": "CorvetteForum"}
+        if vin:
+            row["vin"] = vin.group(0)
+        rows.append(row)
+    if fetched and failed == fetched:
+        raise RuntimeError(f"CorvetteForum: all {fetched} thread fetches failed")
+    print(f"CorvetteForum: {n_z06} Z06 threads on {CF_PAGES} index pages, {fetched} opened, {len(rows)} kept", file=sys.stderr)
+    return rows
+
+
 def bat_live():
     page = get("https://bringatrailer.com/auctions/")
     data = json.loads(re.search(r"var auctionsCurrentInitialData = (\{.*?\});\s*\n", page, re.S).group(1))
@@ -400,6 +537,7 @@ def main():
     is_z06 = lambda r: "Z06" in r.get("car", "")
     nsx = attempt("dupont", dupont_nsx, [r for r in keep("duPont Registry") if not is_z06(r)], stale)
     z06 = attempt("dupont_z06", dupont_z06, [r for r in keep("duPont Registry") if is_z06(r)], stale)
+    cf = attempt("corvetteforum", corvetteforum_z06, keep("CorvetteForum"), stale)
     bat = attempt("bat", bat_live, None, stale)
     bat_s, bat_n, bat_z = bat if bat else ([], [], [])
     if bat is None:
@@ -425,7 +563,7 @@ def main():
             out.append(r)
         return out
 
-    nsx_rows, spider_rows, z06_rows = finish(nsx + bat_n), finish(spider + bat_s), finish(z06 + bat_z)
+    nsx_rows, spider_rows, z06_rows = finish(nsx + bat_n), finish(spider + bat_s), finish(z06 + cf + bat_z)
     cars = []
     if nsx_rows:
         cars += [{"group": "Acura NSX-T"}] + nsx_rows
@@ -490,7 +628,7 @@ def main():
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
            "items": items, "news": news, "alerts": alerts,
            "papers_seen": sorted(seen_papers), "papers_new": papers_new, "stale": stale, "first_seen": seen}
-    if len(stale) == 9:  # one per attempt() source above
+    if len(stale) == 10:  # one per attempt() source above
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return
     with open(OUT, "w") as f:
