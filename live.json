@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T22:10-08:00",
+ "updated": "2026-11-07T22:25-08:00",
  "date": "2026-11-07",
  "date_line": "Saturday · November 7 2026",
  "weather": {
@@ -39,47 +39,10 @@
    "flag": ""
   },
   {
-   "group": "Ferrari 458 Spider"
-  },
-  {
-   "vin": "ZFF68NHA9D0190949",
-   "car": "2013 458 Spider",
-   "color": "Bianco Avus / Rosso",
-   "miles": "39k",
-   "price": "$299,900",
-   "seller": "Tactical Fleet Dallas",
-   "location": "TX",
-   "href": "https://www.cars.com/vehicledetail/bf126e6b-3b1e-4226-80ef-113c0f240b3f/",
-   "source": "Cavallino Drift",
-   "title": "Title not stated",
-   "flag": "History unconfirmed"
-  },
-  {
-   "car": "2014 Ferrari 458 Spider",
-   "color": "—",
-   "miles": "—",
-   "price": "$30,000 bid, ends Nov 12",
-   "seller": "BaT auction",
-   "location": "",
-   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
-   "source": "BaT",
-   "title": "Title not stated",
-   "flag": "New, History unconfirmed"
-  },
-  {
    "group": "Chevrolet Corvette Z06"
   }
  ],
  "items": [
-  {
-   "kind": "car",
-   "label": "NEW LISTING",
-   "title": "New listing: 2014 Ferrari 458 Spider",
-   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
-   "source": "BaT",
-   "stat": "$30k bid",
-   "alert": true
-  },
   {
    "kind": "politics",
    "label": "POLITICS",
@@ -132,16 +95,20 @@
    "source": "NYT"
   }
  ],
- "alerts": {
-  "car:https://bringatrailer.com/listing/2014-ferrari-458-spider-42/": {
-   "kind": "car",
-   "label": "New listing",
-   "stat": "$30k bid",
-   "source": "BaT",
-   "title": "New listing: 2014 Ferrari 458 Spider",
-   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
-   "date": "2026-11-05"
-  }
+ "alerts": {},
+ "z06_watch": {
+  "checked": 76,
+  "by_source": {
+   "duPont": 18,
+   "CorvetteForum": 58,
+   "BaT": 0
+  },
+  "label": "Z06 · CA · 20–40k mi",
+  "sources": [
+   "duPont",
+   "BaT",
+   "CorvetteForum"
+  ]
  },
  "papers_seen": [
   "41288531",
