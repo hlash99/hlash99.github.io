@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-07T07:14-08:00",
- "date": "2026-11-07",
- "date_line": "Saturday · November 7 2026",
+ "updated": "2026-11-08T07:18-08:00",
+ "date": "2026-11-08",
+ "date_line": "Sunday · November 8 2026",
  "weather": {
-  "high": 75,
-  "low": 52,
-  "icon": "sun",
-  "summary": "Mostly sunny"
+  "high": 73,
+  "low": 53,
+  "icon": "fog",
+  "summary": "Fog, then partly sunny"
  },
  "stock": {
   "symbol": "AAPL",
@@ -54,7 +54,7 @@
    "car": "2014 458 Spider",
    "color": "White / Rosso",
    "miles": "61k",
-   "price": "$12,345 bid, ends Nov 12",
+   "price": "$33,333 bid, ends Nov 12",
    "title": "Clean (Carfax)",
    "seller": "Dealer (DaveNair)",
    "location": "Richmond, BC",
