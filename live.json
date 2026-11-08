@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T10:51-08:00",
+ "updated": "2026-11-08T14:55-08:00",
  "date": "2026-11-08",
  "date_line": "Sunday · November 8 2026",
  "weather": {
@@ -44,62 +44,62 @@
  ],
  "items": [
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "For Trump and America, a Clear Election Verdict but a Murky Future",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-midterm-election-america-future.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Nvidia Opens Investigation Into Jensen Huang’s Relationship With Chinese Spy",
+   "href": "https://www.nytimes.com/2026/11/08/technology/nvidia-investigation-jensen-huang-china.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Rubio Warned Officials About Nvidia Chief’s Entanglement With Chinese Spy",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/rubio-nvidia-ceo-chinese-spy.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
+   "title": "Jeffries Backs Impeaching Hegseth as Democrats Push for Accountability",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/pete-hegseth-impeachment-hakeem-jeffries.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Hakeem Jeffries, in Line to Become House Speaker, Promises Bold Agenda",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/hakeem-jeffries-house-democrats-speaker.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Keisha Lance Bottoms on What Democrats Have to Do to Not Squander the Win",
-   "href": "https://www.nytimes.com/2026/11/08/magazine/keisha-lance-bottoms-interview.html",
+   "title": "Gina Hinojosa Takes on the Texas Government Republicans Built",
+   "href": "https://www.nytimes.com/2026/11/08/us/gina-hinojosa-texas-priorities.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "For Trump and America, a Clear Election Verdict but a Murky Future",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-midterm-election-america-future.html",
+   "title": "Nvidia Opens Investigation Into Jensen Huang’s Relationship With Chinese Spy",
+   "href": "https://www.nytimes.com/2026/11/08/technology/nvidia-investigation-jensen-huang-china.html",
    "source": "NYT"
   },
   {
-   "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
+   "title": "Rubio Warned Officials About Nvidia Chief’s Entanglement With Chinese Spy",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/rubio-nvidia-ceo-chinese-spy.html",
    "source": "NYT"
   },
   {
-   "title": "Hakeem Jeffries, in Line to Become House Speaker, Promises Bold Agenda",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/hakeem-jeffries-house-democrats-speaker.html",
+   "title": "Jeffries Backs Impeaching Hegseth as Democrats Push for Accountability",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/pete-hegseth-impeachment-hakeem-jeffries.html",
    "source": "NYT"
   },
   {
-   "title": "Keisha Lance Bottoms on What Democrats Have to Do to Not Squander the Win",
-   "href": "https://www.nytimes.com/2026/11/08/magazine/keisha-lance-bottoms-interview.html",
+   "title": "Gina Hinojosa Takes on the Texas Government Republicans Built",
+   "href": "https://www.nytimes.com/2026/11/08/us/gina-hinojosa-texas-priorities.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 76,
+  "checked": 75,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 58,
+   "CorvetteForum": 57,
    "BaT": 0
   },
   "label": "Z06 · CA · 20–40k mi",
