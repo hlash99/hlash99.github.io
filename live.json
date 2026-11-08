@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-08T02:28-08:00",
+ "updated": "2026-11-08T07:18-08:00",
  "date": "2026-11-08",
  "date_line": "Sunday · November 8 2026",
  "weather": {
   "high": 73,
-  "low": 52,
-  "summary": "Tomorrow · Patchy Fog then Partly ",
+  "low": 53,
+  "summary": "Patchy Fog then Partly Sunny",
   "icon": "fog"
  },
  "stock": {
@@ -46,6 +46,13 @@
   {
    "kind": "politics",
    "label": "POLITICS",
+   "title": "For Trump and America, a Clear Election Verdict but a Murky Future",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-midterm-election-america-future.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
    "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown",
    "href": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
    "source": "NYT"
@@ -53,45 +60,37 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump’s D.C. Construction Blitz May Be About to Get Tougher",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/trump-construction-projects-washington.html",
+   "title": "Hakeem Jeffries, in Line to Become House Speaker, Promises Bold Agenda",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/hakeem-jeffries-house-democrats-speaker.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "South Carolina Republicans Fracture Over Stunning Defeat of Darline Graham",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/darline-graham-loss-blame.html",
+   "title": "Keisha Lance Bottoms on What Democrats Have to Do to Not Squander the Win",
+   "href": "https://www.nytimes.com/2026/11/08/magazine/keisha-lance-bottoms-interview.html",
    "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "After the Midterms, the Average Age in the Senate Falls to 63",
-   "href": "https://www.nytimes.com/2026/11/07/upshot/senators-midterm-elections-age.html",
-   "source": "NYT",
-   "stat": "63"
   }
  ],
  "news": [
   {
+   "title": "For Trump and America, a Clear Election Verdict but a Murky Future",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-midterm-election-america-future.html",
+   "source": "NYT"
+  },
+  {
    "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown",
    "href": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
    "source": "NYT"
   },
   {
-   "title": "Trump’s D.C. Construction Blitz May Be About to Get Tougher",
-   "href": "https://www.nytimes.com/2026/11/06/us/politics/trump-construction-projects-washington.html",
+   "title": "Hakeem Jeffries, in Line to Become House Speaker, Promises Bold Agenda",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/hakeem-jeffries-house-democrats-speaker.html",
    "source": "NYT"
   },
   {
-   "title": "South Carolina Republicans Fracture Over Stunning Defeat of Darline Graham",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/darline-graham-loss-blame.html",
-   "source": "NYT"
-  },
-  {
-   "title": "After the Midterms, the Average Age in the Senate Falls to 63",
-   "href": "https://www.nytimes.com/2026/11/07/upshot/senators-midterm-elections-age.html",
+   "title": "Keisha Lance Bottoms on What Democrats Have to Do to Not Squander the Win",
+   "href": "https://www.nytimes.com/2026/11/08/magazine/keisha-lance-bottoms-interview.html",
    "source": "NYT"
   }
  ],
