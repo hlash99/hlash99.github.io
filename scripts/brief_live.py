@@ -2,8 +2,7 @@
 """Server-side data for the hub's Morning Brief panel. Runs in GitHub Actions; no Claude.
 
 Writes live.json: date, weather (NWS), AAPL (stockanalysis.com), car listings (Cavallino
-Drift + duPont Registry + Bring a Trailer) and news (NYT, NPR, BBC feeds). During the midterm
-window the news turns to election stories and adds seat totals. A source that fails keeps
+Drift + duPont Registry + Bring a Trailer) and news (NYT, NPR, BBC feeds). A source that fails keeps
 its previous value, so one bad fetch never blanks the panel.
 """
 import html
@@ -23,9 +22,6 @@ MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000
 FEEDS = (("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"),
          ("NPR", "https://feeds.npr.org/1001/rss.xml"),
          ("BBC", "https://feeds.bbci.co.uk/news/rss.xml?edition=us"))
-# Pacific wall-clock window for the midterm results view; news runs before and after it.
-MIDTERMS_START, MIDTERMS_END = "2026-11-03T15:00", "2026-11-08T00:00"
-ELECTION_WORDS = re.compile(r"election|midterm|senate|house|governor|ballot|vote|congress|democrat|republican|race", re.I)
 SKIP_WORDS = re.compile(r"crossword|wordle|quiz|in photos|connections|horoscope|^opinion", re.I)
 
 
@@ -200,71 +196,6 @@ def headlines(only=None, limit=4):
     return out
 
 
-def seat_value(text, field):
-    """Infobox number for `field`: (low, high), e.g. (253, 253), or (52, 54) while races are
-    uncalled. Comments, bold quotes, templates and refs are stripped first: a bolded
-    '''52–54''' used to defeat the old digits-right-after-= regex and drop the Democrats."""
-    m = re.search(rf"^\|\s*{field}\s*=([^\n]*)", text, re.M)
-    if not m:
-        return None
-    v = re.sub(r"<!--.*?-->|<ref[^>]*/>|<ref.*?</ref>|'{2,}", "", m.group(1))
-    while True:
-        w = re.sub(r"\{\{[^{}]*\}\}", "", v)  # {{efn|...}}, innermost first
-        if w == v:
-            break
-        v = w
-    n = re.fullmatch(r"(\d+)(?:\s*[–—-]\s*(\d+))?", v.strip())
-    if not n:
-        return None
-    lo, hi = int(n.group(1)), int(n.group(2) or n.group(1))
-    return (lo, hi) if lo <= hi else None
-
-
-def chamber(page, field, total):
-    """Seats each side holds in the next Congress, from Wikipedia's infobox, counting only
-    called races (the low end of a range). The Senate's seats_afterN is the whole chamber
-    of 100 incl. holdovers (its seatsN would be races won this cycle and is left blank); the
-    House has no seats_afterN, and with all 435 seats up its seatsN is the chamber total.
-    None until editors fill them in, or whenever the numbers don't add up."""
-    url = f"https://en.wikipedia.org/w/api.php?action=parse&page={page}&prop=wikitext&section=0&format=json&formatversion=2"
-    text = json.loads(get(url))["parse"]["wikitext"]
-    d = r = 0
-    have_d = have_r = False
-    for n in range(1, 8):
-        party = re.search(rf"^\|\s*party{n}\s*=([^\n]*)", text, re.M)
-        if not party or not party.group(1).strip():
-            continue
-        name, seats = party.group(1), seat_value(text, f"{field}{n}")
-        if seats is None:
-            if re.search(r"Democratic|Republican", name):
-                return None  # a major party without a readable total: don't guess
-            continue
-        if "Republican" in name:
-            r, have_r = r + seats[0], True
-        elif "Democratic" in name:
-            d, have_d = d + seats[0], True
-        elif "Independent" in name and re.search(r"caucus(?:es)? with the Democrats", text):
-            d += seats[0]  # independents caucus with Democrats
-        elif seats[0]:
-            return None  # a third party or non-caucusing independent holding seats
-    uncalled = total - d - r
-    if not (have_d and have_r) or uncalled < 0 or d + r < total // 2:
-        return None
-    return {"d": d, "r": r, "uncalled": uncalled, "total": total}
-
-
-def election():
-    out = {}
-    for key, page, field, total in (("senate", "2026_United_States_Senate_elections", "seats_after", 100),
-                                    ("house", "2026_United_States_House_of_Representatives_elections", "seats", 435)):
-        try:
-            out[key] = chamber(page, field, total)
-        except Exception as e:
-            print(f"{key} results failed: {e}", file=sys.stderr)
-            out[key] = None
-    return out
-
-
 def papers():
     """Recent Khodadoust / Stanford Mavi papers as (id, title, link), newest first."""
     term = "Khodadoust+MS%5BAuthor%5D+OR+(Mavi%5BAuthor%5D+AND+Stanford%5BAffiliation%5D)"
@@ -351,11 +282,7 @@ def main():
     now = pacific_now()
     today = now.strftime("%Y-%m-%d")
 
-    stamp = now.strftime("%Y-%m-%dT%H:%M")
-    phase = "midterms" if MIDTERMS_START <= stamp < MIDTERMS_END else "news"
-    only = ELECTION_WORDS if phase == "midterms" else None
-    news = attempt("news", lambda: headlines(only), prev.get("news"), stale)
-    races = election() if phase == "midterms" else None
+    news = attempt("news", headlines, prev.get("news"), stale)
     w = attempt("weather", weather, prev.get("weather"), stale)
     s = attempt("stock", stock, prev.get("stock"), stale)
     prev_rows = {r.get("source"): [] for r in prev.get("cars", []) if r.get("source")}
@@ -448,28 +375,12 @@ def main():
     for p in picks:
         p["alert"] = True
     heads = [tile(n["title"], n["href"], n.get("source", "")) for n in (news or [])]
-    extra = []
-    if phase == "news" and stamp < MIDTERMS_START:
-        days = (datetime.strptime(MIDTERMS_START[:10], "%Y-%m-%d") - datetime.strptime(today, "%Y-%m-%d")).days
-        lead = next((h for h in heads if h["kind"] == "politics"), None)
-        if lead:
-            heads.remove(lead)
-        extra.append(tile(lead["title"] if lead else "Polls close Tuesday night", lead["href"] if lead else "https://www.nytimes.com/",
-                          lead["source"] if lead else "NYT", "politics", "Midterms", "Today" if days <= 0 else f"{days} day{'s' if days != 1 else ''}"))
-    if phase == "midterms":
-        for name, v in (("Senate", (races or {}).get("senate")), ("House", (races or {}).get("house"))):
-            if v:
-                left = v["uncalled"]
-                # Short on purpose: the hub tile clamps captions to two lines.
-                tail = "all called" if not left else f"{left} uncalled"
-                extra.append(tile(f"Seats of {v['total']} · {tail}", "https://en.wikipedia.org/wiki/2026_United_States_elections",
-                                  "Wikipedia", "politics", name, f"D {v['d']} · R {v['r']}"))
-    items = (picks + extra + heads)[:5]  # AAPL already sits in the strip above
+    items = (picks + heads)[:5]  # AAPL already sits in the strip above
 
     out = {"updated": now.isoformat(timespec="minutes"), "date": today,
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
-           "phase": phase, "items": items, "news": news, "alerts": alerts,
-           "papers_seen": sorted(seen_papers), "papers_new": papers_new, "election": races, "stale": stale, "first_seen": seen}
+           "items": items, "news": news, "alerts": alerts,
+           "papers_seen": sorted(seen_papers), "papers_new": papers_new, "stale": stale, "first_seen": seen}
     if len(stale) == 8:
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return
