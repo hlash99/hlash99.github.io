@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-07T14:47-08:00",
+ "updated": "2026-11-07T17:56-08:00",
  "date": "2026-11-07",
  "date_line": "Saturday · November 7 2026",
  "weather": {
   "high": 75,
   "low": 52,
-  "summary": "Mostly Sunny",
-  "icon": "partly"
+  "summary": "Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
@@ -58,7 +58,7 @@
    "car": "2014 Ferrari 458 Spider",
    "color": "—",
    "miles": "—",
-   "price": "$12,345 bid, ends Nov 12",
+   "price": "$30,000 bid, ends Nov 12",
    "seller": "BaT auction",
    "location": "",
    "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
@@ -67,7 +67,6 @@
    "flag": "New, History unconfirmed"
   }
  ],
- "phase": "midterms",
  "items": [
   {
    "kind": "car",
@@ -75,24 +74,8 @@
    "title": "New listing: 2014 Ferrari 458 Spider",
    "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
    "source": "BaT",
-   "stat": "$12k bid",
+   "stat": "$30k bid",
    "alert": true
-  },
-  {
-   "kind": "politics",
-   "label": "SENATE",
-   "title": "Seats of 100 · 2 uncalled",
-   "href": "https://en.wikipedia.org/wiki/2026_United_States_elections",
-   "source": "Wikipedia",
-   "stat": "D 54 · R 44"
-  },
-  {
-   "kind": "politics",
-   "label": "HOUSE",
-   "title": "Seats of 435 · 19 uncalled",
-   "href": "https://en.wikipedia.org/wiki/2026_United_States_elections",
-   "source": "Wikipedia",
-   "stat": "D 254 · R 162"
   },
   {
    "kind": "politics",
@@ -104,9 +87,24 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Chuck Schumer Is on Track to Become Senate Majority Leader After Election Blowout",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/schumer-election-democrats-senate.html",
+   "title": "Trump’s D.C. Construction Blitz May Be About to Get Tougher",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/trump-construction-projects-washington.html",
    "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "South Carolina Republicans Fracture Over Stunning Defeat of Darline Graham",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/darline-graham-loss-blame.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "After the Midterms, the Average Age in the Senate Falls to 63",
+   "href": "https://www.nytimes.com/2026/11/07/upshot/senators-midterm-elections-age.html",
+   "source": "NYT",
+   "stat": "63"
   }
  ],
  "news": [
@@ -116,18 +114,18 @@
    "source": "NYT"
   },
   {
-   "title": "Chuck Schumer Is on Track to Become Senate Majority Leader After Election Blowout",
-   "href": "https://www.nytimes.com/2026/11/07/us/politics/schumer-election-democrats-senate.html",
+   "title": "Trump’s D.C. Construction Blitz May Be About to Get Tougher",
+   "href": "https://www.nytimes.com/2026/11/06/us/politics/trump-construction-projects-washington.html",
+   "source": "NYT"
+  },
+  {
+   "title": "South Carolina Republicans Fracture Over Stunning Defeat of Darline Graham",
+   "href": "https://www.nytimes.com/2026/11/07/us/politics/darline-graham-loss-blame.html",
    "source": "NYT"
   },
   {
    "title": "After the Midterms, the Average Age in the Senate Falls to 63",
    "href": "https://www.nytimes.com/2026/11/07/upshot/senators-midterm-elections-age.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Turning Point Bet on the Midterms and Lost. Some Republicans Are Furious.",
-   "href": "https://www.nytimes.com/2026/11/07/us/turning-point-arizona-midterms.html",
    "source": "NYT"
   }
  ],
@@ -135,7 +133,7 @@
   "car:https://bringatrailer.com/listing/2014-ferrari-458-spider-42/": {
    "kind": "car",
    "label": "New listing",
-   "stat": "$12k bid",
+   "stat": "$30k bid",
    "source": "BaT",
    "title": "New listing: 2014 Ferrari 458 Spider",
    "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/",
@@ -150,20 +148,6 @@
   "42640855"
  ],
  "papers_new": [],
- "election": {
-  "senate": {
-   "d": 54,
-   "r": 44,
-   "uncalled": 2,
-   "total": 100
-  },
-  "house": {
-   "d": 254,
-   "r": 162,
-   "uncalled": 19,
-   "total": 435
-  }
- },
  "stale": [],
  "first_seen": {
   "JH4NA2160VT000148": "2000-01-01",
