@@ -93,6 +93,7 @@
   .bf-tile.me .bf-k{color:#f8b84e}
   .bf-tile.me .bf-s{color:#f8b84e}
   .bf-tile.car .bf-s{color:var(--accent)}
+  .bf-tile.car.empty{opacity:.55}.bf-tile.car.empty .bf-s{color:var(--muted)}
   /* phones swipe (with a fade that says there's more); wider windows wrap, so nothing is cut off */
   @media (max-width:639px){.bf-tiles{-webkit-mask-image:linear-gradient(to right,#000 82%,transparent);mask-image:linear-gradient(to right,#000 82%,transparent)}}
   @media (min-width:640px){
@@ -649,6 +650,11 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
       add({kind:"car",label:model+(st?" · "+st:"")+(/unconfirmed/i.test(c.flag||"")?" ?":""),stat:n?"$"+Math.round(n/1000)+"k"+(bid?" bid":""):"",
         title:[String(c.car).slice(0,4),c.miles?c.miles+" mi":"",c.color&&c.color!=="— / —"?c.color:""].filter(Boolean).join(" · "),
         source:c.seller||"",href:c.href},"car");});
+    /* The Z06 watch is the one group shown even when empty, so it's visibly on. */
+    const zw=b.z06_watch,cars=b.cars||[];
+    if(zw&&cars.some(c=>c.group==="Chevrolet Corvette Z06")&&!cars.some(c=>!c.group&&/Z06/.test(c.car)))
+      add({kind:"car",label:zw.label||"Z06",stat:"None yet",
+        title:(zw.checked!=null?zw.checked+" checked · ":"")+(zw.sources||[]).join(", "),source:"No wing · not FL"},"car empty");
     if(tiles.children.length)box.append(tiles);
     box.hidden=!box.children.length;
   }

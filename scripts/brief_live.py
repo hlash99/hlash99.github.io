@@ -20,7 +20,8 @@ OUT = os.path.join(ROOT, "live.json")
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 LAT_LON = "37.4636,-122.1983"  # Menlo Park
 EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"}  # about 7 years in Florida
-MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # no price cap on the Z06 watch
+MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # 458 and NSX
+Z06_MIN_MILES, Z06_MAX_MILES = 20000, 40000  # Z06: this band (inclusive), California only, no price cap
 # C8 Z06 without the big wing: the Z07 / Ultimate Performance package and the carbon aero
 # packages all bring the high wing. Excluded only on positive evidence; "no Z07" etc. don't count.
 WING = re.compile(r"(?<!\d)Z07(?!\d)|Z06/07|high[- ]?wing|ultimate performance|carbon[\w -]{0,30}?\baero\b"
@@ -34,6 +35,19 @@ CF_SKIP = re.compile(r"\b(?:WTB|WTT|ISO|wanted|looking for|ready to buy|sold|clo
 FLORIDA = re.compile(r"\bFlorida\b|\bFL\b|\b(?:Miami|Tampa|Orlando|Jacksonville|Sarasota|Naples|Fort Lauderdale|"
                      r"Ft\.? Lauderdale|Boca Raton|West Palm|Palm Beach|Lakeland|Tallahassee|Fort Myers|Clearwater|"
                      r"St\.? Petersburg|Gainesville|Pensacola|Daytona|Destin)\b|\b(?i:located in) 3[234]\d{3}\b")
+# 458 Spider: black exterior only. The colour must START with Nero / Black (Nero Daytona, Nero DS,
+# Nero Stellato, Nero Noctis...), so "Grigio w/ black roof" or "White / Nero" (interior) don't pass.
+BLACK = re.compile(r"^\s*(?:(?:gloss|metallic|matte|satin)\s+)?(?:nero|black)\b", re.I)
+Z06_CHECKED = {}  # source -> listings looked at this run, for the dash's empty-watch tile
+# Z06 must be positively in California. Abbreviations are case-sensitive, place names aren't.
+CALIFORNIA = re.compile(r"\b(?:CA|SoCal|NorCal|OC|LA|SF|SD|IE)\b|\b(?i:California|Cali|So\.? ?Cal|Nor\.? ?Cal|Bay Area|"
+                        r"Silicon Valley|Orange County|Inland Empire|Central Valley|Los Angeles|San Diego|San Jose|"
+                        r"San Francisco|Sacramento|Oakland|Fresno|Irvine|Newport Beach|Palo Alto|Menlo Park|Santa Clara|"
+                        r"Sunnyvale|San Mateo|Fremont|Pleasanton|Walnut Creek|Danville|Santa Barbara|Long Beach|"
+                        r"Riverside|Pasadena|Torrance|Temecula|Bakersfield|San Luis Obispo|Monterey|Santa Cruz|"
+                        r"Westlake Village|Thousand Oaks|Malibu|Beverly Hills|Huntington Beach|Anaheim|Ventura|Modesto|"
+                        r"Stockton|Carlsbad|Roseville|Folsom|Santa Monica|Burbank|Glendale, CA|San Ramon|Livermore)\b"
+                        r"|\b(?i:located in) 9[0-6]\d{3}\b")
 FEEDS = (("NYT", "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"),
          ("NPR", "https://feeds.npr.org/1001/rss.xml"),
          ("BBC", "https://feeds.bbci.co.uk/news/rss.xml?edition=us"))
@@ -99,6 +113,15 @@ def stock():
     return out
 
 
+def exterior(color):
+    """Exterior half of an "Exterior / Interior" colour field."""
+    return (color or "").split(" / ")[0].strip()
+
+
+def is_black(color):
+    return bool(BLACK.search(exterior(color)))
+
+
 def money(n):
     return f"${n:,.0f}"
 
@@ -119,6 +142,8 @@ def cavallino_458():
         miles, ask = int(re.sub(r"\D", "", c[2]) or 0), int(re.sub(r"\D", "", c[3]) or 0)
         if miles <= MIN_MILES or not 0 < ask <= MAX_458:
             continue
+        if not is_black(c[1]):
+            continue  # black 458s only; unknown ("— / —") is out too
         seller, _, st = c[6].rpartition(",")
         rows.append({"vin": c[7], "car": f"{c[0]} 458 Spider", "color": c[1], "miles": f"{round(miles / 1000)}k",
                      "price": money(ask), "seller": seller.strip(), "location": st.strip(),
@@ -172,8 +197,10 @@ def wing_evidence(text):
 
 
 def dupont_z06():
-    """Used C8 Z06 (MY2023+), over MIN_MILES, no Z07 / high wing. Sorted by mileage, highest
-    first, so paging stops as soon as a page reaches cars at or under MIN_MILES."""
+    """Used C8 Z06 (MY2023+), Z06_MIN_MILES-Z06_MAX_MILES, dealer in California, no Z07 / high
+    wing. Sorted by mileage, highest first, so paging stops once a page drops below the band.
+    The results URL has no working state filter (state=, states=, location= are ignored), so
+    California is checked on each listing's seller address."""
     base = "https://www.dupontregistry.com/used-chevrolet-corvette__z06-for-sale?year=2023-2035&sort=mileage_desc"
     rows, seen, n_seen = [], set(), 0
     for page_no in range(1, 6):
@@ -195,14 +222,20 @@ def dupont_z06():
             price = offer.get("price") or 0
             addr = (offer.get("seller") or {}).get("address") or {}
             tag = f"duPont Z06 {year} {vin} {miles}mi ${price} {addr.get('addressRegion', '')}"
-            if miles <= MIN_MILES:
+            if miles < Z06_MIN_MILES:
                 low = True
+                continue
+            if miles > Z06_MAX_MILES:
+                print(f"{tag}: drop, over {Z06_MAX_MILES} miles", file=sys.stderr)
                 continue
             if year < 2023 or "Z06" not in (i.get("model") or i.get("name") or "") or not vin.startswith("1G1Y"):
                 print(f"{tag}: drop, not a C8 Z06", file=sys.stderr)
                 continue
             if addr.get("addressRegion") == "FL":
                 print(f"{tag}: drop, Florida", file=sys.stderr)
+                continue
+            if addr.get("addressRegion") != "CA":
+                print(f"{tag}: drop, not California", file=sys.stderr)
                 continue
             wing = wing_evidence(i.get("name", "") + " " + visible_text(get(i["url"])))
             if wing:
@@ -216,13 +249,14 @@ def dupont_z06():
                          "href": i["url"], "source": "duPont Registry"})
         if low:
             break
-    print(f"duPont Z06: {n_seen} MY2023+ listings read, {len(rows)} kept", file=sys.stderr)
+    Z06_CHECKED["duPont"] = n_seen
+    print(f"duPont Z06: {n_seen} MY2023+ listings read (highest mileage first), {len(rows)} kept", file=sys.stderr)
     return rows
 
 
 def bat_z06(row, title, blurb):
-    """Check a BaT C8 Z06 auction's own write-up (not the comments) for the wing; fill in
-    VIN and location. Returns the row, or None when it's out."""
+    """Check a BaT C8 Z06 auction's own write-up (not the comments) for the wing and its
+    Location line for California; fill in VIN and miles. Returns the row, or None when it's out."""
     try:
         page = get(row["href"])
     except Exception as e:  # keep it on the title check alone
@@ -239,7 +273,7 @@ def bat_z06(row, title, blurb):
         mi = re.search(r"([\d,]+)k? Miles Shown", visible_text(d.group(1)))
         if mi:
             n = int(mi.group(1).replace(",", "")) * (1000 if "k Miles" in mi.group(0) else 1)
-            if n <= MIN_MILES:
+            if not Z06_MIN_MILES <= n <= Z06_MAX_MILES:
                 print(f"BaT Z06 {title}: drop, {n} miles", file=sys.stderr)
                 return None
             row["miles"] = f"{round(n / 1000)}k"
@@ -247,10 +281,12 @@ def bat_z06(row, title, blurb):
     if vin:
         row["vin"] = vin.group(1)
     loc = re.search(r"<strong>Location</strong>:\s*<a[^>]*>(.*?)</a>", page, re.S)
-    if loc:
-        place = re.sub(r"\s+\d{5}(-\d{4})?$", "", html.unescape(loc.group(1)).strip())
-        row["location"] = re.sub(r",\s*Florida$", ", FL", place)
-    print(f"BaT Z06 {title}: keep ({row.get('location') or 'location unknown'})", file=sys.stderr)
+    place = re.sub(r"\s+\d{5}(-\d{4})?$", "", html.unescape(loc.group(1)).strip()) if loc else ""
+    if not re.search(r",\s*California$", place):
+        print(f"BaT Z06 {title}: drop, not California ({place or 'location unknown'})", file=sys.stderr)
+        return None
+    row["location"] = re.sub(r",\s*California$", ", CA", place)
+    print(f"BaT Z06 {title}: keep ({row['location']})", file=sys.stderr)
     return row
 
 
@@ -297,8 +333,8 @@ def cf_place(title, text):
 
 
 def corvetteforum_z06():
-    """Owner listings in CorvetteForum's C8 classifieds: 2023+ Z06, over MIN_MILES, no wing,
-    not Florida. Titles are free text, so anything the title can't settle is read from the
+    """Owner listings in CorvetteForum's C8 classifieds: 2023+ Z06, Z06_MIN_MILES-Z06_MAX_MILES,
+    no wing, not Florida, and the title or first post must put the car in California. Titles are free text, so anything the title can't settle is read from the
     thread's first post. Prices are the seller's ask."""
     threads, n_z06 = [], 0
     for page_no in range(1, CF_PAGES + 1):
@@ -331,7 +367,7 @@ def corvetteforum_z06():
         title_wing = wing_evidence(title) or (re.search(r"\baero\b", NOT_WING.sub(" ", title), re.I) or [None])[0]
         why = ("want-to-buy / trade / sold" if CF_SKIP.search(title) else "thread locked or moved" if re.search("lock|moved", icon)
                else f"MY{year}" if year and year < 2023 else f"wing ({title_wing})" if title_wing
-               else f"{miles} miles" if miles is not None and miles <= MIN_MILES
+               else f"{miles} miles" if miles is not None and not Z06_MIN_MILES <= miles <= Z06_MAX_MILES
                else "Florida" if FLORIDA.search(title) else None)
         if why:
             print(f"{tag}: drop, {why}", file=sys.stderr)
@@ -362,29 +398,68 @@ def corvetteforum_z06():
         why = ("marked sold / deleted in the post" if re.match(r"(?i)\W*(sold|delete[d]?|no longer available|off the market)\b", text)
                else "year not stated" if year is None else f"MY{year}" if year < 2023
                else f"wing ({wing})" if wing else "Florida" if FLORIDA.search(text)
-               else "mileage not stated" if miles is None else f"{miles} miles" if miles <= MIN_MILES else None)
+               else "mileage not stated" if miles is None
+               else f"{miles} miles" if not Z06_MIN_MILES <= miles <= Z06_MAX_MILES
+               else None if CALIFORNIA.search(title + "\n" + text) else "not shown to be in California")
         if why:
             print(f"{tag}: drop, {why}", file=sys.stderr)
             continue
         price = cf_price(title) or cf_price(text)
         vin = re.search(r"\b1G1Y[A-HJ-NPR-Z0-9]{13}\b", text)
-        print(f"{tag}: keep, MY{year} {miles} mi ask {price} VIN {vin.group(0) if vin else '-'}", file=sys.stderr)
+        print(f"{tag}: keep, MY{year} {miles} mi ask {price} ({CALIFORNIA.search(title + chr(10) + text).group(0)}) VIN {vin.group(0) if vin else '-'}", file=sys.stderr)
+        place = cf_place(title, text)
+        place = place if re.search(r"(?:,\s*|\b)CA$", place) else f"{place}, CA" if place else "CA"  # dash shows the last 2 chars
         row = {"car": f"{year} Corvette Z06", "color": "—", "miles": f"{round(miles / 1000)}k",
                "price": money(price) if price else "Ask seller", "seller": who or "Forum seller",
-               "location": cf_place(title, text), "href": url, "source": "CorvetteForum"}
+               "location": place, "href": url, "source": "CorvetteForum"}
         if vin:
             row["vin"] = vin.group(0)
         rows.append(row)
     if fetched and failed == fetched:
         raise RuntimeError(f"CorvetteForum: all {fetched} thread fetches failed")
+    Z06_CHECKED["CorvetteForum"] = n_z06
     print(f"CorvetteForum: {n_z06} Z06 threads on {CF_PAGES} index pages, {fetched} opened, {len(rows)} kept", file=sys.stderr)
     return rows
+
+
+def bat_458(row, title):
+    """BaT 458s must be confirmed black: the Listing Details "... Paint" line, else the
+    write-up's "finished in ...". Fills colour and miles; None when it's out."""
+    try:
+        page = get(row["href"])
+    except Exception as e:
+        print(f"BaT 458 {title}: drop, listing page failed ({e}), colour unknown", file=sys.stderr)
+        return None
+    d = re.search(r"<strong>Listing Details</strong>(.*?)</ul>", page, re.S)
+    items = [visible_text(li).strip() for li in re.findall(r"<li>(.*?)</li>", d.group(1), re.S)] if d else []
+    paint = next((m.group(1) for x in items for m in [re.match(r"(.+?)\s+Paint\b(?![- ]?Protection)", x)] if m), "")
+    if not paint:
+        ex = re.search(r'class="post-excerpt".*?</p>', page, re.S)
+        m = re.search(r"\bfinished in ([\w -]+?)(?: over\b|[,.])", visible_text(ex.group(0)) if ex else "", re.I)
+        paint = m.group(1).strip() if m else ""
+    if not is_black(paint):
+        print(f"BaT 458 {title}: drop, exterior {paint or 'unknown'}", file=sys.stderr)
+        return None
+    mi = next((x for x in items if re.search(r"\bMiles\b", x)), "")
+    m = re.match(r"~?([\d,]+)(k)? Miles", mi)
+    if m and row["miles"] == "—":
+        n = int(m.group(1).replace(",", "")) * (1000 if m.group(2) else 1)
+        if n <= MIN_MILES:
+            print(f"BaT 458 {title}: drop, {n} miles", file=sys.stderr)
+            return None
+        row["miles"] = f"{round(n / 1000)}k"
+    vin = re.search(r"\bZFF[A-Z0-9]{14}\b", " ".join(items))
+    if vin:
+        row["vin"] = vin.group(0)
+    row["color"] = paint
+    print(f"BaT 458 {title}: keep, {paint}", file=sys.stderr)
+    return row
 
 
 def bat_live():
     page = get("https://bringatrailer.com/auctions/")
     data = json.loads(re.search(r"var auctionsCurrentInitialData = (\{.*?\});\s*\n", page, re.S).group(1))
-    spiders, nsx, z06 = [], [], []
+    spiders, nsx, z06, n_z06 = [], [], [], 0
     for x in data.get("items", []):
         title, url, bid = html.unescape(x.get("title", "")), x.get("url", ""), x.get("current_bid") or 0
         if url in EXCLUDED_URLS or not x.get("active"):
@@ -393,18 +468,23 @@ def bat_live():
         m = re.search(r"(\d+)k[- ]miles?", title + " " + blurb, re.I)
         miles = int(m.group(1)) * 1000 if m else None
         over = miles is None or miles > MIN_MILES
+        in_band = miles is None or Z06_MIN_MILES <= miles <= Z06_MAX_MILES
         end = datetime.fromtimestamp(x.get("timestamp_end") or 0, timezone.utc).strftime("%b %-d")
         row = {"car": title[:60], "color": "—", "miles": f"{miles // 1000}k" if miles else "—",
                "price": f"{money(bid)} bid, ends {end}", "seller": "BaT auction", "location": "",
                "href": url, "source": "BaT"}
         if "458 Spider" in title and over and bid <= MAX_458:
-            spiders.append(row)
+            row = bat_458(row, title)
+            if row:
+                spiders.append(row)
         elif re.search(r"(1997|1998|1999|2000|2001) Acura NSX-T 6-Speed", title) and over and bid <= MAX_NSX:
             nsx.append(row)
-        elif re.search(r"\b20(2[3-9]|3\d) Chevrolet Corvette Z06\b", title) and over:
+        elif re.search(r"\b20(2[3-9]|3\d) Chevrolet Corvette Z06\b", title) and in_band:
+            n_z06 += 1
             row = bat_z06(row, title, blurb)
             if row:
                 z06.append(row)
+    Z06_CHECKED["BaT"] = n_z06
     return spiders, nsx, z06
 
 
@@ -564,6 +644,7 @@ def main():
         return out
 
     nsx_rows, spider_rows, z06_rows = finish(nsx + bat_n), finish(spider + bat_s), finish(z06 + cf + bat_z)
+    spider_rows = [r for r in spider_rows if is_black(r.get("color"))]  # also screens fallback rows
     cars = []
     if nsx_rows:
         cars += [{"group": "Acura NSX-T"}] + nsx_rows
@@ -617,6 +698,11 @@ def main():
             found.append((f"drop:{key}:{digits(r)}", f"{label}, was {old_row['price']}", r["href"],
                           {"kind": "car", "label": "Price cut", "stat": price_stat(r), "dir": "down", "source": r.get("source", "")}))
     alerts = merge_alerts(prev, found, today)
+    # A car alert lives only while its car is still on the list: a listing that is gone, or that
+    # a filter now rejects (non-black 458, Z06 outside the band), stops surfacing at once.
+    shown = {r.get("vin") or r["href"] for r in nsx_rows + spider_rows + z06_rows}
+    car_key = lambda k: k[4:] if k.startswith("car:") else k[5:].rsplit(":", 1)[0] if k.startswith("drop:") else None
+    alerts = {k: v for k, v in alerts.items() if v.get("kind") != "car" or car_key(k) in shown}
     picks = [tile(v["title"], v["href"], v.get("source", ""), v.get("kind", "you"), v.get("label"), v.get("stat") or "New", v.get("dir"))
              for v in sorted(alerts.values(), key=lambda a: a["date"], reverse=True)]
     for p in picks:
@@ -627,6 +713,10 @@ def main():
     out = {"updated": now.isoformat(timespec="minutes"), "date": today,
            "date_line": now.strftime("%A · %B %-d %Y"), "weather": w, "stock": s, "cars": cars,
            "items": items, "news": news, "alerts": alerts,
+           "z06_watch": {"checked": sum(dict((prev.get("z06_watch") or {}).get("by_source") or {}, **Z06_CHECKED).values()),
+                         "by_source": dict((prev.get("z06_watch") or {}).get("by_source") or {}, **Z06_CHECKED),
+                         "label": f"Z06 · CA · {Z06_MIN_MILES // 1000}–{Z06_MAX_MILES // 1000}k mi",
+                         "sources": ["duPont", "BaT", "CorvetteForum"]},
            "papers_seen": sorted(seen_papers), "papers_new": papers_new, "stale": stale, "first_seen": seen}
     if len(stale) == 10:  # one per attempt() source above
         print("every source failed; leaving live.json alone", file=sys.stderr)
