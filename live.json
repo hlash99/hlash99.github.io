@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-07T17:56-08:00",
+ "updated": "2026-11-07T18:31-08:00",
  "date": "2026-11-07",
  "date_line": "Saturday · November 7 2026",
  "weather": {
-  "high": 75,
+  "high": 73,
   "low": 52,
-  "summary": "Sunny",
-  "icon": "sun"
+  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
