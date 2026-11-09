@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-08T18:42-08:00",
- "date": "2026-11-08",
- "date_line": "Sunday · November 8 2026",
+ "updated": "2026-11-09T03:39-08:00",
+ "date": "2026-11-09",
+ "date_line": "Monday · November 9 2026",
  "weather": {
   "high": 74,
   "low": 53,
-  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "summary": "Tomorrow · Patchy Fog then Partly ",
   "icon": "fog"
  },
  "stock": {
@@ -15,9 +15,9 @@
   "dir": "down",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "342.79",
-   "change_pct": "+0.12%",
+   "label": "Pre-market",
+   "price": "344.39",
+   "change_pct": "+0.59%",
    "dir": "up"
   }
  },
@@ -46,51 +46,51 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Nvidia Opens Investigation Into Jensen Huang’s Relationship With Chinese Spy",
-   "href": "https://www.nytimes.com/2026/11/08/technology/nvidia-investigation-jensen-huang-china.html",
+   "title": "Is Jensen Huang too Powerful to Be Punished by Nvidia?",
+   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-affair-nvidia.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Nvidia’s Stock Price Set to Drop After Investigation Into CEO Jensen Huang",
+   "href": "https://www.nytimes.com/2026/11/09/business/nvidia-stock-price-jensen-huang-ceo.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Rubio Warned Officials About Nvidia Chief’s Entanglement With Chinese Spy",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/rubio-nvidia-ceo-chinese-spy.html",
+   "title": "What to Know About Nvidia’s Investigation of Its C.E.O.",
+   "href": "https://www.nytimes.com/2026/11/08/technology/nvidia-investigation-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Jeffries Backs Impeaching Hegseth as Democrats Push for Accountability",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/pete-hegseth-impeachment-hakeem-jeffries.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Here Are the Difficult Options Trump Is Weighing to Resolve the War in Iran",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-iran-options.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Nvidia C.E.O. Admits Relationship With Suspected Chinese Spy, and Miller Takes the Reins",
+   "href": "https://www.nytimes.com/2026/11/09/podcasts/the-headlines/nvidia-ceo-suspected-chinese-spy-stephen-miller-trump-chief-of-staff.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Nvidia Opens Investigation Into Jensen Huang’s Relationship With Chinese Spy",
-   "href": "https://www.nytimes.com/2026/11/08/technology/nvidia-investigation-jensen-huang-china.html",
+   "title": "Is Jensen Huang too Powerful to Be Punished by Nvidia?",
+   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-affair-nvidia.html",
    "source": "NYT"
   },
   {
-   "title": "Rubio Warned Officials About Nvidia Chief’s Entanglement With Chinese Spy",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/rubio-nvidia-ceo-chinese-spy.html",
+   "title": "Nvidia’s Stock Price Set to Drop After Investigation Into CEO Jensen Huang",
+   "href": "https://www.nytimes.com/2026/11/09/business/nvidia-stock-price-jensen-huang-ceo.html",
    "source": "NYT"
   },
   {
-   "title": "Jeffries Backs Impeaching Hegseth as Democrats Push for Accountability",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/pete-hegseth-impeachment-hakeem-jeffries.html",
+   "title": "What to Know About Nvidia’s Investigation of Its C.E.O.",
+   "href": "https://www.nytimes.com/2026/11/08/technology/nvidia-investigation-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "title": "Here Are the Difficult Options Trump Is Weighing to Resolve the War in Iran",
-   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-iran-options.html",
+   "title": "Nvidia C.E.O. Admits Relationship With Suspected Chinese Spy, and Miller Takes the Reins",
+   "href": "https://www.nytimes.com/2026/11/09/podcasts/the-headlines/nvidia-ceo-suspected-chinese-spy-stephen-miller-trump-chief-of-staff.html",
    "source": "NYT"
   }
  ],
