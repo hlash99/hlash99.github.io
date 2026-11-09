@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T11:54-08:00",
+ "updated": "2026-11-09T15:27-08:00",
  "date": "2026-11-09",
  "date_line": "Monday · November 9 2026",
  "weather": {
@@ -10,9 +10,16 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "351.16",
-  "change_pct": "+2.57%",
-  "dir": "up"
+  "price": "350.50",
+  "change_pct": "+2.37%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "350.61",
+   "change_pct": "+0.03%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -37,62 +44,62 @@
  ],
  "items": [
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "U.S. Commerce Dept. Inquiry Into Megaspeed Was Halted After Nvidia Intervention",
-   "href": "https://www.nytimes.com/2026/11/09/business/economy/nvidia-megaspeed-investigation-huang.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Thomas Massie Moves to Force Vote on Impeaching Pete Hegseth",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/hegseth-impeachment-massie.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "A.I. Fueled Nvidia CEO Jensen Huang’s Elite Status, but Scandal Followed",
-   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-nvidia-ai-chips-scandal.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "What Democrats Plan to Investigate After Election Victory",
+   "href": "https://www.nytimes.com/video/us/politics/100000011266496/democrats-plan-corruption-investigations-after-election-victory.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Is Jensen Huang Too Powerful to Be Punished by Nvidia?",
-   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-affair-nvidia.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Veers Back Into Claims of Rigged Election, Questioning Midterm Results",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-election-fraud-rigging-midterms.html",
    "source": "NYT"
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Nvidia’s Stock Price Drops After Investigation Into CEO Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/09/business/nvidia-stock-price-jensen-huang-ceo.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Congress Has Reined In the Presidency Before. Here’s How to Do It.",
+   "href": "https://www.nytimes.com/2026/11/09/magazine/congress-trump-oversight-investigations-presidency.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "U.S. Commerce Dept. Inquiry Into Megaspeed Was Halted After Nvidia Intervention",
-   "href": "https://www.nytimes.com/2026/11/09/business/economy/nvidia-megaspeed-investigation-huang.html",
+   "title": "Thomas Massie Moves to Force Vote on Impeaching Pete Hegseth",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/hegseth-impeachment-massie.html",
    "source": "NYT"
   },
   {
-   "title": "A.I. Fueled Nvidia CEO Jensen Huang’s Elite Status, but Scandal Followed",
-   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-nvidia-ai-chips-scandal.html",
+   "title": "What Democrats Plan to Investigate After Election Victory",
+   "href": "https://www.nytimes.com/video/us/politics/100000011266496/democrats-plan-corruption-investigations-after-election-victory.html",
    "source": "NYT"
   },
   {
-   "title": "Is Jensen Huang Too Powerful to Be Punished by Nvidia?",
-   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-affair-nvidia.html",
+   "title": "Trump Veers Back Into Claims of Rigged Election, Questioning Midterm Results",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-election-fraud-rigging-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Nvidia’s Stock Price Drops After Investigation Into CEO Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/09/business/nvidia-stock-price-jensen-huang-ceo.html",
+   "title": "Congress Has Reined In the Presidency Before. Here’s How to Do It.",
+   "href": "https://www.nytimes.com/2026/11/09/magazine/congress-trump-oversight-investigations-presidency.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 75,
+  "checked": 76,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 57,
+   "CorvetteForum": 58,
    "BaT": 0
   },
   "label": "Z06 · CA · 20–40k mi",
