@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-09T07:23-08:00",
+ "updated": "2026-11-09T11:54-08:00",
  "date": "2026-11-09",
  "date_line": "Monday · November 9 2026",
  "weather": {
   "high": 74,
   "low": 54,
-  "summary": "Patchy Fog then Partly Sunny",
-  "icon": "fog"
+  "summary": "Partly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "342.37",
-  "change_pct": "-0.52%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "344.53",
-   "change_pct": "+0.63%",
-   "dir": "up"
-  }
+  "price": "351.16",
+  "change_pct": "+2.57%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -46,6 +39,20 @@
   {
    "kind": "world",
    "label": "WORLD",
+   "title": "U.S. Commerce Dept. Inquiry Into Megaspeed Was Halted After Nvidia Intervention",
+   "href": "https://www.nytimes.com/2026/11/09/business/economy/nvidia-megaspeed-investigation-huang.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "A.I. Fueled Nvidia CEO Jensen Huang’s Elite Status, but Scandal Followed",
+   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-nvidia-ai-chips-scandal.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
    "title": "Is Jensen Huang Too Powerful to Be Punished by Nvidia?",
    "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-affair-nvidia.html",
    "source": "NYT"
@@ -56,23 +63,19 @@
    "title": "Nvidia’s Stock Price Drops After Investigation Into CEO Jensen Huang",
    "href": "https://www.nytimes.com/2026/11/09/business/nvidia-stock-price-jensen-huang-ceo.html",
    "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "China Rejects Espionage Claims Involving Nvidia C.E.O. Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/09/business/jensen-huang-china-spying.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Nvidia C.E.O. Admits Relationship With Suspected Chinese Spy, and Stephen Miller Takes the Reins",
-   "href": "https://www.nytimes.com/2026/11/09/podcasts/the-headlines/nvidia-ceo-suspected-chinese-spy-stephen-miller-trump-chief-of-staff.html",
-   "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "U.S. Commerce Dept. Inquiry Into Megaspeed Was Halted After Nvidia Intervention",
+   "href": "https://www.nytimes.com/2026/11/09/business/economy/nvidia-megaspeed-investigation-huang.html",
+   "source": "NYT"
+  },
+  {
+   "title": "A.I. Fueled Nvidia CEO Jensen Huang’s Elite Status, but Scandal Followed",
+   "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-nvidia-ai-chips-scandal.html",
+   "source": "NYT"
+  },
   {
    "title": "Is Jensen Huang Too Powerful to Be Punished by Nvidia?",
    "href": "https://www.nytimes.com/2026/11/09/technology/jensen-huang-affair-nvidia.html",
@@ -81,16 +84,6 @@
   {
    "title": "Nvidia’s Stock Price Drops After Investigation Into CEO Jensen Huang",
    "href": "https://www.nytimes.com/2026/11/09/business/nvidia-stock-price-jensen-huang-ceo.html",
-   "source": "NYT"
-  },
-  {
-   "title": "China Rejects Espionage Claims Involving Nvidia C.E.O. Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/09/business/jensen-huang-china-spying.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Nvidia C.E.O. Admits Relationship With Suspected Chinese Spy, and Stephen Miller Takes the Reins",
-   "href": "https://www.nytimes.com/2026/11/09/podcasts/the-headlines/nvidia-ceo-suspected-chinese-spy-stephen-miller-trump-chief-of-staff.html",
    "source": "NYT"
   }
  ],
