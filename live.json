@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-08T14:55-08:00",
+ "updated": "2026-11-08T18:42-08:00",
  "date": "2026-11-08",
  "date_line": "Sunday · November 8 2026",
  "weather": {
-  "high": 73,
+  "high": 74,
   "low": 53,
-  "summary": "Mostly Sunny",
-  "icon": "partly"
+  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
@@ -67,8 +67,8 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Gina Hinojosa Takes on the Texas Government Republicans Built",
-   "href": "https://www.nytimes.com/2026/11/08/us/gina-hinojosa-texas-priorities.html",
+   "title": "Here Are the Difficult Options Trump Is Weighing to Resolve the War in Iran",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-iran-options.html",
    "source": "NYT"
   }
  ],
@@ -89,8 +89,8 @@
    "source": "NYT"
   },
   {
-   "title": "Gina Hinojosa Takes on the Texas Government Republicans Built",
-   "href": "https://www.nytimes.com/2026/11/08/us/gina-hinojosa-texas-priorities.html",
+   "title": "Here Are the Difficult Options Trump Is Weighing to Resolve the War in Iran",
+   "href": "https://www.nytimes.com/2026/11/08/us/politics/trump-iran-options.html",
    "source": "NYT"
   }
  ],
