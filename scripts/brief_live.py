@@ -2,7 +2,7 @@
 """Server-side data for the hub's Morning Brief panel. Runs in GitHub Actions; no Claude.
 
 Writes live.json: date, weather (NWS), AAPL (stockanalysis.com), car listings (Cavallino
-Drift + duPont Registry + Bring a Trailer: 458 Spider, NSX-T, C8 Corvette Z06; the Z06 also
+Drift + duPont Registry + Bring a Trailer: black 458 Spider, NSX-T, Red Mist C8 Corvette Z06; the Z06 also
 from CorvetteForum's C8 classifieds) and news (NYT, NPR, BBC feeds). A source that fails keeps
 its previous value, so one bad fetch never blanks the panel.
 """
@@ -38,6 +38,11 @@ FLORIDA = re.compile(r"\bFlorida\b|\bFL\b|\b(?:Miami|Tampa|Orlando|Jacksonville|
 # 458 Spider: black exterior only. The colour must START with Nero / Black (Nero Daytona, Nero DS,
 # Nero Stellato, Nero Noctis...), so "Grigio w/ black roof" or "White / Nero" (interior) don't pass.
 BLACK = re.compile(r"^\s*(?:(?:gloss|metallic|matte|satin)\s+)?(?:nero|black)\b", re.I)
+# C8 Z06: Red Mist exterior only (GM's Red Mist Metallic Tintcoat). Unknown colour is out too.
+# Page text only counts when it names Red Mist as the paint, so a "similar cars" strip can't pass a car.
+RED_MIST = re.compile(r"\bred[\s-]*mist\b", re.I)
+RED_MIST_PAINT = re.compile(r"(?:exterior|ext\.|colou?r|paint(?:ed)?|finished in)\W{0,3}(?:[\w-]+\W{1,3}){0,4}?red[\s-]*mist\b"
+                            r"|\bred[\s-]*mist(?:\s+metallic)?\s+(?:tint[\s-]?coat|exterior|paint|over\b)", re.I)
 Z06_CHECKED = {}  # source -> listings looked at this run, for the dash's empty-watch tile
 # Z06 must be positively in California. Abbreviations are case-sensitive, place names aren't.
 CALIFORNIA = re.compile(r"\b(?:CA|SoCal|NorCal|OC|LA|SF|SD|IE)\b|\b(?i:California|Cali|So\.? ?Cal|Nor\.? ?Cal|Bay Area|"
@@ -120,6 +125,21 @@ def exterior(color):
 
 def is_black(color):
     return bool(BLACK.search(exterior(color)))
+
+
+def is_red_mist(color):
+    return bool(RED_MIST.search(exterior(color)))
+
+
+def z06_paint(color, text=""):
+    """Red Mist Z06 paint, or "" when the car isn't (or isn't shown to be) Red Mist. A listed
+    colour that names another paint settles it; a blank or bare "Red" falls back to the text."""
+    ext = exterior(color)
+    if RED_MIST.search(ext):
+        return ext
+    if ext and not re.fullmatch(r"(?i)[\s\u2014-]*|red|other|unknown|n/?a|not specified", ext):
+        return ""
+    return "Red Mist" if RED_MIST_PAINT.search(text or "") else ""
 
 
 def money(n):
@@ -237,13 +257,18 @@ def dupont_z06():
             if addr.get("addressRegion") != "CA":
                 print(f"{tag}: drop, not California", file=sys.stderr)
                 continue
-            wing = wing_evidence(i.get("name", "") + " " + visible_text(get(i["url"])))
+            text = visible_text(get(i["url"]))
+            wing = wing_evidence(i.get("name", "") + " " + text)
             if wing:
                 print(f"{tag}: drop, wing ({wing})", file=sys.stderr)
                 continue
-            print(f"{tag}: keep", file=sys.stderr)
+            paint = z06_paint(i.get("color"), text)
+            if not paint:
+                print(f"{tag}: drop, not Red Mist ({i.get('color') or 'colour unknown'})", file=sys.stderr)
+                continue
+            print(f"{tag}: keep, {paint}", file=sys.stderr)
             city = ", ".join(x for x in (addr.get("addressLocality"), addr.get("addressRegion")) if x)
-            rows.append({"vin": vin, "car": f"{year} Corvette Z06", "color": i.get("color") or "—",
+            rows.append({"vin": vin, "car": f"{year} Corvette Z06", "color": paint,
                          "miles": f"{round(miles / 1000)}k", "price": money(price) if price else "Call for price",
                          "seller": (offer.get("seller") or {}).get("name", ""), "location": city,
                          "href": i["url"], "source": "duPont Registry"})
@@ -269,6 +294,16 @@ def bat_z06(row, title, blurb):
     if wing:
         print(f"BaT Z06 {title}: drop, wing ({wing})", file=sys.stderr)
         return None
+    items = [visible_text(li).strip() for li in re.findall(r"<li>(.*?)</li>", d.group(1), re.S)] if d else []
+    listed = next((m.group(1) for x in items for m in [re.match(r"(.+?)\s+Paint\b(?![- ]?Protection)", x)] if m), "")
+    if not listed:
+        f = re.search(r"\bfinished in ([\w -]+?)(?: over\b|[,.])", visible_text(m.group(0)) if m else "", re.I)
+        listed = f.group(1).strip() if f else ""
+    paint = z06_paint(listed, text)
+    if not paint:
+        print(f"BaT Z06 {title}: drop, not Red Mist ({listed or 'colour unknown'})", file=sys.stderr)
+        return None
+    row["color"] = paint
     if row["miles"] == "—" and d:
         mi = re.search(r"([\d,]+)k? Miles Shown", visible_text(d.group(1)))
         if mi:
@@ -398,6 +433,7 @@ def corvetteforum_z06():
         why = ("marked sold / deleted in the post" if re.match(r"(?i)\W*(sold|delete[d]?|no longer available|off the market)\b", text)
                else "year not stated" if year is None else f"MY{year}" if year < 2023
                else f"wing ({wing})" if wing else "Florida" if FLORIDA.search(text)
+               else "not Red Mist (or colour not stated)" if not RED_MIST.search(title + "\n" + text)
                else "mileage not stated" if miles is None
                else f"{miles} miles" if not Z06_MIN_MILES <= miles <= Z06_MAX_MILES
                else None if CALIFORNIA.search(title + "\n" + text) else "not shown to be in California")
@@ -409,7 +445,7 @@ def corvetteforum_z06():
         print(f"{tag}: keep, MY{year} {miles} mi ask {price} ({CALIFORNIA.search(title + chr(10) + text).group(0)}) VIN {vin.group(0) if vin else '-'}", file=sys.stderr)
         place = cf_place(title, text)
         place = place if re.search(r"(?:,\s*|\b)CA$", place) else f"{place}, CA" if place else "CA"  # dash shows the last 2 chars
-        row = {"car": f"{year} Corvette Z06", "color": "—", "miles": f"{round(miles / 1000)}k",
+        row = {"car": f"{year} Corvette Z06", "color": "Red Mist", "miles": f"{round(miles / 1000)}k",
                "price": money(price) if price else "Ask seller", "seller": who or "Forum seller",
                "location": place, "href": url, "source": "CorvetteForum"}
         if vin:
@@ -645,6 +681,7 @@ def main():
 
     nsx_rows, spider_rows, z06_rows = finish(nsx + bat_n), finish(spider + bat_s), finish(z06 + cf + bat_z)
     spider_rows = [r for r in spider_rows if is_black(r.get("color"))]  # also screens fallback rows
+    z06_rows = [r for r in z06_rows if is_red_mist(r.get("color"))]  # Red Mist only, fallback rows too
     cars = []
     if nsx_rows:
         cars += [{"group": "Acura NSX-T"}] + nsx_rows
@@ -715,7 +752,7 @@ def main():
            "items": items, "news": news, "alerts": alerts,
            "z06_watch": {"checked": sum(dict((prev.get("z06_watch") or {}).get("by_source") or {}, **Z06_CHECKED).values()),
                          "by_source": dict((prev.get("z06_watch") or {}).get("by_source") or {}, **Z06_CHECKED),
-                         "label": f"Z06 · CA · {Z06_MIN_MILES // 1000}–{Z06_MAX_MILES // 1000}k mi",
+                         "label": f"Red Mist Z06 · CA · {Z06_MIN_MILES // 1000}–{Z06_MAX_MILES // 1000}k mi",
                          "sources": ["duPont", "BaT", "CorvetteForum"]},
            "papers_seen": sorted(seen_papers), "papers_new": papers_new, "stale": stale, "first_seen": seen}
     if len(stale) == 10:  # one per attempt() source above

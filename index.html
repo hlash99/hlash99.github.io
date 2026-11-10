@@ -746,7 +746,7 @@ const REPO_KEY="hub_repos", REPO_TTL=6*36e5;
     const zw=b.z06_watch,cars=b.cars||[];
     if(zw&&cars.some(c=>c.group==="Chevrolet Corvette Z06")&&!cars.some(c=>!c.group&&/Z06/.test(c.car)))
       add({kind:"car",label:zw.label||"Z06",stat:"None yet",
-        title:(zw.checked!=null?zw.checked+" checked · ":"")+(zw.sources||[]).join(", "),source:"No wing · not FL"},"car empty");
+        title:(zw.checked!=null?zw.checked+" checked · ":"")+(zw.sources||[]).join(", "),source:"Red Mist · no wing · not FL"},"car empty");
     if(tiles.children.length)box.append(tiles);
     box.hidden=!box.children.length;
   }
