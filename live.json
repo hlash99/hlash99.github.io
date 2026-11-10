@@ -1,24 +1,24 @@
 {
- "updated": "2026-11-09T15:27-08:00",
+ "updated": "2026-11-09T23:24-08:00",
  "date": "2026-11-09",
  "date_line": "Monday · November 9 2026",
  "weather": {
-  "high": 74,
+  "high": 76,
   "low": 54,
-  "summary": "Partly Sunny",
-  "icon": "partly"
+  "summary": "Tomorrow · Patchy Fog then Sunny",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "350.50",
-  "change_pct": "+2.37%",
+  "price": "350.69",
+  "change_pct": "+2.43%",
   "dir": "up",
   "session": "Close",
   "after": {
    "label": "After hours",
-   "price": "350.61",
-   "change_pct": "+0.03%",
-   "dir": "up"
+   "price": "350.49",
+   "change_pct": "-0.06%",
+   "dir": "down"
   }
  },
  "cars": [
@@ -46,6 +46,21 @@
   {
    "kind": "politics",
    "label": "POLITICS",
+   "title": "California Voters Reject Prop. 40 Billionaire Tax Measure",
+   "href": "https://www.nytimes.com/2026/11/09/us/california-billionaire-tax-prop-40.html",
+   "source": "NYT",
+   "stat": "40 Billion"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "In a Democratic Wave, Even the Long Shots Defied the Odds",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/congress-democratic-long-shots.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
    "title": "Thomas Massie Moves to Force Vote on Impeaching Pete Hegseth",
    "href": "https://www.nytimes.com/2026/11/09/us/politics/hegseth-impeachment-massie.html",
    "source": "NYT"
@@ -53,44 +68,30 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "What Democrats Plan to Investigate After Election Victory",
-   "href": "https://www.nytimes.com/video/us/politics/100000011266496/democrats-plan-corruption-investigations-after-election-victory.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
    "title": "Trump Veers Back Into Claims of Rigged Election, Questioning Midterm Results",
    "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-election-fraud-rigging-midterms.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Congress Has Reined In the Presidency Before. Here’s How to Do It.",
-   "href": "https://www.nytimes.com/2026/11/09/magazine/congress-trump-oversight-investigations-presidency.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "California Voters Reject Prop. 40 Billionaire Tax Measure",
+   "href": "https://www.nytimes.com/2026/11/09/us/california-billionaire-tax-prop-40.html",
+   "source": "NYT"
+  },
+  {
+   "title": "In a Democratic Wave, Even the Long Shots Defied the Odds",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/congress-democratic-long-shots.html",
+   "source": "NYT"
+  },
+  {
    "title": "Thomas Massie Moves to Force Vote on Impeaching Pete Hegseth",
    "href": "https://www.nytimes.com/2026/11/09/us/politics/hegseth-impeachment-massie.html",
    "source": "NYT"
   },
   {
-   "title": "What Democrats Plan to Investigate After Election Victory",
-   "href": "https://www.nytimes.com/video/us/politics/100000011266496/democrats-plan-corruption-investigations-after-election-victory.html",
-   "source": "NYT"
-  },
-  {
    "title": "Trump Veers Back Into Claims of Rigged Election, Questioning Midterm Results",
    "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-election-fraud-rigging-midterms.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Congress Has Reined In the Presidency Before. Here’s How to Do It.",
-   "href": "https://www.nytimes.com/2026/11/09/magazine/congress-trump-oversight-investigations-presidency.html",
    "source": "NYT"
   }
  ],
