@@ -52,6 +52,7 @@
   .bullets li::before{content:"";position:absolute;left:2px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac,var(--accent));opacity:.85}
   .meta{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
   .badge{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:2px 10px}
+  .badge.stale{color:#f0b95a;background:rgba(240,185,90,.1);border-color:rgba(240,185,90,.35)}
   .corner{position:absolute;top:16px;right:16px;display:flex;gap:8px;align-items:center}
   .corner .arrow{color:var(--muted);font-size:16px}
   .rfr{border:1px solid var(--line);background:var(--surface2);color:var(--muted);width:30px;height:30px;border-radius:50%;
@@ -77,6 +78,7 @@
   .bf-top .s{text-align:right;font-weight:600;white-space:nowrap}
   .bf-top .s div{font-size:12px;font-weight:400}
   .bf-top .m{color:var(--muted)}
+  .bf-top .d.old{color:#f0b95a}
   .bf-up{color:#4ade80}.bf-down{color:#f87171}
   /* graphic tiles, same idea as the full brief: icon + label, one big figure, short headline, source */
   .bf-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2px)/2.35);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -2px}
@@ -179,13 +181,13 @@ document.getElementById("gateForm").addEventListener("submit",async e=>{
 
   <section id="brief" aria-label="Morning brief" hidden></section>
 
-  <h2>Live sites <span id="cacheNote" class="note-chip" style="display:none">⚠ cached list · GitHub API busy</span></h2>
-  <div class="grid" id="sites"><div class="empty">Loading…</div></div>
+  <h2>Live sites <span id="staleNote" class="note-chip" style="display:none"></span></h2>
+  <div class="grid" id="sites"></div>
 
   <h2>Other repositories</h2>
   <div class="grid" id="repos"></div>
 
-  <footer>Auto-generated from the GitHub API · previews read each site's live data · ↻ triggers that site's refresh routine.</footer>
+  <footer>Previews read each site's live data · ⚠ marks a site whose data is older than its refresh schedule allows · ↻ triggers that site's refresh routine.</footer>
 </div>
 <div id="toast"></div>
 
@@ -194,14 +196,34 @@ const USER="hlash99";
 const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");  // coerce: numeric stat values (e.g. paper counts) would otherwise throw on .replace
 const shorten=s=>s.replace(/,.*$/,"").replace(/\s*[–-].*$/,"").split(" ").slice(0,2).join(" ");
 const trunc=(s,n)=>{s=String(s==null?"":s);return s.length>n?s.slice(0,n-1).trimEnd()+"…":s;};
+/* A stamp slightly in the future is a date-only source anchored to local noon (the dentist
+   tracker's morning pull reads "today 12:00") — that is fresh data, not a missing date. */
 const rel=iso=>{const t=new Date(iso);if(isNaN(t))return null;const s=(Date.now()-t)/1e3;
-  if(s<0)return null;if(s<90)return"just now";if(s<5400)return Math.round(s/60)+"m ago";
+  if(s<-86400)return null;if(s<90)return"just now";if(s<5400)return Math.round(s/60)+"m ago";
   if(s<129600)return Math.round(s/3600)+"h ago";return Math.round(s/86400)+"d ago";};
+/* localStorage can THROW (Safari "Block All Cookies", strict private modes): every hub cache
+   goes through these, so a blocked store just means "nothing remembered". Public data only. */
+const lsGet=k=>{try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}};
+const lsSet=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+/* One request per data file per page load, shared by the cards and the pinned alerts
+   (the lotto file used to be downloaded twice, once with a cache-buster). */
+const jsonCache=new Map();
+function hubJSON(src){
+  if(!jsonCache.has(src)){
+    const p=fetch(src,{cache:"default"}).then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();});
+    p.catch(()=>jsonCache.delete(src));          // a failed load may be retried
+    jsonCache.set(src,p);
+  }
+  return jsonCache.get(src);
+}
 
 /* Per-repo config: icon, blurb (hover tooltip), a data file + adapter for previews, and a refresh workflow file.
    preview(d) → {stats, bullets, spark, cols, color, updated} — stats render in the top row
    (cols:2 = two-column grid, stat.wide spans both), bullets as a compact list underneath,
-   and `updated` replaces the card's date badge with the data file's own freshness. */
+   and `updated` replaces the card's date badge with the data file's own freshness.
+   staleH = hours after which that data is clearly overdue (the site's own refresh schedule
+   plus generous slack, since GitHub runs cron hours late here): the badge turns into a
+   "⚠ stale" flag. Finished/static sites have no staleH and are never flagged. */
 const META={
   "worldcup-tracker":{
     icon:"🏆", color:"#3ad29f", data:"data.json",
@@ -231,7 +253,7 @@ const META={
     }
   },
   "substack-brief":{
-    icon:"📬", color:"#f2b544", refresh:"refresh.yml", data:"data.json",
+    icon:"📬", color:"#f2b544", refresh:"refresh.yml", data:"data.json", staleH:36,   // twice daily
     blurb:"Rolling brief of my Substack newsletters — cross-newsletter themes plus per-email bullets, pulled from Yahoo Mail and AI-summarized twice daily.",
     preview:d=>{
       const items=d.items||[];
@@ -245,7 +267,7 @@ const META={
     }
   },
   "asset-tracker":{
-    icon:"📈", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
+    icon:"📈", color:"#E24B4A", refresh:"refresh.yml", data:"data.json", staleH:36,   // twice daily
     blurb:"My collector assets — Rolex & Patek watches, four Ferraris and my Porsche 997.2 Turbo S — real scrape history, auto-published each run.",
     preview:d=>{
       const a=d.assets||[];
@@ -255,17 +277,17 @@ const META={
       const pv=d.summary&&d.summary.portfolio_value;
       if(pv)stats.push({v:"$"+(pv/1e6).toFixed(2)+"M", l:(d.summary.n_assets||a.length)+" assets · portfolio", wide:true});
       [find(/rolex/i),find(/patek/i),find(/997/),find(/458/)].forEach(x=>{
-        if(x)stats.push({v:"$"+Math.round(x.latest).toLocaleString(), l:x.short+chg(x)});
+        if(x&&x.latest!=null)stats.push({v:"$"+Math.round(x.latest).toLocaleString(), l:(x.short||x.name||"")+chg(x)});
       });
       return {stats, cols:2, updated:d.updated};
     }
   },
   "car-value-tracker":{
-    icon:"🏎️", color:"#E24B4A", refresh:"refresh.yml", data:"data.json",
+    icon:"🏎️", color:"#E24B4A", refresh:"refresh.yml", data:"data.json", staleH:36,   // twice daily
     blurb:"Median values for five collector cars vs the S&P 500, Apple & inflation — auto-refreshed twice daily.",
     preview:d=>{
       const stats=["Porsche 997.2 Turbo S","Ferrari 458 Italia","Ferrari F12 Berlinetta","Ferrari 812 Superfast"].map(n=>{
-        const c=d.cars[n]; if(!c||!c.hist||!c.hist.length)return null;
+        const c=(d.cars||{})[n]; if(!c||!c.hist||!c.hist.length)return null;
         const h=c.hist, cur=h[h.length-1], g=Math.round((cur/h[0]-1)*100);
         return {v:"$"+Math.round(cur)+"k",
                 l:n.replace(/^(Porsche|Ferrari)\s+/,"")+(/997/.test(n)?" · my car":"")+" · "+(g>=0?"+":"")+g+"% 6-yr"};
@@ -274,7 +296,7 @@ const META={
     }
   },
   "property-tracker":{
-    icon:"🏠", color:"#2a78d6", refresh:"refresh.yml", data:"data.json",
+    icon:"🏠", color:"#2a78d6", refresh:"refresh.yml", data:"data.json", staleH:150,   // Mon + Thu
     blurb:"My three properties valued from real sold comps (local price model, not Zestimate/Redfin) — Menlo Park, SF and Lisbon, since each purchase, inflation-adjusted. Refreshed twice a week.",
     preview:d=>{
       const P=d.properties||[], R=d.ref||{};
@@ -283,6 +305,7 @@ const META={
       const usd=(p,v,k)=>p.ccy==="EUR"?v*at(R.eurusd||{},k):v;
       let tot=0; const stats=[];
       P.forEach(p=>{
+        if(!p.series||!p.series.m||!p.series.m.length)return;
         const S=p.series, n=S.m.length-1, v=S.v[n], m0=S.m[0], mN=S.m[n];
         tot+=usd(p,v,mN);
         const cpi=p.ccy==="EUR"?(R.hicp_pt||{}):(R.cpi_us||{});
@@ -298,7 +321,7 @@ const META={
     }
   },
   "gas-tracker":{
-    icon:"⛽", color:"#2a78d6", refresh:"refresh.yml", data:"data.json",
+    icon:"⛽", color:"#2a78d6", refresh:"refresh.yml", data:"data.json", staleH:240,   // weekly (Tue)
     blurb:"Did the Volvo V60 cut gas use vs the Mini? Monarch fill-ups converted to gallons with EIA's weekly SF premium price, so the 2026 price spike doesn't distort it.",
     preview:d=>{
       const s=d.summary, pc=v=>(v>0?"+":"")+Math.round(v*100)+"%", r=v=>"$"+Math.round(v);
@@ -313,7 +336,7 @@ const META={
     }
   },
   "sc-dentist-tracker":{
-    icon:"🦷", color:"#3ad29f", refresh:"update.yml", data:"data.json",
+    icon:"🦷", color:"#3ad29f", refresh:"update.yml", data:"data.json", staleH:60,   // twice daily, date-only stamp
     blurb:"San Carlos dentist review & ranking tracker — auto-scrapes Google review counts daily and discovers new practices on its own.",
     preview:d=>{
       // our practice = data.json's ourPractice (first word, e.g. "Edgewood"), so a Google rename only needs updating there
@@ -363,7 +386,7 @@ const META={
     }
   },
   "ctcl-papers":{
-    icon:"📚", color:"#8B5CF6", refresh:"refresh.yml", data:"data.json",
+    icon:"📚", color:"#8B5CF6", refresh:"refresh.yml", data:"data.json", staleH:240,   // weekly (Mon)
     blurb:"Latest scientific papers on CTCL (cutaneous T-cell lymphoma) — auto-collected from Europe PMC and summarized, refreshed weekly.",
     preview:d=>{
       const ps=d.papers||[], p=ps[0]||{};
@@ -382,7 +405,7 @@ const META={
     }
   },
   "lotto-tracker":{
-    icon:"🎱", color:"#E24B4A", refresh:"update.yml", data:"data.json",
+    icon:"🎱", color:"#E24B4A", refresh:"update.yml", data:"data.json", staleH:36,   // twice daily
     link:"https://hlash99.github.io/lotto-tracker/#w=30&d=0.98&order=cluster%2Cpb%2Cslp%2Corder&coll=",
     blurb:"Powerball & SuperLotto Plus — official results with true drawn order, order-dependence stats and split-resistant picks, refreshed twice daily.",
     preview:d=>{
@@ -390,14 +413,23 @@ const META={
       const f=t=>t.whites.join(" ")+" + "+t.special;
       const md=s=>new Date(s+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"});
       const bullets=[];
-      // next-draw recommendation from the pairwise-density cluster picker (drawn-order KDE)
+      /* Next-draw pick = the tracker's own consolidated recommendation (recommended.tickets):
+         it only uses the pairwise cluster tickets once their out-of-sample gate opens, so the
+         card no longer promotes a method the tracker itself isn't recommending yet.
+         Older data without `recommended` falls back to the previous cluster / picks lines. */
+      const how={crowd:"least-crowded",cluster:"pairwise",pixels:"hot/dead pixels"};
+      const rec=(g,tag)=>{const r=g.recommended, t=r&&r.tickets&&r.tickets[0];
+        if(!t||!t.whites)return false;
+        bullets.push(tag+" pick: "+f(t)+" ("+(how[r.source]||"screened random")+")");return true;};
       const cl=pb.cluster;
-      if(cl&&cl.tickets&&cl.tickets[0]){
+      if(rec(pb,"PB")){}
+      else if(cl&&cl.tickets&&cl.tickets[0]){
         const t=cl.tickets[0];
         bullets.push("PB pairwise pick: "+t.whites.join(" ")+(cl.special_pick!=null?" + "+cl.special_pick:""));
       }else if(pb.picks&&pb.picks[0])bullets.push("PB pick: "+f(pb.picks[0])+" (split-resistant)");
       const slc=sl.cluster;
-      if(slc&&slc.tickets&&slc.tickets[0]){
+      if(rec(sl,"SL")){}
+      else if(slc&&slc.tickets&&slc.tickets[0]){
         const t=slc.tickets[0];
         bullets.push("SL pairwise pick: "+t.whites.join(" ")+(slc.special_pick!=null?" + "+slc.special_pick:""));
       }else if(sl.picks&&sl.picks[0])bullets.push("SL: pairwise needs drawn order (CA publishes sorted) · pick: "+f(sl.picks[0]));
@@ -415,10 +447,12 @@ const META={
   },
 };
 
-/* Static manifest of my repos. The unauthenticated GitHub API is capped at 60 req/hr
-   per IP; when that limit is hit (or the API is unreachable) the live call returns no
-   array and the grid would otherwise go blank. Rendering falls back to this list so the
-   cards — every live site, CTCL paper tracker included — are always shown. */
+/* Built-in list of my repos — the page renders from this immediately, with no network
+   call. The unauthenticated GitHub API is capped at 60 req/hr per IP and used to leave the
+   grid on "Loading…" (then "cached list · GitHub API busy") whenever that ran out. The API
+   is now only a background check, at most once every 6 h per browser, whose result is
+   remembered: it adds repos created since this list was written, drops deleted ones and
+   supplies the "updated" date for cards that have no data file of their own. */
 const MANIFEST=[
   {name:"worldcup-tracker",       pages:true,  language:"HTML"},
   {name:"collatz-lab",            pages:true,  language:"HTML"},
@@ -436,27 +470,44 @@ const MANIFEST=[
 const fallbackRepos=()=>MANIFEST.map(m=>({
   name:m.name, has_pages:m.pages, language:m.language,
   html_url:`https://github.com/${USER}/${m.name}`,
-  description:(META[m.name]||{}).blurb||"", updated_at:new Date().toISOString()
+  description:(META[m.name]||{}).blurb||"", updated_at:null      // unknown — never claim "updated today"
 }));
+const isHub=r=>String(r.name).toLowerCase()===`${USER}.github.io`;
+const repoSig=list=>list.filter(r=>!isHub(r)).map(r=>r.name+(r.has_pages?"+":"-")).sort().join(",");
+const repoDate={}, dataInfo={};   // name → repo "updated_at" · name → {rel, ageH} of its data file
 
-function build(repos, cached){
+function build(repos){
   const sites=[],others=[];
-  repos.forEach(r=>{ if(r.name.toLowerCase()===`${USER}.github.io`) return; (r.has_pages?sites:others).push(r); });
+  repos.forEach(r=>{ if(isHub(r)) return; repoDate[r.name]=r.updated_at||null; (r.has_pages?sites:others).push(r); });
   render("#sites",sites,true); render("#repos",others,false);
   if(!sites.length)document.querySelector("#sites").innerHTML='<div class="empty">No published Pages sites yet.</div>';
-  const note=document.getElementById("cacheNote"); if(note) note.style.display=cached?"inline-flex":"none";
   const sub=document.getElementById("sub");
   if(sub&&sites.length) sub.textContent=`${sites.length} live dashboards on GitHub Pages · auto-refreshed on their own schedules.`;
 }
 
-fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`)
- .then(r=>r.ok?r.json():Promise.reject(r.status))
- .then(repos=>{ if(!Array.isArray(repos)) throw "rate-limited"; build(repos,false); })
- .catch(()=>build(fallbackRepos(),true));   // rate-limited / offline → static list, cards still render
+/* Card badge: the data file's own age when known (flagged when overdue), else the repo's
+   last-updated date, else nothing (kept in the layout so the card height never changes). */
+function setBadge(name){
+  const b=document.getElementById("up-"+name); if(!b) return;
+  const m=META[name]||{}, di=dataInfo[name], rd=repoDate[name]&&new Date(repoDate[name]);
+  let txt="updated", stale=false, show=false;
+  if(di&&di.rel){ stale=!!(m.staleH&&di.ageH>m.staleH); txt=(stale?"⚠ stale · ":"")+"data "+di.rel; show=true; }
+  else if(rd&&!isNaN(rd)){ txt="updated "+rd.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); show=true; }
+  b.textContent=txt; b.classList.toggle("stale",stale); b.style.visibility=show?"":"hidden";
+  if(stale) b.title="No new data for "+di.rel.replace(" ago","")+" — this site normally refreshes at least every "+
+    (m.staleH>=72?Math.round(m.staleH/24)+" days":m.staleH+" h")+". Its refresh workflow may have stopped.";
+  else b.removeAttribute("title");
+  const n=document.querySelectorAll("#sites .badge.stale").length, note=document.getElementById("staleNote");
+  if(note){ note.textContent="⚠ "+n+" stale"; note.style.display=n?"inline-flex":"none"; }
+}
 
 function render(sel,list,live){
   const el=document.querySelector(sel);el.innerHTML="";
-  list.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+  /* Stable default order (the built-in list's), so cards don't reshuffle with whichever
+     repo's bot pushed last; repos not in the list yet go first, newest first.
+     A saved drag order (applyOrder) still wins. */
+  const rank=new Map(MANIFEST.map((m,i)=>[m.name,i])), rk=r=>rank.has(r.name)?rank.get(r.name):-1;
+  list.sort((a,b)=>(rk(a)-rk(b))||(new Date(b.updated_at||0)-new Date(a.updated_at||0)));
   // META.demote cards (finished events) sink to the end, keeping date order within each group
   list.sort((a,b)=>((META[a.name]||{}).demote?1:0)-((META[b.name]||{}).demote?1:0));
   list.forEach(r=>{
@@ -464,7 +515,6 @@ function render(sel,list,live){
     const color=m.color||"#8aa0b2";
     const url=live?(m.link||`https://${USER}.github.io/${r.name}/`):r.html_url;
     const blurb=esc(m.blurb||r.description||"");
-    const upd=new Date(r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
     const rfr=m.refresh?`<button class="rfr" title="Trigger refresh routine" onclick="onRefresh(event,'${r.name}','${m.refresh}')">↻</button>`:"";
     el.insertAdjacentHTML("beforeend",
       `<a class="card" href="${url}" draggable="true" data-name="${r.name}" title="${blurb}" style="--ac:${color}">
@@ -472,8 +522,9 @@ function render(sel,list,live){
          <div class="corner">${rfr}<span class="arrow">↗</span></div>
          <div class="head"><div class="ic" style="background:${color}22">${m.icon||"📦"}</div><h3>${esc(r.name)}</h3></div>
          ${m.preview?`<div class="preview" id="pv-${r.name}"><span class="empty" style="font-size:12px">loading preview…</span></div>`:`<p>${blurb||"—"}</p>`}
-         <div class="meta"><span class="badge" id="up-${r.name}">updated ${upd}</span></div>
+         <div class="meta"><span class="badge" id="up-${r.name}">updated</span></div>
        </a>`);
+    setBadge(r.name);
     if(m.preview && (m.data||m.dataUrl)) loadPreview(r.name, m);
   });
   applyOrder(el, sel);
@@ -486,7 +537,7 @@ const orderKey=sel=>"cardOrder:"+sel;
 
 function saveOrder(container, sel){
   const names=[...container.querySelectorAll(".card")].map(c=>c.dataset.name);
-  localStorage.setItem(orderKey(sel), JSON.stringify(names));
+  try{localStorage.setItem(orderKey(sel), JSON.stringify(names));}catch(e){}
 }
 function applyOrder(container, sel){
   let order; try{order=JSON.parse(localStorage.getItem(orderKey(sel))||"[]");}catch(e){return;}
@@ -536,35 +587,50 @@ function enableDnD(container, sel){
   }, true);
 }
 function resetLayout(){
-  localStorage.removeItem(orderKey("#sites"));
-  localStorage.removeItem(orderKey("#repos"));
+  try{localStorage.removeItem(orderKey("#sites"));
+      localStorage.removeItem(orderKey("#repos"));}catch(e){}
   toast("Card order reset.");
   setTimeout(()=>location.reload(), 400);
 }
 
+function paintPreview(name,m,res){
+  const box=document.getElementById("pv-"+name); if(!box) return;
+  const stats=res.stats||[], bullets=res.bullets||[];
+  const sp=sparkline(res.spark||[],res.color||m.color||'#6ea8fe');
+  const html=`<div class="pv-top"><div class="pstats${res.cols===2?' cols2':''}">${
+      stats.map(s=>`<div class="pstat${s.wide?' wide':''}"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")
+    }</div>${sp?`<div class="spark">${sp}</div>`:""}</div>
+    ${bullets.length?`<ul class="bullets">${bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>`:""}`;
+  if(box._html!==html){ box.innerHTML=html; box._html=html; }   // untouched when nothing changed
+  // swap the repo-push date for the data file's own freshness once we know it
+  const t=res.updated?new Date(res.updated):null, r8=t&&rel(res.updated);
+  dataInfo[name]=r8?{rel:r8,ageH:(Date.now()-t)/36e5}:null;
+  setBadge(name);
+}
 function loadPreview(name,m,attempt=0){
   // No cache-buster: forcing an origin miss on every load made GitHub Pages/Fastly throttle the
   // larger files (ctcl-papers ~130KB) during the concurrent burst, permanently blanking that
   // preview. Pages serves fresh data within ~10 min, which is plenty for an at-a-glance stat.
   // Retry twice as a safety net so any transient hiccup still self-heals.
-  const src=m.dataUrl||`https://${USER}.github.io/${name}/${m.data}`;
-  fetch(src,{cache:"default"})
-    .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(d=>{
-      const res=m.preview(d), stats=res.stats||[], bullets=res.bullets||[];
-      const box=document.querySelector(`#pv-${name}`); if(!box)return;
-      const sp=sparkline(res.spark||[],res.color||m.color||'#6ea8fe');
-      box.innerHTML=`<div class="pv-top"><div class="pstats${res.cols===2?' cols2':''}">${
-          stats.map(s=>`<div class="pstat${s.wide?' wide':''}"><span class="v">${esc(s.v)}</span><span class="l">${esc(s.l)}</span></div>`).join("")
-        }</div>${sp?`<div class="spark">${sp}</div>`:""}</div>
-        ${bullets.length?`<ul class="bullets">${bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>`:""}`;
-      // swap the repo-push date for the data file's own freshness once we know it
-      const r8=res.updated&&rel(res.updated), badge=document.getElementById(`up-${name}`);
-      if(r8&&badge)badge.textContent="data "+r8;
-    }).catch(()=>{
-      if(attempt<2){setTimeout(()=>loadPreview(name,m,attempt+1),500*(attempt+1));return;}
-      const b=document.querySelector(`#pv-${name}`);
-      if(b)b.innerHTML='<span class="empty" style="font-size:12px">preview unavailable — ↻ to retry</span>';
-    });
+  const src=m.dataUrl||`https://${USER}.github.io/${name}/${m.data}`, PV="hub_pv:"+name;
+  /* The last computed preview (a few hundred bytes of public figures) is remembered, so a
+     repeat visit paints every card at once at its final height instead of waiting on ~2 MB of
+     data files; the fresh data then replaces it in place. If the network fails, the
+     remembered preview stays up and its badge keeps showing how old that data is. */
+  if(attempt===0){ const c=lsGet(PV); if(c&&c.res){ try{paintPreview(name,m,c.res);}catch(e){} } }
+  const fail=()=>{
+    const b=document.getElementById("pv-"+name);
+    if(b&&!b._html) b.innerHTML='<span class="empty" style="font-size:12px">preview unavailable — reload to retry</span>';
+  };
+  hubJSON(src).then(d=>{
+    let res;
+    try{ res=m.preview(d)||{}; paintPreview(name,m,res); }
+    catch(e){ console.warn("hub preview for "+name+" could not read its data.json:",e); fail(); return; }  // a re-fetch can't fix a shape change
+    lsSet(PV,{t:Date.now(),res});
+  },()=>{
+    if(attempt<2){setTimeout(()=>loadPreview(name,m,attempt+1),500*(attempt+1));return;}
+    fail();
+  });
 }
 
 function sparkline(vals,color){
@@ -611,6 +677,25 @@ function manageToken(){
 
 let toastT;
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),4200);}
+
+/* ---- start: runs last so everything above is defined ---- */
+const REPO_KEY="hub_repos", REPO_TTL=6*36e5;
+(()=>{
+  const c=lsGet(REPO_KEY), known=c&&Array.isArray(c.repos)&&c.repos.length?c.repos:null;
+  let shown=known||fallbackRepos();
+  build(shown);                                     // synchronous: cards exist before any request returns
+  if(known&&Date.now()-c.t<REPO_TTL) return;
+  fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`)
+   .then(r=>r.ok?r.json():Promise.reject(r.status))
+   .then(repos=>{
+     if(!Array.isArray(repos)||!repos.length) throw "rate-limited";
+     const slim=repos.map(r=>({name:r.name,has_pages:!!r.has_pages,language:r.language,html_url:r.html_url,
+                               description:r.description,updated_at:r.updated_at}));
+     lsSet(REPO_KEY,{t:Date.now(),repos:slim});
+     if(repoSig(slim)!==repoSig(shown)){ build(slim); return; }   // a repo appeared, vanished or changed Pages status
+     slim.forEach(r=>{ if(!isHub(r)){ repoDate[r.name]=r.updated_at; setBadge(r.name); } });
+   }).catch(()=>{});   // rate-limited / offline → the built-in list is already on screen
+})();
 </script>
 <script>
 /* Morning brief mirror: static reads only, never Claude.
@@ -627,7 +712,14 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     const top=document.getElementById("bf-top"),w=b.weather,s=b.stock;top.textContent="";
     top.append(el("div","w",w?(ICON[w.icon]||"")+" "+w.high+"°/"+w.low+"°":""));
     const d=el("a","d",day(b));d.href="https://claude.ai/artifact/DaWdgjRXX7PAErtUHHzKvR";d.target="_blank";d.rel="noopener";
-    if(b.updated)d.title="Open full brief · updated "+fmt(b.updated);top.append(d);
+    if(b.updated)d.title="Open full brief · updated "+fmt(b.updated);
+    /* The live job runs every few hours from 6am to 10pm PT, so the longest normal gap is
+       overnight (~9 h observed). Past 14 h the weather/stock/listings are no longer today's:
+       say so instead of showing them as current. */
+    const age=b.updated?(Date.now()-new Date(b.updated).getTime())/36e5:0;
+    if(age>14){d.textContent=day(b)+" · "+(age<48?Math.round(age)+"h":Math.round(age/24)+"d")+" old";d.classList.add("old");
+      d.title="Open full brief · last refreshed "+new Date(b.updated).toLocaleString([], {weekday:"short",hour:"numeric",minute:"2-digit"})+" — the brief-live job may have stopped";}
+    top.append(d);
     const q=el("a","s");if(s){q.href="https://stockanalysis.com/stocks/aapl/";q.target="_blank";q.rel="noopener";
       q.append(document.createTextNode("AAPL "+s.price));const l=el("div");l.append(el("span",cls(s.dir),(s.dir==="up"?"▲ ":s.dir==="down"?"▼ ":"")+String(s.change_pct||"").replace(/^[+-]/,"")));
       if(s.after)l.append(document.createTextNode(" "),el("span",cls(s.after.dir),(s.after.label==="Pre-market"?"Pre ":"AH ")+s.after.price));q.append(l);}
@@ -673,10 +765,22 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     return JSON.parse(new TextDecoder().decode(await sub.decrypt({name:"AES-CBC",iv},ek,ct)));
   }
   const load=f=>fetch(f+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
+  const live=load("live.json");window.hubLive=live;   // the pinned alerts below reuse this one request
+  /* Repeat visits: draw the last PUBLIC brief at once so the page doesn't jump when the
+     files arrive. Only the fields draw() uses, taken before the private items are merged —
+     decrypted items are never written to storage. */
+  const CK="hub_brief",FIELDS=["updated","date","date_line","weather","stock","cars","items","z06_watch"];
+  const ms=x=>{const t=x&&x.updated?new Date(x.updated).getTime():NaN;return isNaN(t)?0:t;};
+  const last=lsGet(CK);
+  if(last&&typeof last==="object"){try{draw(last);}catch(e){}}
   /* live.json comes from the hourly GitHub Action and wins; brief.json can add approved extras. */
-  Promise.all([load("brief.json"),load("live.json"),key?load("private.enc.json"):null]).then(async([b,l,p])=>{
+  Promise.all([load("brief.json"),live,key?load("private.enc.json"):null]).then(async([b,l,p])=>{
     if(!b&&!l)return;
-    const d=Object.assign({},b||{},l||{});
+    let d=Object.assign({},b||{},l||{});
+    /* live.json failed to load this time: don't fall back to an older brief.json over a newer
+       remembered copy. */
+    if(!l&&last&&ms(last)>ms(d))d=Object.assign({},last);
+    else{const keep={};FIELDS.forEach(k=>{if(d[k]!=null)keep[k]=d[k];});lsSet(CK,keep);}
     if(p&&key){try{const o=await unseal(p,key);
       if(o&&Date.now()-new Date(o.updated).getTime()<36*36e5){
         const mine=o.items.map(i=>Object.assign({kind:"you",label:"For you",alert:true},i));
@@ -701,21 +805,37 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
     const a=el(href?"a":"div","ha");if(href){a.href=href;a.target="_blank";a.rel="noopener";}
     const b=el("div","b");b.append(el("div","k",kind),el("div","t",title));if(meta)b.append(el("div","m",meta));
     a.append(el("div","i",icon),b);box.append(a);box.hidden=false;};
-  Promise.all([load("https://hlash99.github.io/lotto-tracker/data.json"),load("live.json")]).then(([lotto,live])=>{
-    for(const [g,name,sp] of [["powerball","Powerball","PB"],["superlotto","SuperLotto Plus","Mega"]]){
-      const r=lotto&&lotto[g]&&lotto[g].last_result;
+  /* Alerts are rebuilt from the two sources on every load. The last set is remembered (public
+     text only) and shown at once so the page doesn't jump when a pinned alert arrives; a
+     source that fails to load keeps its remembered alerts instead of silently dropping them. */
+  const CK="hub_alerts",okUrl=u=>typeof u==="string"&&/^https:\/\//.test(u);
+  const paint=list=>{box.textContent="";box.hidden=true;
+    list.forEach(a=>add(a.icon,a.kind,a.title,a.meta,okUrl(a.href)?a.href:null));};
+  let prev=lsGet(CK);prev=Array.isArray(prev)?prev.filter(a=>a&&a.src&&a.title):[];
+  try{paint(prev);}catch(e){}
+  /* lotto data.json: the same request the lotto card makes (was a second, cache-busted
+     180 KB download); live.json: the request the brief mirror already made. */
+  Promise.all([hubJSON("https://hlash99.github.io/lotto-tracker/data.json").catch(()=>null),
+               window.hubLive||load("live.json")]).then(([lotto,live])=>{
+    const out=[];
+    if(!lotto)out.push(...prev.filter(a=>a.src==="lotto"));
+    else for(const [g,name,sp] of [["powerball","Powerball","PB"],["superlotto","SuperLotto Plus","Mega"]]){
+      const r=lotto[g]&&lotto[g].last_result;
       if(!r||!r.significant||!(days(r.draw_date)<=14))continue;
       const hits=(r.tickets||[]).filter(t=>t.significant);
       /* show the BEST ticket (scripts/hit_check.py marks it as best.source + best.ticket index) */
       const t=(r.best&&hits.find(x=>x.source===r.best.source&&x.index===r.best.ticket))||hits[0]||{};
       const best=(r.best&&r.best.tier)||t.tier||"";
-      add("🎱",name+" hit · "+md(r.draw_date)+" draw",
-          "Your "+(t.source==="cluster"?"pairwise":"recommended")+" pick matched "+best+(hits.length>1?" ("+hits.length+" tickets hit)":""),
-          "Drawn "+(r.whites||[]).join(" ")+" + "+sp+" "+r.special+(t.whites?" · ticket "+t.whites.join(" ")+" + "+t.special:""),
-          "https://hlash99.github.io/lotto-tracker/");
+      out.push({src:"lotto",icon:"🎱",kind:name+" hit · "+md(r.draw_date)+" draw",
+          title:"Your "+(t.source==="cluster"?"pairwise":"recommended")+" pick matched "+best+(hits.length>1?" ("+hits.length+" tickets hit)":""),
+          meta:"Drawn "+(r.whites||[]).join(" ")+" + "+sp+" "+r.special+(t.whites?" · ticket "+t.whites.join(" ")+" + "+t.special:""),
+          href:"https://hlash99.github.io/lotto-tracker/"});
     }
-    for(const p of ((live&&live.papers_new)||[]).filter(p=>days(p.date)<=30))
-      add("🔬","New Khodadoust paper · "+md(p.date),p.title||"New paper on PubMed","PubMed — via the morning brief",p.href);
+    if(!live)out.push(...prev.filter(a=>a.src==="paper"));
+    else for(const p of (Array.isArray(live.papers_new)?live.papers_new:[]).filter(p=>p&&days(p.date)<=30))
+      out.push({src:"paper",icon:"🔬",kind:"New Khodadoust paper · "+md(p.date),title:p.title||"New paper on PubMed",
+          meta:"PubMed — via the morning brief",href:p.href});
+    paint(out);lsSet(CK,out);
   });
 })();
 </script>
