@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-09T23:24-08:00",
- "date": "2026-11-09",
- "date_line": "Monday · November 9 2026",
+ "updated": "2026-11-10T07:19-08:00",
+ "date": "2026-11-10",
+ "date_line": "Tuesday · November 10 2026",
  "weather": {
   "high": 76,
-  "low": 54,
-  "summary": "Tomorrow · Patchy Fog then Sunny",
+  "low": 52,
+  "summary": "Patchy Fog then Sunny",
   "icon": "fog"
  },
  "stock": {
@@ -15,10 +15,10 @@
   "dir": "up",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "350.49",
-   "change_pct": "-0.06%",
-   "dir": "down"
+   "label": "Pre-market",
+   "price": "352.30",
+   "change_pct": "+0.46%",
+   "dir": "up"
   }
  },
  "cars": [
@@ -44,54 +44,53 @@
  ],
  "items": [
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "California Voters Reject Prop. 40 Billionaire Tax Measure",
-   "href": "https://www.nytimes.com/2026/11/09/us/california-billionaire-tax-prop-40.html",
-   "source": "NYT",
-   "stat": "40 Billion"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "In a Democratic Wave, Even the Long Shots Defied the Odds",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/congress-democratic-long-shots.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Nvidia’s Board Has a History of Letting Jensen Huang Get His Way",
+   "href": "https://www.nytimes.com/2026/11/10/technology/jensen-huang-nvidia-board.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Thomas Massie Moves to Force Vote on Impeaching Pete Hegseth",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/hegseth-impeachment-massie.html",
+   "title": "Nvidia CEO Jensen Huang Told Trump He Did Not Know Chinese Woman Was Suspected Spy",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-jensen-huang-spy.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Veers Back Into Claims of Rigged Election, Questioning Midterm Results",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-election-fraud-rigging-midterms.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "The Jensen Huang Affair",
+   "href": "https://www.nytimes.com/2026/11/10/podcasts/hardfork-jensen-huang-spy-affair.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "local",
+   "label": "LOCAL",
+   "title": "Hegseth Faces Impeachment Charges, and Why Dead Birds Are Washing Up in California",
+   "href": "https://www.nytimes.com/2026/11/10/podcasts/the-headlines/pete-hegseth-impeachment-charges-birds-california-booker-prize.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "California Voters Reject Prop. 40 Billionaire Tax Measure",
-   "href": "https://www.nytimes.com/2026/11/09/us/california-billionaire-tax-prop-40.html",
+   "title": "Nvidia’s Board Has a History of Letting Jensen Huang Get His Way",
+   "href": "https://www.nytimes.com/2026/11/10/technology/jensen-huang-nvidia-board.html",
    "source": "NYT"
   },
   {
-   "title": "In a Democratic Wave, Even the Long Shots Defied the Odds",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/congress-democratic-long-shots.html",
+   "title": "Nvidia CEO Jensen Huang Told Trump He Did Not Know Chinese Woman Was Suspected Spy",
+   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-jensen-huang-spy.html",
    "source": "NYT"
   },
   {
-   "title": "Thomas Massie Moves to Force Vote on Impeaching Pete Hegseth",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/hegseth-impeachment-massie.html",
+   "title": "The Jensen Huang Affair",
+   "href": "https://www.nytimes.com/2026/11/10/podcasts/hardfork-jensen-huang-spy-affair.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Veers Back Into Claims of Rigged Election, Questioning Midterm Results",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-election-fraud-rigging-midterms.html",
+   "title": "Hegseth Faces Impeachment Charges, and Why Dead Birds Are Washing Up in California",
+   "href": "https://www.nytimes.com/2026/11/10/podcasts/the-headlines/pete-hegseth-impeachment-charges-birds-california-booker-prize.html",
    "source": "NYT"
   }
  ],
