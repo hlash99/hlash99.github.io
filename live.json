@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-10T07:19-08:00",
+ "updated": "2026-11-10T12:51-08:00",
  "date": "2026-11-10",
  "date_line": "Tuesday · November 10 2026",
  "weather": {
   "high": 76,
   "low": 52,
-  "summary": "Patchy Fog then Sunny",
-  "icon": "fog"
+  "summary": "Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "350.69",
-  "change_pct": "+2.43%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "352.30",
-   "change_pct": "+0.46%",
-   "dir": "up"
-  }
+  "price": "348.17",
+  "change_pct": "-0.72%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -46,51 +39,51 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Nvidia’s Board Has a History of Letting Jensen Huang Get His Way",
-   "href": "https://www.nytimes.com/2026/11/10/technology/jensen-huang-nvidia-board.html",
+   "title": "Who Is Alice Huang, the Woman in the Middle of Nvidia’s Spy Scandal?",
+   "href": "https://www.nytimes.com/2026/11/10/technology/alice-huang-megaspeed-nvidia-jensen-huang.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Nvidia CEO Jensen Huang Told Trump He Did Not Know Chinese Woman Was Suspected Spy",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-jensen-huang-spy.html",
+   "title": "Despite Denial, Trump Was Told on Trip to China About Spying on Nvidia’s Jensen Huang",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/trump-china-trip-nvidia.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "The Jensen Huang Affair",
-   "href": "https://www.nytimes.com/2026/11/10/podcasts/hardfork-jensen-huang-spy-affair.html",
+   "title": "Nvidia Hires Wachtell Lipton to Investigate CEO Jensen Huang’s Affair With Chinese Executive",
+   "href": "https://www.nytimes.com/2026/11/10/business/nvidia-wachtell-lipton-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "kind": "local",
-   "label": "LOCAL",
-   "title": "Hegseth Faces Impeachment Charges, and Why Dead Birds Are Washing Up in California",
-   "href": "https://www.nytimes.com/2026/11/10/podcasts/the-headlines/pete-hegseth-impeachment-charges-birds-california-booker-prize.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "House Republicans Pick Jim Jordan, a Close Trump Ally, as Their Next Leader",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/republican-house-leader-scalise-jordan.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Nvidia’s Board Has a History of Letting Jensen Huang Get His Way",
-   "href": "https://www.nytimes.com/2026/11/10/technology/jensen-huang-nvidia-board.html",
+   "title": "Who Is Alice Huang, the Woman in the Middle of Nvidia’s Spy Scandal?",
+   "href": "https://www.nytimes.com/2026/11/10/technology/alice-huang-megaspeed-nvidia-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "title": "Nvidia CEO Jensen Huang Told Trump He Did Not Know Chinese Woman Was Suspected Spy",
-   "href": "https://www.nytimes.com/2026/11/09/us/politics/trump-jensen-huang-spy.html",
+   "title": "Despite Denial, Trump Was Told on Trip to China About Spying on Nvidia’s Jensen Huang",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/trump-china-trip-nvidia.html",
    "source": "NYT"
   },
   {
-   "title": "The Jensen Huang Affair",
-   "href": "https://www.nytimes.com/2026/11/10/podcasts/hardfork-jensen-huang-spy-affair.html",
+   "title": "Nvidia Hires Wachtell Lipton to Investigate CEO Jensen Huang’s Affair With Chinese Executive",
+   "href": "https://www.nytimes.com/2026/11/10/business/nvidia-wachtell-lipton-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "title": "Hegseth Faces Impeachment Charges, and Why Dead Birds Are Washing Up in California",
-   "href": "https://www.nytimes.com/2026/11/10/podcasts/the-headlines/pete-hegseth-impeachment-charges-birds-california-booker-prize.html",
+   "title": "House Republicans Pick Jim Jordan, a Close Trump Ally, as Their Next Leader",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/republican-house-leader-scalise-jordan.html",
    "source": "NYT"
   }
  ],
