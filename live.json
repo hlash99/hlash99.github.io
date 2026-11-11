@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T13:48-08:00",
+ "updated": "2026-11-10T17:16-08:00",
  "date": "2026-11-10",
  "date_line": "Tuesday · November 10 2026",
  "weather": {
@@ -10,9 +10,16 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "348.40",
-  "change_pct": "-0.65%",
-  "dir": "down"
+  "price": "348.53",
+  "change_pct": "-0.62%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "348.80",
+   "change_pct": "+0.08%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -35,7 +42,7 @@
    "car": "1999 Acura NSX-T 6-Speed",
    "color": "—",
    "miles": "—",
-   "price": "$33,333 bid, ends Nov 17",
+   "price": "$100,000 bid, ends Nov 17",
    "seller": "BaT auction",
    "location": "",
    "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
@@ -54,8 +61,22 @@
    "title": "New listing: 1999 Acura NSX-T 6-Speed",
    "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
    "source": "BaT",
-   "stat": "$33k bid",
+   "stat": "$100k bid",
    "alert": true
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Republicans Turn Back Effort to Impeach Hegseth",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/house-hegseth-impeachment-vote.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "On the Defense: Takeaways From Hegseth’s Remarks on Articles of Impeachment",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/hegseth-speech-impeachment-takeaways.html",
+   "source": "NYT"
   },
   {
    "kind": "world",
@@ -70,23 +91,19 @@
    "title": "Despite Denial, Trump Was Told on Trip to China About Spying on Nvidia’s Jensen Huang",
    "href": "https://www.nytimes.com/2026/11/10/us/politics/trump-china-trip-nvidia.html",
    "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Nvidia Hires Wachtell Lipton to Investigate CEO Jensen Huang’s Affair With Chinese Executive",
-   "href": "https://www.nytimes.com/2026/11/10/business/nvidia-wachtell-lipton-jensen-huang.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "On the Defense: Takeaways From Hegseth’s Remarks on Articles of Impeachment",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/hegseth-speech-impeachment-takeaways.html",
-   "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "Republicans Turn Back Effort to Impeach Hegseth",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/house-hegseth-impeachment-vote.html",
+   "source": "NYT"
+  },
+  {
+   "title": "On the Defense: Takeaways From Hegseth’s Remarks on Articles of Impeachment",
+   "href": "https://www.nytimes.com/2026/11/10/us/politics/hegseth-speech-impeachment-takeaways.html",
+   "source": "NYT"
+  },
   {
    "title": "Who Is Alice Huang, the Woman in the Middle of Nvidia’s Spy Scandal?",
    "href": "https://www.nytimes.com/2026/11/10/technology/alice-huang-megaspeed-nvidia-jensen-huang.html",
@@ -96,23 +113,13 @@
    "title": "Despite Denial, Trump Was Told on Trip to China About Spying on Nvidia’s Jensen Huang",
    "href": "https://www.nytimes.com/2026/11/10/us/politics/trump-china-trip-nvidia.html",
    "source": "NYT"
-  },
-  {
-   "title": "Nvidia Hires Wachtell Lipton to Investigate CEO Jensen Huang’s Affair With Chinese Executive",
-   "href": "https://www.nytimes.com/2026/11/10/business/nvidia-wachtell-lipton-jensen-huang.html",
-   "source": "NYT"
-  },
-  {
-   "title": "On the Defense: Takeaways From Hegseth’s Remarks on Articles of Impeachment",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/hegseth-speech-impeachment-takeaways.html",
-   "source": "NYT"
   }
  ],
  "alerts": {
   "car:https://bringatrailer.com/listing/1999-acura-nsx-t-16/": {
    "kind": "car",
    "label": "New listing",
-   "stat": "$33k bid",
+   "stat": "$100k bid",
    "source": "BaT",
    "title": "New listing: 1999 Acura NSX-T 6-Speed",
    "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
