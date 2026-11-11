@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-10T23:49-08:00",
- "date": "2026-11-10",
- "date_line": "Tuesday · November 10 2026",
+ "updated": "2026-11-11T07:36-08:00",
+ "date": "2026-11-11",
+ "date_line": "Wednesday · November 11 2026",
  "weather": {
   "high": 76,
   "low": 52,
-  "summary": "Tomorrow · Sunny",
+  "summary": "Sunny",
   "icon": "sun"
  },
  "stock": {
@@ -15,10 +15,10 @@
   "dir": "down",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "348.78",
-   "change_pct": "+0.08%",
-   "dir": "up"
+   "label": "Pre-market",
+   "price": "348.15",
+   "change_pct": "-0.10%",
+   "dir": "down"
   }
  },
  "cars": [
@@ -65,53 +65,53 @@
    "alert": true
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Who Is Alice Huang, the Woman in the Middle of Nvidia’s Spy Scandal?",
-   "href": "https://www.nytimes.com/2026/11/10/technology/alice-huang-megaspeed-nvidia-jensen-huang.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Despite Denial, Trump Was Told on Trip to China About Spying on Nvidia’s Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/trump-china-trip-nvidia.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Republicans Turn Back Effort to Impeach Hegseth",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/house-hegseth-impeachment-vote.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "The Fed Has to Raise Rates. How Fast to Go Has Officials Divided.",
+   "href": "https://www.nytimes.com/2026/11/11/business/fed-interest-rates-inflation.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "On the Defense: Takeaways From Hegseth’s Remarks on Articles of Impeachment",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/hegseth-speech-impeachment-takeaways.html",
+   "title": "What One ICE Officer’s Emails Revealed, and the Frantic Scramble Over New Medicaid Rules",
+   "href": "https://www.nytimes.com/2026/11/11/podcasts/the-headlines/ice-emails-medicaid-rules-martin-luther-king-jr.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Honor and Anguish: A Veterans Day When the Losses Are New",
+   "href": "https://www.nytimes.com/2026/11/11/us/iran-war-deaths-survivors-veterans-day.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Nvidia Scandal Puts Lori Huang, Jensen Huang’s Wife, In the Spotlight",
+   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-affair-lori-huang.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Who Is Alice Huang, the Woman in the Middle of Nvidia’s Spy Scandal?",
-   "href": "https://www.nytimes.com/2026/11/10/technology/alice-huang-megaspeed-nvidia-jensen-huang.html",
+   "title": "The Fed Has to Raise Rates. How Fast to Go Has Officials Divided.",
+   "href": "https://www.nytimes.com/2026/11/11/business/fed-interest-rates-inflation.html",
    "source": "NYT"
   },
   {
-   "title": "Despite Denial, Trump Was Told on Trip to China About Spying on Nvidia’s Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/trump-china-trip-nvidia.html",
+   "title": "What One ICE Officer’s Emails Revealed, and the Frantic Scramble Over New Medicaid Rules",
+   "href": "https://www.nytimes.com/2026/11/11/podcasts/the-headlines/ice-emails-medicaid-rules-martin-luther-king-jr.html",
    "source": "NYT"
   },
   {
-   "title": "Republicans Turn Back Effort to Impeach Hegseth",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/house-hegseth-impeachment-vote.html",
+   "title": "Honor and Anguish: A Veterans Day When the Losses Are New",
+   "href": "https://www.nytimes.com/2026/11/11/us/iran-war-deaths-survivors-veterans-day.html",
    "source": "NYT"
   },
   {
-   "title": "On the Defense: Takeaways From Hegseth’s Remarks on Articles of Impeachment",
-   "href": "https://www.nytimes.com/2026/11/10/us/politics/hegseth-speech-impeachment-takeaways.html",
+   "title": "Nvidia Scandal Puts Lori Huang, Jensen Huang’s Wife, In the Spotlight",
+   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-affair-lori-huang.html",
    "source": "NYT"
   }
  ],
