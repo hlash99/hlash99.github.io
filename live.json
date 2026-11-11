@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T07:36-08:00",
+ "updated": "2026-11-11T13:26-08:00",
  "date": "2026-11-11",
  "date_line": "Wednesday · November 11 2026",
  "weather": {
@@ -10,16 +10,9 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "348.51",
-  "change_pct": "-0.62%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "348.15",
-   "change_pct": "-0.10%",
-   "dir": "down"
-  }
+  "price": "354.69",
+  "change_pct": "+1.77%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -65,53 +58,54 @@
    "alert": true
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "The Fed Has to Raise Rates. How Fast to Go Has Officials Divided.",
-   "href": "https://www.nytimes.com/2026/11/11/business/fed-interest-rates-inflation.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Hints at Immigration Deal, Then Reverses. He’s Done That Before.",
+   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-immigration-election-democrats-republicans.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "What One ICE Officer’s Emails Revealed, and the Frantic Scramble Over New Medicaid Rules",
-   "href": "https://www.nytimes.com/2026/11/11/podcasts/the-headlines/ice-emails-medicaid-rules-martin-luther-king-jr.html",
+   "title": "ICE Officer Involved in Maine Shooting Expressed Hatred of Immigrants",
+   "href": "https://www.nytimes.com/2026/11/11/us/david-brouillette-ice-maine-shooting-anti-immigrant-hatred.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Honor and Anguish: A Veterans Day When the Losses Are New",
-   "href": "https://www.nytimes.com/2026/11/11/us/iran-war-deaths-survivors-veterans-day.html",
-   "source": "NYT"
+   "title": "An 8-Year-Old Was Separated From Family and Taken by ICE at a Check-In",
+   "href": "https://www.nytimes.com/2026/11/11/us/ice-detains-8-year-old.html",
+   "source": "NYT",
+   "stat": "8"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Nvidia Scandal Puts Lori Huang, Jensen Huang’s Wife, In the Spotlight",
-   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-affair-lori-huang.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "White House Threatens Congress, Saying Aggressive Investigations Could Be Crime",
+   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-democrats-congress-oversight-committee.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "The Fed Has to Raise Rates. How Fast to Go Has Officials Divided.",
-   "href": "https://www.nytimes.com/2026/11/11/business/fed-interest-rates-inflation.html",
+   "title": "Trump Hints at Immigration Deal, Then Reverses. He’s Done That Before.",
+   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-immigration-election-democrats-republicans.html",
    "source": "NYT"
   },
   {
-   "title": "What One ICE Officer’s Emails Revealed, and the Frantic Scramble Over New Medicaid Rules",
-   "href": "https://www.nytimes.com/2026/11/11/podcasts/the-headlines/ice-emails-medicaid-rules-martin-luther-king-jr.html",
+   "title": "ICE Officer Involved in Maine Shooting Expressed Hatred of Immigrants",
+   "href": "https://www.nytimes.com/2026/11/11/us/david-brouillette-ice-maine-shooting-anti-immigrant-hatred.html",
    "source": "NYT"
   },
   {
-   "title": "Honor and Anguish: A Veterans Day When the Losses Are New",
-   "href": "https://www.nytimes.com/2026/11/11/us/iran-war-deaths-survivors-veterans-day.html",
+   "title": "An 8-Year-Old Was Separated From Family and Taken by ICE at a Check-In",
+   "href": "https://www.nytimes.com/2026/11/11/us/ice-detains-8-year-old.html",
    "source": "NYT"
   },
   {
-   "title": "Nvidia Scandal Puts Lori Huang, Jensen Huang’s Wife, In the Spotlight",
-   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-affair-lori-huang.html",
+   "title": "White House Threatens Congress, Saying Aggressive Investigations Could Be Crime",
+   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-democrats-congress-oversight-committee.html",
    "source": "NYT"
   }
  ],
