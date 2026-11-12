@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-12T03:22-08:00",
+ "updated": "2026-11-12T07:24-08:00",
  "date": "2026-11-12",
  "date_line": "Thursday · November 12 2026",
  "weather": {
   "high": 73,
-  "low": 52,
-  "summary": "Tomorrow · Mostly Sunny",
+  "low": 55,
+  "summary": "Mostly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -16,9 +16,9 @@
   "session": "Close",
   "after": {
    "label": "Pre-market",
-   "price": "355.22",
-   "change_pct": "-0.12%",
-   "dir": "down"
+   "price": "358.26",
+   "change_pct": "+0.74%",
+   "dir": "up"
   }
  },
  "cars": [
@@ -65,53 +65,53 @@
    "alert": true
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Nvidia’s Board Is Weighing Jensen Huang’s Future",
-   "href": "https://www.nytimes.com/2026/11/11/technology/nvidia-jensen-huang.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Jensen Huang Said to Have Had Relationship With Nvidia Executive Who Reports to Him",
-   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html",
-   "source": "NYT"
-  },
-  {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang’s Future as CEO",
-   "href": "https://www.nytimes.com/2026/11/11/business/nvidia-stock-jensen-huang-ceo.html",
+   "title": "Nvidia Stock Plunges After Jensen Huang Resigns as CEO",
+   "href": "https://www.nytimes.com/2026/11/12/business/nvidia-stock-price-jensen-huang-ceo-affair.html",
    "source": "NYT"
   },
   {
-   "kind": "sports",
-   "label": "SPORTS",
-   "title": "In China’s Spy Operations, Romance Can Be a Long Game",
-   "href": "https://www.nytimes.com/2026/11/12/world/asia/china-spy-espionage-romance.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Singapore Says US Not Helpful on Investigation Into Alice Huang and Megaspeed",
+   "href": "https://www.nytimes.com/2026/11/12/business/nvidia-megaspeed-alice-huang.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Excavation Was Taking Place Next to Building in Brooklyn That Collapsed",
+   "href": "https://www.nytimes.com/2026/11/12/nyregion/brooklyn-building-collapse-excavation-work.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "What to Know About the Deadly Building Collapse in Brooklyn",
+   "href": "https://www.nytimes.com/2026/11/12/nyregion/building-collapse-brooklyn-deaths-flatbush-nyc.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Nvidia’s Board Is Weighing Jensen Huang’s Future",
-   "href": "https://www.nytimes.com/2026/11/11/technology/nvidia-jensen-huang.html",
+   "title": "Nvidia Stock Plunges After Jensen Huang Resigns as CEO",
+   "href": "https://www.nytimes.com/2026/11/12/business/nvidia-stock-price-jensen-huang-ceo-affair.html",
    "source": "NYT"
   },
   {
-   "title": "Jensen Huang Said to Have Had Relationship With Nvidia Executive Who Reports to Him",
-   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html",
+   "title": "Singapore Says US Not Helpful on Investigation Into Alice Huang and Megaspeed",
+   "href": "https://www.nytimes.com/2026/11/12/business/nvidia-megaspeed-alice-huang.html",
    "source": "NYT"
   },
   {
-   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang’s Future as CEO",
-   "href": "https://www.nytimes.com/2026/11/11/business/nvidia-stock-jensen-huang-ceo.html",
+   "title": "Excavation Was Taking Place Next to Building in Brooklyn That Collapsed",
+   "href": "https://www.nytimes.com/2026/11/12/nyregion/brooklyn-building-collapse-excavation-work.html",
    "source": "NYT"
   },
   {
-   "title": "In China’s Spy Operations, Romance Can Be a Long Game",
-   "href": "https://www.nytimes.com/2026/11/12/world/asia/china-spy-espionage-romance.html",
+   "title": "What to Know About the Deadly Building Collapse in Brooklyn",
+   "href": "https://www.nytimes.com/2026/11/12/nyregion/building-collapse-brooklyn-deaths-flatbush-nyc.html",
    "source": "NYT"
   }
  ],
