@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-11T13:26-08:00",
+ "updated": "2026-11-11T19:04-08:00",
  "date": "2026-11-11",
  "date_line": "Wednesday · November 11 2026",
  "weather": {
-  "high": 76,
+  "high": 74,
   "low": 52,
-  "summary": "Sunny",
-  "icon": "sun"
+  "summary": "Tomorrow · Mostly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "354.69",
-  "change_pct": "+1.77%",
-  "dir": "up"
+  "price": "355.63",
+  "change_pct": "+2.04%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "356.13",
+   "change_pct": "+0.14%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -58,54 +65,53 @@
    "alert": true
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Hints at Immigration Deal, Then Reverses. He’s Done That Before.",
-   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-immigration-election-democrats-republicans.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Nvidia’s Board Is Meeting to Discuss Jensen Huang’s Future",
+   "href": "https://www.nytimes.com/2026/11/11/technology/nvidia-jensen-huang.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "ICE Officer Involved in Maine Shooting Expressed Hatred of Immigrants",
-   "href": "https://www.nytimes.com/2026/11/11/us/david-brouillette-ice-maine-shooting-anti-immigrant-hatred.html",
+   "title": "Jensen Huang Said to Have Had Relationship With Nvidia Executive Who Reports to Him",
+   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang, CEO’s, Future",
+   "href": "https://www.nytimes.com/2026/11/11/business/nvidia-stock-jensen-huang-ceo.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "An 8-Year-Old Was Separated From Family and Taken by ICE at a Check-In",
-   "href": "https://www.nytimes.com/2026/11/11/us/ice-detains-8-year-old.html",
-   "source": "NYT",
-   "stat": "8"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "White House Threatens Congress, Saying Aggressive Investigations Could Be Crime",
-   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-democrats-congress-oversight-committee.html",
+   "title": "Scott Colom Will Be Mississippi’s Third Black Senator. Who Were the First Two?",
+   "href": "https://www.nytimes.com/2026/11/11/us/elections/scott-colom-mississippi-black-senators.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Trump Hints at Immigration Deal, Then Reverses. He’s Done That Before.",
-   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-immigration-election-democrats-republicans.html",
+   "title": "Nvidia’s Board Is Meeting to Discuss Jensen Huang’s Future",
+   "href": "https://www.nytimes.com/2026/11/11/technology/nvidia-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "title": "ICE Officer Involved in Maine Shooting Expressed Hatred of Immigrants",
-   "href": "https://www.nytimes.com/2026/11/11/us/david-brouillette-ice-maine-shooting-anti-immigrant-hatred.html",
+   "title": "Jensen Huang Said to Have Had Relationship With Nvidia Executive Who Reports to Him",
+   "href": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html",
    "source": "NYT"
   },
   {
-   "title": "An 8-Year-Old Was Separated From Family and Taken by ICE at a Check-In",
-   "href": "https://www.nytimes.com/2026/11/11/us/ice-detains-8-year-old.html",
+   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang, CEO’s, Future",
+   "href": "https://www.nytimes.com/2026/11/11/business/nvidia-stock-jensen-huang-ceo.html",
    "source": "NYT"
   },
   {
-   "title": "White House Threatens Congress, Saying Aggressive Investigations Could Be Crime",
-   "href": "https://www.nytimes.com/2026/11/11/us/politics/trump-democrats-congress-oversight-committee.html",
+   "title": "Scott Colom Will Be Mississippi’s Third Black Senator. Who Were the First Two?",
+   "href": "https://www.nytimes.com/2026/11/11/us/elections/scott-colom-mississippi-black-senators.html",
    "source": "NYT"
   }
  ],
