@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-11T19:04-08:00",
- "date": "2026-11-11",
- "date_line": "Wednesday · November 11 2026",
+ "updated": "2026-11-12T03:22-08:00",
+ "date": "2026-11-12",
+ "date_line": "Thursday · November 12 2026",
  "weather": {
-  "high": 74,
+  "high": 73,
   "low": 52,
   "summary": "Tomorrow · Mostly Sunny",
   "icon": "partly"
@@ -15,10 +15,10 @@
   "dir": "up",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "356.13",
-   "change_pct": "+0.14%",
-   "dir": "up"
+   "label": "Pre-market",
+   "price": "355.22",
+   "change_pct": "-0.12%",
+   "dir": "down"
   }
  },
  "cars": [
@@ -67,7 +67,7 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Nvidia’s Board Is Meeting to Discuss Jensen Huang’s Future",
+   "title": "Nvidia’s Board Is Weighing Jensen Huang’s Future",
    "href": "https://www.nytimes.com/2026/11/11/technology/nvidia-jensen-huang.html",
    "source": "NYT"
   },
@@ -81,21 +81,21 @@
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang, CEO’s, Future",
+   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang’s Future as CEO",
    "href": "https://www.nytimes.com/2026/11/11/business/nvidia-stock-jensen-huang-ceo.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Scott Colom Will Be Mississippi’s Third Black Senator. Who Were the First Two?",
-   "href": "https://www.nytimes.com/2026/11/11/us/elections/scott-colom-mississippi-black-senators.html",
+   "kind": "sports",
+   "label": "SPORTS",
+   "title": "In China’s Spy Operations, Romance Can Be a Long Game",
+   "href": "https://www.nytimes.com/2026/11/12/world/asia/china-spy-espionage-romance.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Nvidia’s Board Is Meeting to Discuss Jensen Huang’s Future",
+   "title": "Nvidia’s Board Is Weighing Jensen Huang’s Future",
    "href": "https://www.nytimes.com/2026/11/11/technology/nvidia-jensen-huang.html",
    "source": "NYT"
   },
@@ -105,13 +105,13 @@
    "source": "NYT"
   },
   {
-   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang, CEO’s, Future",
+   "title": "Nvidia’s Stock Price Plummets as Board Is Said to Consider Jensen Huang’s Future as CEO",
    "href": "https://www.nytimes.com/2026/11/11/business/nvidia-stock-jensen-huang-ceo.html",
    "source": "NYT"
   },
   {
-   "title": "Scott Colom Will Be Mississippi’s Third Black Senator. Who Were the First Two?",
-   "href": "https://www.nytimes.com/2026/11/11/us/elections/scott-colom-mississippi-black-senators.html",
+   "title": "In China’s Spy Operations, Romance Can Be a Long Game",
+   "href": "https://www.nytimes.com/2026/11/12/world/asia/china-spy-espionage-romance.html",
    "source": "NYT"
   }
  ],
