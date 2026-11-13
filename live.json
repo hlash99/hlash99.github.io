@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-12T18:39-08:00",
- "date": "2026-11-12",
- "date_line": "Thursday · November 12 2026",
+ "updated": "2026-11-13T03:05-08:00",
+ "date": "2026-11-13",
+ "date_line": "Friday · November 13 2026",
  "weather": {
   "high": 63,
   "low": 54,
-  "summary": "Tomorrow · Rain",
-  "icon": "rain"
+  "summary": "Tomorrow · Showers And Thunderstor",
+  "icon": "storm"
  },
  "stock": {
   "symbol": "AAPL",
@@ -15,10 +15,10 @@
   "dir": "down",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "354.78",
-   "change_pct": "-0.03%",
-   "dir": "down"
+   "label": "Pre-market",
+   "price": "356.89",
+   "change_pct": "+0.57%",
+   "dir": "up"
   }
  },
  "cars": [
@@ -48,7 +48,7 @@
    "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
    "source": "BaT",
    "title": "Title not stated",
-   "flag": "New, History unconfirmed"
+   "flag": "History unconfirmed"
   },
   {
    "group": "Chevrolet Corvette Z06"
@@ -65,6 +65,13 @@
    "alert": true
   },
   {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Howard Lutnick Took Softer Line on Nvidia as Calls for Tougher Controls Grew",
+   "href": "https://www.nytimes.com/2026/11/12/us/politics/lutnick-nvidia-commerce-china-chips.html",
+   "source": "NYT"
+  },
+  {
    "kind": "politics",
    "label": "POLITICS",
    "title": "Trump Had Urged Nvidia’s Jensen Huang to Fight for His Job",
@@ -72,47 +79,39 @@
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Huang and Lutnick Summoned to Testify Before Congress",
-   "href": "https://www.nytimes.com/2026/11/12/business/jensen-huang-howard-lutnick-testify-capitol-hill.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Huang’s Downfall Could Shake the Economy, and Detainees Have Disappeared From an ICE Database",
+   "href": "https://www.nytimes.com/2026/11/13/podcasts/the-headlines/huang-stocks-economy-ice.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Rescue Ends in Brooklyn After 8 Die in Building Collapse",
-   "href": "https://www.nytimes.com/2026/11/12/us/brooklyn-building-collapse-deaths.html",
-   "source": "NYT",
-   "stat": "8"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "What to Know About the Deadly Building Collapse in Brooklyn",
-   "href": "https://www.nytimes.com/2026/11/12/nyregion/building-collapse-brooklyn-deaths-flatbush-nyc.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Chris Van Hollen Set to Challenge Chuck Schumer for Senate Majority Leader",
+   "href": "https://www.nytimes.com/2026/11/12/us/politics/van-hollen-schumer-democrats-majority-leader.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Howard Lutnick Took Softer Line on Nvidia as Calls for Tougher Controls Grew",
+   "href": "https://www.nytimes.com/2026/11/12/us/politics/lutnick-nvidia-commerce-china-chips.html",
+   "source": "NYT"
+  },
+  {
    "title": "Trump Had Urged Nvidia’s Jensen Huang to Fight for His Job",
    "href": "https://www.nytimes.com/2026/11/12/us/politics/trump-jensen-huang-nvidia.html",
    "source": "NYT"
   },
   {
-   "title": "Huang and Lutnick Summoned to Testify Before Congress",
-   "href": "https://www.nytimes.com/2026/11/12/business/jensen-huang-howard-lutnick-testify-capitol-hill.html",
+   "title": "Huang’s Downfall Could Shake the Economy, and Detainees Have Disappeared From an ICE Database",
+   "href": "https://www.nytimes.com/2026/11/13/podcasts/the-headlines/huang-stocks-economy-ice.html",
    "source": "NYT"
   },
   {
-   "title": "Rescue Ends in Brooklyn After 8 Die in Building Collapse",
-   "href": "https://www.nytimes.com/2026/11/12/us/brooklyn-building-collapse-deaths.html",
-   "source": "NYT"
-  },
-  {
-   "title": "What to Know About the Deadly Building Collapse in Brooklyn",
-   "href": "https://www.nytimes.com/2026/11/12/nyregion/building-collapse-brooklyn-deaths-flatbush-nyc.html",
+   "title": "Chris Van Hollen Set to Challenge Chuck Schumer for Senate Majority Leader",
+   "href": "https://www.nytimes.com/2026/11/12/us/politics/van-hollen-schumer-democrats-majority-leader.html",
    "source": "NYT"
   }
  ],
