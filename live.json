@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T07:36-08:00",
+ "updated": "2026-11-13T12:54-08:00",
  "date": "2026-11-13",
  "date_line": "Friday · November 13 2026",
  "weather": {
@@ -10,16 +10,9 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "354.88",
-  "change_pct": "-0.14%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "356.43",
-   "change_pct": "+0.44%",
-   "dir": "up"
-  }
+  "price": "356.88",
+  "change_pct": "+0.56%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -67,51 +60,51 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Howard Lutnick Took Softer Line on Nvidia as Calls for Tougher Controls Grew",
-   "href": "https://www.nytimes.com/2026/11/12/us/politics/lutnick-nvidia-commerce-china-chips.html",
+   "title": "Russia Revives Demand That NATO Retrench to Secure Ukraine Deal",
+   "href": "https://www.nytimes.com/2026/11/13/us/politics/russia-demand-nato-ukraine.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Had Urged Nvidia’s Jensen Huang to Fight for His Job",
-   "href": "https://www.nytimes.com/2026/11/12/us/politics/trump-jensen-huang-nvidia.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Europe Agrees on a Team to Represent It in Talks With Russia",
+   "href": "https://www.nytimes.com/2026/11/13/world/europe/europe-ukraine-talks-russia.html",
    "source": "NYT"
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Huang’s Downfall Could Shake the Economy, and Detainees Have Disappeared From an ICE Database",
-   "href": "https://www.nytimes.com/2026/11/13/podcasts/the-headlines/huang-stocks-economy-ice.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Jensen Huang’s Resignation From Nvidia Worries the A.I. Start-Up World",
+   "href": "https://www.nytimes.com/2026/11/13/technology/jensen-huang-silicon-valley-start-ups.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Chris Van Hollen Set to Challenge Chuck Schumer for Senate Majority Leader",
-   "href": "https://www.nytimes.com/2026/11/12/us/politics/van-hollen-schumer-democrats-majority-leader.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
+   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Howard Lutnick Took Softer Line on Nvidia as Calls for Tougher Controls Grew",
-   "href": "https://www.nytimes.com/2026/11/12/us/politics/lutnick-nvidia-commerce-china-chips.html",
+   "title": "Russia Revives Demand That NATO Retrench to Secure Ukraine Deal",
+   "href": "https://www.nytimes.com/2026/11/13/us/politics/russia-demand-nato-ukraine.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Had Urged Nvidia’s Jensen Huang to Fight for His Job",
-   "href": "https://www.nytimes.com/2026/11/12/us/politics/trump-jensen-huang-nvidia.html",
+   "title": "Europe Agrees on a Team to Represent It in Talks With Russia",
+   "href": "https://www.nytimes.com/2026/11/13/world/europe/europe-ukraine-talks-russia.html",
    "source": "NYT"
   },
   {
-   "title": "Huang’s Downfall Could Shake the Economy, and Detainees Have Disappeared From an ICE Database",
-   "href": "https://www.nytimes.com/2026/11/13/podcasts/the-headlines/huang-stocks-economy-ice.html",
+   "title": "Jensen Huang’s Resignation From Nvidia Worries the A.I. Start-Up World",
+   "href": "https://www.nytimes.com/2026/11/13/technology/jensen-huang-silicon-valley-start-ups.html",
    "source": "NYT"
   },
   {
-   "title": "Chris Van Hollen Set to Challenge Chuck Schumer for Senate Majority Leader",
-   "href": "https://www.nytimes.com/2026/11/12/us/politics/van-hollen-schumer-democrats-majority-leader.html",
+   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
+   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
    "source": "NYT"
   }
  ],
@@ -127,11 +120,11 @@
   }
  },
  "z06_watch": {
-  "checked": 76,
+  "checked": 77,
   "by_source": {
    "duPont": 18,
    "CorvetteForum": 58,
-   "BaT": 0
+   "BaT": 1
   },
   "label": "Red Mist Z06 · CA · 20–40k mi",
   "sources": [
