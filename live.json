@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-14T11:12-08:00",
+ "updated": "2026-11-14T15:00-08:00",
  "date": "2026-11-14",
  "date_line": "Saturday · November 14 2026",
  "weather": {
   "high": 66,
   "low": 49,
-  "summary": "Mostly Sunny",
+  "summary": "Partly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -58,13 +58,6 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Here’s Why It Could Take Days for Flights to Return to Normal",
-   "href": "https://www.nytimes.com/2026/11/14/us/faa-groundstop-flights-restarting.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
    "title": "Ground Stop Highlights Chronic Vulnerabilities in Air Traffic System",
    "href": "https://www.nytimes.com/2026/11/14/us/politics/ground-stop-air-traffic-faa.html",
    "source": "NYT"
@@ -72,37 +65,44 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Nvidia Scandal Prompts Questions of What It Means to Be a Spy",
-   "href": "https://www.nytimes.com/2026/11/13/us/politics/nvidia-alice-huang-spy-china.html",
+   "title": "After Relative Silence, Joe Rogan Said MAGA Has Lost the “Podcast Bros”",
+   "href": "https://www.nytimes.com/2026/11/14/style/after-relative-silence-joe-rogan-said-trumps-policies-have-lost-the-podcast-bros.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Perhaps the Rumors of Democracy’s Demise Were Premature",
+   "href": "https://www.nytimes.com/2026/11/14/magazine/democracy-midterm-elections.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "What’s Behind the Trump-Huang Relationship?",
-   "href": "https://www.nytimes.com/video/us/politics/100000011272223/whats-behind-the-trump-huang-relationship.html",
+   "title": "Top Democrat Eyes Filibuster-Proof Budget Bill to Unlock Affordability Agenda",
+   "href": "https://www.nytimes.com/2026/11/14/us/politics/house-democrats-affordability-costs-budget.html",
    "source": "NYT"
   }
  ],
  "news": [
-  {
-   "title": "Here’s Why It Could Take Days for Flights to Return to Normal",
-   "href": "https://www.nytimes.com/2026/11/14/us/faa-groundstop-flights-restarting.html",
-   "source": "NYT"
-  },
   {
    "title": "Ground Stop Highlights Chronic Vulnerabilities in Air Traffic System",
    "href": "https://www.nytimes.com/2026/11/14/us/politics/ground-stop-air-traffic-faa.html",
    "source": "NYT"
   },
   {
-   "title": "Nvidia Scandal Prompts Questions of What It Means to Be a Spy",
-   "href": "https://www.nytimes.com/2026/11/13/us/politics/nvidia-alice-huang-spy-china.html",
+   "title": "After Relative Silence, Joe Rogan Said MAGA Has Lost the “Podcast Bros”",
+   "href": "https://www.nytimes.com/2026/11/14/style/after-relative-silence-joe-rogan-said-trumps-policies-have-lost-the-podcast-bros.html",
    "source": "NYT"
   },
   {
-   "title": "What’s Behind the Trump-Huang Relationship?",
-   "href": "https://www.nytimes.com/video/us/politics/100000011272223/whats-behind-the-trump-huang-relationship.html",
+   "title": "Perhaps the Rumors of Democracy’s Demise Were Premature",
+   "href": "https://www.nytimes.com/2026/11/14/magazine/democracy-midterm-elections.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Top Democrat Eyes Filibuster-Proof Budget Bill to Unlock Affordability Agenda",
+   "href": "https://www.nytimes.com/2026/11/14/us/politics/house-democrats-affordability-costs-budget.html",
    "source": "NYT"
   }
  ],
