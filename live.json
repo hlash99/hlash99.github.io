@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-13T17:28-08:00",
- "date": "2026-11-13",
- "date_line": "Friday · November 13 2026",
+ "updated": "2026-11-14T01:01-08:00",
+ "date": "2026-11-14",
+ "date_line": "Saturday · November 14 2026",
  "weather": {
-  "high": 63,
+  "high": 66,
   "low": 48,
-  "summary": "Chance Light Rain",
-  "icon": "rain"
+  "summary": "Tomorrow · Partly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
@@ -16,8 +16,8 @@
   "session": "Close",
   "after": {
    "label": "After hours",
-   "price": "355.61",
-   "change_pct": "-0.19%",
+   "price": "355.40",
+   "change_pct": "-0.24%",
    "dir": "down"
   }
  },
@@ -56,19 +56,10 @@
  ],
  "items": [
   {
-   "kind": "car",
-   "label": "NEW LISTING",
-   "title": "New listing: 1999 Acura NSX-T 6-Speed",
-   "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
-   "source": "BaT",
-   "stat": "$120k bid",
-   "alert": true
-  },
-  {
    "kind": "world",
    "label": "WORLD",
-   "title": "Airports Fill Up With Stuck Families and Stranded Travelers",
-   "href": "https://www.nytimes.com/2026/11/13/us/airports-stranded-travelers.html",
+   "title": "What to Know About Friday’s Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/13/us/faa-ground-stop-flights-what-to-know.html",
    "source": "NYT"
   },
   {
@@ -81,22 +72,22 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "A Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/13/briefing/a-nationwide-ground-stop.html",
+   "title": "Nvidia Scandal Prompts Questions of What It Means to Be a Spy",
+   "href": "https://www.nytimes.com/2026/11/13/us/politics/nvidia-alice-huang-spy-china.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Russia Revives Demand That NATO Retrench to Secure Ukraine Deal",
-   "href": "https://www.nytimes.com/2026/11/13/us/politics/russia-demand-nato-ukraine.html",
+   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
+   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Airports Fill Up With Stuck Families and Stranded Travelers",
-   "href": "https://www.nytimes.com/2026/11/13/us/airports-stranded-travelers.html",
+   "title": "What to Know About Friday’s Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/13/us/faa-ground-stop-flights-what-to-know.html",
    "source": "NYT"
   },
   {
@@ -105,27 +96,17 @@
    "source": "NYT"
   },
   {
-   "title": "A Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/13/briefing/a-nationwide-ground-stop.html",
+   "title": "Nvidia Scandal Prompts Questions of What It Means to Be a Spy",
+   "href": "https://www.nytimes.com/2026/11/13/us/politics/nvidia-alice-huang-spy-china.html",
    "source": "NYT"
   },
   {
-   "title": "Russia Revives Demand That NATO Retrench to Secure Ukraine Deal",
-   "href": "https://www.nytimes.com/2026/11/13/us/politics/russia-demand-nato-ukraine.html",
+   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
+   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
    "source": "NYT"
   }
  ],
- "alerts": {
-  "car:https://bringatrailer.com/listing/1999-acura-nsx-t-16/": {
-   "kind": "car",
-   "label": "New listing",
-   "stat": "$120k bid",
-   "source": "BaT",
-   "title": "New listing: 1999 Acura NSX-T 6-Speed",
-   "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
-   "date": "2026-11-10"
-  }
- },
+ "alerts": {},
  "z06_watch": {
   "checked": 77,
   "by_source": {
