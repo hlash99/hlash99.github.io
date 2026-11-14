@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-14T07:17-08:00",
+ "updated": "2026-11-14T11:12-08:00",
  "date": "2026-11-14",
  "date_line": "Saturday · November 14 2026",
  "weather": {
   "high": 66,
   "low": 49,
-  "summary": "Partly Sunny",
+  "summary": "Mostly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -58,8 +58,15 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "What to Know About Friday’s Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/13/us/faa-ground-stop-flights-what-to-know.html",
+   "title": "Here’s Why It Could Take Days for Flights to Return to Normal",
+   "href": "https://www.nytimes.com/2026/11/14/us/faa-groundstop-flights-restarting.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Ground Stop Highlights Chronic Vulnerabilities in Air Traffic System",
+   "href": "https://www.nytimes.com/2026/11/14/us/politics/ground-stop-air-traffic-faa.html",
    "source": "NYT"
   },
   {
@@ -75,19 +82,17 @@
    "title": "What’s Behind the Trump-Huang Relationship?",
    "href": "https://www.nytimes.com/video/us/politics/100000011272223/whats-behind-the-trump-huang-relationship.html",
    "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "The Jensen Huang Scandal Has Shocked Even Scandal-Prone Silicon Valley",
-   "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-scandal-silicon-valley.html",
-   "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "What to Know About Friday’s Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/13/us/faa-ground-stop-flights-what-to-know.html",
+   "title": "Here’s Why It Could Take Days for Flights to Return to Normal",
+   "href": "https://www.nytimes.com/2026/11/14/us/faa-groundstop-flights-restarting.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Ground Stop Highlights Chronic Vulnerabilities in Air Traffic System",
+   "href": "https://www.nytimes.com/2026/11/14/us/politics/ground-stop-air-traffic-faa.html",
    "source": "NYT"
   },
   {
@@ -98,11 +103,6 @@
   {
    "title": "What’s Behind the Trump-Huang Relationship?",
    "href": "https://www.nytimes.com/video/us/politics/100000011272223/whats-behind-the-trump-huang-relationship.html",
-   "source": "NYT"
-  },
-  {
-   "title": "The Jensen Huang Scandal Has Shocked Even Scandal-Prone Silicon Valley",
-   "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-scandal-silicon-valley.html",
    "source": "NYT"
   }
  ],
