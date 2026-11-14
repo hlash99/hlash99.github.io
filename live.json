@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-14T01:01-08:00",
+ "updated": "2026-11-14T07:17-08:00",
  "date": "2026-11-14",
  "date_line": "Saturday · November 14 2026",
  "weather": {
   "high": 66,
-  "low": 48,
-  "summary": "Tomorrow · Partly Sunny",
+  "low": 49,
+  "summary": "Partly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -65,22 +65,22 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Flight Canceled During the FAA Ground Stop? Here’s What to Do.",
-   "href": "https://www.nytimes.com/2026/11/13/us/ground-stop-flight-delays-cancellations-tips.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
    "title": "Nvidia Scandal Prompts Questions of What It Means to Be a Spy",
    "href": "https://www.nytimes.com/2026/11/13/us/politics/nvidia-alice-huang-spy-china.html",
    "source": "NYT"
   },
   {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "What’s Behind the Trump-Huang Relationship?",
+   "href": "https://www.nytimes.com/video/us/politics/100000011272223/whats-behind-the-trump-huang-relationship.html",
+   "source": "NYT"
+  },
+  {
    "kind": "world",
    "label": "WORLD",
-   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
-   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
+   "title": "The Jensen Huang Scandal Has Shocked Even Scandal-Prone Silicon Valley",
+   "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-scandal-silicon-valley.html",
    "source": "NYT"
   }
  ],
@@ -91,28 +91,28 @@
    "source": "NYT"
   },
   {
-   "title": "Flight Canceled During the FAA Ground Stop? Here’s What to Do.",
-   "href": "https://www.nytimes.com/2026/11/13/us/ground-stop-flight-delays-cancellations-tips.html",
-   "source": "NYT"
-  },
-  {
    "title": "Nvidia Scandal Prompts Questions of What It Means to Be a Spy",
    "href": "https://www.nytimes.com/2026/11/13/us/politics/nvidia-alice-huang-spy-china.html",
    "source": "NYT"
   },
   {
-   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
-   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
+   "title": "What’s Behind the Trump-Huang Relationship?",
+   "href": "https://www.nytimes.com/video/us/politics/100000011272223/whats-behind-the-trump-huang-relationship.html",
+   "source": "NYT"
+  },
+  {
+   "title": "The Jensen Huang Scandal Has Shocked Even Scandal-Prone Silicon Valley",
+   "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-scandal-silicon-valley.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 77,
+  "checked": 79,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 58,
-   "BaT": 1
+   "CorvetteForum": 59,
+   "BaT": 2
   },
   "label": "Red Mist Z06 · CA · 20–40k mi",
   "sources": [
