@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-13T12:54-08:00",
+ "updated": "2026-11-13T17:28-08:00",
  "date": "2026-11-13",
  "date_line": "Friday · November 13 2026",
  "weather": {
   "high": 63,
   "low": 48,
-  "summary": "Showers And Thunderstorms",
-  "icon": "storm"
+  "summary": "Chance Light Rain",
+  "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "356.88",
-  "change_pct": "+0.56%",
-  "dir": "up"
+  "price": "356.27",
+  "change_pct": "+0.39%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "355.61",
+   "change_pct": "-0.19%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -60,51 +67,51 @@
   {
    "kind": "world",
    "label": "WORLD",
+   "title": "Airports Fill Up With Stuck Families and Stranded Travelers",
+   "href": "https://www.nytimes.com/2026/11/13/us/airports-stranded-travelers.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Flight Canceled During the FAA Ground Stop? Here’s What to Do.",
+   "href": "https://www.nytimes.com/2026/11/13/us/ground-stop-flight-delays-cancellations-tips.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "A Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/13/briefing/a-nationwide-ground-stop.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
    "title": "Russia Revives Demand That NATO Retrench to Secure Ukraine Deal",
    "href": "https://www.nytimes.com/2026/11/13/us/politics/russia-demand-nato-ukraine.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Europe Agrees on a Team to Represent It in Talks With Russia",
-   "href": "https://www.nytimes.com/2026/11/13/world/europe/europe-ukraine-talks-russia.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Jensen Huang’s Resignation From Nvidia Worries the A.I. Start-Up World",
-   "href": "https://www.nytimes.com/2026/11/13/technology/jensen-huang-silicon-valley-start-ups.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
-   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Airports Fill Up With Stuck Families and Stranded Travelers",
+   "href": "https://www.nytimes.com/2026/11/13/us/airports-stranded-travelers.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Flight Canceled During the FAA Ground Stop? Here’s What to Do.",
+   "href": "https://www.nytimes.com/2026/11/13/us/ground-stop-flight-delays-cancellations-tips.html",
+   "source": "NYT"
+  },
+  {
+   "title": "A Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/13/briefing/a-nationwide-ground-stop.html",
+   "source": "NYT"
+  },
+  {
    "title": "Russia Revives Demand That NATO Retrench to Secure Ukraine Deal",
    "href": "https://www.nytimes.com/2026/11/13/us/politics/russia-demand-nato-ukraine.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Europe Agrees on a Team to Represent It in Talks With Russia",
-   "href": "https://www.nytimes.com/2026/11/13/world/europe/europe-ukraine-talks-russia.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Jensen Huang’s Resignation From Nvidia Worries the A.I. Start-Up World",
-   "href": "https://www.nytimes.com/2026/11/13/technology/jensen-huang-silicon-valley-start-ups.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Why Jensen Huang Was Essential to Nvidia’s Rise",
-   "href": "https://www.nytimes.com/video/business/100000011275611/why-jensen-huang-was-essential-to-nvidias-rise.html",
    "source": "NYT"
   }
  ],
