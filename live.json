@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-15T07:23-08:00",
+ "updated": "2026-11-15T11:48-08:00",
  "date": "2026-11-15",
  "date_line": "Sunday · November 15 2026",
  "weather": {
   "high": 66,
-  "low": 49,
+  "low": 50,
   "summary": "Mostly Cloudy then Light Rain",
   "icon": "rain"
  },
@@ -59,7 +59,7 @@
    "kind": "tech",
    "label": "TECH",
    "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-cantor-fitzgerald.html",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
    "source": "NYT"
   },
   {
@@ -67,28 +67,27 @@
    "label": "MARKETS",
    "title": "How Jensen Huang’s Secret Led to His Downfall at Nvidia",
    "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-board.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Jensen Huang’s Downfall Brings Disbelief in Taiwan",
-   "href": "https://www.nytimes.com/2026/11/15/business/jensen-huang-taiwan.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "5 Big Questions as C.E.O.s Meet in China",
-   "href": "https://www.nytimes.com/2026/11/14/business/dealbook/questions-china-us-apec-summit.html",
-   "source": "NYT",
-   "stat": "5"
+   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
+   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
+   "source": "NYT"
   }
  ],
  "news": [
   {
    "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-cantor-fitzgerald.html",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
    "source": "NYT"
   },
   {
@@ -97,13 +96,13 @@
    "source": "NYT"
   },
   {
-   "title": "Jensen Huang’s Downfall Brings Disbelief in Taiwan",
-   "href": "https://www.nytimes.com/2026/11/15/business/jensen-huang-taiwan.html",
+   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
+   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
    "source": "NYT"
   },
   {
-   "title": "5 Big Questions as C.E.O.s Meet in China",
-   "href": "https://www.nytimes.com/2026/11/14/business/dealbook/questions-china-us-apec-summit.html",
+   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
    "source": "NYT"
   }
  ],
