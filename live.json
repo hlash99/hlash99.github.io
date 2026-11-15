@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-15T03:01-08:00",
+ "updated": "2026-11-15T07:23-08:00",
  "date": "2026-11-15",
  "date_line": "Sunday · November 15 2026",
  "weather": {
   "high": 66,
   "low": 49,
-  "summary": "Tomorrow · Mostly Cloudy then Ligh",
+  "summary": "Mostly Cloudy then Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -59,13 +59,13 @@
    "kind": "tech",
    "label": "TECH",
    "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/lutnick-pushed-to-weaken-chip-rules-that-overlap-with-his-family-business.html",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-cantor-fitzgerald.html",
    "source": "NYT"
   },
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Jensen Huang Carried a Secret for More Than a Year. It Led to His Downfall.",
+   "title": "How Jensen Huang’s Secret Led to His Downfall at Nvidia",
    "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-board.html",
    "source": "NYT"
   },
@@ -88,11 +88,11 @@
  "news": [
   {
    "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/lutnick-pushed-to-weaken-chip-rules-that-overlap-with-his-family-business.html",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-cantor-fitzgerald.html",
    "source": "NYT"
   },
   {
-   "title": "Jensen Huang Carried a Secret for More Than a Year. It Led to His Downfall.",
+   "title": "How Jensen Huang’s Secret Led to His Downfall at Nvidia",
    "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-board.html",
    "source": "NYT"
   },
