@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-16T07:17-08:00",
+ "updated": "2026-11-16T15:24-08:00",
  "date": "2026-11-16",
  "date_line": "Monday · November 16 2026",
  "weather": {
   "high": 62,
   "low": 44,
-  "summary": "Chance Light Rain",
+  "summary": "Slight Chance Light Rain",
   "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "356.27",
-  "change_pct": "+0.39%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "Pre-market",
-   "price": "357.19",
-   "change_pct": "+0.26%",
-   "dir": "up"
-  }
+  "price": "351.76",
+  "change_pct": "-1.27%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -56,6 +49,20 @@
  ],
  "items": [
   {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "United Airlines Grounds Flights as It Reports ‘Widespread System Outage’",
+   "href": "https://www.nytimes.com/2026/11/16/business/united-airlines-outage-flights.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "tech",
+   "label": "TECH",
+   "title": "Chase Bank Transactions Disrupted by ‘Technical Issue’ Amid Outage Reports",
+   "href": "https://www.nytimes.com/2026/11/16/us/bank-outages-down.html",
+   "source": "NYT"
+  },
+  {
    "kind": "politics",
    "label": "POLITICS",
    "title": "Trump Administration Moves to Close A.I. Chip Loophole Ahead of China Trip",
@@ -63,55 +70,41 @@
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Is Jensen Huang Plotting a Comeback?",
-   "href": "https://www.nytimes.com/2026/11/16/business/dealbook/huang-comeback-nvidia.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "What’s Behind Back-to-Back Meltdowns at the F.A.A. and Microsoft",
-   "href": "https://www.nytimes.com/2026/11/16/podcasts/the-headlines/faa-microsoft-outage.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Winter Nightmare Looms Early in Ukraine as Russia Strikes Relentlessly",
-   "href": "https://www.nytimes.com/2026/11/16/world/europe/russia-ukraine-winter-campaign.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Bessent Takes Hawkish Turn in White House Debate on China",
+   "href": "https://www.nytimes.com/2026/11/16/us/politics/bessent-lutnick-china.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "United Airlines Grounds Flights as It Reports ‘Widespread System Outage’",
+   "href": "https://www.nytimes.com/2026/11/16/business/united-airlines-outage-flights.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Chase Bank Transactions Disrupted by ‘Technical Issue’ Amid Outage Reports",
+   "href": "https://www.nytimes.com/2026/11/16/us/bank-outages-down.html",
+   "source": "NYT"
+  },
   {
    "title": "Trump Administration Moves to Close A.I. Chip Loophole Ahead of China Trip",
    "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-loophole.html",
    "source": "NYT"
   },
   {
-   "title": "Is Jensen Huang Plotting a Comeback?",
-   "href": "https://www.nytimes.com/2026/11/16/business/dealbook/huang-comeback-nvidia.html",
-   "source": "NYT"
-  },
-  {
-   "title": "What’s Behind Back-to-Back Meltdowns at the F.A.A. and Microsoft",
-   "href": "https://www.nytimes.com/2026/11/16/podcasts/the-headlines/faa-microsoft-outage.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Winter Nightmare Looms Early in Ukraine as Russia Strikes Relentlessly",
-   "href": "https://www.nytimes.com/2026/11/16/world/europe/russia-ukraine-winter-campaign.html",
+   "title": "Bessent Takes Hawkish Turn in White House Debate on China",
+   "href": "https://www.nytimes.com/2026/11/16/us/politics/bessent-lutnick-china.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 80,
+  "checked": 78,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 60,
+   "CorvetteForum": 58,
    "BaT": 2
   },
   "label": "Red Mist Z06 · CA · 20–40k mi",
