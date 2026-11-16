@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-08T07:18-08:00",
- "date": "2026-11-08",
- "date_line": "Sunday · November 8 2026",
+ "updated": "2026-11-16T07:17-08:00",
+ "date": "2026-11-16",
+ "date_line": "Monday · November 16 2026",
  "weather": {
-  "high": 73,
-  "low": 53,
-  "icon": "fog",
-  "summary": "Fog, then partly sunny"
+  "high": 62,
+  "low": 44,
+  "icon": "rain",
+  "summary": "Midday showers"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "342.37",
-  "change_pct": "-0.52%",
-  "dir": "down",
-  "session": "Close Fri",
-  "after": {
-   "label": "After hours",
-   "price": "342.79",
-   "change_pct": "+0.12%",
-   "dir": "up"
-  }
+  "price": "353.92",
+  "change_pct": "-0.66%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -27,7 +20,7 @@
   },
   {
    "car": "1997 NSX-T 6-speed",
-   "color": "Red / —",
+   "color": "Red / Camel",
    "miles": "50k",
    "price": "$144,950",
    "title": "Clean (Carfax)",
@@ -35,31 +28,6 @@
    "location": "Bellevue, WA",
    "flag": "",
    "href": "https://www.dupontregistry.com/car/acura/nsx/1997/JH4NA2160VT000148/647060"
-  },
-  {
-   "group": "Ferrari 458 Spider"
-  },
-  {
-   "car": "2013 458 Spider",
-   "color": "Bianco Avus / Rosso",
-   "miles": "39k",
-   "price": "$299,900",
-   "title": "Title not stated",
-   "seller": "Tactical Fleet Dallas",
-   "location": "Addison, TX",
-   "flag": "History unconfirmed",
-   "href": "https://www.cars.com/vehicledetail/bf126e6b-3b1e-4226-80ef-113c0f240b3f/"
-  },
-  {
-   "car": "2014 458 Spider",
-   "color": "White / Rosso",
-   "miles": "61k",
-   "price": "$33,333 bid, ends Nov 12",
-   "title": "Clean (Carfax)",
-   "seller": "Dealer (DaveNair)",
-   "location": "Richmond, BC",
-   "flag": "History unconfirmed",
-   "href": "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/"
   }
  ]
 }
