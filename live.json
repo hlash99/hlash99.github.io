@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-15T22:37-08:00",
- "date": "2026-11-15",
- "date_line": "Sunday · November 15 2026",
+ "updated": "2026-11-16T07:17-08:00",
+ "date": "2026-11-16",
+ "date_line": "Monday · November 16 2026",
  "weather": {
   "high": 62,
-  "low": 50,
-  "summary": "Tomorrow · Chance Light Rain",
+  "low": 44,
+  "summary": "Chance Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -15,10 +15,10 @@
   "dir": "up",
   "session": "Close",
   "after": {
-   "label": "After hours",
-   "price": "355.40",
-   "change_pct": "-0.24%",
-   "dir": "down"
+   "label": "Pre-market",
+   "price": "357.19",
+   "change_pct": "+0.26%",
+   "dir": "up"
   }
  },
  "cars": [
@@ -58,51 +58,51 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Nvidia Fallout Looms Over Trump-Xi Meeting",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/nvidia-trump-huang-china-xi.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "How Jensen Huang’s Secret Led to His Downfall at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-board.html",
+   "title": "Trump Administration Moves to Close A.I. Chip Loophole Ahead of China Trip",
+   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-loophole.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
-   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "title": "Is Jensen Huang Plotting a Comeback?",
+   "href": "https://www.nytimes.com/2026/11/16/business/dealbook/huang-comeback-nvidia.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "tech",
+   "label": "TECH",
+   "title": "What’s Behind Back-to-Back Meltdowns at the F.A.A. and Microsoft",
+   "href": "https://www.nytimes.com/2026/11/16/podcasts/the-headlines/faa-microsoft-outage.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
+   "title": "Winter Nightmare Looms Early in Ukraine as Russia Strikes Relentlessly",
+   "href": "https://www.nytimes.com/2026/11/16/world/europe/russia-ukraine-winter-campaign.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Nvidia Fallout Looms Over Trump-Xi Meeting",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/nvidia-trump-huang-china-xi.html",
+   "title": "Trump Administration Moves to Close A.I. Chip Loophole Ahead of China Trip",
+   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-loophole.html",
    "source": "NYT"
   },
   {
-   "title": "How Jensen Huang’s Secret Led to His Downfall at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-board.html",
+   "title": "Is Jensen Huang Plotting a Comeback?",
+   "href": "https://www.nytimes.com/2026/11/16/business/dealbook/huang-comeback-nvidia.html",
    "source": "NYT"
   },
   {
-   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
-   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "title": "What’s Behind Back-to-Back Meltdowns at the F.A.A. and Microsoft",
+   "href": "https://www.nytimes.com/2026/11/16/podcasts/the-headlines/faa-microsoft-outage.html",
    "source": "NYT"
   },
   {
-   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
+   "title": "Winter Nightmare Looms Early in Ukraine as Russia Strikes Relentlessly",
+   "href": "https://www.nytimes.com/2026/11/16/world/europe/russia-ukraine-winter-campaign.html",
    "source": "NYT"
   }
  ],
