@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-15T15:59-08:00",
+ "updated": "2026-11-15T22:37-08:00",
  "date": "2026-11-15",
  "date_line": "Sunday · November 15 2026",
  "weather": {
-  "high": 66,
+  "high": 62,
   "low": 50,
-  "summary": "Light Rain",
+  "summary": "Tomorrow · Chance Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -70,17 +70,17 @@
    "source": "NYT"
   },
   {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
+   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
-   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
    "source": "NYT"
   }
  ],
@@ -96,13 +96,13 @@
    "source": "NYT"
   },
   {
-   "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
+   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
+   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
    "source": "NYT"
   },
   {
-   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
-   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
+   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
    "source": "NYT"
   }
  ],
