@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-15T11:48-08:00",
+ "updated": "2026-11-15T15:59-08:00",
  "date": "2026-11-15",
  "date_line": "Sunday · November 15 2026",
  "weather": {
   "high": 66,
   "low": 50,
-  "summary": "Mostly Cloudy then Light Rain",
+  "summary": "Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -56,10 +56,10 @@
  ],
  "items": [
   {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Nvidia Fallout Looms Over Trump-Xi Meeting",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/nvidia-trump-huang-china-xi.html",
    "source": "NYT"
   },
   {
@@ -70,24 +70,24 @@
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
-   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "kind": "tech",
+   "label": "TECH",
+   "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
+   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
+   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
-   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
+   "title": "Nvidia Fallout Looms Over Trump-Xi Meeting",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/nvidia-trump-huang-china-xi.html",
    "source": "NYT"
   },
   {
@@ -96,22 +96,22 @@
    "source": "NYT"
   },
   {
-   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
-   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
+   "title": "Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business",
+   "href": "https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-nvidia-cantor-fitzgerald.html",
    "source": "NYT"
   },
   {
-   "title": "Sean Duffy Offers New Details on How One Fix Spiraled Into Nationwide Ground Stop",
-   "href": "https://www.nytimes.com/2026/11/15/us/sean-duffy-ground-stop-trump-faa.html",
+   "title": "Megaspeed Says Alice Huang Left Company in August 2025",
+   "href": "https://www.nytimes.com/2026/11/15/business/megaspeed-alice-huang-nvidia-china.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 79,
+  "checked": 80,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 59,
+   "CorvetteForum": 60,
    "BaT": 2
   },
   "label": "Red Mist Z06 · CA · 20–40k mi",
