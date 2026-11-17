@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-16T15:24-08:00",
+ "updated": "2026-11-16T23:59-08:00",
  "date": "2026-11-16",
  "date_line": "Monday · November 16 2026",
  "weather": {
-  "high": 62,
+  "high": 60,
   "low": 44,
-  "summary": "Slight Chance Light Rain",
-  "icon": "rain"
+  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "351.76",
-  "change_pct": "-1.27%",
-  "dir": "down"
+  "price": "352.78",
+  "change_pct": "-0.98%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "353.80",
+   "change_pct": "+0.29%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -35,7 +42,7 @@
    "car": "1999 Acura NSX-T 6-Speed",
    "color": "—",
    "miles": "—",
-   "price": "$120,000 bid, ends Nov 17",
+   "price": "$121,000 bid, ends Nov 17",
    "seller": "BaT auction",
    "location": "",
    "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
@@ -49,53 +56,53 @@
  ],
  "items": [
   {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Administration Divide on China Policy Breaks Into Public View",
+   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-policy.html",
+   "source": "NYT"
+  },
+  {
    "kind": "world",
    "label": "WORLD",
-   "title": "United Airlines Grounds Flights as It Reports ‘Widespread System Outage’",
-   "href": "https://www.nytimes.com/2026/11/16/business/united-airlines-outage-flights.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "Chase Bank Transactions Disrupted by ‘Technical Issue’ Amid Outage Reports",
-   "href": "https://www.nytimes.com/2026/11/16/us/bank-outages-down.html",
+   "title": "Madison Huang, Jensen Huang’s Daughter, Became a Powerful Force at Nvidia",
+   "href": "https://www.nytimes.com/2026/11/16/technology/nvidia-jensen-madison-huang.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Administration Moves to Close A.I. Chip Loophole Ahead of China Trip",
-   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-loophole.html",
+   "title": "Facing Criticism, Trump Administration Says It’s Investigating Megaspeed",
+   "href": "https://www.nytimes.com/2026/11/17/business/economy/megaspeed-investigation-trump-doj.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Bessent Takes Hawkish Turn in White House Debate on China",
-   "href": "https://www.nytimes.com/2026/11/16/us/politics/bessent-lutnick-china.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Debt Problems of the Richest Countries Are Trickling Down to the Poorest",
+   "href": "https://www.nytimes.com/2026/11/17/business/economy/global-debt-economy-world-bank.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "United Airlines Grounds Flights as It Reports ‘Widespread System Outage’",
-   "href": "https://www.nytimes.com/2026/11/16/business/united-airlines-outage-flights.html",
+   "title": "Trump Administration Divide on China Policy Breaks Into Public View",
+   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-policy.html",
    "source": "NYT"
   },
   {
-   "title": "Chase Bank Transactions Disrupted by ‘Technical Issue’ Amid Outage Reports",
-   "href": "https://www.nytimes.com/2026/11/16/us/bank-outages-down.html",
+   "title": "Madison Huang, Jensen Huang’s Daughter, Became a Powerful Force at Nvidia",
+   "href": "https://www.nytimes.com/2026/11/16/technology/nvidia-jensen-madison-huang.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Administration Moves to Close A.I. Chip Loophole Ahead of China Trip",
-   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-loophole.html",
+   "title": "Facing Criticism, Trump Administration Says It’s Investigating Megaspeed",
+   "href": "https://www.nytimes.com/2026/11/17/business/economy/megaspeed-investigation-trump-doj.html",
    "source": "NYT"
   },
   {
-   "title": "Bessent Takes Hawkish Turn in White House Debate on China",
-   "href": "https://www.nytimes.com/2026/11/16/us/politics/bessent-lutnick-china.html",
+   "title": "Debt Problems of the Richest Countries Are Trickling Down to the Poorest",
+   "href": "https://www.nytimes.com/2026/11/17/business/economy/global-debt-economy-world-bank.html",
    "source": "NYT"
   }
  ],
