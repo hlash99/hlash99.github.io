@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-16T23:59-08:00",
- "date": "2026-11-16",
- "date_line": "Monday · November 16 2026",
+ "updated": "2026-11-17T07:43-08:00",
+ "date": "2026-11-17",
+ "date_line": "Tuesday · November 17 2026",
  "weather": {
   "high": 60,
-  "low": 44,
-  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "low": 48,
+  "summary": "Patchy Fog then Mostly Sunny",
   "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.78",
-  "change_pct": "-0.98%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "After hours",
-   "price": "353.80",
-   "change_pct": "+0.29%",
-   "dir": "up"
-  }
+  "price": "352.39",
+  "change_pct": "-0.11%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -58,6 +51,13 @@
   {
    "kind": "politics",
    "label": "POLITICS",
+   "title": "As Trump and Xi Mingle, Their Governments Are Arming Up",
+   "href": "https://www.nytimes.com/2026/11/17/business/trump-xi-meeting-tensions.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
    "title": "Trump Administration Divide on China Policy Breaks Into Public View",
    "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-policy.html",
    "source": "NYT"
@@ -65,44 +65,37 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Madison Huang, Jensen Huang’s Daughter, Became a Powerful Force at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/16/technology/nvidia-jensen-madison-huang.html",
+   "title": "Tracking China’s War of Words Against Japan",
+   "href": "https://www.nytimes.com/2026/11/17/world/asia/china-japan-propaganda-xi-takaichi.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Facing Criticism, Trump Administration Says It’s Investigating Megaspeed",
-   "href": "https://www.nytimes.com/2026/11/17/business/economy/megaspeed-investigation-trump-doj.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Debt Problems of the Richest Countries Are Trickling Down to the Poorest",
-   "href": "https://www.nytimes.com/2026/11/17/business/economy/global-debt-economy-world-bank.html",
+   "title": "The A.I. Fight Dividing the Trump Administration, and the Next James Bond",
+   "href": "https://www.nytimes.com/2026/11/17/podcasts/the-headlines/ai-fight-trump-administration-new-james-bond-megaspeed.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "As Trump and Xi Mingle, Their Governments Are Arming Up",
+   "href": "https://www.nytimes.com/2026/11/17/business/trump-xi-meeting-tensions.html",
+   "source": "NYT"
+  },
   {
    "title": "Trump Administration Divide on China Policy Breaks Into Public View",
    "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-policy.html",
    "source": "NYT"
   },
   {
-   "title": "Madison Huang, Jensen Huang’s Daughter, Became a Powerful Force at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/16/technology/nvidia-jensen-madison-huang.html",
+   "title": "Tracking China’s War of Words Against Japan",
+   "href": "https://www.nytimes.com/2026/11/17/world/asia/china-japan-propaganda-xi-takaichi.html",
    "source": "NYT"
   },
   {
-   "title": "Facing Criticism, Trump Administration Says It’s Investigating Megaspeed",
-   "href": "https://www.nytimes.com/2026/11/17/business/economy/megaspeed-investigation-trump-doj.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Debt Problems of the Richest Countries Are Trickling Down to the Poorest",
-   "href": "https://www.nytimes.com/2026/11/17/business/economy/global-debt-economy-world-bank.html",
+   "title": "The A.I. Fight Dividing the Trump Administration, and the Next James Bond",
+   "href": "https://www.nytimes.com/2026/11/17/podcasts/the-headlines/ai-fight-trump-administration-new-james-bond-megaspeed.html",
    "source": "NYT"
   }
  ],
