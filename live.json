@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-17T07:43-08:00",
+ "updated": "2026-11-17T14:27-08:00",
  "date": "2026-11-17",
  "date_line": "Tuesday · November 17 2026",
  "weather": {
   "high": 60,
-  "low": 48,
-  "summary": "Patchy Fog then Mostly Sunny",
-  "icon": "fog"
+  "low": 47,
+  "summary": "Slight Chance Light Rain",
+  "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.39",
-  "change_pct": "-0.11%",
+  "price": "350.53",
+  "change_pct": "-0.64%",
   "dir": "down"
  },
  "cars": [
@@ -32,18 +32,6 @@
    "flag": ""
   },
   {
-   "car": "1999 Acura NSX-T 6-Speed",
-   "color": "—",
-   "miles": "—",
-   "price": "$121,000 bid, ends Nov 17",
-   "seller": "BaT auction",
-   "location": "",
-   "href": "https://bringatrailer.com/listing/1999-acura-nsx-t-16/",
-   "source": "BaT",
-   "title": "Title not stated",
-   "flag": "History unconfirmed"
-  },
-  {
    "group": "Chevrolet Corvette Z06"
   }
  ],
@@ -51,51 +39,51 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "As Trump and Xi Mingle, Their Governments Are Arming Up",
-   "href": "https://www.nytimes.com/2026/11/17/business/trump-xi-meeting-tensions.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Administration Divide on China Policy Breaks Into Public View",
-   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-policy.html",
+   "title": "Emboldened by G.O.P. Election Losses, Iran Digs In, Officials Say",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/iran-trump-midterms.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Tracking China’s War of Words Against Japan",
-   "href": "https://www.nytimes.com/2026/11/17/world/asia/china-japan-propaganda-xi-takaichi.html",
+   "title": "Jensen Huang Says He Would Return as Nvidia CEO if Asked",
+   "href": "https://www.nytimes.com/2026/11/17/technology/jensen-huang-nvidia-statement.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "The A.I. Fight Dividing the Trump Administration, and the Next James Bond",
-   "href": "https://www.nytimes.com/2026/11/17/podcasts/the-headlines/ai-fight-trump-administration-new-james-bond-megaspeed.html",
+   "kind": "tech",
+   "label": "TECH",
+   "title": "A.I. Helps Find Major Security Bug in Java, a Software Platform Vital to the Internet",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/ai-security-bug-java.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Classified N.S.A. Network Goes Down, Causing Work Disruptions",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/nsa-down-network-outage-nsanet.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "As Trump and Xi Mingle, Their Governments Are Arming Up",
-   "href": "https://www.nytimes.com/2026/11/17/business/trump-xi-meeting-tensions.html",
+   "title": "Emboldened by G.O.P. Election Losses, Iran Digs In, Officials Say",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/iran-trump-midterms.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Administration Divide on China Policy Breaks Into Public View",
-   "href": "https://www.nytimes.com/2026/11/16/us/politics/trump-china-ai-chip-policy.html",
+   "title": "Jensen Huang Says He Would Return as Nvidia CEO if Asked",
+   "href": "https://www.nytimes.com/2026/11/17/technology/jensen-huang-nvidia-statement.html",
    "source": "NYT"
   },
   {
-   "title": "Tracking China’s War of Words Against Japan",
-   "href": "https://www.nytimes.com/2026/11/17/world/asia/china-japan-propaganda-xi-takaichi.html",
+   "title": "A.I. Helps Find Major Security Bug in Java, a Software Platform Vital to the Internet",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/ai-security-bug-java.html",
    "source": "NYT"
   },
   {
-   "title": "The A.I. Fight Dividing the Trump Administration, and the Next James Bond",
-   "href": "https://www.nytimes.com/2026/11/17/podcasts/the-headlines/ai-fight-trump-administration-new-james-bond-megaspeed.html",
+   "title": "Classified N.S.A. Network Goes Down, Causing Work Disruptions",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/nsa-down-network-outage-nsanet.html",
    "source": "NYT"
   }
  ],
