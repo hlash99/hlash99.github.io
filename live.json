@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-17T20:27-08:00",
- "date": "2026-11-17",
- "date_line": "Tuesday · November 17 2026",
+ "updated": "2026-11-18T06:05-08:00",
+ "date": "2026-11-18",
+ "date_line": "Wednesday · November 18 2026",
  "weather": {
   "high": 60,
   "low": 47,
-  "summary": "Tomorrow · Showers And Thunderstor",
+  "summary": "Showers And Thunderstorms then Rai",
   "icon": "storm"
  },
  "stock": {
@@ -46,16 +46,15 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Democrats Claim 56 Senate Seats After Mary Peltola Wins in Alaska",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/alaska-senate-sullivan-peltola.html",
-   "source": "NYT",
-   "stat": "56"
+   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
+   "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "For Democrats, a Leadership Fight Is Marring an Electoral Triumph",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/democrats-leadership-battle-schumer-van-hollen.html",
+   "title": "House Democrats Cast Wide Net as They Prepare Trump Investigations",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/democrats-cast-investigative-net.html",
    "source": "NYT"
   },
   {
@@ -66,22 +65,22 @@
    "source": "NYT"
   },
   {
-   "kind": "health",
-   "label": "HEALTH",
-   "title": "Measles Is Officially Back",
-   "href": "https://www.nytimes.com/2026/11/17/briefing/us-measles-surge-nvidia-profit.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Tech Outages Rattle the U.S., and Democrats Win Alaska’s Senate Race",
+   "href": "https://www.nytimes.com/2026/11/18/podcasts/the-headlines/tech-outages-alaska-senate-race.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Democrats Claim 56 Senate Seats After Mary Peltola Wins in Alaska",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/alaska-senate-sullivan-peltola.html",
+   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
    "source": "NYT"
   },
   {
-   "title": "For Democrats, a Leadership Fight Is Marring an Electoral Triumph",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/democrats-leadership-battle-schumer-van-hollen.html",
+   "title": "House Democrats Cast Wide Net as They Prepare Trump Investigations",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/democrats-cast-investigative-net.html",
    "source": "NYT"
   },
   {
@@ -90,8 +89,8 @@
    "source": "NYT"
   },
   {
-   "title": "Measles Is Officially Back",
-   "href": "https://www.nytimes.com/2026/11/17/briefing/us-measles-surge-nvidia-profit.html",
+   "title": "Tech Outages Rattle the U.S., and Democrats Win Alaska’s Senate Race",
+   "href": "https://www.nytimes.com/2026/11/18/podcasts/the-headlines/tech-outages-alaska-senate-race.html",
    "source": "NYT"
   }
  ],
