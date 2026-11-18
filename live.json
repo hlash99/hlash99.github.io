@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T06:05-08:00",
+ "updated": "2026-11-18T07:41-08:00",
  "date": "2026-11-18",
  "date_line": "Wednesday · November 18 2026",
  "weather": {
@@ -10,16 +10,9 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "351.91",
-  "change_pct": "-0.25%",
-  "dir": "down",
-  "session": "Close",
-  "after": {
-   "label": "After hours",
-   "price": "350.30",
-   "change_pct": "-0.46%",
-   "dir": "down"
-  }
+  "price": "353.75",
+  "change_pct": "+0.52%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -46,22 +39,15 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
+   "title": "Carney and Trump Hold Unscheduled Trade Meeting at Asia Summit",
+   "href": "https://www.nytimes.com/2026/11/18/world/canada/trump-carney-meeting-asia-us-canada-trade.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "House Democrats Cast Wide Net as They Prepare Trump Investigations",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/democrats-cast-investigative-net.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "With House Democratic Majority Still Growing, Recounts Are Starting in Closest Races",
-   "href": "https://www.nytimes.com/2026/11/17/us/elections/recounts-house-races-north-carolina-minnesota.html",
+   "title": "Trump Briefly Met an Old Friend in Manila: Imelda Marcos",
+   "href": "https://www.nytimes.com/2026/11/18/world/asia/trump-imelda-marcos.html",
    "source": "NYT"
   },
   {
@@ -69,28 +55,35 @@
    "label": "POLITICS",
    "title": "Tech Outages Rattle the U.S., and Democrats Win Alaska’s Senate Race",
    "href": "https://www.nytimes.com/2026/11/18/podcasts/the-headlines/tech-outages-alaska-senate-race.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
+   "title": "Carney and Trump Hold Unscheduled Trade Meeting at Asia Summit",
+   "href": "https://www.nytimes.com/2026/11/18/world/canada/trump-carney-meeting-asia-us-canada-trade.html",
    "source": "NYT"
   },
   {
-   "title": "House Democrats Cast Wide Net as They Prepare Trump Investigations",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/democrats-cast-investigative-net.html",
-   "source": "NYT"
-  },
-  {
-   "title": "With House Democratic Majority Still Growing, Recounts Are Starting in Closest Races",
-   "href": "https://www.nytimes.com/2026/11/17/us/elections/recounts-house-races-north-carolina-minnesota.html",
+   "title": "Trump Briefly Met an Old Friend in Manila: Imelda Marcos",
+   "href": "https://www.nytimes.com/2026/11/18/world/asia/trump-imelda-marcos.html",
    "source": "NYT"
   },
   {
    "title": "Tech Outages Rattle the U.S., and Democrats Win Alaska’s Senate Race",
    "href": "https://www.nytimes.com/2026/11/18/podcasts/the-headlines/tech-outages-alaska-senate-race.html",
+   "source": "NYT"
+  },
+  {
+   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
    "source": "NYT"
   }
  ],
