@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-17T14:27-08:00",
+ "updated": "2026-11-17T20:27-08:00",
  "date": "2026-11-17",
  "date_line": "Tuesday · November 17 2026",
  "weather": {
   "high": 60,
   "low": 47,
-  "summary": "Slight Chance Light Rain",
-  "icon": "rain"
+  "summary": "Tomorrow · Showers And Thunderstor",
+  "icon": "storm"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "350.53",
-  "change_pct": "-0.64%",
-  "dir": "down"
+  "price": "351.91",
+  "change_pct": "-0.25%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "350.30",
+   "change_pct": "-0.46%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -39,51 +46,52 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Emboldened by G.O.P. Election Losses, Iran Digs In, Officials Say",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/iran-trump-midterms.html",
+   "title": "Democrats Claim 56 Senate Seats After Mary Peltola Wins in Alaska",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/alaska-senate-sullivan-peltola.html",
+   "source": "NYT",
+   "stat": "56"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "For Democrats, a Leadership Fight Is Marring an Electoral Triumph",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/democrats-leadership-battle-schumer-van-hollen.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Jensen Huang Says He Would Return as Nvidia CEO if Asked",
-   "href": "https://www.nytimes.com/2026/11/17/technology/jensen-huang-nvidia-statement.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "With House Democratic Majority Still Growing, Recounts Are Starting in Closest Races",
+   "href": "https://www.nytimes.com/2026/11/17/us/elections/recounts-house-races-north-carolina-minnesota.html",
    "source": "NYT"
   },
   {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "A.I. Helps Find Major Security Bug in Java, a Software Platform Vital to the Internet",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/ai-security-bug-java.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Classified N.S.A. Network Goes Down, Causing Work Disruptions",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/nsa-down-network-outage-nsanet.html",
+   "kind": "health",
+   "label": "HEALTH",
+   "title": "Measles Is Officially Back",
+   "href": "https://www.nytimes.com/2026/11/17/briefing/us-measles-surge-nvidia-profit.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Emboldened by G.O.P. Election Losses, Iran Digs In, Officials Say",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/iran-trump-midterms.html",
+   "title": "Democrats Claim 56 Senate Seats After Mary Peltola Wins in Alaska",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/alaska-senate-sullivan-peltola.html",
    "source": "NYT"
   },
   {
-   "title": "Jensen Huang Says He Would Return as Nvidia CEO if Asked",
-   "href": "https://www.nytimes.com/2026/11/17/technology/jensen-huang-nvidia-statement.html",
+   "title": "For Democrats, a Leadership Fight Is Marring an Electoral Triumph",
+   "href": "https://www.nytimes.com/2026/11/17/us/politics/democrats-leadership-battle-schumer-van-hollen.html",
    "source": "NYT"
   },
   {
-   "title": "A.I. Helps Find Major Security Bug in Java, a Software Platform Vital to the Internet",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/ai-security-bug-java.html",
+   "title": "With House Democratic Majority Still Growing, Recounts Are Starting in Closest Races",
+   "href": "https://www.nytimes.com/2026/11/17/us/elections/recounts-house-races-north-carolina-minnesota.html",
    "source": "NYT"
   },
   {
-   "title": "Classified N.S.A. Network Goes Down, Causing Work Disruptions",
-   "href": "https://www.nytimes.com/2026/11/17/us/politics/nsa-down-network-outage-nsanet.html",
+   "title": "Measles Is Officially Back",
+   "href": "https://www.nytimes.com/2026/11/17/briefing/us-measles-surge-nvidia-profit.html",
    "source": "NYT"
   }
  ],
