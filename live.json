@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-18T07:41-08:00",
+ "updated": "2026-11-18T14:00-08:00",
  "date": "2026-11-18",
  "date_line": "Wednesday · November 18 2026",
  "weather": {
   "high": 60,
   "low": 47,
-  "summary": "Showers And Thunderstorms then Rai",
+  "summary": "Showers And Thunderstorms Likely",
   "icon": "storm"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "353.75",
-  "change_pct": "+0.52%",
+  "price": "351.98",
+  "change_pct": "+0.02%",
   "dir": "up"
  },
  "cars": [
@@ -37,53 +37,53 @@
  ],
  "items": [
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Carney and Trump Hold Unscheduled Trade Meeting at Asia Summit",
-   "href": "https://www.nytimes.com/2026/11/18/world/canada/trump-carney-meeting-asia-us-canada-trade.html",
+   "kind": "tech",
+   "label": "TECH",
+   "title": "NYC, LA and Chicago School Districts Weigh Breaking Up With Google Search Over A.I.",
+   "href": "https://www.nytimes.com/2026/11/18/technology/google-gemini-ai-search-schools-nyc-la-chicago.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "The Anti-A.I. Campus Movement Is Growing",
+   "href": "https://www.nytimes.com/2026/11/18/us/anti-ai-protests-petitions-colleges.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Briefly Met an Old Friend in Manila: Imelda Marcos",
-   "href": "https://www.nytimes.com/2026/11/18/world/asia/trump-imelda-marcos.html",
+   "title": "Trump Grows Frustrated With Vance Over Iran War Critique",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/vance-trump-iran-2028-election-rubio.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Tech Outages Rattle the U.S., and Democrats Win Alaska’s Senate Race",
-   "href": "https://www.nytimes.com/2026/11/18/podcasts/the-headlines/tech-outages-alaska-senate-race.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
+   "kind": "health",
+   "label": "HEALTH",
+   "title": "How RFK Jr. Upended a Group Guiding Health Care for All Americans",
+   "href": "https://www.nytimes.com/2026/11/18/well/rfk-jr-uspstf-health-care.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Carney and Trump Hold Unscheduled Trade Meeting at Asia Summit",
-   "href": "https://www.nytimes.com/2026/11/18/world/canada/trump-carney-meeting-asia-us-canada-trade.html",
+   "title": "NYC, LA and Chicago School Districts Weigh Breaking Up With Google Search Over A.I.",
+   "href": "https://www.nytimes.com/2026/11/18/technology/google-gemini-ai-search-schools-nyc-la-chicago.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Briefly Met an Old Friend in Manila: Imelda Marcos",
-   "href": "https://www.nytimes.com/2026/11/18/world/asia/trump-imelda-marcos.html",
+   "title": "The Anti-A.I. Campus Movement Is Growing",
+   "href": "https://www.nytimes.com/2026/11/18/us/anti-ai-protests-petitions-colleges.html",
    "source": "NYT"
   },
   {
-   "title": "Tech Outages Rattle the U.S., and Democrats Win Alaska’s Senate Race",
-   "href": "https://www.nytimes.com/2026/11/18/podcasts/the-headlines/tech-outages-alaska-senate-race.html",
+   "title": "Trump Grows Frustrated With Vance Over Iran War Critique",
+   "href": "https://www.nytimes.com/2026/11/18/us/politics/vance-trump-iran-2028-election-rubio.html",
    "source": "NYT"
   },
   {
-   "title": "How Mary Peltola Triumphed in Alaska’s Senate Race",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/peltola-victory-alaska-senate.html",
+   "title": "How RFK Jr. Upended a Group Guiding Health Care for All Americans",
+   "href": "https://www.nytimes.com/2026/11/18/well/rfk-jr-uspstf-health-care.html",
    "source": "NYT"
   }
  ],
