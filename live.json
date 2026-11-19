@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-18T14:00-08:00",
+ "updated": "2026-11-18T19:34-08:00",
  "date": "2026-11-18",
  "date_line": "Wednesday · November 18 2026",
  "weather": {
-  "high": 60,
+  "high": 59,
   "low": 47,
-  "summary": "Showers And Thunderstorms Likely",
+  "summary": "Tomorrow · Showers And Thunderstor",
   "icon": "storm"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "351.98",
-  "change_pct": "+0.02%",
-  "dir": "up"
+  "price": "352.45",
+  "change_pct": "+0.15%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "354.99",
+   "change_pct": "+0.72%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -39,61 +46,62 @@
   {
    "kind": "tech",
    "label": "TECH",
-   "title": "NYC, LA and Chicago School Districts Weigh Breaking Up With Google Search Over A.I.",
-   "href": "https://www.nytimes.com/2026/11/18/technology/google-gemini-ai-search-schools-nyc-la-chicago.html",
+   "title": "How Nvidia Chips Ended Up Within Reach of China’s Military",
+   "href": "https://www.nytimes.com/2026/11/18/technology/nvidia-alibaba-china-military.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "The Anti-A.I. Campus Movement Is Growing",
-   "href": "https://www.nytimes.com/2026/11/18/us/anti-ai-protests-petitions-colleges.html",
+   "title": "How We Broke Open the Nvidia Investigation",
+   "href": "https://www.nytimes.com/2026/11/18/insider/nvidia-jensen-huang-spying-plot.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Grows Frustrated With Vance Over Iran War Critique",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/vance-trump-iran-2028-election-rubio.html",
-   "source": "NYT"
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Anthropic Sells $81.3 Billion in Shares for a Record IPO",
+   "href": "https://www.nytimes.com/2026/11/18/technology/anthropic-ipo-pricing.html",
+   "source": "NYT",
+   "stat": "$81.3 Billion"
   },
   {
-   "kind": "health",
-   "label": "HEALTH",
-   "title": "How RFK Jr. Upended a Group Guiding Health Care for All Americans",
-   "href": "https://www.nytimes.com/2026/11/18/well/rfk-jr-uspstf-health-care.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Takeaways From the 2026 DealBook Summit",
+   "href": "https://www.nytimes.com/2026/11/18/business/dealbook/dealbook-summit-musk-altman-ellison.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "NYC, LA and Chicago School Districts Weigh Breaking Up With Google Search Over A.I.",
-   "href": "https://www.nytimes.com/2026/11/18/technology/google-gemini-ai-search-schools-nyc-la-chicago.html",
+   "title": "How Nvidia Chips Ended Up Within Reach of China’s Military",
+   "href": "https://www.nytimes.com/2026/11/18/technology/nvidia-alibaba-china-military.html",
    "source": "NYT"
   },
   {
-   "title": "The Anti-A.I. Campus Movement Is Growing",
-   "href": "https://www.nytimes.com/2026/11/18/us/anti-ai-protests-petitions-colleges.html",
+   "title": "How We Broke Open the Nvidia Investigation",
+   "href": "https://www.nytimes.com/2026/11/18/insider/nvidia-jensen-huang-spying-plot.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Grows Frustrated With Vance Over Iran War Critique",
-   "href": "https://www.nytimes.com/2026/11/18/us/politics/vance-trump-iran-2028-election-rubio.html",
+   "title": "Anthropic Sells $81.3 Billion in Shares for a Record IPO",
+   "href": "https://www.nytimes.com/2026/11/18/technology/anthropic-ipo-pricing.html",
    "source": "NYT"
   },
   {
-   "title": "How RFK Jr. Upended a Group Guiding Health Care for All Americans",
-   "href": "https://www.nytimes.com/2026/11/18/well/rfk-jr-uspstf-health-care.html",
+   "title": "Takeaways From the 2026 DealBook Summit",
+   "href": "https://www.nytimes.com/2026/11/18/business/dealbook/dealbook-summit-musk-altman-ellison.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 78,
+  "checked": 79,
   "by_source": {
    "duPont": 18,
    "CorvetteForum": 58,
-   "BaT": 2
+   "BaT": 3
   },
   "label": "Red Mist Z06 · CA · 20–40k mi",
   "sources": [
