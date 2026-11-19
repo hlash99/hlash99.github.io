@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-18T19:34-08:00",
- "date": "2026-11-18",
- "date_line": "Wednesday · November 18 2026",
+ "updated": "2026-11-19T05:18-08:00",
+ "date": "2026-11-19",
+ "date_line": "Thursday · November 19 2026",
  "weather": {
   "high": 59,
   "low": 47,
@@ -44,17 +44,17 @@
  ],
  "items": [
   {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "How Nvidia Chips Ended Up Within Reach of China’s Military",
-   "href": "https://www.nytimes.com/2026/11/18/technology/nvidia-alibaba-china-military.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Anthropic’s Trillion-Dollar Debut Is Watershed Moment for A.I.’s Risks and Rewards",
+   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-washington.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "How We Broke Open the Nvidia Investigation",
-   "href": "https://www.nytimes.com/2026/11/18/insider/nvidia-jensen-huang-spying-plot.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Dustin Moskovitz, an Early Anthropic Investor, Feels a Bit Uneasy About the IPO",
+   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-dustin-moskovitz.html",
    "source": "NYT"
   },
   {
@@ -66,22 +66,23 @@
    "stat": "$81.3 Billion"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Takeaways From the 2026 DealBook Summit",
-   "href": "https://www.nytimes.com/2026/11/18/business/dealbook/dealbook-summit-musk-altman-ellison.html",
-   "source": "NYT"
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
+   "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
+   "source": "NYT",
+   "stat": "1"
   }
  ],
  "news": [
   {
-   "title": "How Nvidia Chips Ended Up Within Reach of China’s Military",
-   "href": "https://www.nytimes.com/2026/11/18/technology/nvidia-alibaba-china-military.html",
+   "title": "Anthropic’s Trillion-Dollar Debut Is Watershed Moment for A.I.’s Risks and Rewards",
+   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-washington.html",
    "source": "NYT"
   },
   {
-   "title": "How We Broke Open the Nvidia Investigation",
-   "href": "https://www.nytimes.com/2026/11/18/insider/nvidia-jensen-huang-spying-plot.html",
+   "title": "Dustin Moskovitz, an Early Anthropic Investor, Feels a Bit Uneasy About the IPO",
+   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-dustin-moskovitz.html",
    "source": "NYT"
   },
   {
@@ -90,8 +91,8 @@
    "source": "NYT"
   },
   {
-   "title": "Takeaways From the 2026 DealBook Summit",
-   "href": "https://www.nytimes.com/2026/11/18/business/dealbook/dealbook-summit-musk-altman-ellison.html",
+   "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
+   "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
    "source": "NYT"
   }
  ],
