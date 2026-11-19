@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-19T05:18-08:00",
+ "updated": "2026-11-19T07:15-08:00",
  "date": "2026-11-19",
  "date_line": "Thursday · November 19 2026",
  "weather": {
   "high": 59,
-  "low": 47,
-  "summary": "Tomorrow · Showers And Thunderstor",
+  "low": 45,
+  "summary": "Showers And Thunderstorms",
   "icon": "storm"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.45",
-  "change_pct": "+0.15%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "After hours",
-   "price": "354.99",
-   "change_pct": "+0.72%",
-   "dir": "up"
-  }
+  "price": "352.31",
+  "change_pct": "-0.04%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -58,20 +51,19 @@
    "source": "NYT"
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Anthropic Sells $81.3 Billion in Shares for a Record IPO",
-   "href": "https://www.nytimes.com/2026/11/18/technology/anthropic-ipo-pricing.html",
-   "source": "NYT",
-   "stat": "$81.3 Billion"
-  },
-  {
    "kind": "politics",
    "label": "POLITICS",
    "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
    "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
    "source": "NYT",
    "stat": "1"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Behind Trump Meeting, Xi and Putin Share a Vision of Usurping U.S. Power",
+   "href": "https://www.nytimes.com/2026/11/19/world/asia/xi-putin-trump-meeting-china-russia.html",
+   "source": "NYT"
   }
  ],
  "news": [
@@ -86,13 +78,13 @@
    "source": "NYT"
   },
   {
-   "title": "Anthropic Sells $81.3 Billion in Shares for a Record IPO",
-   "href": "https://www.nytimes.com/2026/11/18/technology/anthropic-ipo-pricing.html",
+   "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
+   "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
-   "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
+   "title": "Behind Trump Meeting, Xi and Putin Share a Vision of Usurping U.S. Power",
+   "href": "https://www.nytimes.com/2026/11/19/world/asia/xi-putin-trump-meeting-china-russia.html",
    "source": "NYT"
   }
  ],
