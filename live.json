@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-19T07:15-08:00",
+ "updated": "2026-11-19T14:11-08:00",
  "date": "2026-11-19",
  "date_line": "Thursday · November 19 2026",
  "weather": {
   "high": 59,
-  "low": 45,
-  "summary": "Showers And Thunderstorms",
-  "icon": "storm"
+  "low": 44,
+  "summary": "Chance Light Rain",
+  "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.31",
-  "change_pct": "-0.04%",
+  "price": "348.82",
+  "change_pct": "-1.03%",
   "dir": "down"
  },
  "cars": [
@@ -37,63 +37,62 @@
  ],
  "items": [
   {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Flaunts Camaraderie With Xi and Putin but Has Little to Show for It",
+   "href": "https://www.nytimes.com/2026/11/19/world/asia/trump-xi-putin.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "At Summit With Xi and Putin, Trump Seeks to Project Power Abroad While Sharing It at Home",
+   "href": "https://www.nytimes.com/2026/11/19/us/politics/trump-summit-power.html",
+   "source": "NYT"
+  },
+  {
    "kind": "world",
    "label": "WORLD",
-   "title": "Anthropic’s Trillion-Dollar Debut Is Watershed Moment for A.I.’s Risks and Rewards",
-   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-washington.html",
+   "title": "At APEC Summit, U.S., China and Russia Vow to Increase Oil Supply Amid Global Energy Transition",
+   "href": "https://www.nytimes.com/2026/11/19/world/asia/russia-china-united-states-oil-joint-statement.html",
    "source": "NYT"
   },
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Dustin Moskovitz, an Early Anthropic Investor, Feels a Bit Uneasy About the IPO",
-   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-dustin-moskovitz.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
-   "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
-   "source": "NYT",
-   "stat": "1"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Behind Trump Meeting, Xi and Putin Share a Vision of Usurping U.S. Power",
-   "href": "https://www.nytimes.com/2026/11/19/world/asia/xi-putin-trump-meeting-china-russia.html",
+   "title": "Why Is the Stock Market Down After Anthropic’s Successful IPO?",
+   "href": "https://www.nytimes.com/2026/11/19/technology/anthropic-ipo-stock-market.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Anthropic’s Trillion-Dollar Debut Is Watershed Moment for A.I.’s Risks and Rewards",
-   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-washington.html",
+   "title": "Trump Flaunts Camaraderie With Xi and Putin but Has Little to Show for It",
+   "href": "https://www.nytimes.com/2026/11/19/world/asia/trump-xi-putin.html",
    "source": "NYT"
   },
   {
-   "title": "Dustin Moskovitz, an Early Anthropic Investor, Feels a Bit Uneasy About the IPO",
-   "href": "https://www.nytimes.com/2026/11/19/business/anthropic-ipo-dustin-moskovitz.html",
+   "title": "At Summit With Xi and Putin, Trump Seeks to Project Power Abroad While Sharing It at Home",
+   "href": "https://www.nytimes.com/2026/11/19/us/politics/trump-summit-power.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Greets Putin as ‘My Friend,’ and the Rise of GLP-1s for Children",
-   "href": "https://www.nytimes.com/2026/11/19/podcasts/the-headlines/trump-putin-glp-1s-for-children.html",
+   "title": "At APEC Summit, U.S., China and Russia Vow to Increase Oil Supply Amid Global Energy Transition",
+   "href": "https://www.nytimes.com/2026/11/19/world/asia/russia-china-united-states-oil-joint-statement.html",
    "source": "NYT"
   },
   {
-   "title": "Behind Trump Meeting, Xi and Putin Share a Vision of Usurping U.S. Power",
-   "href": "https://www.nytimes.com/2026/11/19/world/asia/xi-putin-trump-meeting-china-russia.html",
+   "title": "Why Is the Stock Market Down After Anthropic’s Successful IPO?",
+   "href": "https://www.nytimes.com/2026/11/19/technology/anthropic-ipo-stock-market.html",
    "source": "NYT"
   }
  ],
  "alerts": {},
  "z06_watch": {
-  "checked": 79,
+  "checked": 78,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 58,
+   "CorvetteForum": 57,
    "BaT": 3
   },
   "label": "Red Mist Z06 · CA · 20–40k mi",
