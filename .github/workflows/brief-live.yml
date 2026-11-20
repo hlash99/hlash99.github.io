@@ -8,7 +8,9 @@ on:
   schedule:
     - cron: '17 14-23,0-6 * * *'
   push:
-    branches: [main]
+    # claude/brief-export: the cloud "Hub brief export" routine pushes brief.json there when
+    # it can't push to main; the job below copies it across.
+    branches: [main, claude/brief-export]
     paths: ['private.enc.json', 'brief.json', 'scripts/ballot_results.py']
   workflow_dispatch: {}
 
@@ -24,6 +26,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Take brief.json from the export branch
+        continue-on-error: true
+        run: |
+          git fetch origin claude/brief-export || exit 0
+          git show FETCH_HEAD:brief.json > /tmp/brief.json || exit 0
+          # Only a valid, newer brief replaces the one on main.
+          python -I - <<'PY'
+          import json, shutil
+          new, old = json.load(open("/tmp/brief.json")), json.load(open("brief.json"))
+          if isinstance(new.get("cars"), list) and str(new.get("updated", "")) > str(old.get("updated", "")):
+              shutil.copy("/tmp/brief.json", "brief.json")
+              print("brief.json taken from claude/brief-export")
+          PY
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -39,7 +56,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add live.json
+          git add live.json brief.json
           [ -f ballot.csv ] && git add ballot.csv
           git diff --cached --quiet && exit 0
           git commit -m "live: $(date -u +%Y-%m-%dT%H:%MZ)"
