@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-19T19:23-08:00",
- "date": "2026-11-19",
- "date_line": "Thursday · November 19 2026",
+ "updated": "2026-11-20T04:59-08:00",
+ "date": "2026-11-20",
+ "date_line": "Friday · November 20 2026",
  "weather": {
   "high": 58,
   "low": 44,
-  "summary": "Tomorrow · Rain then Mostly Sunny",
+  "summary": "Tomorrow · Light Rain then Mostly ",
   "icon": "rain"
  },
  "stock": {
@@ -44,53 +44,53 @@
  ],
  "items": [
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Flaunts Camaraderie With Xi and Putin but Has Little to Show for It",
-   "href": "https://www.nytimes.com/2026/11/19/world/asia/trump-xi-putin.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "At Summit With Xi and Putin, Trump Seeks to Project Power Abroad While Sharing It at Home",
-   "href": "https://www.nytimes.com/2026/11/19/us/politics/trump-summit-power.html",
-   "source": "NYT"
-  },
-  {
    "kind": "world",
    "label": "WORLD",
-   "title": "At APEC Summit, U.S., China and Russia Vow to Increase Oil Supply Amid Global Energy Transition",
-   "href": "https://www.nytimes.com/2026/11/19/world/asia/russia-china-united-states-oil-joint-statement.html",
+   "title": "How Jensen Huang Made Humiliation Routine at Nvidia",
+   "href": "https://www.nytimes.com/2026/11/20/technology/jensen-huang-nvidia-culture.html",
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Top White House Cybersecurity Official Steps Down",
-   "href": "https://www.nytimes.com/2026/11/19/us/politics/white-house-cyber-director-departs.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Stocks Often Prosper After an Abrupt C.E.O. Exit. Is Nvidia Different?",
+   "href": "https://www.nytimes.com/2026/11/20/business/nvidia-ceo-stock-succession-jensen-huang.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "tech",
+   "label": "TECH",
+   "title": "Nvidia Asked to Sell Chips to Companies Tied to Chinese Military and Megaspeed",
+   "href": "https://www.nytimes.com/2026/11/19/business/economy/nvidia-chips-commerce-china-huang.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "tech",
+   "label": "TECH",
+   "title": "Fear and Humiliation at Nvidia, and Why Google Bought Spirit Airlines Data",
+   "href": "https://www.nytimes.com/2026/11/20/podcasts/the-headlines/fear-humiliation-nvidia-google-spirit-airlines-data-quiz.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Trump Flaunts Camaraderie With Xi and Putin but Has Little to Show for It",
-   "href": "https://www.nytimes.com/2026/11/19/world/asia/trump-xi-putin.html",
+   "title": "How Jensen Huang Made Humiliation Routine at Nvidia",
+   "href": "https://www.nytimes.com/2026/11/20/technology/jensen-huang-nvidia-culture.html",
    "source": "NYT"
   },
   {
-   "title": "At Summit With Xi and Putin, Trump Seeks to Project Power Abroad While Sharing It at Home",
-   "href": "https://www.nytimes.com/2026/11/19/us/politics/trump-summit-power.html",
+   "title": "Stocks Often Prosper After an Abrupt C.E.O. Exit. Is Nvidia Different?",
+   "href": "https://www.nytimes.com/2026/11/20/business/nvidia-ceo-stock-succession-jensen-huang.html",
    "source": "NYT"
   },
   {
-   "title": "At APEC Summit, U.S., China and Russia Vow to Increase Oil Supply Amid Global Energy Transition",
-   "href": "https://www.nytimes.com/2026/11/19/world/asia/russia-china-united-states-oil-joint-statement.html",
+   "title": "Nvidia Asked to Sell Chips to Companies Tied to Chinese Military and Megaspeed",
+   "href": "https://www.nytimes.com/2026/11/19/business/economy/nvidia-chips-commerce-china-huang.html",
    "source": "NYT"
   },
   {
-   "title": "Top White House Cybersecurity Official Steps Down",
-   "href": "https://www.nytimes.com/2026/11/19/us/politics/white-house-cyber-director-departs.html",
+   "title": "Fear and Humiliation at Nvidia, and Why Google Bought Spirit Airlines Data",
+   "href": "https://www.nytimes.com/2026/11/20/podcasts/the-headlines/fear-humiliation-nvidia-google-spirit-airlines-data-quiz.html",
    "source": "NYT"
   }
  ],
