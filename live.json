@@ -1,18 +1,18 @@
 {
- "updated": "2026-11-20T07:16-08:00",
+ "updated": "2026-11-20T13:02-08:00",
  "date": "2026-11-20",
  "date_line": "Friday · November 20 2026",
  "weather": {
   "high": 58,
-  "low": 39,
-  "summary": "Light Rain then Mostly Sunny",
-  "icon": "rain"
+  "low": 40,
+  "summary": "Sunny",
+  "icon": "sun"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "350.56",
-  "change_pct": "+0.39%",
-  "dir": "up"
+  "price": "342.19",
+  "change_pct": "-2.01%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -33,73 +33,174 @@
   },
   {
    "group": "Chevrolet Corvette Z06"
+  },
+  {
+   "car": "2024 Corvette Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black",
+   "miles": "37k",
+   "price": "$87,495",
+   "seller": "Dealer",
+   "location": "Plano, TX",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "New, History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2025 Corvette Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black, Adrenaline Red seats",
+   "miles": "7k",
+   "price": "$99,091",
+   "seller": "Dealer",
+   "location": "Lubbock, TX",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "New, History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2024 Corvette Z06 2LZ convertible",
+   "color": "Red Mist / Sky Cool Gray",
+   "miles": "6k",
+   "price": "$96,900",
+   "seller": "Dealer",
+   "location": "Marysville, OH",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "New, History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "How Jensen Huang Made Humiliation Routine at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/20/technology/jensen-huang-nvidia-culture.html",
-   "source": "NYT"
+   "kind": "science",
+   "label": "KHODADOUST PAPER",
+   "title": "Rosai-Dorfman disease: a 30-year institutional study of clinical features, treatment patterns, and outcomes",
+   "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
+   "source": "PubMed",
+   "stat": "New",
+   "alert": true
+  },
+  {
+   "kind": "car",
+   "label": "NEW LISTING",
+   "title": "New listing: 2024 Corvette Z06 3LZ coupe, 37k mi, Plano, TX",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stat": "$87,495",
+   "alert": true
+  },
+  {
+   "kind": "car",
+   "label": "NEW LISTING",
+   "title": "New listing: 2025 Corvette Z06 3LZ coupe, 7k mi, Lubbock, TX",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stat": "$99,091",
+   "alert": true
+  },
+  {
+   "kind": "car",
+   "label": "NEW LISTING",
+   "title": "New listing: 2024 Corvette Z06 2LZ convertible, 6k mi, Marysville, OH",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stat": "$96,900",
+   "alert": true
   },
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Stocks Often Prosper After an Abrupt C.E.O. Exit. Is Nvidia Different?",
-   "href": "https://www.nytimes.com/2026/11/20/business/nvidia-ceo-stock-succession-jensen-huang.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "Nvidia Asked to Sell Chips to Companies Tied to Chinese Military and Megaspeed",
-   "href": "https://www.nytimes.com/2026/11/19/business/economy/nvidia-chips-commerce-china-huang.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "Fear and Humiliation at Nvidia, and Why Google Bought Spirit Airlines Data",
-   "href": "https://www.nytimes.com/2026/11/20/podcasts/the-headlines/fear-humiliation-nvidia-google-spirit-airlines-data-quiz.html",
+   "title": "Anthropic Shares Slip as AI and Tech Stock Sell-Off Continues",
+   "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Anthropic Shares Slip as AI and Tech Stock Sell-Off Continues",
+   "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Alice Huang, Accused of Spying on Nvidia’s CEO, Is Linked to Firms With Ties to China’s Military",
+   "href": "https://www.nytimes.com/2026/11/20/us/politics/nvidia-alice-huang-chips-china.html",
+   "source": "NYT"
+  },
+  {
    "title": "How Jensen Huang Made Humiliation Routine at Nvidia",
    "href": "https://www.nytimes.com/2026/11/20/technology/jensen-huang-nvidia-culture.html",
    "source": "NYT"
   },
   {
-   "title": "Stocks Often Prosper After an Abrupt C.E.O. Exit. Is Nvidia Different?",
-   "href": "https://www.nytimes.com/2026/11/20/business/nvidia-ceo-stock-succession-jensen-huang.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Nvidia Asked to Sell Chips to Companies Tied to Chinese Military and Megaspeed",
-   "href": "https://www.nytimes.com/2026/11/19/business/economy/nvidia-chips-commerce-china-huang.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Fear and Humiliation at Nvidia, and Why Google Bought Spirit Airlines Data",
-   "href": "https://www.nytimes.com/2026/11/20/podcasts/the-headlines/fear-humiliation-nvidia-google-spirit-airlines-data-quiz.html",
+   "title": "C.F.T.C. Officials Considered Investigating Trump’s Memecoin, Then Punted",
+   "href": "https://www.nytimes.com/2026/11/20/us/politics/cftc-cryptocurrency-trump-memecoin.html",
    "source": "NYT"
   }
  ],
- "alerts": {},
- "z06_watch": {
-  "checked": 78,
-  "by_source": {
-   "duPont": 18,
-   "CorvetteForum": 57,
-   "BaT": 3
+ "alerts": {
+  "paper:43061060": {
+   "kind": "science",
+   "label": "Khodadoust paper",
+   "stat": "New",
+   "source": "PubMed",
+   "title": "Rosai-Dorfman disease: a 30-year institutional study of clinical features, treatment patterns, and outcomes",
+   "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
+   "date": "2026-11-20"
   },
-  "label": "Red Mist Z06 · CA · 20–40k mi",
+  "car:https://www.cargurus.com/details/461133627?pid=ClaudeApp": {
+   "kind": "car",
+   "label": "New listing",
+   "stat": "$87,495",
+   "source": "CarGurus",
+   "title": "New listing: 2024 Corvette Z06 3LZ coupe, 37k mi, Plano, TX",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "date": "2026-11-20"
+  },
+  "car:https://www.cargurus.com/details/455449555?pid=ClaudeApp": {
+   "kind": "car",
+   "label": "New listing",
+   "stat": "$99,091",
+   "source": "CarGurus",
+   "title": "New listing: 2025 Corvette Z06 3LZ coupe, 7k mi, Lubbock, TX",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
+   "date": "2026-11-20"
+  },
+  "car:https://www.cargurus.com/details/463983602?pid=ClaudeApp": {
+   "kind": "car",
+   "label": "New listing",
+   "stat": "$96,900",
+   "source": "CarGurus",
+   "title": "New listing: 2024 Corvette Z06 2LZ convertible, 6k mi, Marysville, OH",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "date": "2026-11-20"
+  }
+ },
+ "z06_watch": {
+  "checked": 98,
+  "by_source": {
+   "duPont": 39,
+   "CorvetteForum": 57,
+   "BaT": 2
+  },
+  "label": "Red Mist Z06 · <$100k · lift",
   "sources": [
    "duPont",
    "BaT",
-   "CorvetteForum"
+   "CorvetteForum",
+   "CarGurus"
   ]
  },
  "papers_seen": [
@@ -107,9 +208,17 @@
   "41572562",
   "41674600",
   "42579817",
-  "42640855"
+  "42640855",
+  "43061060"
  ],
- "papers_new": [],
+ "papers_new": [
+  {
+   "id": "43061060",
+   "title": "Rosai-Dorfman disease: a 30-year institutional study of clinical features, treatment patterns, and outcomes",
+   "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
+   "date": "2026-11-20"
+  }
+ ],
  "stale": [],
  "first_seen": {
   "JH4NA2160VT000148": "2000-01-01",
@@ -117,6 +226,9 @@
   "ZFF68NHA7D0190366": "2000-01-01",
   "ZFF68NHA9D0190949": "2000-01-01",
   "https://bringatrailer.com/listing/2014-ferrari-458-spider-42/": "2026-11-05",
-  "https://bringatrailer.com/listing/1999-acura-nsx-t-16/": "2026-11-10"
+  "https://bringatrailer.com/listing/1999-acura-nsx-t-16/": "2026-11-10",
+  "https://www.cargurus.com/details/461133627?pid=ClaudeApp": "2026-11-20",
+  "https://www.cargurus.com/details/455449555?pid=ClaudeApp": "2026-11-20",
+  "https://www.cargurus.com/details/463983602?pid=ClaudeApp": "2026-11-20"
  }
 }

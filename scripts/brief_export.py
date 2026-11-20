@@ -55,9 +55,9 @@ def cars(sections):
             continue
         c = list(r.get("cells") or []) + [""] * 9
         rows.append({
-            "car": text(c[0], 60), "color": text(c[1], 40), "miles": text(c[2], 12), "price": text(c[3], 40),
+            "car": text(c[0], 60), "color": text(c[1], 60), "miles": text(c[2], 12), "price": text(c[3], 40),
             "title": text(c[4], 24), "seller": text(c[5], 40), "location": text(c[6], 30),
-            "flag": text(r.get("flag"), 30), "href": public_href(r.get("href")),
+            "flag": text(r.get("flag"), 60), "href": public_href(r.get("href")), "source": text(c[8], 24),
         })
     return rows
 
