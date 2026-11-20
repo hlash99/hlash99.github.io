@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-20T13:02-08:00",
+ "updated": "2026-11-20T13:26-08:00",
  "date": "2026-11-20",
  "date_line": "Friday · November 20 2026",
  "weather": {
-  "high": 60,
-  "low": 37,
+  "high": 58,
+  "low": 40,
   "icon": "partly",
   "summary": "Showers, then sun"
  },
