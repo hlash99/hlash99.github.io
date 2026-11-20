@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-19T14:11-08:00",
+ "updated": "2026-11-19T19:23-08:00",
  "date": "2026-11-19",
  "date_line": "Thursday · November 19 2026",
  "weather": {
-  "high": 59,
+  "high": 58,
   "low": 44,
-  "summary": "Chance Light Rain",
+  "summary": "Tomorrow · Rain then Mostly Sunny",
   "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "348.82",
-  "change_pct": "-1.03%",
-  "dir": "down"
+  "price": "349.21",
+  "change_pct": "-0.92%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "351.56",
+   "change_pct": "+0.67%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -58,10 +65,10 @@
    "source": "NYT"
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Why Is the Stock Market Down After Anthropic’s Successful IPO?",
-   "href": "https://www.nytimes.com/2026/11/19/technology/anthropic-ipo-stock-market.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Top White House Cybersecurity Official Steps Down",
+   "href": "https://www.nytimes.com/2026/11/19/us/politics/white-house-cyber-director-departs.html",
    "source": "NYT"
   }
  ],
@@ -82,8 +89,8 @@
    "source": "NYT"
   },
   {
-   "title": "Why Is the Stock Market Down After Anthropic’s Successful IPO?",
-   "href": "https://www.nytimes.com/2026/11/19/technology/anthropic-ipo-stock-market.html",
+   "title": "Top White House Cybersecurity Official Steps Down",
+   "href": "https://www.nytimes.com/2026/11/19/us/politics/white-house-cyber-director-departs.html",
    "source": "NYT"
   }
  ],
