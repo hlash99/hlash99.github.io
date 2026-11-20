@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T13:03-08:00",
+ "updated": "2026-11-20T13:26-08:00",
  "date": "2026-11-20",
  "date_line": "Friday · November 20 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "342.19",
-  "change_pct": "-2.01%",
+  "price": "342.53",
+  "change_pct": "-1.91%",
   "dir": "down"
  },
  "cars": [
@@ -145,8 +145,8 @@
    "source": "NYT"
   },
   {
-   "title": "C.F.T.C. Officials Considered Investigating Trump’s Memecoin, Then Punted",
-   "href": "https://www.nytimes.com/2026/11/20/us/politics/cftc-cryptocurrency-trump-memecoin.html",
+   "title": "How We Broke Open the Nvidia Investigation",
+   "href": "https://www.nytimes.com/2026/11/18/insider/nvidia-jensen-huang-spying-plot.html",
    "source": "NYT"
   }
  ],
