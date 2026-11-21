@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-20T19:15-08:00",
- "date": "2026-11-20",
- "date_line": "Friday · November 20 2026",
+ "updated": "2026-11-21T03:24-08:00",
+ "date": "2026-11-21",
+ "date_line": "Saturday · November 21 2026",
  "weather": {
   "high": 59,
   "low": 40,
@@ -128,14 +128,19 @@
    "alert": true
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Stocks Skid Into a Correction, as A.I. Worries Intensify",
-   "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
+   "href": "https://www.nytimes.com/2026/11/21/business/anthropics-debut-shows-the-disconnect-between-wall-street-and-silicon-valley.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
+   "href": "https://www.nytimes.com/2026/11/21/business/anthropics-debut-shows-the-disconnect-between-wall-street-and-silicon-valley.html",
+   "source": "NYT"
+  },
   {
    "title": "Stocks Skid Into a Correction, as A.I. Worries Intensify",
    "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
@@ -147,13 +152,8 @@
    "source": "NYT"
   },
   {
-   "title": "The Evening: Are Nvidia Chips Helping Power the Chinese Military?",
-   "href": "https://www.nytimes.com/2026/11/20/briefing/nvidia-anthropic-ice.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Alice Huang, Accused of Spying on Nvidia’s CEO, Is Linked to Firms With Ties to China’s Military",
-   "href": "https://www.nytimes.com/2026/11/20/us/politics/nvidia-alice-huang-chips-china.html",
+   "title": "Officials Find Cascade of Problems With ICE Training in Trump’s Immigration Crackdown",
+   "href": "https://www.nytimes.com/2026/11/20/us/politics/training-ice-immigration-inspector-general.html",
    "source": "NYT"
   }
  ],
