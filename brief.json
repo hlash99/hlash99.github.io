@@ -1,19 +1,25 @@
 {
- "updated": "2026-11-20T13:26-08:00",
- "date": "2026-11-20",
- "date_line": "Friday · November 20 2026",
+ "updated": "2026-11-21T08:25-08:00",
+ "date": "2026-11-21",
+ "date_line": "Saturday · November 21 2026",
  "weather": {
-  "high": 58,
-  "low": 40,
-  "icon": "partly",
-  "summary": "Showers, then sun"
+  "high": 59,
+  "low": 45,
+  "icon": "cloud",
+  "summary": "Cloudy, rain late"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "350.56",
-  "change_pct": "+0.39%",
-  "dir": "up",
-  "session": "As of 7:16 AM"
+  "price": "342.56",
+  "change_pct": "-1.90%",
+  "dir": "down",
+  "session": "Close Fri",
+  "after": {
+   "label": "After hours",
+   "price": "344.87",
+   "change_pct": "+0.67%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -42,20 +48,8 @@
    "title": "Clean (CarGurus)",
    "seller": "Dealer",
    "location": "Plano, TX",
-   "flag": "Lift, wing and history unconfirmed",
+   "flag": "History, lift and wing unconfirmed",
    "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
-   "source": "CarGurus"
-  },
-  {
-   "car": "2025 Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black, Adrenaline Red seats",
-   "miles": "7k",
-   "price": "$99,091",
-   "title": "Clean (CarGurus)",
-   "seller": "Dealer",
-   "location": "Lubbock, TX",
-   "flag": "Lift, wing and history unconfirmed",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
    "source": "CarGurus"
   },
   {
@@ -66,8 +60,20 @@
    "title": "Clean (CarGurus)",
    "seller": "Dealer",
    "location": "Marysville, OH",
-   "flag": "Lift, wing and history unconfirmed",
+   "flag": "History, lift and wing unconfirmed",
    "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "source": "CarGurus"
+  },
+  {
+   "car": "2025 Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black, red seats",
+   "miles": "7k",
+   "price": "$99,091",
+   "title": "Clean (CarGurus)",
+   "seller": "Dealer",
+   "location": "Lubbock, TX",
+   "flag": "History, lift and wing unconfirmed",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
    "source": "CarGurus"
   }
  ]
