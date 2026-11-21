@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T07:15-08:00",
+ "updated": "2026-11-21T08:26-08:00",
  "date": "2026-11-21",
  "date_line": "Saturday · November 21 2026",
  "weather": {
@@ -58,13 +58,13 @@
    "flag": "New, History unconfirmed, Lift unconfirmed"
   },
   {
-   "car": "2025 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black, Adrenaline Red seats",
-   "miles": "7k",
-   "price": "$99,091",
+   "car": "2024 Corvette Z06 2LZ convertible",
+   "color": "Red Mist / Sky Cool Gray",
+   "miles": "6k",
+   "price": "$96,900",
    "seller": "Dealer",
-   "location": "Lubbock, TX",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
+   "location": "Marysville, OH",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
    "source": "CarGurus",
    "stated_title": "Clean (CarGurus)",
    "flags": [
@@ -74,13 +74,13 @@
    "flag": "New, History unconfirmed, Lift unconfirmed"
   },
   {
-   "car": "2024 Corvette Z06 2LZ convertible",
-   "color": "Red Mist / Sky Cool Gray",
-   "miles": "6k",
-   "price": "$96,900",
+   "car": "2025 Corvette Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black, red seats",
+   "miles": "7k",
+   "price": "$99,091",
    "seller": "Dealer",
-   "location": "Marysville, OH",
-   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "location": "Lubbock, TX",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
    "source": "CarGurus",
    "stated_title": "Clean (CarGurus)",
    "flags": [
@@ -131,14 +131,14 @@
    "kind": "world",
    "label": "WORLD",
    "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
-   "href": "https://www.nytimes.com/2026/11/21/business/anthropics-debut-shows-the-disconnect-between-wall-street-and-silicon-valley.html",
+   "href": "https://www.nytimes.com/2026/11/21/business/anthropic-stock-wall-street-silicon-valley.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
    "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
-   "href": "https://www.nytimes.com/2026/11/21/business/anthropics-debut-shows-the-disconnect-between-wall-street-and-silicon-valley.html",
+   "href": "https://www.nytimes.com/2026/11/21/business/anthropic-stock-wall-street-silicon-valley.html",
    "source": "NYT"
   },
   {
