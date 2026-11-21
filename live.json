@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-20T13:50-08:00",
+ "updated": "2026-11-20T19:15-08:00",
  "date": "2026-11-20",
  "date_line": "Friday · November 20 2026",
  "weather": {
-  "high": 58,
+  "high": 59,
   "low": 40,
-  "summary": "Sunny",
-  "icon": "sun"
+  "summary": "Tomorrow · Mostly Cloudy then Chan",
+  "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "342.53",
-  "change_pct": "-1.91%",
-  "dir": "down"
+  "price": "342.56",
+  "change_pct": "-1.90%",
+  "dir": "down",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "344.87",
+   "change_pct": "+0.67%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -123,30 +130,30 @@
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Anthropic Shares Slip as AI and Tech Stock Sell-Off Continues",
+   "title": "Stocks Skid Into a Correction, as A.I. Worries Intensify",
    "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Anthropic Shares Slip as AI and Tech Stock Sell-Off Continues",
+   "title": "Stocks Skid Into a Correction, as A.I. Worries Intensify",
    "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
+   "source": "NYT"
+  },
+  {
+   "title": "What Is a Stock Market Correction?",
+   "href": "https://www.nytimes.com/article/stock-market-correction.html",
+   "source": "NYT"
+  },
+  {
+   "title": "The Evening: Are Nvidia Chips Helping Power the Chinese Military?",
+   "href": "https://www.nytimes.com/2026/11/20/briefing/nvidia-anthropic-ice.html",
    "source": "NYT"
   },
   {
    "title": "Alice Huang, Accused of Spying on Nvidia’s CEO, Is Linked to Firms With Ties to China’s Military",
    "href": "https://www.nytimes.com/2026/11/20/us/politics/nvidia-alice-huang-chips-china.html",
-   "source": "NYT"
-  },
-  {
-   "title": "How Jensen Huang Made Humiliation Routine at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/20/technology/jensen-huang-nvidia-culture.html",
-   "source": "NYT"
-  },
-  {
-   "title": "How We Broke Open the Nvidia Investigation",
-   "href": "https://www.nytimes.com/2026/11/18/insider/nvidia-jensen-huang-spying-plot.html",
    "source": "NYT"
   }
  ],
