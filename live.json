@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-21T08:26-08:00",
+ "updated": "2026-11-21T12:33-08:00",
  "date": "2026-11-21",
  "date_line": "Saturday · November 21 2026",
  "weather": {
   "high": 59,
-  "low": 45,
-  "summary": "Mostly Cloudy then Chance Light Ra",
+  "low": 46,
+  "summary": "Chance Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -128,32 +128,32 @@
    "alert": true
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
-   "href": "https://www.nytimes.com/2026/11/21/business/anthropic-stock-wall-street-silicon-valley.html",
+   "kind": "tech",
+   "label": "TECH",
+   "title": "Tech Outages Are Only the Beginning. A.I. Will Bring More Disruptions.",
+   "href": "https://www.nytimes.com/2026/11/21/us/politics/tech-outages-ai-disruptions.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Tech Outages Are Only the Beginning. A.I. Will Bring More Disruptions.",
+   "href": "https://www.nytimes.com/2026/11/21/us/politics/tech-outages-ai-disruptions.html",
+   "source": "NYT"
+  },
+  {
    "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
    "href": "https://www.nytimes.com/2026/11/21/business/anthropic-stock-wall-street-silicon-valley.html",
    "source": "NYT"
   },
   {
-   "title": "Stocks Skid Into a Correction, as A.I. Worries Intensify",
-   "href": "https://www.nytimes.com/2026/11/20/business/anthropic-ai-stocks-sp500.html",
+   "title": "Powerful Health Panel Has Tumultuous First Meeting With RFK Jr’s Appointees",
+   "href": "https://www.nytimes.com/2026/11/20/well/rfk-jr-uspstf-panel-meeting.html",
    "source": "NYT"
   },
   {
-   "title": "What Is a Stock Market Correction?",
-   "href": "https://www.nytimes.com/article/stock-market-correction.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Officials Find Cascade of Problems With ICE Training in Trump’s Immigration Crackdown",
-   "href": "https://www.nytimes.com/2026/11/20/us/politics/training-ice-immigration-inspector-general.html",
+   "title": "A New Trump Tactic to Restrict Transit Funding: Rewrite the Rules",
+   "href": "https://www.nytimes.com/2026/11/21/upshot/trump-transit-grants.html",
    "source": "NYT"
   }
  ],
@@ -196,11 +196,11 @@
   }
  },
  "z06_watch": {
-  "checked": 98,
+  "checked": 97,
   "by_source": {
    "duPont": 39,
    "CorvetteForum": 57,
-   "BaT": 2
+   "BaT": 1
   },
   "label": "Red Mist Z06 · <$100k · lift",
   "sources": [
