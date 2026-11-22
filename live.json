@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T12:33-08:00",
+ "updated": "2026-11-21T17:22-08:00",
  "date": "2026-11-21",
  "date_line": "Saturday · November 21 2026",
  "weather": {
@@ -147,8 +147,8 @@
    "source": "NYT"
   },
   {
-   "title": "Powerful Health Panel Has Tumultuous First Meeting With RFK Jr’s Appointees",
-   "href": "https://www.nytimes.com/2026/11/20/well/rfk-jr-uspstf-panel-meeting.html",
+   "title": "Trump Moves to Restrict Congressional Oversight of Contractors",
+   "href": "https://www.nytimes.com/2026/11/21/us/politics/trump-congressional-oversight-contractors.html",
    "source": "NYT"
   },
   {
@@ -196,10 +196,10 @@
   }
  },
  "z06_watch": {
-  "checked": 97,
+  "checked": 98,
   "by_source": {
    "duPont": 39,
-   "CorvetteForum": 57,
+   "CorvetteForum": 58,
    "BaT": 1
   },
   "label": "Red Mist Z06 · <$100k · lift",
