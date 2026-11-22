@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T07:28-08:00",
+ "updated": "2026-11-22T08:25-08:00",
  "date": "2026-11-22",
  "date_line": "Sunday · November 22 2026",
  "weather": {
@@ -42,55 +42,32 @@
    "group": "Chevrolet Corvette Z06"
   },
   {
-   "car": "2024 Corvette Z06 3LZ coupe",
+   "car": "2024 Corvette Z06 2LZ coupe",
    "color": "Red Mist / Jet Black",
-   "miles": "37k",
-   "price": "$87,495",
-   "seller": "Dealer",
-   "location": "Plano, TX",
-   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "miles": "16k",
+   "price": "$95,459",
+   "seller": "Bill Black Chevrolet",
+   "location": "Greensboro, NC",
+   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
    "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
+   "stated_title": "Clean (AutoCheck)",
    "flags": [
     "Lift unconfirmed"
    ],
-   "title": "Clean (CarGurus)",
-   "flag": "New, History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2024 Corvette Z06 2LZ convertible",
-   "color": "Red Mist / Sky Cool Gray",
-   "miles": "6k",
-   "price": "$96,900",
-   "seller": "Dealer",
-   "location": "Marysville, OH",
-   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "New, History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2025 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black, red seats",
-   "miles": "7k",
-   "price": "$99,091",
-   "seller": "Dealer",
-   "location": "Lubbock, TX",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
+   "title": "Clean (AutoCheck)",
    "flag": "New, History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
+  {
+   "kind": "car",
+   "label": "NEW LISTING",
+   "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
+   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
+   "source": "CarGurus",
+   "stat": "$95,459",
+   "alert": true
+  },
   {
    "kind": "science",
    "label": "KHODADOUST PAPER",
@@ -101,37 +78,24 @@
    "alert": true
   },
   {
-   "kind": "car",
-   "label": "NEW LISTING",
-   "title": "New listing: 2024 Corvette Z06 3LZ coupe, 37k mi, Plano, TX",
-   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stat": "$87,495",
-   "alert": true
-  },
-  {
-   "kind": "car",
-   "label": "NEW LISTING",
-   "title": "New listing: 2025 Corvette Z06 3LZ coupe, 7k mi, Lubbock, TX",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stat": "$99,091",
-   "alert": true
-  },
-  {
-   "kind": "car",
-   "label": "NEW LISTING",
-   "title": "New listing: 2024 Corvette Z06 2LZ convertible, 6k mi, Marysville, OH",
-   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stat": "$96,900",
-   "alert": true
-  },
-  {
    "kind": "tech",
    "label": "TECH",
    "title": "China’s Spies Set Sights on A.I. Chips Years Before Nvidia Scandal",
    "href": "https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
+   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Looking for the Formula to Stop an Apocalypse",
+   "href": "https://www.nytimes.com/2026/11/22/magazine/looking-for-the-formula-to-stop-an-apocalypse.html",
    "source": "NYT"
   }
  ],
@@ -152,8 +116,8 @@
    "source": "NYT"
   },
   {
-   "title": "Republicans Debate Why They Lost the Midterms, and if Trump Is to Blame",
-   "href": "https://www.nytimes.com/2026/11/22/us/politics/republican-midterm-loss-debate-trump.html",
+   "title": "COP31 Talks Collapse in Turkey in a Clash Over Fossil Fuels",
+   "href": "https://www.nytimes.com/2026/11/22/climate/cop31-climate-summit-ends-climate.html",
    "source": "NYT"
   }
  ],
@@ -167,32 +131,14 @@
    "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
    "date": "2026-11-20"
   },
-  "car:https://www.cargurus.com/details/461133627?pid=ClaudeApp": {
+  "car:https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm": {
    "kind": "car",
    "label": "New listing",
-   "stat": "$87,495",
+   "stat": "$95,459",
    "source": "CarGurus",
-   "title": "New listing: 2024 Corvette Z06 3LZ coupe, 37k mi, Plano, TX",
-   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
-   "date": "2026-11-20"
-  },
-  "car:https://www.cargurus.com/details/455449555?pid=ClaudeApp": {
-   "kind": "car",
-   "label": "New listing",
-   "stat": "$99,091",
-   "source": "CarGurus",
-   "title": "New listing: 2025 Corvette Z06 3LZ coupe, 7k mi, Lubbock, TX",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
-   "date": "2026-11-20"
-  },
-  "car:https://www.cargurus.com/details/463983602?pid=ClaudeApp": {
-   "kind": "car",
-   "label": "New listing",
-   "stat": "$96,900",
-   "source": "CarGurus",
-   "title": "New listing: 2024 Corvette Z06 2LZ convertible, 6k mi, Marysville, OH",
-   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
-   "date": "2026-11-20"
+   "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
+   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
+   "date": "2026-11-22"
   }
  },
  "z06_watch": {
@@ -236,6 +182,7 @@
   "https://bringatrailer.com/listing/1999-acura-nsx-t-16/": "2026-11-10",
   "https://www.cargurus.com/details/461133627?pid=ClaudeApp": "2026-11-20",
   "https://www.cargurus.com/details/455449555?pid=ClaudeApp": "2026-11-20",
-  "https://www.cargurus.com/details/463983602?pid=ClaudeApp": "2026-11-20"
+  "https://www.cargurus.com/details/463983602?pid=ClaudeApp": "2026-11-20",
+  "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm": "2026-11-22"
  }
 }
