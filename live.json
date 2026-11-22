@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-21T17:22-08:00",
+ "updated": "2026-11-21T19:26-08:00",
  "date": "2026-11-21",
  "date_line": "Saturday · November 21 2026",
  "weather": {
-  "high": 59,
+  "high": 56,
   "low": 46,
-  "summary": "Chance Light Rain",
+  "summary": "Tomorrow · Chance Light Rain",
   "icon": "rain"
  },
  "stock": {
@@ -128,14 +128,24 @@
    "alert": true
   },
   {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "Tech Outages Are Only the Beginning. A.I. Will Bring More Disruptions.",
-   "href": "https://www.nytimes.com/2026/11/21/us/politics/tech-outages-ai-disruptions.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
+   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
+   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Who Is the Mexican Drug Kingpin Known as El Chapo Isidro?",
+   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-el-chapo-isidro-drug-kingpin.html",
+   "source": "NYT"
+  },
   {
    "title": "Tech Outages Are Only the Beginning. A.I. Will Bring More Disruptions.",
    "href": "https://www.nytimes.com/2026/11/21/us/politics/tech-outages-ai-disruptions.html",
@@ -144,16 +154,6 @@
   {
    "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
    "href": "https://www.nytimes.com/2026/11/21/business/anthropic-stock-wall-street-silicon-valley.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Trump Moves to Restrict Congressional Oversight of Contractors",
-   "href": "https://www.nytimes.com/2026/11/21/us/politics/trump-congressional-oversight-contractors.html",
-   "source": "NYT"
-  },
-  {
-   "title": "A New Trump Tactic to Restrict Transit Funding: Rewrite the Rules",
-   "href": "https://www.nytimes.com/2026/11/21/upshot/trump-transit-grants.html",
    "source": "NYT"
   }
  ],
