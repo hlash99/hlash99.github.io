@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T08:25-08:00",
+ "updated": "2026-11-22T13:25-08:00",
  "date": "2026-11-22",
  "date_line": "Sunday · November 22 2026",
  "weather": {
@@ -41,6 +41,18 @@
    "group": "Chevrolet Corvette Z06"
   },
   {
+   "car": "2024 Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black",
+   "miles": "37k",
+   "price": "$86,476",
+   "title": "Clean (CarGurus)",
+   "seller": "Dealer",
+   "location": "Plano, TX",
+   "flag": "History, lift and wing unconfirmed",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "source": "CarGurus"
+  },
+  {
    "car": "2024 Z06 2LZ coupe",
    "color": "Red Mist / Jet Black",
    "miles": "16k",
@@ -48,7 +60,7 @@
    "title": "Clean (AutoCheck)",
    "seller": "Bill Black Chevrolet",
    "location": "Greensboro, NC",
-   "flag": "Lift and wing unconfirmed",
+   "flag": "Lift, wing and history unconfirmed",
    "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
    "source": "CarGurus"
   }
