@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-21T08:25-08:00",
+ "updated": "2026-11-21T19:26-08:00",
  "date": "2026-11-21",
  "date_line": "Saturday · November 21 2026",
  "weather": {
   "high": 59,
-  "low": 45,
-  "icon": "cloud",
-  "summary": "Cloudy, rain late"
+  "low": 46,
+  "icon": "rain",
+  "summary": "Chance light rain"
  },
  "stock": {
   "symbol": "AAPL",
