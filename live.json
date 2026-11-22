@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-21T19:26-08:00",
- "date": "2026-11-21",
- "date_line": "Saturday · November 21 2026",
+ "updated": "2026-11-22T01:50-08:00",
+ "date": "2026-11-22",
+ "date_line": "Sunday · November 22 2026",
  "weather": {
   "high": 56,
   "low": 46,
-  "summary": "Tomorrow · Chance Light Rain",
-  "icon": "rain"
+  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
@@ -128,14 +128,19 @@
    "alert": true
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
-   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
+   "kind": "tech",
+   "label": "TECH",
+   "title": "China’s Spies Set Sights on A.I. Chips Years Before Nvidia Scandal",
+   "href": "https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "China’s Spies Set Sights on A.I. Chips Years Before Nvidia Scandal",
+   "href": "https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html",
+   "source": "NYT"
+  },
   {
    "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
    "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
@@ -149,11 +154,6 @@
   {
    "title": "Tech Outages Are Only the Beginning. A.I. Will Bring More Disruptions.",
    "href": "https://www.nytimes.com/2026/11/21/us/politics/tech-outages-ai-disruptions.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
-   "href": "https://www.nytimes.com/2026/11/21/business/anthropic-stock-wall-street-silicon-valley.html",
    "source": "NYT"
   }
  ],
