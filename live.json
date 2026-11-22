@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-22T01:50-08:00",
+ "updated": "2026-11-22T07:28-08:00",
  "date": "2026-11-22",
  "date_line": "Sunday · November 22 2026",
  "weather": {
   "high": 56,
-  "low": 46,
-  "summary": "Tomorrow · Patchy Fog then Mostly ",
-  "icon": "fog"
+  "low": 41,
+  "summary": "Mostly Cloudy",
+  "icon": "cloud"
  },
  "stock": {
   "symbol": "AAPL",
@@ -147,13 +147,13 @@
    "source": "NYT"
   },
   {
-   "title": "Who Is the Mexican Drug Kingpin Known as El Chapo Isidro?",
-   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-el-chapo-isidro-drug-kingpin.html",
+   "title": "Looking for the Formula to Stop an Apocalypse",
+   "href": "https://www.nytimes.com/2026/11/22/magazine/looking-for-the-formula-to-stop-an-apocalypse.html",
    "source": "NYT"
   },
   {
-   "title": "Tech Outages Are Only the Beginning. A.I. Will Bring More Disruptions.",
-   "href": "https://www.nytimes.com/2026/11/21/us/politics/tech-outages-ai-disruptions.html",
+   "title": "Republicans Debate Why They Lost the Midterms, and if Trump Is to Blame",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/republican-midterm-loss-debate-trump.html",
    "source": "NYT"
   }
  ],
