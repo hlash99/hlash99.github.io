@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T08:25-08:00",
+ "updated": "2026-11-22T12:44-08:00",
  "date": "2026-11-22",
  "date_line": "Sunday · November 22 2026",
  "weather": {
@@ -78,46 +78,48 @@
    "alert": true
   },
   {
-   "kind": "tech",
-   "label": "TECH",
-   "title": "China’s Spies Set Sights on A.I. Chips Years Before Nvidia Scandal",
-   "href": "https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html",
-   "source": "NYT"
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Democrats Clinch 258 House Seats, an Election-Year Record This Century",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/democrats-midterm-house-majority-record.html",
+   "source": "NYT",
+   "stat": "258"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
-   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
-   "source": "NYT"
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Democrat Chuck Hubbard Defeats 11-Term Republican Virginia Foxx in North Carolina",
+   "href": "https://www.nytimes.com/2026/11/22/us/virginia-foxx-chuck-hubbard-north-carolina-house.html",
+   "source": "NYT",
+   "stat": "11"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Looking for the Formula to Stop an Apocalypse",
-   "href": "https://www.nytimes.com/2026/11/22/magazine/looking-for-the-formula-to-stop-an-apocalypse.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Republicans Debate Why They Lost the Midterms, and if Trump Is to Blame",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/republican-midterm-loss-debate-trump.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "China’s Spies Set Sights on A.I. Chips Years Before Nvidia Scandal",
-   "href": "https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html",
+   "title": "Democrats Clinch 258 House Seats, an Election-Year Record This Century",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/democrats-midterm-house-majority-record.html",
    "source": "NYT"
   },
   {
-   "title": "Drones, Texts and Diversions: How Mexico Captured a Most Wanted Man",
-   "href": "https://www.nytimes.com/2026/11/21/world/americas/mexico-captures-drug-kingpin.html",
+   "title": "Democrat Chuck Hubbard Defeats 11-Term Republican Virginia Foxx in North Carolina",
+   "href": "https://www.nytimes.com/2026/11/22/us/virginia-foxx-chuck-hubbard-north-carolina-house.html",
    "source": "NYT"
   },
   {
-   "title": "Looking for the Formula to Stop an Apocalypse",
-   "href": "https://www.nytimes.com/2026/11/22/magazine/looking-for-the-formula-to-stop-an-apocalypse.html",
+   "title": "Republicans Debate Why They Lost the Midterms, and if Trump Is to Blame",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/republican-midterm-loss-debate-trump.html",
    "source": "NYT"
   },
   {
-   "title": "COP31 Talks Collapse in Turkey in a Clash Over Fossil Fuels",
-   "href": "https://www.nytimes.com/2026/11/22/climate/cop31-climate-summit-ends-climate.html",
+   "title": "Is Annie Andrews Too Real for the Senate? South Carolinians Are About to Find Out.",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/annie-andrews-south-carolina-senate.html",
    "source": "NYT"
   }
  ],
