@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-22T19:25-08:00",
- "date": "2026-11-22",
- "date_line": "Sunday · November 22 2026",
+ "updated": "2026-11-23T02:51-08:00",
+ "date": "2026-11-23",
+ "date_line": "Monday · November 23 2026",
  "weather": {
   "high": 58,
   "low": 41,
-  "summary": "Tomorrow · Patchy Fog then Mostly ",
-  "icon": "fog"
+  "summary": "Tomorrow · Mostly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
@@ -55,7 +55,7 @@
     "Lift unconfirmed"
    ],
    "title": "Clean (CarGurus)",
-   "flag": "New, History unconfirmed, Lift unconfirmed"
+   "flag": "History unconfirmed, Lift unconfirmed"
   },
   {
    "car": "2024 Corvette Z06 2LZ coupe",
@@ -87,7 +87,7 @@
     "Lift unconfirmed"
    ],
    "title": "Clean (CarGurus)",
-   "flag": "New, History unconfirmed, Lift unconfirmed"
+   "flag": "History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
@@ -142,6 +142,11 @@
    "source": "NYT"
   },
   {
+   "title": "Wall Street Set to Bounce Back After Tough Week",
+   "href": "https://www.nytimes.com/2026/11/22/business/ai-stocks-sp500.html",
+   "source": "NYT"
+  },
+  {
    "title": "Democrats Clinch 258 House Seats, an Election-Year Record This Century",
    "href": "https://www.nytimes.com/2026/11/22/us/politics/democrats-midterm-house-majority-record.html",
    "source": "NYT"
@@ -149,11 +154,6 @@
   {
    "title": "Why Democrat Abdul El-Sayed is Talking Up ‘TrumpCare’",
    "href": "https://www.nytimes.com/2026/11/22/us/politics/el-sayed-trump-health-care.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Democrat Chuck Hubbard Defeats 11-Term Republican Virginia Foxx in North Carolina",
-   "href": "https://www.nytimes.com/2026/11/22/us/virginia-foxx-chuck-hubbard-north-carolina-house.html",
    "source": "NYT"
   }
  ],
