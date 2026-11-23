@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-22T13:26-08:00",
+ "updated": "2026-11-22T17:46-08:00",
  "date": "2026-11-22",
  "date_line": "Sunday · November 22 2026",
  "weather": {
   "high": 56,
   "low": 41,
-  "summary": "Mostly Cloudy",
-  "icon": "cloud"
+  "summary": "Partly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
@@ -103,23 +103,27 @@
    "alert": true
   },
   {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "U.S. Tracked Alice Huang’s Contacts With China Spy Agency During Nvidia Affair",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/alice-huang-china-spy-agency-nvidia.html",
+   "source": "NYT"
+  },
+  {
    "kind": "politics",
    "label": "POLITICS",
    "title": "Democrats Clinch 258 House Seats, an Election-Year Record This Century",
    "href": "https://www.nytimes.com/2026/11/22/us/politics/democrats-midterm-house-majority-record.html",
    "source": "NYT",
    "stat": "258"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Democrat Chuck Hubbard Defeats 11-Term Republican Virginia Foxx in North Carolina",
-   "href": "https://www.nytimes.com/2026/11/22/us/virginia-foxx-chuck-hubbard-north-carolina-house.html",
-   "source": "NYT",
-   "stat": "11"
   }
  ],
  "news": [
+  {
+   "title": "U.S. Tracked Alice Huang’s Contacts With China Spy Agency During Nvidia Affair",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/alice-huang-china-spy-agency-nvidia.html",
+   "source": "NYT"
+  },
   {
    "title": "Democrats Clinch 258 House Seats, an Election-Year Record This Century",
    "href": "https://www.nytimes.com/2026/11/22/us/politics/democrats-midterm-house-majority-record.html",
@@ -131,13 +135,8 @@
    "source": "NYT"
   },
   {
-   "title": "Republicans Debate Why They Lost the Midterms, and if Trump Is to Blame",
-   "href": "https://www.nytimes.com/2026/11/22/us/politics/republican-midterm-loss-debate-trump.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Is Annie Andrews Too Real for the Senate? South Carolinians Are About to Find Out.",
-   "href": "https://www.nytimes.com/2026/11/22/us/politics/annie-andrews-south-carolina-senate.html",
+   "title": "Why Democrat Abdul El-Sayed is Talking Up ‘TrumpCare’",
+   "href": "https://www.nytimes.com/2026/11/22/us/politics/el-sayed-trump-health-care.html",
    "source": "NYT"
   }
  ],
@@ -171,11 +170,11 @@
   }
  },
  "z06_watch": {
-  "checked": 98,
+  "checked": 99,
   "by_source": {
    "duPont": 39,
    "CorvetteForum": 58,
-   "BaT": 1
+   "BaT": 2
   },
   "label": "Red Mist Z06 · <$100k · lift",
   "sources": [
