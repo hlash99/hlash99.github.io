@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-23T07:18-08:00",
+ "updated": "2026-11-23T13:26-08:00",
  "date": "2026-11-23",
  "date_line": "Monday · November 23 2026",
  "weather": {
   "high": 58,
   "low": 44,
-  "summary": "Mostly Sunny",
+  "summary": "Partly Sunny",
   "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "346.15",
-  "change_pct": "+1.05%",
+  "price": "351.13",
+  "change_pct": "+2.50%",
   "dir": "up"
  },
  "cars": [
@@ -35,7 +35,7 @@
    "car": "1997 Acura NSX-T 6-Speed",
    "color": "—",
    "miles": "57k",
-   "price": "$1,000 bid, ends Nov 30",
+   "price": "$101,000 bid, ends Nov 30",
    "seller": "BaT auction",
    "location": "",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
@@ -61,6 +61,54 @@
    ],
    "title": "Clean (AutoCheck)",
    "flag": "New, History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2024 Corvette Z06 2LZ convertible",
+   "color": "Red Mist / Sky Cool Gray",
+   "miles": "6k",
+   "price": "$96,900",
+   "seller": "Dealer",
+   "location": "Marysville, OH",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2024 Corvette Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black",
+   "miles": "37k",
+   "price": "$86,476",
+   "seller": "Dealer",
+   "location": "Plano, TX",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2025 Corvette Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black & Adrenaline Red",
+   "miles": "7k",
+   "price": "$99,091",
+   "seller": "Dealer",
+   "location": "Lubbock, TX",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
@@ -70,7 +118,7 @@
    "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
    "source": "BaT",
-   "stat": "$1k bid",
+   "stat": "$101k bid",
    "alert": true
   },
   {
@@ -92,24 +140,29 @@
    "alert": true
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
-   "href": "https://www.nytimes.com/2026/11/22/business/nvidia-stock-huang-ai-sp500-markets.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Is Said to Have Directed Effort to Reinstate Nvidia Chief",
+   "href": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-huang.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "U.S. Tracked Alice Huang’s Contacts With China Spy Agency During Nvidia Affair",
-   "href": "https://www.nytimes.com/2026/11/22/us/politics/alice-huang-china-spy-agency-nvidia.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Jensen Huang’s Return Shows the Lengths Trump Will Go to Keep A.I. Booming",
+   "href": "https://www.nytimes.com/2026/11/23/business/trump-jensen-huang-nvidia.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
-   "href": "https://www.nytimes.com/2026/11/22/business/nvidia-stock-huang-ai-sp500-markets.html",
+   "title": "Trump Is Said to Have Directed Effort to Reinstate Nvidia Chief",
+   "href": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-huang.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Jensen Huang’s Return Shows the Lengths Trump Will Go to Keep A.I. Booming",
+   "href": "https://www.nytimes.com/2026/11/23/business/trump-jensen-huang-nvidia.html",
    "source": "NYT"
   },
   {
@@ -118,13 +171,8 @@
    "source": "NYT"
   },
   {
-   "title": "Why U.N. Climate Talks Collapsed, and How China’s Spies Set Sights on A.I. Chips",
-   "href": "https://www.nytimes.com/2026/11/23/podcasts/the-headlines/un-climate-talks-china-spies-ai-chips.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Ukrainian Attack Off Coast of Libya Shows Reach of Kyiv’s Naval Drones",
-   "href": "https://www.nytimes.com/2026/11/23/world/europe/ukraine-libya-russian-ships.html",
+   "title": "Over 700,000 Russian Soldiers Have Died in Ukraine, Analysis Indicates",
+   "href": "https://www.nytimes.com/2026/11/23/world/europe/russia-ukraine-war-deaths.html",
    "source": "NYT"
   }
  ],
@@ -150,7 +198,7 @@
   "car:https://bringatrailer.com/listing/1997-acura-nsx-t-32/": {
    "kind": "car",
    "label": "New listing",
-   "stat": "$1k bid",
+   "stat": "$101k bid",
    "source": "BaT",
    "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
