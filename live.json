@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-24T04:33-08:00",
+ "updated": "2026-11-24T07:19-08:00",
  "date": "2026-11-24",
  "date_line": "Tuesday · November 24 2026",
  "weather": {
   "high": 64,
-  "low": 44,
-  "summary": "Tomorrow · Mostly Cloudy",
+  "low": 52,
+  "summary": "Mostly Cloudy",
   "icon": "cloud"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "349.08",
-  "change_pct": "+1.90%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "After hours",
-   "price": "349.43",
-   "change_pct": "+0.10%",
-   "dir": "up"
-  }
+  "price": "352.86",
+  "change_pct": "+1.08%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -68,54 +61,6 @@
    ],
    "title": "Clean (AutoCheck)",
    "flag": "New, History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2024 Corvette Z06 2LZ convertible",
-   "color": "Red Mist / Sky Cool Gray",
-   "miles": "6k",
-   "price": "$96,900",
-   "seller": "Dealer",
-   "location": "Marysville, OH",
-   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2024 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black",
-   "miles": "37k",
-   "price": "$86,476",
-   "seller": "Dealer",
-   "location": "Plano, TX",
-   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2025 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black & Adrenaline Red",
-   "miles": "7k",
-   "price": "$99,091",
-   "seller": "Dealer",
-   "location": "Lubbock, TX",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
@@ -154,7 +99,7 @@
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Stocks Slide as Tech Stocks Partly Reverse Nvidia-Sparked Rally",
+   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
    "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   }
@@ -171,7 +116,7 @@
    "source": "NYT"
   },
   {
-   "title": "Stocks Slide as Tech Stocks Partly Reverse Nvidia-Sparked Rally",
+   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
    "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   },
