@@ -1,18 +1,19 @@
 {
- "updated": "2026-11-24T08:25-08:00",
+ "updated": "2026-11-24T13:26-08:00",
  "date": "2026-11-24",
  "date_line": "Tuesday · November 24 2026",
  "weather": {
-  "high": 60,
-  "low": 50,
+  "high": 64,
+  "low": 52,
   "icon": "cloud",
   "summary": "Mostly cloudy"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.07",
-  "change_pct": "+0.86%",
-  "dir": "up"
+  "price": "352.86",
+  "change_pct": "+1.08%",
+  "dir": "up",
+  "session": "As of 10 AM"
  },
  "cars": [
   {
@@ -49,7 +50,7 @@
    "car": "2024 Z06 2LZ coupe",
    "color": "Red Mist / Jet Black",
    "miles": "16k",
-   "price": "$95,459",
+   "price": "$93,257",
    "title": "Clean (AutoCheck)",
    "seller": "Bill Black Chevrolet",
    "location": "Greensboro, NC",
@@ -65,7 +66,7 @@
    "title": "Clean (CarGurus)",
    "seller": "Dealer",
    "location": "Lubbock, TX",
-   "flag": "New, lift, wing and history unconfirmed",
+   "flag": "Lift, wing and history unconfirmed",
    "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
    "source": "CarGurus"
   },
@@ -77,7 +78,7 @@
    "title": "Clean (CarGurus)",
    "seller": "Dealer",
    "location": "Marysville, OH",
-   "flag": "New, lift, wing and history unconfirmed",
+   "flag": "Lift, wing and history unconfirmed",
    "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
    "source": "CarGurus"
   },
@@ -89,7 +90,7 @@
    "title": "Clean (CarGurus)",
    "seller": "Dealer",
    "location": "Plano, TX",
-   "flag": "New, lift, wing and history unconfirmed",
+   "flag": "Lift, wing and history unconfirmed",
    "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
    "source": "CarGurus"
   }
