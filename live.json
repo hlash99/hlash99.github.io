@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T13:26-08:00",
+ "updated": "2026-11-24T15:29-08:00",
  "date": "2026-11-24",
  "date_line": "Tuesday · November 24 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.21",
-  "change_pct": "+0.90%",
+  "price": "352.84",
+  "change_pct": "+1.08%",
   "dir": "up"
  },
  "cars": [
@@ -147,8 +147,8 @@
   {
    "kind": "markets",
    "label": "MARKETS",
-   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
-   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
+   "title": "Blanche Downplays Questions Over Nvidia as Company’s Customers Come Under Scrutiny",
+   "href": "https://www.nytimes.com/2026/11/24/us/politics/nvidia-justice-department-todd-blanche.html",
    "source": "NYT"
   }
  ],
@@ -164,13 +164,13 @@
    "source": "NYT"
   },
   {
-   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
-   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
+   "title": "Blanche Downplays Questions Over Nvidia as Company’s Customers Come Under Scrutiny",
+   "href": "https://www.nytimes.com/2026/11/24/us/politics/nvidia-justice-department-todd-blanche.html",
    "source": "NYT"
   },
   {
-   "title": "Army’s Iowa Ammunition Plant Explosion on Schedule for Wednesday Morning",
-   "href": "https://www.nytimes.com/2026/11/24/climate/iowa-army-ammunition-plant-explostion.html",
+   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
+   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   }
  ],
