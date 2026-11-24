@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-23T19:26-08:00",
- "date": "2026-11-23",
- "date_line": "Monday · November 23 2026",
+ "updated": "2026-11-24T04:33-08:00",
+ "date": "2026-11-24",
+ "date_line": "Tuesday · November 24 2026",
  "weather": {
   "high": 64,
   "low": 44,
@@ -138,61 +138,50 @@
    "alert": true
   },
   {
-   "kind": "science",
-   "label": "KHODADOUST PAPER",
-   "title": "Rosai-Dorfman disease: a 30-year institutional study of clinical features, treatment patterns, and outcomes",
-   "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
-   "source": "PubMed",
-   "stat": "New",
-   "alert": true
-  },
-  {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Jensen Huang Returns to Nvidia, Showing What Trump Will Do for AI",
-   "href": "https://www.nytimes.com/2026/11/23/business/trump-jensen-huang-nvidia.html",
+   "title": "With Jensen Huang’s Return as C.E.O., Trump Effectively Overrode Nvidia’s Board",
+   "href": "https://www.nytimes.com/2026/11/23/technology/jensen-huang-nvidia-board-trump.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Jensen Huang Returns to Nvidia After President Trump Intervenes",
-   "href": "https://www.nytimes.com/2026/11/23/business/nvidia-jensen-huang.html",
+   "title": "Trump’s Extraordinary Nvidia Intervention Sidelines National Security Concerns",
+   "href": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-national-security.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Stocks Slide as Tech Stocks Partly Reverse Nvidia-Sparked Rally",
+   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Jensen Huang Returns to Nvidia, Showing What Trump Will Do for AI",
-   "href": "https://www.nytimes.com/2026/11/23/business/trump-jensen-huang-nvidia.html",
+   "title": "With Jensen Huang’s Return as C.E.O., Trump Effectively Overrode Nvidia’s Board",
+   "href": "https://www.nytimes.com/2026/11/23/technology/jensen-huang-nvidia-board-trump.html",
    "source": "NYT"
   },
   {
-   "title": "Jensen Huang Returns to Nvidia After President Trump Intervenes",
-   "href": "https://www.nytimes.com/2026/11/23/business/nvidia-jensen-huang.html",
+   "title": "Trump’s Extraordinary Nvidia Intervention Sidelines National Security Concerns",
+   "href": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-national-security.html",
    "source": "NYT"
   },
   {
-   "title": "Republicans Break With Trump Over Jensen Huang’s Reinstatement at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/23/technology/republicans-trump-jensen-huang-nvidia.html",
+   "title": "Stocks Slide as Tech Stocks Partly Reverse Nvidia-Sparked Rally",
+   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   },
   {
-   "title": "Over 700,000 Russian Soldiers Have Died in Ukraine, Analysis Indicates",
-   "href": "https://www.nytimes.com/2026/11/23/world/europe/russia-ukraine-war-deaths.html",
+   "title": "How a Scientist Behind the Mediterranean Diet Got Caught in Trump’s War on Harvard",
+   "href": "https://www.nytimes.com/2026/11/23/us/politics/walter-willett-trump-harvard.html",
    "source": "NYT"
   }
  ],
  "alerts": {
-  "paper:43061060": {
-   "kind": "science",
-   "label": "Khodadoust paper",
-   "stat": "New",
-   "source": "PubMed",
-   "title": "Rosai-Dorfman disease: a 30-year institutional study of clinical features, treatment patterns, and outcomes",
-   "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
-   "date": "2026-11-20"
-  },
   "car:https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm": {
    "kind": "car",
    "label": "New listing",
