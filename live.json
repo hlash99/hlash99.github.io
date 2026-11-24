@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-23T17:41-08:00",
+ "updated": "2026-11-23T19:26-08:00",
  "date": "2026-11-23",
  "date_line": "Monday · November 23 2026",
  "weather": {
-  "high": 58,
+  "high": 64,
   "low": 44,
-  "summary": "Partly Sunny",
-  "icon": "partly"
+  "summary": "Tomorrow · Mostly Cloudy",
+  "icon": "cloud"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "351.15",
-  "change_pct": "+2.51%",
-  "dir": "up"
+  "price": "349.08",
+  "change_pct": "+1.90%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "349.43",
+   "change_pct": "+0.10%",
+   "dir": "up"
+  }
  },
  "cars": [
   {
@@ -142,32 +149,32 @@
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Trump Is Said to Have Pushed to Reinstate Nvidia CEO Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-huang.html",
+   "title": "Jensen Huang Returns to Nvidia, Showing What Trump Will Do for AI",
+   "href": "https://www.nytimes.com/2026/11/23/business/trump-jensen-huang-nvidia.html",
    "source": "NYT"
   },
   {
    "kind": "politics",
    "label": "POLITICS",
-   "title": "Republicans Break With Trump Over Jensen Huang’s Reinstatement at Nvidia",
-   "href": "https://www.nytimes.com/2026/11/23/technology/republicans-trump-jensen-huang-nvidia.html",
+   "title": "Jensen Huang Returns to Nvidia After President Trump Intervenes",
+   "href": "https://www.nytimes.com/2026/11/23/business/nvidia-jensen-huang.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Trump Is Said to Have Pushed to Reinstate Nvidia CEO Jensen Huang",
-   "href": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-huang.html",
+   "title": "Jensen Huang Returns to Nvidia, Showing What Trump Will Do for AI",
+   "href": "https://www.nytimes.com/2026/11/23/business/trump-jensen-huang-nvidia.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Jensen Huang Returns to Nvidia After President Trump Intervenes",
+   "href": "https://www.nytimes.com/2026/11/23/business/nvidia-jensen-huang.html",
    "source": "NYT"
   },
   {
    "title": "Republicans Break With Trump Over Jensen Huang’s Reinstatement at Nvidia",
    "href": "https://www.nytimes.com/2026/11/23/technology/republicans-trump-jensen-huang-nvidia.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Trump Administration Imposes Sanctions on Megaspeed, Singaporean Firm at Center of Nvidia Scandal",
-   "href": "https://www.nytimes.com/2026/11/23/business/trump-administration-megaspeed-trade-blacklist-nvidia.html",
    "source": "NYT"
   },
   {
