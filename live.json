@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T08:26-08:00",
+ "updated": "2026-11-24T13:26-08:00",
  "date": "2026-11-24",
  "date_line": "Tuesday · November 24 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.86",
-  "change_pct": "+1.08%",
+  "price": "352.21",
+  "change_pct": "+0.90%",
   "dir": "up"
  },
  "cars": [
@@ -50,7 +50,7 @@
    "car": "2024 Corvette Z06 2LZ coupe",
    "color": "Red Mist / Jet Black",
    "miles": "16k",
-   "price": "$95,459",
+   "price": "$93,257",
    "seller": "Bill Black Chevrolet",
    "location": "Greensboro, NC",
    "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
@@ -127,8 +127,15 @@
    "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
    "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
    "source": "CarGurus",
-   "stat": "$95,459",
+   "stat": "$93,257",
    "alert": true
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Jensen Huang Apologizes to Nvidia Employees, Says He Is in Therapy",
+   "href": "https://www.nytimes.com/2026/11/24/technology/jensen-huang-apology-nvidia-ceo.html",
+   "source": "NYT"
   },
   {
    "kind": "politics",
@@ -138,39 +145,32 @@
    "source": "NYT"
   },
   {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "With Jensen Huang’s Return as C.E.O., Trump Effectively Overrode Nvidia’s Board",
-   "href": "https://www.nytimes.com/2026/11/23/technology/jensen-huang-nvidia-board-trump.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "How a Scientist Behind the Mediterranean Diet Got Caught in Trump’s War on Harvard",
-   "href": "https://www.nytimes.com/2026/11/23/us/politics/walter-willett-trump-harvard.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
+   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Jensen Huang Apologizes to Nvidia Employees, Says He Is in Therapy",
+   "href": "https://www.nytimes.com/2026/11/24/technology/jensen-huang-apology-nvidia-ceo.html",
+   "source": "NYT"
+  },
+  {
    "title": "Trump’s Nvidia Push Shows Companies’ Importance in Global Economic War",
    "href": "https://www.nytimes.com/2026/11/24/business/economy/trump-nvidia-national-security-us-economics.html",
    "source": "NYT"
   },
   {
-   "title": "With Jensen Huang’s Return as C.E.O., Trump Effectively Overrode Nvidia’s Board",
-   "href": "https://www.nytimes.com/2026/11/23/technology/jensen-huang-nvidia-board-trump.html",
+   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
+   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
    "source": "NYT"
   },
   {
-   "title": "How a Scientist Behind the Mediterranean Diet Got Caught in Trump’s War on Harvard",
-   "href": "https://www.nytimes.com/2026/11/23/us/politics/walter-willett-trump-harvard.html",
-   "source": "NYT"
-  },
-  {
-   "title": "MAGA Attacked Harvard. So Harvard Taught a Class About It.",
-   "href": "https://www.nytimes.com/2026/11/24/us/harvard-maga-class.html",
+   "title": "Army’s Iowa Ammunition Plant Explosion on Schedule for Wednesday Morning",
+   "href": "https://www.nytimes.com/2026/11/24/climate/iowa-army-ammunition-plant-explostion.html",
    "source": "NYT"
   }
  ],
@@ -178,7 +178,7 @@
   "car:https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm": {
    "kind": "car",
    "label": "New listing",
-   "stat": "$95,459",
+   "stat": "$93,257",
    "source": "CarGurus",
    "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
    "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
@@ -195,10 +195,10 @@
   }
  },
  "z06_watch": {
-  "checked": 99,
+  "checked": 98,
   "by_source": {
    "duPont": 39,
-   "CorvetteForum": 58,
+   "CorvetteForum": 57,
    "BaT": 2
   },
   "label": "Red Mist Z06 · <$100k · lift",
