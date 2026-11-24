@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-23T13:26-08:00",
+ "updated": "2026-11-23T19:25-08:00",
  "date": "2026-11-23",
  "date_line": "Monday · November 23 2026",
  "weather": {
   "high": 58,
   "low": 44,
-  "icon": "sun",
-  "summary": "Mostly sunny"
+  "icon": "partly",
+  "summary": "Partly sunny"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "346.15",
-  "change_pct": "+1.05%",
+  "price": "351.15",
+  "change_pct": "+2.51%",
   "dir": "up",
-  "session": "7:18 AM quote"
+  "session": "Close"
  },
  "cars": [
   {
@@ -35,7 +35,7 @@
    "car": "1997 NSX-T 6-speed",
    "color": "Kaiser Silver / Onyx",
    "miles": "57k",
-   "price": "$1,000 bid, ends Nov 30",
+   "price": "$101,000 bid, ends Nov 30",
    "title": "Clean (Carfax), TX exemp",
    "seller": "gklee01 (private)",
    "location": "Spring, TX",
