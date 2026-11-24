@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T07:18-08:00",
+ "updated": "2026-11-24T08:25-08:00",
  "date": "2026-11-24",
  "date_line": "Tuesday · November 24 2026",
  "weather": {
@@ -55,6 +55,42 @@
    "location": "Greensboro, NC",
    "flag": "Lift and wing unconfirmed",
    "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
+   "source": "CarGurus"
+  },
+  {
+   "car": "2025 Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black & Adrenaline Red",
+   "miles": "7k",
+   "price": "$99,091",
+   "title": "Clean (CarGurus)",
+   "seller": "Dealer",
+   "location": "Lubbock, TX",
+   "flag": "New, lift, wing and history unconfirmed",
+   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
+   "source": "CarGurus"
+  },
+  {
+   "car": "2024 Z06 2LZ convertible",
+   "color": "Red Mist / Sky Cool Gray",
+   "miles": "6k",
+   "price": "$96,900",
+   "title": "Clean (CarGurus)",
+   "seller": "Dealer",
+   "location": "Marysville, OH",
+   "flag": "New, lift, wing and history unconfirmed",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "source": "CarGurus"
+  },
+  {
+   "car": "2024 Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black",
+   "miles": "37k",
+   "price": "$86,476",
+   "title": "Clean (CarGurus)",
+   "seller": "Dealer",
+   "location": "Plano, TX",
+   "flag": "New, lift, wing and history unconfirmed",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
    "source": "CarGurus"
   }
  ]
