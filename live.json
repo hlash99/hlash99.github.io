@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-24T15:29-08:00",
- "date": "2026-11-24",
- "date_line": "Tuesday · November 24 2026",
+ "updated": "2026-11-25T00:42-08:00",
+ "date": "2026-11-25",
+ "date_line": "Wednesday · November 25 2026",
  "weather": {
-  "high": 64,
+  "high": 67,
   "low": 52,
-  "summary": "Mostly Cloudy",
-  "icon": "cloud"
+  "summary": "Tomorrow · Slight Chance Light Rai",
+  "icon": "rain"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "352.84",
-  "change_pct": "+1.08%",
-  "dir": "up"
+  "price": "354.07",
+  "change_pct": "+1.43%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "353.88",
+   "change_pct": "-0.05%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -60,7 +67,7 @@
     "Lift unconfirmed"
    ],
    "title": "Clean (AutoCheck)",
-   "flag": "New, History unconfirmed, Lift unconfirmed"
+   "flag": "History unconfirmed, Lift unconfirmed"
   },
   {
    "car": "2025 Corvette Z06 3LZ coupe",
@@ -133,44 +140,44 @@
   {
    "kind": "world",
    "label": "WORLD",
+   "title": "Army’s Iowa Ammunition Plant Explosion on Schedule for Wednesday Morning",
+   "href": "https://www.nytimes.com/2026/11/24/climate/iowa-army-ammunition-plant-explostion.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "An Explosion Is Coming to Iowa. And Residents Can’t Do a Thing About It.",
+   "href": "https://www.nytimes.com/2026/11/24/us/iowa-ammunition-plant-lead-explosion-middletown.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
    "title": "Jensen Huang Apologizes to Nvidia Employees, Says He Is in Therapy",
    "href": "https://www.nytimes.com/2026/11/24/technology/jensen-huang-apology-nvidia-ceo.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump’s Nvidia Push Shows Companies’ Importance in Global Economic War",
-   "href": "https://www.nytimes.com/2026/11/24/business/economy/trump-nvidia-national-security-us-economics.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Blanche Downplays Questions Over Nvidia as Company’s Customers Come Under Scrutiny",
-   "href": "https://www.nytimes.com/2026/11/24/us/politics/nvidia-justice-department-todd-blanche.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Army’s Iowa Ammunition Plant Explosion on Schedule for Wednesday Morning",
+   "href": "https://www.nytimes.com/2026/11/24/climate/iowa-army-ammunition-plant-explostion.html",
+   "source": "NYT"
+  },
+  {
+   "title": "An Explosion Is Coming to Iowa. And Residents Can’t Do a Thing About It.",
+   "href": "https://www.nytimes.com/2026/11/24/us/iowa-ammunition-plant-lead-explosion-middletown.html",
+   "source": "NYT"
+  },
+  {
    "title": "Jensen Huang Apologizes to Nvidia Employees, Says He Is in Therapy",
    "href": "https://www.nytimes.com/2026/11/24/technology/jensen-huang-apology-nvidia-ceo.html",
    "source": "NYT"
   },
   {
-   "title": "Trump’s Nvidia Push Shows Companies’ Importance in Global Economic War",
-   "href": "https://www.nytimes.com/2026/11/24/business/economy/trump-nvidia-national-security-us-economics.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Blanche Downplays Questions Over Nvidia as Company’s Customers Come Under Scrutiny",
-   "href": "https://www.nytimes.com/2026/11/24/us/politics/nvidia-justice-department-todd-blanche.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Stock Markets Slip as Nvidia and A.I. Stocks Erase Some of Monday’s Rally",
-   "href": "https://www.nytimes.com/2026/11/24/business/stocks-sp500-huang-nvidia.html",
+   "title": "Officials Brief Congressional Staff on Intelligence Surrounding Nvidia Affair",
+   "href": "https://www.nytimes.com/2026/11/24/us/politics/intelligence-nvidia-affair-congressional-briefing.html",
    "source": "NYT"
   }
  ],
