@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-25T00:42-08:00",
+ "updated": "2026-11-25T07:16-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
   "high": 67,
-  "low": 52,
-  "summary": "Tomorrow · Slight Chance Light Rai",
-  "icon": "rain"
+  "low": 48,
+  "summary": "Mostly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "354.07",
-  "change_pct": "+1.43%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "After hours",
-   "price": "353.88",
-   "change_pct": "-0.05%",
-   "dir": "down"
-  }
+  "price": "349.38",
+  "change_pct": "-1.32%",
+  "dir": "down"
  },
  "cars": [
   {
@@ -68,54 +61,6 @@
    ],
    "title": "Clean (AutoCheck)",
    "flag": "History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2025 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black & Adrenaline Red",
-   "miles": "7k",
-   "price": "$99,091",
-   "seller": "Dealer",
-   "location": "Lubbock, TX",
-   "href": "https://www.cargurus.com/details/455449555?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2024 Corvette Z06 2LZ convertible",
-   "color": "Red Mist / Sky Cool Gray",
-   "miles": "6k",
-   "price": "$96,900",
-   "seller": "Dealer",
-   "location": "Marysville, OH",
-   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
-  },
-  {
-   "car": "2024 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black",
-   "miles": "37k",
-   "price": "$86,476",
-   "seller": "Dealer",
-   "location": "Plano, TX",
-   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
@@ -138,46 +83,46 @@
    "alert": true
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Army’s Iowa Ammunition Plant Explosion on Schedule for Wednesday Morning",
-   "href": "https://www.nytimes.com/2026/11/24/climate/iowa-army-ammunition-plant-explostion.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
+   "href": "https://www.nytimes.com/2026/11/25/business/trump-tariffs-trade.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "An Explosion Is Coming to Iowa. And Residents Can’t Do a Thing About It.",
-   "href": "https://www.nytimes.com/2026/11/24/us/iowa-ammunition-plant-lead-explosion-middletown.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Another Hot Inflation Reading Keeps Fed on Track to Raise Rates Again",
+   "href": "https://www.nytimes.com/2026/11/25/business/economy/inflation-pce-interest-rates.html",
    "source": "NYT"
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "Jensen Huang Apologizes to Nvidia Employees, Says He Is in Therapy",
-   "href": "https://www.nytimes.com/2026/11/24/technology/jensen-huang-apology-nvidia-ceo.html",
+   "kind": "markets",
+   "label": "MARKETS",
+   "title": "Stock Sell-Off Continues as Investors Fret About A.I., Tariffs and Inflation",
+   "href": "https://www.nytimes.com/2026/11/25/business/stocks-sp500-nvidia-ai.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Army’s Iowa Ammunition Plant Explosion on Schedule for Wednesday Morning",
-   "href": "https://www.nytimes.com/2026/11/24/climate/iowa-army-ammunition-plant-explostion.html",
+   "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
+   "href": "https://www.nytimes.com/2026/11/25/business/trump-tariffs-trade.html",
    "source": "NYT"
   },
   {
-   "title": "An Explosion Is Coming to Iowa. And Residents Can’t Do a Thing About It.",
-   "href": "https://www.nytimes.com/2026/11/24/us/iowa-ammunition-plant-lead-explosion-middletown.html",
+   "title": "Another Hot Inflation Reading Keeps Fed on Track to Raise Rates Again",
+   "href": "https://www.nytimes.com/2026/11/25/business/economy/inflation-pce-interest-rates.html",
    "source": "NYT"
   },
   {
-   "title": "Jensen Huang Apologizes to Nvidia Employees, Says He Is in Therapy",
-   "href": "https://www.nytimes.com/2026/11/24/technology/jensen-huang-apology-nvidia-ceo.html",
+   "title": "Stock Sell-Off Continues as Investors Fret About A.I., Tariffs and Inflation",
+   "href": "https://www.nytimes.com/2026/11/25/business/stocks-sp500-nvidia-ai.html",
    "source": "NYT"
   },
   {
-   "title": "Officials Brief Congressional Staff on Intelligence Surrounding Nvidia Affair",
-   "href": "https://www.nytimes.com/2026/11/24/us/politics/intelligence-nvidia-affair-congressional-briefing.html",
+   "title": "Abrego Garcia Arrives in Spain After Voluntarily Leaving U.S.",
+   "href": "https://www.nytimes.com/2026/11/24/us/politics/abrego-garcia-leave-deportation.html",
    "source": "NYT"
   }
  ],
