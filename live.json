@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T07:16-08:00",
+ "updated": "2026-11-25T08:25-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "349.38",
-  "change_pct": "-1.32%",
+  "price": "349.62",
+  "change_pct": "-1.26%",
   "dir": "down"
  },
  "cars": [
@@ -97,10 +97,10 @@
    "source": "NYT"
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Stock Sell-Off Continues as Investors Fret About A.I., Tariffs and Inflation",
-   "href": "https://www.nytimes.com/2026/11/25/business/stocks-sp500-nvidia-ai.html",
+   "kind": "politics",
+   "label": "POLITICS",
+   "title": "Why Aren’t the Midterms Over in Louisiana? Ask the Supreme Court.",
+   "href": "https://www.nytimes.com/2026/11/25/us/politics/why-arent-the-midterms-over-in-louisiana-ask-the-supreme-court.html",
    "source": "NYT"
   }
  ],
@@ -116,8 +116,8 @@
    "source": "NYT"
   },
   {
-   "title": "Stock Sell-Off Continues as Investors Fret About A.I., Tariffs and Inflation",
-   "href": "https://www.nytimes.com/2026/11/25/business/stocks-sp500-nvidia-ai.html",
+   "title": "Why Aren’t the Midterms Over in Louisiana? Ask the Supreme Court.",
+   "href": "https://www.nytimes.com/2026/11/25/us/politics/why-arent-the-midterms-over-in-louisiana-ask-the-supreme-court.html",
    "source": "NYT"
   },
   {
