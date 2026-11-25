@@ -1,18 +1,18 @@
 {
- "updated": "2026-11-25T08:25-08:00",
+ "updated": "2026-11-25T13:26-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
   "high": 67,
-  "low": 48,
+  "low": 49,
   "summary": "Mostly Sunny",
   "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "349.62",
-  "change_pct": "-1.26%",
-  "dir": "down"
+  "price": "355.77",
+  "change_pct": "+0.48%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -35,7 +35,7 @@
    "car": "1997 Acura NSX-T 6-Speed",
    "color": "—",
    "miles": "57k",
-   "price": "$101,000 bid, ends Nov 30",
+   "price": "$102,000 bid, ends Nov 30",
    "seller": "BaT auction",
    "location": "",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
@@ -61,6 +61,38 @@
    ],
    "title": "Clean (AutoCheck)",
    "flag": "History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2024 Corvette Z06 3LZ coupe",
+   "color": "Red Mist / Jet Black",
+   "miles": "37k",
+   "price": "$86,476",
+   "seller": "Dealer",
+   "location": "Plano, TX",
+   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "History unconfirmed, Lift unconfirmed"
+  },
+  {
+   "car": "2024 Corvette Z06 2LZ convertible",
+   "color": "Red Mist / Sky Cool Gray",
+   "miles": "6k",
+   "price": "$96,900",
+   "seller": "Dealer",
+   "location": "Marysville, OH",
+   "href": "https://www.cargurus.com/details/463983602?pid=ClaudeApp",
+   "source": "CarGurus",
+   "stated_title": "Clean (CarGurus)",
+   "flags": [
+    "Lift unconfirmed"
+   ],
+   "title": "Clean (CarGurus)",
+   "flag": "History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
@@ -70,7 +102,7 @@
    "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
    "source": "BaT",
-   "stat": "$101k bid",
+   "stat": "$102k bid",
    "alert": true
   },
   {
@@ -83,6 +115,13 @@
    "alert": true
   },
   {
+   "kind": "weather",
+   "label": "WEATHER",
+   "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
+   "href": "https://www.nytimes.com/2026/11/25/weather/thanksgiving-weather-storm-rain-flooding.html",
+   "source": "NYT"
+  },
+  {
    "kind": "politics",
    "label": "POLITICS",
    "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
@@ -90,39 +129,32 @@
    "source": "NYT"
   },
   {
-   "kind": "markets",
-   "label": "MARKETS",
-   "title": "Another Hot Inflation Reading Keeps Fed on Track to Raise Rates Again",
-   "href": "https://www.nytimes.com/2026/11/25/business/economy/inflation-pce-interest-rates.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Why Aren’t the Midterms Over in Louisiana? Ask the Supreme Court.",
-   "href": "https://www.nytimes.com/2026/11/25/us/politics/why-arent-the-midterms-over-in-louisiana-ask-the-supreme-court.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "The U.S. Isn’t in a Recession. Try Telling Many Americans That.",
+   "href": "https://www.nytimes.com/2026/11/25/us/economic-growth-recession-pessimism.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
+   "href": "https://www.nytimes.com/2026/11/25/weather/thanksgiving-weather-storm-rain-flooding.html",
+   "source": "NYT"
+  },
+  {
    "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
    "href": "https://www.nytimes.com/2026/11/25/business/trump-tariffs-trade.html",
    "source": "NYT"
   },
   {
+   "title": "The U.S. Isn’t in a Recession. Try Telling Many Americans That.",
+   "href": "https://www.nytimes.com/2026/11/25/us/economic-growth-recession-pessimism.html",
+   "source": "NYT"
+  },
+  {
    "title": "Another Hot Inflation Reading Keeps Fed on Track to Raise Rates Again",
    "href": "https://www.nytimes.com/2026/11/25/business/economy/inflation-pce-interest-rates.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Why Aren’t the Midterms Over in Louisiana? Ask the Supreme Court.",
-   "href": "https://www.nytimes.com/2026/11/25/us/politics/why-arent-the-midterms-over-in-louisiana-ask-the-supreme-court.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Abrego Garcia Arrives in Spain After Voluntarily Leaving U.S.",
-   "href": "https://www.nytimes.com/2026/11/24/us/politics/abrego-garcia-leave-deportation.html",
    "source": "NYT"
   }
  ],
@@ -139,7 +171,7 @@
   "car:https://bringatrailer.com/listing/1997-acura-nsx-t-32/": {
    "kind": "car",
    "label": "New listing",
-   "stat": "$101k bid",
+   "stat": "$102k bid",
    "source": "BaT",
    "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
@@ -147,11 +179,11 @@
   }
  },
  "z06_watch": {
-  "checked": 98,
+  "checked": 97,
   "by_source": {
    "duPont": 39,
    "CorvetteForum": 57,
-   "BaT": 2
+   "BaT": 1
   },
   "label": "Red Mist Z06 · <$100k · lift",
   "sources": [
