@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T13:26-08:00",
+ "updated": "2026-11-25T15:07-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
@@ -115,6 +115,13 @@
    "alert": true
   },
   {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Setting Up the Macy’s Thanksgiving Day Parade is Quite a Process. So Is Undoing it.",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-parade-preparation-setup.html",
+   "source": "NYT"
+  },
+  {
    "kind": "weather",
    "label": "WEATHER",
    "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
@@ -127,16 +134,14 @@
    "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
    "href": "https://www.nytimes.com/2026/11/25/business/trump-tariffs-trade.html",
    "source": "NYT"
-  },
-  {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "The U.S. Isn’t in a Recession. Try Telling Many Americans That.",
-   "href": "https://www.nytimes.com/2026/11/25/us/economic-growth-recession-pessimism.html",
-   "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "Setting Up the Macy’s Thanksgiving Day Parade is Quite a Process. So Is Undoing it.",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-parade-preparation-setup.html",
+   "source": "NYT"
+  },
   {
    "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
    "href": "https://www.nytimes.com/2026/11/25/weather/thanksgiving-weather-storm-rain-flooding.html",
@@ -150,11 +155,6 @@
   {
    "title": "The U.S. Isn’t in a Recession. Try Telling Many Americans That.",
    "href": "https://www.nytimes.com/2026/11/25/us/economic-growth-recession-pessimism.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Another Hot Inflation Reading Keeps Fed on Track to Raise Rates Again",
-   "href": "https://www.nytimes.com/2026/11/25/business/economy/inflation-pce-interest-rates.html",
    "source": "NYT"
   }
  ],
@@ -179,10 +179,10 @@
   }
  },
  "z06_watch": {
-  "checked": 97,
+  "checked": 96,
   "by_source": {
    "duPont": 39,
-   "CorvetteForum": 57,
+   "CorvetteForum": 56,
    "BaT": 1
   },
   "label": "Red Mist Z06 · <$100k · lift",
