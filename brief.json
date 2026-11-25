@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T07:16-08:00",
+ "updated": "2026-11-25T08:25-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "350.22",
-  "change_pct": "-1.09%",
+  "price": "349.38",
+  "change_pct": "-1.32%",
   "dir": "down"
  },
  "cars": [
