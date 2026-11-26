@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T16:31-08:00",
+ "updated": "2026-11-25T16:44-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "355.77",
-  "change_pct": "+0.48%",
+  "price": "354.25",
+  "change_pct": "+0.05%",
   "dir": "up"
  },
  "cars": [
@@ -57,10 +57,11 @@
    "source": "CarGurus",
    "stated_title": "Clean (AutoCheck)",
    "flags": [
-    "Lift unconfirmed"
+    "Lift unconfirmed",
+    "Z06 unconfirmed (no VIN)"
    ],
    "title": "Clean (AutoCheck)",
-   "flag": "History unconfirmed, Lift unconfirmed"
+   "flag": "History unconfirmed, Lift unconfirmed, Z06 unconfirmed (no VIN)"
   },
   {
    "car": "2024 Corvette Z06 3LZ coupe",
@@ -73,10 +74,11 @@
    "source": "CarGurus",
    "stated_title": "Clean (CarGurus)",
    "flags": [
-    "Lift unconfirmed"
+    "Lift unconfirmed",
+    "Z06 unconfirmed (no VIN)"
    ],
    "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed"
+   "flag": "History unconfirmed, Lift unconfirmed, Z06 unconfirmed (no VIN)"
   }
  ],
  "items": [
