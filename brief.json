@@ -1,19 +1,25 @@
 {
- "updated": "2026-11-25T19:25-08:00",
- "date": "2026-11-25",
- "date_line": "Wednesday · November 25 2026",
+ "updated": "2026-11-26T07:53-08:00",
+ "date": "2026-11-26",
+ "date_line": "Thursday · November 26 2026",
  "weather": {
-  "high": 67,
-  "low": 49,
-  "icon": "partly",
-  "summary": "Partly sunny"
+  "high": 65,
+  "low": 48,
+  "icon": "fog",
+  "summary": "Fog, then partly sunny"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "355.77",
-  "change_pct": "+0.48%",
+  "price": "355.58",
+  "change_pct": "+0.43%",
   "dir": "up",
-  "session": "Close"
+  "session": "Close Wed",
+  "after": {
+   "label": "After hours",
+   "price": "355.15",
+   "change_pct": "-0.12%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -42,7 +48,8 @@
    "location": "Spring, TX",
    "flag": "History unconfirmed",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
-   "source": "Bring a Trailer"
+   "source": "Bring a Trailer",
+   "vin": "JH4NA2163VT000225"
   },
   {
    "group": "Chevrolet Corvette Z06"
