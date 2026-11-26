@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-25T13:26-08:00",
+ "updated": "2026-11-25T19:25-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
   "high": 67,
-  "low": 48,
-  "icon": "sun",
-  "summary": "Mostly sunny"
+  "low": 49,
+  "icon": "partly",
+  "summary": "Partly sunny"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "349.41",
-  "change_pct": "-1.32%",
-  "dir": "down",
-  "session": "Midday"
+  "price": "355.77",
+  "change_pct": "+0.48%",
+  "dir": "up",
+  "session": "Close"
  },
  "cars": [
   {
@@ -29,13 +29,14 @@
    "location": "Bellevue, WA",
    "flag": "",
    "href": "https://www.dupontregistry.com/car/acura/nsx/1997/JH4NA2160VT000148/647060",
-   "source": "duPont Registry"
+   "source": "duPont Registry",
+   "vin": "JH4NA2160VT000148"
   },
   {
    "car": "1997 NSX-T 6-speed",
    "color": "Kaiser Silver / Onyx",
    "miles": "57k",
-   "price": "$101,000 bid, ends Nov 30",
+   "price": "$102,000 bid, ends Nov 30",
    "title": "Clean (Carfax), TX exemp",
    "seller": "gklee01 (private)",
    "location": "Spring, TX",
@@ -56,7 +57,8 @@
    "location": "Greensboro, NC",
    "flag": "Lift and wing unconfirmed",
    "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
-   "source": "CarGurus"
+   "source": "CarGurus",
+   "vin": "1G1YE2D3XR5604443"
   }
  ]
 }
