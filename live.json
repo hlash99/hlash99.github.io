@@ -1,18 +1,25 @@
 {
- "updated": "2026-11-25T16:52-08:00",
+ "updated": "2026-11-25T19:26-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
-  "high": 67,
+  "high": 65,
   "low": 49,
-  "summary": "Partly Sunny",
-  "icon": "partly"
+  "summary": "Tomorrow · Patchy Fog then Mostly ",
+  "icon": "fog"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "355.77",
-  "change_pct": "+0.48%",
-  "dir": "up"
+  "price": "355.58",
+  "change_pct": "+0.43%",
+  "dir": "up",
+  "session": "Close",
+  "after": {
+   "label": "After hours",
+   "price": "355.15",
+   "change_pct": "-0.12%",
+   "dir": "down"
+  }
  },
  "cars": [
   {
@@ -95,37 +102,37 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Setting Up the Macy’s Thanksgiving Day Parade is Quite a Process. So Is Undoing it.",
-   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-parade-preparation-setup.html",
+   "title": "The Thanksgiving Parade on Saturday. Can They Do That?",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/thanksgiving-parade-new-york-postponed.html",
    "source": "NYT"
   },
   {
-   "kind": "weather",
-   "label": "WEATHER",
-   "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
-   "href": "https://www.nytimes.com/2026/11/25/weather/thanksgiving-weather-storm-rain-flooding.html",
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Macy’s Thanksgiving Day Parade Sours Holiday Plans for Tourists",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-tourists.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
-   "title": "Setting Up the Macy’s Thanksgiving Day Parade is Quite a Process. So Is Undoing it.",
-   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-parade-preparation-setup.html",
+   "title": "The Thanksgiving Parade on Saturday. Can They Do That?",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/thanksgiving-parade-new-york-postponed.html",
    "source": "NYT"
   },
   {
-   "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
-   "href": "https://www.nytimes.com/2026/11/25/weather/thanksgiving-weather-storm-rain-flooding.html",
+   "title": "Macy’s Thanksgiving Day Parade Sours Holiday Plans for Tourists",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-tourists.html",
    "source": "NYT"
   },
   {
-   "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
-   "href": "https://www.nytimes.com/2026/11/25/business/trump-tariffs-trade.html",
+   "title": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
+   "href": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html",
    "source": "NYT"
   },
   {
-   "title": "The U.S. Isn’t in a Recession. Try Telling Many Americans That.",
-   "href": "https://www.nytimes.com/2026/11/25/us/economic-growth-recession-pessimism.html",
+   "title": "A Rumored $300 Million Score on Nvidia’s Stock Surge Isn’t Backed by Trading Records",
+   "href": "https://www.nytimes.com/2026/11/25/business/nvidia-stock-insider-trading-rumor.html",
    "source": "NYT"
   }
  ],
