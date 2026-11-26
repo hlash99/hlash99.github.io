@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T16:49-08:00",
+ "updated": "2026-11-25T16:52-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
@@ -10,8 +10,8 @@
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "354.25",
-  "change_pct": "+0.05%",
+  "price": "355.77",
+  "change_pct": "+0.48%",
   "dir": "up"
  },
  "cars": [
@@ -57,11 +57,11 @@
    "source": "CarGurus",
    "stated_title": "Clean (AutoCheck)",
    "flags": [
-    "Lift unconfirmed",
-    "Z06 unconfirmed (no VIN)"
+    "Lift unconfirmed"
    ],
+   "vin": "1G1YE2D3XR5604443",
    "title": "Clean (AutoCheck)",
-   "flag": "History unconfirmed, Lift unconfirmed, Z06 unconfirmed (no VIN)"
+   "flag": "New, History unconfirmed, Lift unconfirmed"
   }
  ],
  "items": [
@@ -77,19 +77,19 @@
   {
    "kind": "car",
    "label": "NEW LISTING",
-   "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
-   "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
-   "source": "BaT",
-   "stat": "$102k bid",
+   "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
+   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
+   "source": "CarGurus",
+   "stat": "$93,257",
    "alert": true
   },
   {
    "kind": "car",
    "label": "NEW LISTING",
-   "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
-   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
-   "source": "CarGurus",
-   "stat": "$93,257",
+   "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
+   "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
+   "source": "BaT",
+   "stat": "$102k bid",
    "alert": true
   },
   {
@@ -130,15 +130,6 @@
   }
  ],
  "alerts": {
-  "car:https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm": {
-   "kind": "car",
-   "label": "New listing",
-   "stat": "$93,257",
-   "source": "CarGurus",
-   "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
-   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
-   "date": "2026-11-22"
-  },
   "car:https://bringatrailer.com/listing/1997-acura-nsx-t-32/": {
    "kind": "car",
    "label": "New listing",
@@ -147,6 +138,15 @@
    "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
    "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
    "date": "2026-11-23"
+  },
+  "car:1G1YE2D3XR5604443": {
+   "kind": "car",
+   "label": "New listing",
+   "stat": "$93,257",
+   "source": "CarGurus",
+   "title": "New listing: 2024 Corvette Z06 2LZ coupe, 16k mi, Greensboro, NC",
+   "href": "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm",
+   "date": "2026-11-25"
   }
  },
  "z06_watch": {
@@ -203,6 +203,7 @@
   "https://www.cargurus.com/details/455449555?pid=ClaudeApp": "2026-11-20",
   "https://www.cargurus.com/details/463983602?pid=ClaudeApp": "2026-11-20",
   "https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm": "2026-11-22",
-  "https://bringatrailer.com/listing/1997-acura-nsx-t-32/": "2026-11-23"
+  "https://bringatrailer.com/listing/1997-acura-nsx-t-32/": "2026-11-23",
+  "1G1YE2D3XR5604443": "2026-11-25"
  }
 }
