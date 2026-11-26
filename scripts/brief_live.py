@@ -20,6 +20,9 @@ OUT = os.path.join(ROOT, "live.json")
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 LAT_LON = "37.4636,-122.1983"  # Menlo Park
 EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"}  # about 7 years in Florida
+# Listings that are not the car their title says. 463983602: CarGurus titled an E-Ray 2LZ convertible
+# (VIN 1G1YL3D42R5501246, 6.2L LT2) as a Z06. Matched on the URL without its query string.
+NOT_AS_TITLED_URLS = {"https://www.cargurus.com/details/463983602"}
 MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # 458 and NSX
 BRIEF_DAYS = 3  # how long a CarGurus row from brief.json stays on the hub without a fresh brief
 Z06_MAX_PRICE = 100000  # Z06: ask (or current bid) under this; any mileage; anywhere in the US but Florida
@@ -27,6 +30,15 @@ Z06_MAX_PRICE = 100000  # Z06: ask (or current bid) under this; any mileage; any
 # 2026-11-20. "L" was not among them and is assumed to pair with K (1LZ) and M (3LZ).
 Z06_TRIM_VIN = {"D": "1LZ", "K": "1LZ", "E": "2LZ", "L": "2LZ", "F": "3LZ", "M": "3LZ"}
 Z06_BODY_VIN = {"2": "coupe", "3": "convertible"}
+
+
+def not_z06_vin(vin):
+    """True when a VIN is on hand and it is not a C8 Z06. The 8th character is the engine: "3" is
+    the Z06's 5.5L LT6; "4" is the 6.2L LT2 of the Stingray and the E-Ray (E-Rays are 1G1YK/YL/YM
+    and get listed as Z06s). No VIN settles nothing, so that returns False."""
+    vin = (vin or "").upper()
+    return len(vin) == 17 and not (vin.startswith("1G1Y") and vin[7] == "3")
+
 # Front lift (RPO E60) is required but rarely itemised: a listing that says it has none is out,
 # one that doesn't say gets "Lift unconfirmed".
 LIFT = re.compile(r"\bE60\b|\b(?:front|nose)[- ](?:axle[- ])?lift|\blift (?:system|kit)\b|\bfront[- ]end lift", re.I)
@@ -551,7 +563,10 @@ def brief_z06(today):
                      "miles": r.get("miles", "—"), "price": r.get("price", ""), "seller": r.get("seller", ""),
                      "location": r.get("location", ""), "href": r["href"], "source": "CarGurus",
                      "stated_title": r.get("title", ""),
-                     "flags": [] if re.search(r"lift confirmed", r.get("flag", ""), re.I) else ["Lift unconfirmed"]})
+                     "flags": ([] if re.search(r"lift confirmed", r.get("flag", ""), re.I) else ["Lift unconfirmed"])
+                              + ([] if r.get("vin") else ["Z06 unconfirmed (no VIN)"])})
+        if r.get("vin"):
+            rows[-1]["vin"] = r["vin"]
     print(f"brief.json ({b.get('date')}): {len(rows)} CarGurus Z06 rows", file=sys.stderr)
     return rows
 
@@ -844,6 +859,11 @@ def main():
     # Red Mist, under the cap and not a 1LZ: also screens fallback rows kept from an older run.
     z06_rows = [r for r in z06_rows if is_red_mist(r.get("color")) and first_amount(r) < Z06_MAX_PRICE
                 and not re.search(r"\b1LZ\b", r.get("car", ""))]
+    for r in z06_rows:  # a Z06 by title only: the VIN's engine code decides
+        if not_z06_vin(r.get("vin")) or r.get("href", "").split("?")[0] in NOT_AS_TITLED_URLS:
+            print(f"Z06 {r.get('href')}: drop, not a Z06 (VIN {r.get('vin') or 'none'})", file=sys.stderr)
+    z06_rows = [r for r in z06_rows if not not_z06_vin(r.get("vin"))
+                and r.get("href", "").split("?")[0] not in NOT_AS_TITLED_URLS]
     cars = []
     if nsx_rows:
         cars += [{"group": "Acura NSX-T"}] + nsx_rows

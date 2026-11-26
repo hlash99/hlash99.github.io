@@ -7,6 +7,7 @@ This repo is public, so everything here is an allowlist: a field reaches
 brief.json only if this file copies it by name. Never commit the full brief.
 """
 import json
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 
@@ -59,6 +60,8 @@ def cars(sections):
             "title": text(c[4], 24), "seller": text(c[5], 40), "location": text(c[6], 30),
             "flag": text(r.get("flag"), 60), "href": public_href(r.get("href")), "source": text(c[8], 24),
         })
+        if re.fullmatch(r"[A-HJ-NPR-Z0-9]{17}", text(r.get("vin"), 17).upper()):
+            rows[-1]["vin"] = text(r.get("vin"), 17).upper()  # dealer-listing VIN: lets the hub check the model
     return rows
 
 
