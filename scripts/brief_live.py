@@ -24,6 +24,10 @@ EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"
 # (VIN 1G1YL3D42R5501246, 6.2L LT2) as a Z06; 461133627 is an E-Ray 3LZ coupe (1G1YM2D43R5200055)
 # titled the same way. Matched on the URL without its query string.
 NOT_AS_TITLED_URLS = {"https://www.cargurus.com/details/463983602", "https://www.cargurus.com/details/461133627"}
+# VINs checked by hand for brief rows that arrive without one (URL without its query string -> VIN).
+# Bill Black Chevrolet's car is a Z06 2LZ coupe per GM's window sticker (2026-11-25).
+KNOWN_VINS = {"https://www.billblackauto.com/used/Chevrolet/2024-Chevrolet-Corvette-Z06-ecbe9037ac18317c333ce9bdb9fcf7e4.htm":
+              "1G1YE2D3XR5604443"}
 MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # 458 and NSX
 BRIEF_DAYS = 3  # how long a CarGurus row from brief.json stays on the hub without a fresh brief
 Z06_MAX_PRICE = 100000  # Z06: ask (or current bid) under this; any mileage; anywhere in the US but Florida
@@ -564,10 +568,10 @@ def brief_z06(today):
                      "miles": r.get("miles", "—"), "price": r.get("price", ""), "seller": r.get("seller", ""),
                      "location": r.get("location", ""), "href": r["href"], "source": "CarGurus",
                      "stated_title": r.get("title", ""),
-                     "flags": ([] if re.search(r"lift confirmed", r.get("flag", ""), re.I) else ["Lift unconfirmed"])
-                              + ([] if r.get("vin") else ["Z06 unconfirmed (no VIN)"])})
-        if r.get("vin"):
-            rows[-1]["vin"] = r["vin"]
+                     "flags": [] if re.search(r"lift confirmed", r.get("flag", ""), re.I) else ["Lift unconfirmed"]})
+        vin = r.get("vin") or KNOWN_VINS.get(r["href"].split("?")[0])
+        if vin:
+            rows[-1]["vin"] = vin  # a row with no VIN is dropped in main(): CarGurus titles E-Rays as Z06s
     print(f"brief.json ({b.get('date')}): {len(rows)} CarGurus Z06 rows", file=sys.stderr)
     return rows
 
@@ -863,8 +867,11 @@ def main():
     for r in z06_rows:  # a Z06 by title only: the VIN's engine code decides
         if not_z06_vin(r.get("vin")) or r.get("href", "").split("?")[0] in NOT_AS_TITLED_URLS:
             print(f"Z06 {r.get('href')}: drop, not a Z06 (VIN {r.get('vin') or 'none'})", file=sys.stderr)
+        elif r.get("source") == "CarGurus" and not r.get("vin"):
+            print(f"Z06 {r.get('href')}: drop, CarGurus row with no VIN to prove it is a Z06", file=sys.stderr)
     z06_rows = [r for r in z06_rows if not not_z06_vin(r.get("vin"))
-                and r.get("href", "").split("?")[0] not in NOT_AS_TITLED_URLS]
+                and r.get("href", "").split("?")[0] not in NOT_AS_TITLED_URLS
+                and (r.get("vin") or r.get("source") != "CarGurus")]
     cars = []
     if nsx_rows:
         cars += [{"group": "Acura NSX-T"}] + nsx_rows
