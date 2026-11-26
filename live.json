@@ -62,23 +62,6 @@
    ],
    "title": "Clean (AutoCheck)",
    "flag": "History unconfirmed, Lift unconfirmed, Z06 unconfirmed (no VIN)"
-  },
-  {
-   "car": "2024 Corvette Z06 3LZ coupe",
-   "color": "Red Mist / Jet Black",
-   "miles": "37k",
-   "price": "$86,476",
-   "seller": "Dealer",
-   "location": "Plano, TX",
-   "href": "https://www.cargurus.com/details/461133627?pid=ClaudeApp",
-   "source": "CarGurus",
-   "stated_title": "Clean (CarGurus)",
-   "flags": [
-    "Lift unconfirmed",
-    "Z06 unconfirmed (no VIN)"
-   ],
-   "title": "Clean (CarGurus)",
-   "flag": "History unconfirmed, Lift unconfirmed, Z06 unconfirmed (no VIN)"
   }
  ],
  "items": [

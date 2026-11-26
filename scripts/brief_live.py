@@ -21,8 +21,9 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 LAT_LON = "37.4636,-122.1983"  # Menlo Park
 EXCLUDED_URLS = {"https://bringatrailer.com/listing/2014-ferrari-458-spider-40/"}  # about 7 years in Florida
 # Listings that are not the car their title says. 463983602: CarGurus titled an E-Ray 2LZ convertible
-# (VIN 1G1YL3D42R5501246, 6.2L LT2) as a Z06. Matched on the URL without its query string.
-NOT_AS_TITLED_URLS = {"https://www.cargurus.com/details/463983602"}
+# (VIN 1G1YL3D42R5501246, 6.2L LT2) as a Z06; 461133627 is an E-Ray 3LZ coupe (1G1YM2D43R5200055)
+# titled the same way. Matched on the URL without its query string.
+NOT_AS_TITLED_URLS = {"https://www.cargurus.com/details/463983602", "https://www.cargurus.com/details/461133627"}
 MAX_458, MAX_NSX, MIN_MILES = 300000, 160000, 30000  # 458 and NSX
 BRIEF_DAYS = 3  # how long a CarGurus row from brief.json stays on the hub without a fresh brief
 Z06_MAX_PRICE = 100000  # Z06: ask (or current bid) under this; any mileage; anywhere in the US but Florida
