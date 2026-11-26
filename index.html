@@ -94,8 +94,29 @@
   .bf-src{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bf-tile.me .bf-k{color:#f8b84e}
   .bf-tile.me .bf-s{color:#f8b84e}
-  .bf-tile.car .bf-s{color:var(--accent)}
-  .bf-tile.car.empty{opacity:.55}.bf-tile.car.empty .bf-s{color:var(--muted)}
+  /* car watch: a panel of its own under the tiles, one column per model, one row per listing */
+  .bf-cars{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px 14px}
+  .bc-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .bc-h{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .bc-n{font-size:11px;color:var(--muted)}
+  .bc-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px 26px}
+  .bc-col{min-width:0}
+  .bc-g{display:flex;align-items:baseline;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line);white-space:nowrap;overflow:hidden}
+  .bc-g b{font-size:14px;font-weight:700}
+  .bc-g span{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+  .bc-row{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:baseline;padding:7px 0;color:var(--ink);border-bottom:1px solid var(--line)}
+  .bc-row:last-child{border-bottom:0;padding-bottom:0}
+  a.bc-row:hover .bc-1{color:var(--accent)}
+  .bc-p{font-size:16px;font-weight:700;color:var(--accent);line-height:1.2;letter-spacing:-.01em}
+  .bc-p small{display:block;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .bc-b{min-width:0}
+  .bc-1{font-size:13px;font-weight:600;line-height:1.3}
+  .bc-1 i{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:20px;padding:1px 7px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+  .bc-new{background:rgba(248,184,78,.16);color:#f8b84e}
+  .bc-cut{background:rgba(74,222,128,.14);color:#4ade80}
+  .bc-end{background:var(--surface2);color:var(--muted)}
+  .bc-2{font-size:11.5px;color:var(--muted);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bc-none{font-size:12px;color:var(--muted);padding:8px 0 0;opacity:.8}
   /* phones swipe (with a fade that says there's more); wider windows wrap, so nothing is cut off */
   @media (max-width:639px){.bf-tiles{-webkit-mask-image:linear-gradient(to right,#000 82%,transparent);mask-image:linear-gradient(to right,#000 82%,transparent)}}
   @media (min-width:640px){
@@ -732,22 +753,45 @@ const REPO_KEY="hub_repos", REPO_TTL=6*36e5;
         const m=/^D (\d+) · R (\d+)$/.exec(o.stat);if(m)st.append(el("span","d","D "+m[1]),document.createTextNode(" "),el("span","r","R "+m[2]));else st.textContent=o.stat;t.append(st);}
       t.append(el("div","bf-t"+(o.stat?"":" big"),o.title||""));if(o.source)t.append(el("div","bf-src",o.source));
       t.title=o.title||"";tiles.append(t);};
-    (b.items||[]).forEach(o=>add(o,(o.kind==="you"||o.alert)?"me":""));
-    (b.cars||[]).filter(c=>!c.group).forEach(c=>{
-      /* Only the FIRST $ amount: BaT rows read "$12,345 bid, ends Nov 12", and stripping every
-         non-digit glued the end date on (1234512 → "$1235k"). Auction bids are labelled "bid". */
-      const pm=/\$\s*([\d,]+)/.exec(String(c.price||"")),n=pm?parseInt(pm[1].replace(/,/g,""),10):0;
-      const bid=/\bbid\b/i.test(String(c.price||"")),st=String(c.location||"").trim().slice(-2);
-      const model=/NSX/.test(c.car)?"NSX-T":/Z06/.test(c.car)?"Z06":"458 Spider";
-      add({kind:"car",label:model+(st?" · "+st:"")+(/unconfirmed/i.test(c.flag||"")?" ?":""),stat:n?"$"+Math.round(n/1000)+"k"+(bid?" bid":""):"",
-        title:[String(c.car).slice(0,4),c.miles?c.miles+" mi":"",c.color&&c.color!=="— / —"?c.color:""].filter(Boolean).join(" · "),
-        source:c.seller||"",href:c.href},"car");});
-    /* The Z06 watch is the one group shown even when empty, so it's visibly on. */
-    const zw=b.z06_watch,cars=b.cars||[];
-    if(zw&&cars.some(c=>c.group==="Chevrolet Corvette Z06")&&!cars.some(c=>!c.group&&/Z06/.test(c.car)))
-      add({kind:"car",label:zw.label||"Z06",stat:"None yet",
-        title:(zw.checked!=null?zw.checked+" checked · ":"")+(zw.sources||[]).join(", "),source:"Red Mist · no wing · not FL"},"car empty");
+    /* Car alerts ("New listing", "Price cut") no longer get a tile of their own: the car is
+       already in the car panel below, so the alert becomes a badge on its row. */
+    const carAlert={};
+    (b.items||[]).forEach(o=>{if(o.kind==="car"){if(o.href)carAlert[o.href]=o;}else add(o,(o.kind==="you"||o.alert)?"me":"");});
     if(tiles.children.length)box.append(tiles);
+    /* Car watch: its own panel, one column per model, one compact row per listing. All three
+       watches always show, so an empty one reads as "on, nothing fits" instead of vanishing. */
+    const cars=(b.cars||[]).filter(c=>!c.group),zw=b.z06_watch;
+    if((b.cars||[]).length){
+      const MODELS=[["NSX-T",/NSX/,"’97–’01 manual targa · under $160k"],["458 Spider",/458/,"Black · under $300k"],
+                    ["Z06",/Z06/,"Red Mist · lift · under $100k"]];
+      const panel=el("div","bf-cars"),head=el("div","bc-head");
+      head.append(el("span","bc-h","🏎️ Car watch"),el("span","bc-n",cars.length+(cars.length===1?" listing":" listings")));
+      const cols=el("div","bc-cols");
+      MODELS.forEach(([name,rx,crit])=>{
+        const rows=cars.filter(c=>rx.test(c.car)),col=el("div","bc-col"),gh=el("div","bc-g");
+        gh.append(el("b",null,name),el("span",null,crit));col.append(gh);
+        rows.forEach(c=>{
+          /* Only the FIRST $ amount: BaT rows read "$12,345 bid, ends Nov 12", and stripping every
+             non-digit glued the end date on (1234512 → "$1235k"). Auction bids are labelled "bid". */
+          const price=String(c.price||""),pm=/\$\s*([\d,]+)/.exec(price),n=pm?parseInt(pm[1].replace(/,/g,""),10):0;
+          const bid=/\bbid\b/i.test(price),ends=(/ends ([A-Z][a-z]{2} \d+)/.exec(price)||[])[1];
+          const r=el(c.href?"a":"div","bc-row");if(c.href){r.href=c.href;r.target="_blank";r.rel="noopener";}
+          const p=el("div","bc-p",n?"$"+Math.round(n/1000)+"k":"—");if(bid)p.append(el("small",null,"bid"));
+          const spec=String(c.car).replace(/Acura |Chevrolet |Ferrari |Corvette |NSX-T ?|Z06 ?|458 Spider ?/gi,"").replace(/6-speed/i,"6-spd").trim();
+          const l1=el("div","bc-1",[spec,c.miles&&c.miles!=="—"?c.miles+" mi":""].filter(Boolean).join(" · "));
+          const a=carAlert[c.href],isNew=/\bNew\b/.test(c.flag||"")||(a&&/new/i.test(a.label||""));
+          if(isNew)l1.append(el("i","bc-new","New"));
+          if(a&&/cut/i.test(a.label||""))l1.append(el("i","bc-cut","Price cut"));
+          if(ends)l1.append(el("i","bc-end","ends "+ends));
+          const color=c.color&&!/^—/.test(c.color)?c.color:"";
+          const l2=el("div","bc-2",[color,c.location,c.seller&&c.seller!=="Dealer"?c.seller:""].filter(Boolean).join(" · "));
+          const unk=String(c.flag||"").split(",").map(x=>(/(\w+) unconfirmed/i.exec(x)||[])[1]).filter(Boolean).map(x=>x.toLowerCase());
+          if(unk.length)l2.append(el("span","bc-q"," · unconfirmed: "+unk.join(", ")));
+          const body=el("div","bc-b");body.append(l1,l2);r.append(p,body);
+          r.title=[c.car,price,c.title,c.flag,c.source].filter(Boolean).join(" · ");col.append(r);});
+        if(!rows.length)col.append(el("div","bc-none",name==="Z06"&&zw&&zw.checked!=null?"None fit · "+zw.checked+" checked":"None fit right now"));
+        cols.append(col);});
+      panel.append(head,cols);box.append(panel);}
     box.hidden=!box.children.length;
   }
   /* Private top items: private.enc.json is ciphertext. The key arrives once via a #k= link and
