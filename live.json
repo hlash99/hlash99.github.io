@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-25T15:07-08:00",
+ "updated": "2026-11-25T16:30-08:00",
  "date": "2026-11-25",
  "date_line": "Wednesday · November 25 2026",
  "weather": {
   "high": 67,
   "low": 49,
-  "summary": "Mostly Sunny",
+  "summary": "Partly Sunny",
   "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "355.77",
-  "change_pct": "+0.48%",
+  "price": "354.25",
+  "change_pct": "+0.05%",
   "dir": "up"
  },
  "cars": [
@@ -97,6 +97,15 @@
  ],
  "items": [
   {
+   "kind": "parcel",
+   "label": "SONY MZ-RH1",
+   "title": "Nancheng, Depart from facility to service provider · Nov 23",
+   "href": "https://track.4px.com/",
+   "source": "4PX",
+   "stat": "In transit",
+   "alert": true
+  },
+  {
    "kind": "car",
    "label": "NEW LISTING",
    "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
@@ -126,13 +135,6 @@
    "label": "WEATHER",
    "title": "Thanksgiving Storm Is Expected to Hit East Coast With Heavy Rain and Flooding",
    "href": "https://www.nytimes.com/2026/11/25/weather/thanksgiving-weather-storm-rain-flooding.html",
-   "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "Trump Administration Unveils New Tariffs for China, EU and More, Citing Unfair Practices",
-   "href": "https://www.nytimes.com/2026/11/25/business/trump-tariffs-trade.html",
    "source": "NYT"
   }
  ],
@@ -179,10 +181,10 @@
   }
  },
  "z06_watch": {
-  "checked": 96,
+  "checked": 97,
   "by_source": {
    "duPont": 39,
-   "CorvetteForum": 56,
+   "CorvetteForum": 57,
    "BaT": 1
   },
   "label": "Red Mist Z06 · <$100k · lift",
@@ -207,6 +209,17 @@
    "title": "Rosai-Dorfman disease: a 30-year institutional study of clinical features, treatment patterns, and outcomes",
    "href": "https://pubmed.ncbi.nlm.nih.gov/43061060/",
    "date": "2026-11-20"
+  }
+ ],
+ "parcels": [
+  {
+   "name": "Sony MZ-RH1",
+   "state": "In transit",
+   "event": "Depart from facility to service provider",
+   "place": "Nancheng",
+   "date": "2026-11-23",
+   "carrier": "4PX",
+   "href": "https://track.4px.com/"
   }
  ],
  "stale": [],

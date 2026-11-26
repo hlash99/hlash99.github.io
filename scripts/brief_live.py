@@ -664,6 +664,67 @@ def papers():
     return [(i, html.unescape(res[i].get("title", "")).rstrip("."), f"https://pubmed.ncbi.nlm.nih.gov/{i}/") for i in ids if i in res]
 
 
+PARCEL_DAYS = 3  # how long a delivered parcel stays on the hub
+PARCEL_DONE = re.compile(r"\bdelivered\b|\bsigned\b|successful delivery|proof of delivery", re.I)
+PARCEL_NOT_DONE = re.compile(r"not (?:been )?delivered|undeliver|attempt|out for delivery|to be delivered|will be delivered", re.I)
+PARCEL_PROBLEM = re.compile(r"exception|return|undeliver|fail|attempt|\bheld\b|\bhold\b|detain|unable|refus|"
+                            r"insufficient address|incorrect address|notice left|awaiting (?:pickup|collection)|ready for pickup", re.I)
+
+
+def parcels(prev):
+    """Parcels being watched, from 4PX's public tracking endpoint. The PARCELS secret is a JSON
+    list of {"name": "...", "code": "<tracking number>"}; this repo is public and a tracking
+    number lets anyone open the full record (including a delivery signature), so the number
+    never reaches live.json: only the name, the status and the latest scan. Without the secret
+    (a local run) the previous list is kept."""
+    raw = os.environ.get("PARCELS", "").strip()
+    if not raw:
+        return prev
+    watch = [w for w in json.loads(raw) if w.get("code")]
+    body = json.dumps({"queryCodes": [w["code"] for w in watch], "language": "en-us", "translateLanguage": "en-us"}).encode()
+    req = urllib.request.Request("https://track.4px.com/track/v2/front/listTrackV3", data=body, headers={
+        "User-Agent": UA, "Content-Type": "application/json", "Origin": "https://track.4px.com", "Referer": "https://track.4px.com/"})
+    data = json.loads(urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")).get("data") or []
+    by_code = {d.get("queryCode"): d for d in data}
+    was = {p.get("name"): p for p in prev or []}
+    now = pacific_now()
+    out = []
+    for w in watch:
+        name = str(w.get("name") or "Parcel")[:18]
+        tracks = (by_code.get(w["code"]) or {}).get("tracks") or []
+        if not tracks:  # nothing back for this one: keep what was known
+            if name in was:
+                out.append(was[name])
+            continue
+        t = tracks[0]  # newest first
+        desc = re.sub(r"\s+", " ", str(t.get("tkTranslatedDesc") or t.get("tkDesc") or "")).strip().rstrip(".")
+        when = now
+        try:
+            when = datetime.strptime(str(t.get("tkDate"))[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc).astimezone(now.tzinfo)
+        except ValueError:
+            pass
+        done = bool(PARCEL_DONE.search(desc)) and not PARCEL_NOT_DONE.search(desc)
+        state = ("Delivered" if done else "Out today" if re.search(r"out for delivery", desc, re.I)
+                 else "Check" if PARCEL_PROBLEM.search(desc) else "In transit")
+        place = re.sub(r"\s+", " ", str(t.get("tkLocation") or "")).split(",")[0].strip()[:24]
+        p = {"name": name, "state": state, "event": desc[:80], "place": place,
+             "date": when.strftime("%Y-%m-%d"), "carrier": "4PX", "href": "https://track.4px.com/"}
+        # The day it first read Delivered, so the hub can drop it PARCEL_DAYS later.
+        if done:
+            p["delivered"] = (was.get(name) or {}).get("delivered") or p["date"]
+        out.append(p)
+    return out
+
+
+def parcel_tile(p):
+    day = datetime.strptime(p["date"], "%Y-%m-%d").strftime("%b %-d")
+    title = ", ".join(b for b in (p.get("place"), p.get("event")) if b) + " · " + day
+    t = tile(title, p.get("href") or "https://track.4px.com/", p.get("carrier", ""), "parcel", p["name"], p["state"],
+             "up" if p["state"] == "Delivered" else "down" if p["state"] == "Check" else None)
+    t["alert"] = True
+    return t
+
+
 def raffle_alert():
     """Public counts from substack-brief's Yahoo job; the baseline is the ticket confirmation."""
     f = json.loads(get("https://raw.githubusercontent.com/hlash99/substack-brief/main/mail_flags.json"))
@@ -845,6 +906,16 @@ def main():
              for v in sorted(alerts.values(), key=lambda a: a["date"], reverse=True)]
     for p in picks:
         p["alert"] = True
+    # Watched parcels lead until PARCEL_DAYS after delivery. Not counted in `stale`: the list is
+    # optional and a 4PX outage shouldn't mark the whole brief stale.
+    try:
+        watched = parcels(prev.get("parcels")) or []
+    except Exception as e:
+        print(f"parcels failed: {e}", file=sys.stderr)
+        watched = prev.get("parcels") or []
+    gone = (now - timedelta(days=PARCEL_DAYS)).strftime("%Y-%m-%d")
+    watched = [p for p in watched if not p.get("delivered") or p["delivered"] >= gone]
+    picks = [parcel_tile(p) for p in watched] + picks
     heads = [tile(n["title"], n["href"], n.get("source", "")) for n in (news or [])]
     items = (picks + heads)[:5]  # AAPL already sits in the strip above
 
@@ -855,7 +926,8 @@ def main():
                          "by_source": dict((prev.get("z06_watch") or {}).get("by_source") or {}, **Z06_CHECKED),
                          "label": f"Red Mist Z06 · <${Z06_MAX_PRICE // 1000}k · lift",
                          "sources": ["duPont", "BaT", "CorvetteForum", "CarGurus"]},
-           "papers_seen": sorted(seen_papers), "papers_new": papers_new, "stale": stale, "first_seen": seen}
+           "papers_seen": sorted(seen_papers), "papers_new": papers_new, "parcels": watched,
+           "stale": stale, "first_seen": seen}
     if len(stale) == 10:  # one per attempt() source above
         print("every source failed; leaving live.json alone", file=sys.stderr)
         return

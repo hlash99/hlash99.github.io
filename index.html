@@ -724,7 +724,7 @@ const REPO_KEY="hub_repos", REPO_TTL=6*36e5;
       q.append(document.createTextNode("AAPL "+s.price));const l=el("div");l.append(el("span",cls(s.dir),(s.dir==="up"?"▲ ":s.dir==="down"?"▼ ":"")+String(s.change_pct||"").replace(/^[+-]/,"")));
       if(s.after)l.append(document.createTextNode(" "),el("span",cls(s.after.dir),(s.after.label==="Pre-market"?"Pre ":"AH ")+s.after.price));q.append(l);}
     top.append(q);top.hidden=false;
-    const KIND_ICON={politics:"🏛️",markets:"📈",economy:"💵",weather:"🌦️",health:"🩺",tech:"💻",sports:"🏅",local:"📍",world:"🌐",science:"🔬",you:"✉️",car:"🏎️"};
+    const KIND_ICON={politics:"🏛️",markets:"📈",economy:"💵",weather:"🌦️",health:"🩺",tech:"💻",sports:"🏅",local:"📍",world:"🌐",science:"🔬",you:"✉️",car:"🏎️",parcel:"📦"};
     const tiles=el("div","bf-tiles");
     const add=(o,cls)=>{const t=el(o.href?"a":"div","bf-tile"+(cls?" "+cls:""));if(o.href){t.href=o.href;t.target="_blank";t.rel="noopener";}
       const k=el("div","bf-k");k.append(el("i",null,KIND_ICON[o.kind]||"•"),document.createTextNode(o.label||o.kind||""));t.append(k);
@@ -794,7 +794,8 @@ const REPO_KEY="hub_repos", REPO_TTL=6*36e5;
      against it by scripts/update.py; shown only when significant (PB 4+ or 3+PB, SL 4+ or 3+M),
      for 14 days after the draw.
    - live.json → papers_new: new Khodadoust papers found by the morning brief's PubMed watch,
-     kept 30 days by scripts/brief_live.py. */
+     kept 30 days by scripts/brief_live.py.
+   - live.json → parcels: watched parcels (4PX), pinned once delivered or when a scan looks wrong. */
 (function(){
   const box=document.getElementById("hub-alerts");
   const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;};
@@ -835,6 +836,11 @@ const REPO_KEY="hub_repos", REPO_TTL=6*36e5;
     else for(const p of (Array.isArray(live.papers_new)?live.papers_new:[]).filter(p=>p&&days(p.date)<=30))
       out.push({src:"paper",icon:"🔬",kind:"New Khodadoust paper · "+md(p.date),title:p.title||"New paper on PubMed",
           meta:"PubMed — via the morning brief",href:p.href});
+    /* live.json → parcels: a watched parcel that was delivered (3 days) or needs a look. */
+    if(!live)out.push(...prev.filter(a=>a.src==="parcel"));
+    else for(const p of (Array.isArray(live.parcels)?live.parcels:[]).filter(p=>p&&(p.delivered||p.state==="Check")))
+      out.unshift({src:"parcel",icon:"📦",kind:(p.delivered?"Delivered · "+md(p.delivered):"Parcel needs a look · "+md(p.date)),
+          title:p.name||"Parcel",meta:[p.place,p.event].filter(Boolean).join(", ")+(p.carrier?" — "+p.carrier:""),href:p.href});
     paint(out);lsSet(CK,out);
   });
 })();

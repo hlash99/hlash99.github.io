@@ -45,6 +45,9 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -I scripts/brief_live.py
+        env:
+          # Tracking numbers stay out of this public repo; see parcels() in the script.
+          PARCELS: ${{ secrets.PARCELS }}
       - name: Ballot results (through the Nov 2026 count)
         if: ${{ always() }}
         continue-on-error: true
