@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-26T16:37-08:00",
+ "updated": "2026-11-26T19:25-08:00",
  "date": "2026-11-26",
  "date_line": "Thursday · November 26 2026",
  "weather": {
-  "high": 65,
+  "high": 68,
   "low": 47,
-  "summary": "Partly Sunny",
+  "summary": "Tomorrow · Partly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -131,8 +131,8 @@
    "source": "NYT"
   },
   {
-   "title": "The Army Knew Much Earlier of the Explosive Risk in Iowa, Evidence Suggests",
-   "href": "https://www.nytimes.com/2026/11/26/us/iowa-lead-ammunition-stockpile-history.html",
+   "title": "After the Iowa Detonation, a Family Gathered for an Unusual Thanksgiving",
+   "href": "https://www.nytimes.com/2026/11/26/us/iowa-detonation-family-thanksgiving.html",
    "source": "NYT"
   }
  ],
