@@ -1,25 +1,18 @@
 {
- "updated": "2026-11-27T01:42-08:00",
+ "updated": "2026-11-27T07:56-08:00",
  "date": "2026-11-27",
  "date_line": "Friday · November 27 2026",
  "weather": {
   "high": 67,
-  "low": 47,
-  "summary": "Tomorrow · Partly Sunny",
+  "low": 51,
+  "summary": "Partly Sunny",
   "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
-  "price": "355.58",
-  "change_pct": "+0.43%",
-  "dir": "up",
-  "session": "Close",
-  "after": {
-   "label": "After hours",
-   "price": "355.15",
-   "change_pct": "-0.12%",
-   "dir": "down"
-  }
+  "price": "356.28",
+  "change_pct": "+0.20%",
+  "dir": "up"
  },
  "cars": [
   {
@@ -91,46 +84,46 @@
    "alert": true
   },
   {
-   "kind": "world",
-   "label": "WORLD",
-   "title": "New Yorkers and Tourists Try to Salvage a Parade Day Postponed by Rain",
-   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-thanksgiving-day-parade-empty-streets.html",
+   "kind": "economy",
+   "label": "ECONOMY",
+   "title": "As Prices Rise, Americans Are Making Trade-Offs Rather Than Cutting Back",
+   "href": "https://www.nytimes.com/2026/11/27/business/inflation-consumer-spending-trade-offs-holidays.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Thanksgiving Parade Balloons Are Deflated in New York",
-   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
+   "title": "Holiday Deals Are Tempting. Here’s How to Avoid Buyer’s Remorse.",
+   "href": "https://www.nytimes.com/2026/11/27/business/holiday-shopping-deals-spending.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "What’s on the Thanksgiving Menu for National Weather Service Meteorologists",
-   "href": "https://www.nytimes.com/2026/11/27/nyregion/national-weather-service-thanksgiving-storm.html",
+   "title": "Photos: Macy’s Thanksgiving Day Parade History and Wacky Moments",
+   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-thanksgiving-parade-history-timeline.html",
    "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "As Prices Rise, Americans Are Making Trade-Offs Rather Than Cutting Back",
+   "href": "https://www.nytimes.com/2026/11/27/business/inflation-consumer-spending-trade-offs-holidays.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Holiday Deals Are Tempting. Here’s How to Avoid Buyer’s Remorse.",
+   "href": "https://www.nytimes.com/2026/11/27/business/holiday-shopping-deals-spending.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Photos: Macy’s Thanksgiving Day Parade History and Wacky Moments",
+   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-thanksgiving-parade-history-timeline.html",
+   "source": "NYT"
+  },
+  {
    "title": "New Yorkers and Tourists Try to Salvage a Parade Day Postponed by Rain",
    "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-thanksgiving-day-parade-empty-streets.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Thanksgiving Parade Balloons Are Deflated in New York",
-   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
-   "source": "NYT"
-  },
-  {
-   "title": "What’s on the Thanksgiving Menu for National Weather Service Meteorologists",
-   "href": "https://www.nytimes.com/2026/11/27/nyregion/national-weather-service-thanksgiving-storm.html",
-   "source": "NYT"
-  },
-  {
-   "title": "After the Iowa Detonation, a Family Gathered for an Unusual Thanksgiving",
-   "href": "https://www.nytimes.com/2026/11/26/us/iowa-detonation-family-thanksgiving.html",
    "source": "NYT"
   }
  ],
@@ -146,10 +139,10 @@
   }
  },
  "z06_watch": {
-  "checked": 76,
+  "checked": 77,
   "by_source": {
    "duPont": 18,
-   "CorvetteForum": 57,
+   "CorvetteForum": 58,
    "BaT": 1
   },
   "label": "Red Mist Z06 · <$100k · lift",
