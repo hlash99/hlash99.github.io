@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-26T07:53-08:00",
+ "updated": "2026-11-26T16:37-08:00",
  "date": "2026-11-26",
  "date_line": "Thursday · November 26 2026",
  "weather": {
   "high": 65,
-  "low": 48,
-  "summary": "Patchy Fog then Partly Sunny",
-  "icon": "fog"
+  "low": 47,
+  "summary": "Partly Sunny",
+  "icon": "partly"
  },
  "stock": {
   "symbol": "AAPL",
@@ -75,7 +75,7 @@
   {
    "kind": "parcel",
    "label": "SONY MZ-RH1",
-   "title": "Hand over to airline · Nov 25",
+   "title": "Departure from the original airport · Nov 26",
    "href": "https://track.4px.com/",
    "source": "4PX",
    "stat": "In transit",
@@ -102,37 +102,37 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Thanksgiving Parade Balloons Are Deflated in New York",
-   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
+   "title": "New Yorkers and Tourists Try to Salvage a Parade Day Postponed by Rain",
+   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-thanksgiving-day-parade-empty-streets.html",
    "source": "NYT"
   },
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "The Thanksgiving Parade Is on a Saturday. Can They Do That?",
-   "href": "https://www.nytimes.com/2026/11/25/nyregion/thanksgiving-parade-new-york-postponed.html",
+   "title": "Macy’s Thanksgiving Day Parade Upends Plans and Adds Costs for Marching Bands",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-marching-bands.html",
    "source": "NYT"
   }
  ],
  "news": [
+  {
+   "title": "New Yorkers and Tourists Try to Salvage a Parade Day Postponed by Rain",
+   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-thanksgiving-day-parade-empty-streets.html",
+   "source": "NYT"
+  },
+  {
+   "title": "Macy’s Thanksgiving Day Parade Upends Plans and Adds Costs for Marching Bands",
+   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-marching-bands.html",
+   "source": "NYT"
+  },
   {
    "title": "Thanksgiving Parade Balloons Are Deflated in New York",
    "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
    "source": "NYT"
   },
   {
-   "title": "The Thanksgiving Parade Is on a Saturday. Can They Do That?",
-   "href": "https://www.nytimes.com/2026/11/25/nyregion/thanksgiving-parade-new-york-postponed.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
-   "href": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Nvidia Halts Sales to Southeast Asia as U.S. Tightens China Restrictions",
-   "href": "https://www.nytimes.com/2026/11/26/business/nvidia-southeast-asia-sales.html",
+   "title": "The Army Knew Much Earlier of the Explosive Risk in Iowa, Evidence Suggests",
+   "href": "https://www.nytimes.com/2026/11/26/us/iowa-lead-ammunition-stockpile-history.html",
    "source": "NYT"
   }
  ],
@@ -191,9 +191,9 @@
   {
    "name": "Sony MZ-RH1",
    "state": "In transit",
-   "event": "Hand over to airline",
+   "event": "Departure from the original airport",
    "place": "",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "carrier": "4PX",
    "href": "https://track.4px.com/"
   }
