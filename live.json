@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-26T19:25-08:00",
- "date": "2026-11-26",
- "date_line": "Thursday · November 26 2026",
+ "updated": "2026-11-27T01:42-08:00",
+ "date": "2026-11-27",
+ "date_line": "Friday · November 27 2026",
  "weather": {
-  "high": 68,
+  "high": 67,
   "low": 47,
   "summary": "Tomorrow · Partly Sunny",
   "icon": "partly"
@@ -91,15 +91,6 @@
    "alert": true
   },
   {
-   "kind": "car",
-   "label": "NEW LISTING",
-   "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
-   "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
-   "source": "BaT",
-   "stat": "$102k bid",
-   "alert": true
-  },
-  {
    "kind": "world",
    "label": "WORLD",
    "title": "New Yorkers and Tourists Try to Salvage a Parade Day Postponed by Rain",
@@ -109,8 +100,15 @@
   {
    "kind": "world",
    "label": "WORLD",
-   "title": "Macy’s Thanksgiving Day Parade Upends Plans and Adds Costs for Marching Bands",
-   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-marching-bands.html",
+   "title": "Thanksgiving Parade Balloons Are Deflated in New York",
+   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
+   "source": "NYT"
+  },
+  {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "What’s on the Thanksgiving Menu for National Weather Service Meteorologists",
+   "href": "https://www.nytimes.com/2026/11/27/nyregion/national-weather-service-thanksgiving-storm.html",
    "source": "NYT"
   }
  ],
@@ -121,13 +119,13 @@
    "source": "NYT"
   },
   {
-   "title": "Macy’s Thanksgiving Day Parade Upends Plans and Adds Costs for Marching Bands",
-   "href": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-marching-bands.html",
+   "title": "Thanksgiving Parade Balloons Are Deflated in New York",
+   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
    "source": "NYT"
   },
   {
-   "title": "Thanksgiving Parade Balloons Are Deflated in New York",
-   "href": "https://www.nytimes.com/2026/11/26/nyregion/macys-parade-balloons-thanksgiving.html",
+   "title": "What’s on the Thanksgiving Menu for National Weather Service Meteorologists",
+   "href": "https://www.nytimes.com/2026/11/27/nyregion/national-weather-service-thanksgiving-storm.html",
    "source": "NYT"
   },
   {
@@ -137,15 +135,6 @@
   }
  ],
  "alerts": {
-  "car:https://bringatrailer.com/listing/1997-acura-nsx-t-32/": {
-   "kind": "car",
-   "label": "New listing",
-   "stat": "$102k bid",
-   "source": "BaT",
-   "title": "New listing: 1997 Acura NSX-T 6-Speed, 57k mi",
-   "href": "https://bringatrailer.com/listing/1997-acura-nsx-t-32/",
-   "date": "2026-11-23"
-  },
   "car:1G1YE2D3XR5604443": {
    "kind": "car",
    "label": "New listing",
