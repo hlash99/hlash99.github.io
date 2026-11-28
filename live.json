@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-27T14:44-08:00",
+ "updated": "2026-11-27T19:26-08:00",
  "date": "2026-11-27",
  "date_line": "Friday · November 27 2026",
  "weather": {
-  "high": 67,
+  "high": 70,
   "low": 51,
-  "summary": "Partly Sunny",
+  "summary": "Tomorrow · Partly Sunny",
   "icon": "partly"
  },
  "stock": {
@@ -16,8 +16,8 @@
   "session": "Close",
   "after": {
    "label": "After hours",
-   "price": "358.99",
-   "change_pct": "+0.13%",
+   "price": "359.25",
+   "change_pct": "+0.20%",
    "dir": "up"
   }
  },
@@ -91,10 +91,17 @@
    "alert": true
   },
   {
+   "kind": "world",
+   "label": "WORLD",
+   "title": "Russia’s Big Ambitions for A.I. Are Undercut by Constraints of War",
+   "href": "https://www.nytimes.com/2026/11/27/world/europe/russia-ai-journey-conference.html",
+   "source": "NYT"
+  },
+  {
    "kind": "politics",
    "label": "POLITICS",
    "title": "Supreme Court Rulings Cheered by Republicans Wound Up Hurting Them",
-   "href": "https://www.nytimes.com/2026/11/27/us/supreme-court-rulings-midterms-voting.html",
+   "href": "https://www.nytimes.com/2026/11/27/us/politics/supreme-court-rulings-midterms-voting.html",
    "source": "NYT"
   },
   {
@@ -103,19 +110,17 @@
    "title": "Five Big Questions for the 2028 Presidential Race",
    "href": "https://www.nytimes.com/2026/11/27/us/politics/2028-presidential-race-questions.html",
    "source": "NYT"
-  },
-  {
-   "kind": "politics",
-   "label": "POLITICS",
-   "title": "In Democrats vs. Trump, the Loser May Be Federal Contractors",
-   "href": "https://www.nytimes.com/2026/11/27/us/politics/trump-congressional-investigations-contractors.html",
-   "source": "NYT"
   }
  ],
  "news": [
   {
+   "title": "Russia’s Big Ambitions for A.I. Are Undercut by Constraints of War",
+   "href": "https://www.nytimes.com/2026/11/27/world/europe/russia-ai-journey-conference.html",
+   "source": "NYT"
+  },
+  {
    "title": "Supreme Court Rulings Cheered by Republicans Wound Up Hurting Them",
-   "href": "https://www.nytimes.com/2026/11/27/us/supreme-court-rulings-midterms-voting.html",
+   "href": "https://www.nytimes.com/2026/11/27/us/politics/supreme-court-rulings-midterms-voting.html",
    "source": "NYT"
   },
   {
@@ -124,13 +129,8 @@
    "source": "NYT"
   },
   {
-   "title": "In Democrats vs. Trump, the Loser May Be Federal Contractors",
-   "href": "https://www.nytimes.com/2026/11/27/us/politics/trump-congressional-investigations-contractors.html",
-   "source": "NYT"
-  },
-  {
-   "title": "Black Friday Deals and Holiday Sales Are Big Money for Influencers",
-   "href": "https://www.nytimes.com/2026/11/27/business/influencers-black-friday-deals-holiday-shopping.html",
+   "title": "Andrea Stewart-Cousins, New York’s First Female Senate Majority Leader, Dies",
+   "href": "https://www.nytimes.com/2026/11/27/us/andrea-stewart-cousins-dead.html",
    "source": "NYT"
   }
  ],
